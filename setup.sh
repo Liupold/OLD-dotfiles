@@ -25,6 +25,7 @@ do
 			mv "$HOME/.config/$entry" "$HOME/.config/$entry.bak"
 		fi
 		ln -s $(realpath "$entry") "$HOME/.config/$entry"
+		rm "$entry/$entry"
 
 	fi
 done
