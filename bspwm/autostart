@@ -1,0 +1,30 @@
+# composit manager
+picom &
+
+#wallpaper
+feh --bg-scale Walls/wallhaven-j5edzy.png &
+
+# set Vol to 80%
+pactl set-sink-volume 0 50% &
+
+
+#polybar
+sh $HOME/scripts/launch_polybar.sh &
+
+#Network Manager Applet on polybar
+nm-applet &
+
+# pause scripts
+sh $HOME/scripts/pause.sh &
+
+#lock Daemon
+xss-lock i3lock-next "Welcome Back, Liupold." "Fira Code" &
+
+#power manager
+xfce4-power-manager &
+
+#kde connect
+kdeconnect-indicator &
+
+#Cursor shape fix
+xsetroot -cursor_name left_ptr

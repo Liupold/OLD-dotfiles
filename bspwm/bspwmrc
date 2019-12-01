@@ -1,0 +1,50 @@
+#! /bin/sh
+
+sxhkd &
+
+# Set environment
+export BSPWM_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/bspwm"
+
+# WorkSpace / Monitor
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+
+######################################################################
+
+#----------------------------- BASIC ATTR ----------------------------
+
+
+bspc config border_width        	1
+bspc config window_gap          	8
+bspc config top_padding         	0
+
+bspc config split_ratio                 0.50
+bspc config borderless_monocle          true
+bspc config gapless_monocle             true
+bspc config focus_follows_pointer       true
+
+
+bspc config split_ratio          	0.50
+bspc config borderless_monocle   	true
+bspc config gapless_monocle      	true
+
+
+#----------------------------- COLORS --------------------------------
+
+
+# Colors
+bspc config focused_border_color            "#87ceeb"
+bspc config normal_border_color             "#003366"
+bspc config urgent_border_color             "#00ff00"
+bspc config presel_feedback_color           "#ff0000"
+
+#----------------------------- RULES ---------------------------------
+
+bspc rule -a Gimp state=floating follow=on
+bspc rule -a Zathura state=tiled
+bspc rule -a Screenkey manage=off
+
+
+#--------------------------- CHAIN LOAD ------------------------------
+# Autostart
+sh "$BSPWM_CONFIG/autostart" &
