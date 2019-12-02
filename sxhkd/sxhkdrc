@@ -3,7 +3,7 @@
 
 # terminal emulator
 super + Return
-	kitty
+	urxvt
 
 # program launcher
 super + d
@@ -26,7 +26,7 @@ XF86AudioLowerVolume
 # player
 
 
-super + ctrl + {c, z, b}
+super + {backslash, bracketleft, bracketright}
 	playerctl {play-pause, next, previous}
 
 
@@ -125,4 +125,4 @@ super + alt + shift + {h,j,k,l}
 
 
 super + shift + {f, b, w, m}
-	{thunar, chromium, emacs,urxvt -e cmus}
+	{thunar, chromium, kitty vim, urxvt -e cmus}
