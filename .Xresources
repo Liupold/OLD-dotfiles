@@ -30,7 +30,7 @@ URxvt.underlineURLs: true
 *.foreground:   #a6a28c
 *.cursorColor:  #a6a28c
 !*.background:   #20201d
-URxvt.background: rgba:0000/0000/0000/8888
+URxvt.background: rgba:0000/0000/0000/cccc
 
 ! black
 *.color0:       #20201d
