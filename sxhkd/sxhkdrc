@@ -125,4 +125,4 @@ super + alt + shift + {h,j,k,l}
 
 
 super + shift + {f, b, w, m}
-	{thunar, chromium, kitty vim, urxvt -e cmus}
+	{thunar, chromium,kitty -e vim, urxvt -e cmus}
