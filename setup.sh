@@ -1,31 +1,41 @@
-echo "Starting..."
+dot_configs="$(ls -l .config | awk ' { print $9 } ')"
+dot_home_files="$(ls -la home | awk ' { print $9 } ' | sed 's|^.$||g' | sed 's|^..$||g' | sed '/^\s*$/d')"
+BACKUP=$1
 
-# backup and copy
-files=`ls -a | sed -e 's/README.md//' | sed -e 's/LICENSE//' | sed -e 's/.git//' | sed -e 's/setup.sh//'`
-for entry in $files
+handle_prev_file () {
+	if [ "$BACKUP" = '--no-backup' ]
+	then
+		rm "$1"
+	else
+		mv "$1" "$2"
+	fi
+}
+
+for dot_config in $dot_configs
 do
-	if [ -f "$entry" ];then
-		if [ -f "$HOME/$entry" ]
-		then
-			mv "$HOME/$entry" "$HOME/$entry.bak"
-		fi
-		ln -s $(realpath "$entry") "$HOME/$entry"
-	elif [[ -d "$entry" && "$entry" != "." && "$entry" != ".." ]];then
-		if [ "$entry" == ".vim" ];
-		then
-			if [ -d "$HOME/$entry" ]
-			then
-				mv "$HOME/$entry" "$HOME/$entry.bak"
-			fi
-			ln -s $(realpath "$entry") "$HOME/$entry"
-		fi
+	if [ -e ~/.config/$dot_config ]
+	then
+		handle_prev_file ~/.config/"$dot_config" ~/.config/"$dot_config".bak
+	fi
+	ln -s $(realpath .config/"$dot_config") ~/.config/"$dot_config"
 
-		if [ -d "$HOME/.config/$entry" ]
-		then
-			mv "$HOME/.config/$entry" "$HOME/.config/$entry.bak"
-		fi
-		ln -s $(realpath "$entry") "$HOME/.config/$entry"
-		rm "$entry/$entry"
+	if  [ -e home/"$dot_config/$dot_config" ]
+	then
+		rm  $(realpath home/"$dot_config/$dot_config")
+	fi
+done
 
+for dot_files in $dot_home_files
+do
+	if [ -e ~/$dot_files ]
+	then
+		handle_prev_file ~/"$dot_files" ~/"$dot_files".bak
+	fi
+
+	ln -s $(realpath home/"$dot_files") ~/"$dot_files"
+
+	if [ -e home/"$dot_files/$dot_files" ]
+	then
+		rm  $(realpath home/"$dot_files/$dot_files")
 	fi
 done
