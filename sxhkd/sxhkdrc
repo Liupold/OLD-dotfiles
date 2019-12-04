@@ -77,8 +77,8 @@ super + {q + space}
 super + {_,shift + }{h,j,k,l}
 	bspc node -{f,s} {west,south,north,east}
 
-super + {_,shift + }{Left,Down,Up,Right}
-	bspc node -{f,s} {west,south,north,east}
+super + {Left,Down,Up,Right}
+	bspc node -f {west,south,north,east}
 
 
 # focus the next/previous node in the current desktop
@@ -106,6 +106,7 @@ super + {shift + }{1-9,0}
 # move a floating window
 super + shift + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
+
 
 
 #------------------------------------------------------------------
