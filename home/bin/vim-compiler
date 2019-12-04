@@ -9,7 +9,7 @@ if [[ $filename =~ ^.*.py$ ]];then
 
 	endtime=$EPOCHREALTIME
 
-	runtime=`python -c "print(round($endtime - $starttime, 2))"`
+	runtime="$(echo "$endtime - $starttime" | bc -l)"
 	echo [Finished in "$runtime"s]
 
 elif [[ $filename =~ ^.*.sh$ ]];then
@@ -19,7 +19,7 @@ elif [[ $filename =~ ^.*.sh$ ]];then
 
 	endtime=$EPOCHREALTIME
 
-	runtime=`python -c "print(round($endtime - $starttime, 2))"`
+	runtime="$(echo "$endtime - $starttime" | bc -l)"
 	echo [Finished in "$runtime"s]
 
 
@@ -39,7 +39,7 @@ elif [[ $filename =~ ^.*.tex$ ]];then
 
 	endtime=$EPOCHREALTIME
 
-	runtime=`python -c "print(round($endtime - $starttime, 2))"`
+	runtime="$(echo "$endtime - $starttime" | bc -lc)"
 	echo [Finished in "$runtime"s]
 
 	read -p "remove latex.out? (y/n)" cleartex
