@@ -1,4 +1,4 @@
-dot_configs="$(ls -l .config | awk ' { print $9 } ')"
+dot_configs="$(ls -l config | awk ' { print $9 } ')"
 dot_home_files="$(ls -la home | awk ' { print $9 } ' | sed 's|^.$||g' | sed 's|^..$||g' | sed '/^\s*$/d')"
 BACKUP=$1
 
@@ -17,11 +17,11 @@ do
 	then
 		handle_prev_file ~/.config/"$dot_config" ~/.config/"$dot_config".bak
 	fi
-	ln -s $(realpath .config/"$dot_config") ~/.config/"$dot_config"
+	ln -s $(realpath config/"$dot_config") ~/.config/"$dot_config"
 
-	if  [ -e home/"$dot_config/$dot_config" ]
+	if  [ -e config/"$dot_config/$dot_config" ]
 	then
-		rm  $(realpath home/"$dot_config/$dot_config")
+		rm  $(realpath config/"$dot_config/$dot_config")
 	fi
 done
 
