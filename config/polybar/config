@@ -60,7 +60,7 @@ font-6 = Fira Code:size=10:antialias=true;0
 
 modules-left = bspwm
 modules-center = player-mpris-simple
-modules-right = cpu memory light pulseaudio date
+modules-right = cpu memory light vol-symbol pulseaudio date
 
 tray-position = right
 tray-padding = 2
@@ -115,7 +115,7 @@ label = %date% %time%
 ; -----------------------------------------------------------------------
 [module/vol-symbol]
 type = custom/script
-exec = headphone_indicator
+exec = sh ~/scripts/speaker_symbol.sh
 tail = true
 label = [%output%
 
