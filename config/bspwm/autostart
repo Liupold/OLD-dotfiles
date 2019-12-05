@@ -2,14 +2,14 @@
 picom &
 
 #wallpaper
-feh --bg-scale ~/Walls/wallhaven-j5edzy.png &
+wal -i ~/Walls/wallhaven-j5edzy.png &
 
 # set Vol to 80%
 pactl set-sink-volume 0 50% &
 
 
 #polybar
-sh $HOME/scripts/launch_polybar.sh &
+sh ~/scripts/system_managment/launch_polybar.sh
 
 #Network Manager Applet on polybar
 nm-applet &
