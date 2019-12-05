@@ -115,7 +115,7 @@ label = %date% %time%
 ; -----------------------------------------------------------------------
 [module/vol-symbol]
 type = custom/script
-exec = sh ~/scripts/speaker_symbol.sh
+exec = sh ~/scripts/polybar_scripts/speaker_symbol.sh
 tail = true
 label = [%output%
 

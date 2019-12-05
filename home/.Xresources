@@ -7,7 +7,7 @@ UXTerm*faceSize:10
 URxvt.scrollBar: false
 ! URxvt.transparent: true
 URxvt.depth: 32
-st.alpha: 0.8
+st.alpha: 0.85
 ! URxvt.tintColor: #20201d
 
 ! Extensions
@@ -64,3 +64,7 @@ URxvt.background: rgba:0000/0000/0000/cccc
 ! white
 *.color7:       #a6a28c
 *.color15:      #fefbec
+
+
+st.termname: st-256color
+st.borderpx: 2
