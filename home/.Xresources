@@ -5,8 +5,8 @@ UXTerm*faceSize:10
 
 ! UI
 URxvt.scrollBar: false
-! URxvt.transparent: true
 URxvt.depth: 32
+
 st.alpha: 0.85
 ! URxvt.tintColor: #20201d
 
@@ -30,8 +30,8 @@ URxvt.underlineURLs: true
 *.foreground:   #a6a28c
 *.cursorColor:  #a6a28c
 !*.background:   #20201d
-*.background:   #000000
-URxvt.background: rgba:0000/0000/0000/cccc
+!*.background:   #000000
+*.background: rgba:0000/0000/0000/dddd
 
 ! black
 *.color0:       #20201d

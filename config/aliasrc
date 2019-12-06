@@ -7,8 +7,10 @@ launch_cmus() {
 	then
 		screen -t cmus cmus
 	else
+		screen -d -t cmus
 		screen -r -t cmus
 	fi
 }
 
 alias cmus="launch_cmus"
+alias zathura="zathura --fork"
