@@ -2,7 +2,7 @@
 picom &
 
 #wallpaper
-wal -i ~/Walls/wallhaven-j5edzy.png &
+eval "wal -i $(< ~/.config/WALL_PATH)"
 
 # set Vol to 80%
 pactl set-sink-volume 0 50% &
@@ -15,7 +15,7 @@ sh ~/scripts/system_managment/launch_polybar.sh
 nm-applet &
 
 # pause scripts
-sh $HOME/scripts/pause.sh &
+# sh $HOME/scripts/pause.sh &
 
 #lock Daemon
 xss-lock i3lock-next "Welcome Back, Liupold." "Fira Code" &
