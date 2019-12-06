@@ -21,6 +21,9 @@ _comp_options+=(globdots)		# Include hidden files.
 
 
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+precmd() { EXIT_CODE=$?;if [ $EXIT_CODE -ne 0 ]; then;
+	echo "$(tput setab 1)[$EXIT_CODE]$(tput sgr 0)";
+	fi; }
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
