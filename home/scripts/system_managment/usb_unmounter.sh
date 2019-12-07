@@ -1,6 +1,6 @@
 DRIVES="$(lsblk | grep -v 'sda.*$' | grep -v 'part $' | grep -o 's.*part' | awk '{ print $1 " ("$4")" }')"
 
-SELECTED_DRIVE="$(echo "$DRIVES" | dmenu -p "UnMount?: " -fn "Fira Code-13" | awk '{ print $1 }')"
+SELECTED_DRIVE="$(echo "$DRIVES" | dmenu -p "Unmount?: " -fn "Fira Code-13" | awk '{ print $1 }')"
 
 if [ -z $SELECTED_DRIVE ]
 then

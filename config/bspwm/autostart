@@ -2,10 +2,10 @@
 picom &
 
 #wallpaper
-wallpaper_changer.sh
+sh ~/scripts/system_managment/wallpaper_changer.sh &
 
 # set Vol to 80%
-pactl set-sink-volume 0 50% &
+pactl set-sink-volume 0 80% &
 
 
 #polybar

@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =1
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/home/rohnch/.config/bspwm'
 let g:netrw_dirhist_1='/home/rohnch/dotfiles/config/ranger'
 let g:netrw_dirhist_0='/home/rohnch/.telegram-cli/downloads'
 let g:netrw_dirhist_9='/home/rohnch/.telegram-cli'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_6='/home/rohnch/.oh-my-zsh'
 let g:netrw_dirhist_5='/home/rohnch/.config/zathura'
 let g:netrw_dirhist_4='/home/rohnch/MEDIA_DRIVE/Backup-Recovery/LunaDRIVE/FininalPrint/StatisticalCalc'
 let g:netrw_dirhist_3='/home/rohnch/MEDIA_DRIVE/Backup-Recovery/LunaDRIVE/FininalPrint'
-let g:netrw_dirhist_2='/home/rohnch/MEDIA_DRIVE/Backup-Recovery/LunaDRIVE/FininalPrint/MatPlotIntro'
