@@ -2,7 +2,7 @@
 picom &
 
 #wallpaper
-wal -a 85 -i "$(< $HOME/.config/WALL_PATH)"
+wallpaper_changer.sh
 
 # set Vol to 80%
 pactl set-sink-volume 0 50% &
