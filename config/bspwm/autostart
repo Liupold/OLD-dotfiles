@@ -1,30 +1,27 @@
-# composit manager
+#!/bin/sh
+
+. "${HOME}/.cache/wal/colors.sh"
+killall dunst
+dunst -nb "$background" -nf "$foreground" -cb "$background" -cf "$foreground" -lb $background -lf $foreground &
+
+killall picom
 picom &
 
-#wallpaper
-sh ~/scripts/system_managment/wallpaper_changer.sh &
-
-# set Vol to 80%
-pactl set-sink-volume 0 80% &
-
-
-#polybar
-sh ~/scripts/system_managment/launch_polybar.sh
-
-#Network Manager Applet on polybar
+killall nm-applet
 nm-applet &
 
-# pause scripts
-# sh $HOME/scripts/pause.sh &
-
-#lock Daemon
-xss-lock i3lock-next "Welcome Back, Liupold." "Fira Code" &
-
-#power manager
-xfce4-power-manager &
-
-#kde connect
+killall kdeconnect-indicator
 kdeconnect-indicator &
 
-#Cursor shape fix
+killall xss-lock
+xss-lock i3lock-next "Welcome Back, Liupold." "Fira Code" &
+
+#Polybar
+sh ~/scripts/system_managment/launch_polybar.sh
+
+#volume
+pactl set-sink-volume 0 80%
+
+#cursor
 xsetroot -cursor_name left_ptr
+notify-send "Ready!"
