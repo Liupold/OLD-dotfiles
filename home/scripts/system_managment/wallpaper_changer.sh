@@ -6,10 +6,10 @@ if [ -z "$REL_WALL_PATH" ]
 then
 
 	WALL_PATH="$(< "$HOME/.config/WALL_PATH")"
-
+	wal -a 85 -i "$WALL_PATH"
 else
 	WALL_PATH=$(realpath $REL_WALL_PATH)
 	echo "$WALL_PATH" > "$HOME/.config/WALL_PATH"
+	wal -a 85 -i "$WALL_PATH" -o "$HOME/.config/bspwm/bspwmrc"
 fi
 
-wal -a 85 -i "$WALL_PATH" -o "$HOME/.config/bspwm/bspwmrc"
