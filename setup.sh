@@ -5,7 +5,7 @@ BACKUP=$1
 handle_prev_file () {
 	if [ "$BACKUP" = '--no-backup' ]
 	then
-		rm "$1"
+		rm -r "$1"
 	else
 		mv "$1" "$2"
 	fi
@@ -21,7 +21,7 @@ do
 
 	if  [ -e config/"$dot_config/$dot_config" ]
 	then
-		rm  $(realpath config/"$dot_config/$dot_config")
+		rm $(realpath config/"$dot_config/$dot_config")
 	fi
 done
 
