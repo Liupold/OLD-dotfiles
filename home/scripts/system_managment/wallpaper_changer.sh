@@ -12,4 +12,4 @@ else
 	echo "$WALL_PATH" > "$HOME/.config/WALL_PATH"
 fi
 
-wal -a 85 -i "$WALL_PATH"
+wal -a 85 -i "$WALL_PATH" -o "$HOME/.config/bspwm/bspwmrc"
