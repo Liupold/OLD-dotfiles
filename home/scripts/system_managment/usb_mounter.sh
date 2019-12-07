@@ -1,4 +1,4 @@
-DRIVES="$(lsblk | grep -o 'sd.*$' | grep -o '.*part $' | awk '{ print $1 " ("$4")" }')"
+DRIVES="$(lsblk | grep -v 'sda' | grep -o 'sd.*$' | grep -o '.*part $' | awk '{ print $1 " ("$4")" }')"
 MOUNT_POINT="/mnt\n/home/rohnch/USB\n[fstab]"
 
 SELECTED_DRIVE="$(echo "$DRIVES" | dmenu -p "Mount?: " -fn "Fira Code-13" | awk '{ print $1 }')"
