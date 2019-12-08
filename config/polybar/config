@@ -16,14 +16,21 @@
 ;
 ;==========================================================
 
+
 [colors]
-background = #c5111111
-background-alt = #111111
-foreground = #dfdfdf
-foreground-alt = faebd7
-primary = #6684e1
-secondary = #e60053
-alert = #bd2c40
+; background = #c5111111
+; background-alt = #111111
+; foreground = #dfdfdf
+; foreground-alt = faebd7
+; primary = #6684e1
+; secondary = #e60053
+; alert = #bd2c40
+background = ${xrdb:color0:#222}
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
 
 [bar/main]
 width = 100%
@@ -49,21 +56,20 @@ padding-right = 1
 module-margin-left = 1
 module-margin-right = 1
 
-font-0 = Fira Code:size=11:antialias=true;0
+font-0 = Fira Code:size=10:antialias=true;0
 font-1 = unifont:fontformat=truetype:size=10:antialias=true;1
 font-2 = siji:pixelsize=10;2
 font-3 = Font Awesome 5 Free:pixelsize=10;0
 font-4 = Font Awesome 5 Free Solid:pixelsize=10;0
 font-5 = Font Awesome 5 Brands:pixelsize=10;0
-font-6 = Fira Code:size=10:antialias=true;0
-
+font-6 = Weather Icons:size=12;1
 
 modules-left = bspwm
 modules-center = player-mpris-simple
-modules-right = cpu memory light vol-symbol pulseaudio date
+modules-right = cpu memory network-traffic light vol-symbol pulseaudio date openweathermap-forecast
 
 tray-position = right
-tray-padding = 2
+tray-padding = 1
 wm-restack = bspwm
 
 scroll-up = bspwm-desknext
@@ -103,13 +109,13 @@ type = internal/date
 interval = 5
 
 date =
-date-alt = " %Y-%m-%d"
+date-alt = "%Y-%m-%d"
 
 time = %H:%M
 time-alt = %H:%M:%S
 
 ;format-prefix =
-label = %date% %time%
+label=%date% %time%
 
 
 ; -----------------------------------------------------------------------
@@ -122,11 +128,12 @@ label = [%output%
 ; -----------------------------------------------------------------------
 [module/pulseaudio]
 type = internal/pulseaudio
-format-volume = <label-volume>]
+format-volume =<label-volume>]
 label-volume = %percentage%%
 label-volume-foreground = ${root.foreground}
 
-label-muted =
+format-muted = <label-muted>]
+label-muted = x
 label-muted-foreground = #666
 
 bar-volume-width = 10
@@ -192,3 +199,17 @@ tail = true
 click-left = playerctl previous
 click-right = playerctl next
 click-middle = playerctl play-pause
+
+;--------------------------------------------------------------------------
+[module/openweathermap-forecast]
+type = custom/script
+exec = ~/scripts/polybar_scripts/openweathermap-forecast.sh
+exec-if = ping openweathermap.org -c 1
+interval = 600
+label-font = 3
+
+;--------------------------------------------------------------------------
+[module/network-traffic]
+type = custom/script
+exec = ~/scripts/polybar_scripts/network-traffic.sh
+tail = true

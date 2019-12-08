@@ -127,7 +127,7 @@ super + alt + shift + {h,j,k,l}
 
 
 super + shift + {f, b, w, m}
-	{thunar, chromium,kitty -e vim, urxvt -e cmus}
+	{thunar, chromium,kitty -e vim, urxvt -e screen -r -t cmus}
 
 super + {_, shift + } {F9}
 	sh ~/scripts/system_managment/usb_{_,un}mounter.sh
