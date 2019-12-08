@@ -165,7 +165,7 @@
     max_icon_size = 60
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Paper/48x48/status
+    icon_path = /usr/share/icons/Paper/48x48/action:/usr/share/icons/Paper/48x48/apps:/usr/share/icons/Paper/48x48/devices:/usr/share/icons/Paper/48x48/categories:/usr/share/icons/Paper/48x48/emblems:/usr/share/icons/Paper/48x48/emotes:/usr/share/icons/Paper/48x48/mimetypes:/usr/share/icons/Paper/48x48/notifications:/usr/share/icons/Paper/48x48/places:/usr/share/icons/Paper/48x48/status:/usr/share/icons/Paper/48x48/web
 
     ### History ###
 
