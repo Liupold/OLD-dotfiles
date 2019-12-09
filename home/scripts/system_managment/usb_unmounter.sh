@@ -1,7 +1,7 @@
 DRIVES="$(lsblk | grep -v 'sda.*$' | grep -v 'part $' | grep -o 's.*part' | awk '{ print $1 " ("$4")" }')"
 MTP_D="$(awk '/simple-mtpfs/ { print $2 }' /etc/mtab| sed -e 's|^|(MTP)|g')"
 
-SELECTED_DRIVE="$(echo "$DRIVES" "$MTP_D" | dmenu -p "Unmount?: " -fn "Fira Code-13" | awk '{ print $1 }')"
+SELECTED_DRIVE="$(echo "$DRIVES" "$MTP_D" | dmenu -p "Unmount?:" | awk '{ print $1 }')"
 
 if [ -z $SELECTED_DRIVE ]
 then

@@ -3,7 +3,7 @@ MTP_D="$(simple-mtpfs -l | sed 's|^.*:|(MTP)|g' | sed 's| |-|g')"
 USB_MOUNT_POINT="/mnt\n/home/rohnch/USB\n[fstab]"
 MTP_MOUNT_POINT="/mnt\n/home/rohnch/Phone\n/home/rohnch/MTP"
 
-SELECTED_DRIVE="$(echo "$DRIVES" "$MTP_D" | dmenu -p "Mount?: " -fn "Fira Code-13" | awk '{ print $1 }')"
+SELECTED_DRIVE="$(echo "$DRIVES" "$MTP_D" | dmenu -p "Mount?:" | awk '{ print $1 }')"
 
 if [ -z $SELECTED_DRIVE ]
 then
@@ -13,9 +13,9 @@ fi
 if echo $SELECTED_DRIVE | grep -q '^(MTP)'
 then
 
-	SELECTED_MOUNT="$(echo -ne "$MTP_MOUNT_POINT" | dmenu -p "Mount Point: " -fn "Fira Code-13")"
+	SELECTED_MOUNT="$(echo -ne "$MTP_MOUNT_POINT" | dmenu -p "Mount Point: ")"
 else
-	SELECTED_MOUNT="$(echo -ne "$USB_MOUNT_POINT" | dmenu -p "Mount Point: " -fn "Fira Code-13")"
+	SELECTED_MOUNT="$(echo -ne "$USB_MOUNT_POINT" | dmenu -p "Mount Point: ")"
 fi
 
 if [ -z $SELECTED_MOUNT ]
@@ -25,7 +25,7 @@ fi
 
 if [ ! -d $SELECTED_MOUNT ] && [ $SELECTED_MOUNT != "[fstab]" ]
 then
-	REPLY="$( echo -ne "Yes(y)\nNo(n)" | dmenu -p "Create Mount Point?: " -fn "Fira Code-13")"
+	REPLY="$( echo -ne "Yes(y)\nNo(n)" | dmenu -p "Create Mount Point?: ")"
 	if [ "$REPLY" = "Yes(y)" ]
 	then
 		eval "mkdir --parents "$SELECTED_MOUNT""
@@ -51,7 +51,7 @@ then
 	echo $SELECTED_DRIVE
 	simple-mtpfs --device "$DEVICE_ID" "$SELECTED_MOUNT"
 else
-	sudo mount "/dev/$SELECTED_DRIVE" "$SELECTED_MOUNT"
+	sudo mount -o uid=1000,gid=1000 "/dev/$SELECTED_DRIVE" "$SELECTED_MOUNT"
 fi
 
 if [ $? -eq 0 ]

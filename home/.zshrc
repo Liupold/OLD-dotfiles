@@ -40,8 +40,8 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc"
 
 typeset -U PATH path
-BINPATH="$HOME/scripts"
-path+=("$BINPATH" ${BINPATH}/*/)
+SCRIPTPATH="$HOME/scripts"
+path+=("$SCRIPTPATH" ${SCRIPTPATH}/*/)
 export PATH
 
 # Load zsh-syntax-highlighting; should be last.

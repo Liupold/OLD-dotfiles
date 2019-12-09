@@ -14,3 +14,7 @@ launch_cmus() {
 
 alias cmus="launch_cmus"
 alias zathura="zathura --fork"
+alias p="sudo pacman"
+alias v='vim'
+alias sv='sudo vim'
+alias py='python'

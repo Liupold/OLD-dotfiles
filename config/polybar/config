@@ -59,14 +59,14 @@ module-margin-right = 1
 font-0 = Fira Code:size=10:antialias=true;0
 font-1 = unifont:fontformat=truetype:size=10:antialias=true;1
 font-2 = siji:pixelsize=10;2
-font-3 = Font Awesome 5 Free:pixelsize=10;0
-font-4 = Font Awesome 5 Free Solid:pixelsize=10;0
-font-5 = Font Awesome 5 Brands:pixelsize=10;0
-font-6 = Weather Icons:size=12;1
+font-3 = Font Awesome 5 Free:pixelsize=10;1
+font-4 = Font Awesome 5 Free Solid:pixelsize=10;1
+font-5 = Font Awesome 5 Brands:pixelsize=10;1
+font-6 = Noto Emoji:scale=10;
 
 modules-left = bspwm
 modules-center = player-mpris-simple
-modules-right = cpu memory network-traffic light vol-symbol pulseaudio date openweathermap-forecast
+modules-right = cpu memory network-traffic light vol-symbol pulseaudio date
 
 tray-position = right
 tray-padding = 1
@@ -199,14 +199,6 @@ tail = true
 click-left = playerctl previous
 click-right = playerctl next
 click-middle = playerctl play-pause
-
-;--------------------------------------------------------------------------
-[module/openweathermap-forecast]
-type = custom/script
-exec = ~/scripts/polybar_scripts/openweathermap-forecast.sh
-exec-if = ping openweathermap.org -c 1
-interval = 600
-label-font = 3
 
 ;--------------------------------------------------------------------------
 [module/network-traffic]
