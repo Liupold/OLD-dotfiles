@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
+let g:netrw_dirhistcnt =6
+let g:netrw_dirhist_6='/home/rohnch/.vim'
 let g:netrw_dirhist_5='/home/rohnch/.config/sxhkd'
 let g:netrw_dirhist_4='/home/rohnch/dotfiles/config/sxhkd'
 let g:netrw_dirhist_3='/home/rohnch/.config/sxhkd'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_0='/home/rohnch/.telegram-cli/downloads'
 let g:netrw_dirhist_9='/home/rohnch/.telegram-cli'
 let g:netrw_dirhist_8='/home/rohnch/.config/bspwm'
 let g:netrw_dirhist_7='/home/rohnch/.config/kitty'
-let g:netrw_dirhist_6='/home/rohnch/.oh-my-zsh'

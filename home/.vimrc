@@ -6,6 +6,8 @@ set number
 set relativenumber
 set guifont=Fira\ Code\ 10
 " set termguicolors
+set expandtab
+set tabstop=4
 colorscheme molokai
 set t_Co=256
 
