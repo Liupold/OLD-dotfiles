@@ -1,6 +1,9 @@
 #! /bin/sh
 
-sxhkd &
+if [ -z $(pidof sxhkd) ]
+then
+	sxhkd &
+fi
 
 # Set environment
 export BSPWM_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/bspwm"

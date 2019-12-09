@@ -6,19 +6,27 @@ dunst -nb "$background" -nf "$foreground" -cb "$background" -cf "$foreground" -l
 
 #Polybar
 sh ~/scripts/system_managment/launch_polybar.sh
-sleep 1
 
-killall picom
-picom &
+if [ -z "$(pidof picom)" ]
+then
+	picom &
+fi
 
-killall nm-applet
-nm-applet &
 
-killall kdeconnect-indicator
-kdeconnect-indicator &
+if [ -z "$(pidof nm-applet)" ]
+then
+	nm-applet &
+fi
 
-killall xss-lock
-xss-lock i3lock-next "Welcome Back, Liupold." "Fira Code" &
+if [ -z "$(pidof kdeconnect-indicator)" ]
+then
+	kdeconnect-indicator &
+fi
+
+if [ -z "$(pidof xss-lock)" ]
+then
+	xss-lock i3lock-next "Welcome Back, Liupold." "Fira Code" &
+fi
 
 #volume
 pactl set-sink-volume 0 80%

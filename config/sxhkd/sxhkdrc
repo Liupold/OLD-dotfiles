@@ -1,15 +1,12 @@
-
 #################### wm independent hotkeys ####################
 
 # terminal emulator
 super + Return
-	urxvt
-
+	st
 
 # program launcher
 super + d
-	dmenu_run -p "run:" -fn "Fira Code-13"
-
+	dmenu_run
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
