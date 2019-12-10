@@ -31,25 +31,34 @@ DOWN_THRESHOLD=1000 # in bytes
 UP_THRESHOLD=1000 # in bytes
 INTERFACES="$(ifconfig -a | grep -v lo | awk '/RUNNING/ { gsub(":", ""); print $1 }')"
 iszero=""
+
+
+for interface in $INTERFACES; do
+    if [ ! -d "/sys/class/net/$interface/" ]
+    then
+        INTERFACES="$(ifconfig -a | grep -v lo | awk '/RUNNING/ { gsub(":", ""); print $1 }')"
+	     break
+	fi
+    initial_rx=$(< /sys/class/net/"$interface"/statistics/rx_bytes)
+    initial_tx=$(< /sys/class/net/"$interface"/statistics/tx_bytes)
+done
+
+
 while [ 1 ]; do
     down=0
     up=0
 
     if [ -n "$INTERFACES" ]
     then
-    	for interface in $INTERFACES; do
-		if [ ! -e "/sys/class/net/$interface/" ]
+    for interface in $INTERFACES; do
+        if [ ! -d "/sys/class/net/$interface/" ]
 		then
 		    INTERFACES="$(ifconfig -a | grep -v lo | awk '/RUNNING/ { gsub(":", ""); print $1 }')"
 		    break
 		fi
 
-        	initial_rx=$(< /sys/class/net/"$interface"/statistics/rx_bytes)
-		initial_tx=$(< /sys/class/net/"$interface"/statistics/tx_bytes)
 
-		sleep $INTERVAL
-
-		final_rx=$(< /sys/class/net/"$interface"/statistics/rx_bytes)
+        final_rx=$(< /sys/class/net/"$interface"/statistics/rx_bytes)
 		final_tx=$(< /sys/class/net/"$interface"/statistics/tx_bytes)
 
 		bytes_down=$(($final_rx - $initial_rx / $INTERVAL))
@@ -57,6 +66,9 @@ while [ 1 ]; do
 
 		down=$(( $down + $bytes_down ))
 		up=$(( $up + $bytes_up ))
+
+        initial_rx=$final_rx
+        initial_tx=$final_tx
 
     	done
 
@@ -74,9 +86,8 @@ while [ 1 ]; do
 	    iszero="1"
    	 fi
     else
-	 sleep $INTERVAL
 	 INTERFACES="$(ifconfig -a | grep -v lo | awk '/RUNNING/ { gsub(":", ""); print $1 }')"
 
     fi
-
+    sleep $INTERVAL
 done

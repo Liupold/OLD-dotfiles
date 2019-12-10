@@ -15,17 +15,15 @@ super + Escape
 
 # XF86AudioMute
 XF86AudioRaiseVolume
-        pactl set-sink-volume 0 +5%
+	pactl set-sink-volume 0 +5%
 XF86AudioLowerVolume
-        pactl set-sink-volume 0 -5%
+	pactl set-sink-volume 0 -5%
 
 
 
 # player
-
-
 super + {backslash, bracketleft, bracketright}
-	playerctl {play-pause, next, previous}
+	playerctl -p cmus {play-pause, next, previous}
 
 
 ############################# BSPWM ############################
