@@ -1,9 +1,8 @@
-source $HOME/scripts/tools/zsh-git.sh
 autoload -U colors && colors
 autoload -Uz run-help-git
 
 if [ $UID -eq 0 ]; then NCOLOR="red"; else NCOLOR="white"; fi
-PROMPT='%B%{$fg[$NCOLOR]%}%n:%{$fg[blue]%}%c/%{$reset_color%}%b$(git_super_status)$ '
+PROMPT="%B%{$fg[$NCOLOR]%}%n:%{$fg[blue]%}%c/%{$reset_color%}%b$ "
 RPROMPT='%F{blue}[%f%*%F{blue}]%f'
 
 # History in cache directory:
