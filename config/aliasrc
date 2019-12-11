@@ -1,18 +1,7 @@
 alias ls="ls --color=auto"
+alias grep="grep --color"
 alias ll="ls -lh"
 alias l="ls -lah"
-
-launch_cmus() {
-	if [ -z $(pidof cmus) ]
-	then
-		screen -t cmus cmus
-	else
-		screen -d -t cmus
-		screen -r -t cmus
-	fi
-}
-
-alias cmus="launch_cmus"
 alias zathura="zathura --fork"
 alias p="sudo pacman"
 alias v='vim'

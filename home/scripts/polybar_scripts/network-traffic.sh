@@ -27,67 +27,53 @@ print_bit() {
 }
 
 INTERVAL=1
+INTERFACES="$(ifconfig -a | grep -v lo | awk '/RUNNING/ { gsub(":", ""); print $1 }')"
 DOWN_THRESHOLD=1000 # in bytes
 UP_THRESHOLD=1000 # in bytes
-INTERFACES="$(ifconfig -a | grep -v lo | awk '/RUNNING/ { gsub(":", ""); print $1 }')"
-iszero=""
 
+declare -A bytes
 
 for interface in $INTERFACES; do
-    if [ ! -d "/sys/class/net/$interface/" ]
-    then
-        INTERFACES="$(ifconfig -a | grep -v lo | awk '/RUNNING/ { gsub(":", ""); print $1 }')"
-	     break
-	fi
-    initial_rx=$(< /sys/class/net/"$interface"/statistics/rx_bytes)
-    initial_tx=$(< /sys/class/net/"$interface"/statistics/tx_bytes)
+    bytes[past_rx_$interface]="$(cat /sys/class/net/"$interface"/statistics/rx_bytes)"
+    bytes[past_tx_$interface]="$(cat /sys/class/net/"$interface"/statistics/tx_bytes)"
 done
 
-
-while [ 1 ]; do
+while true; do
     down=0
     up=0
 
-    if [ -n "$INTERFACES" ]
-    then
     for interface in $INTERFACES; do
-        if [ ! -d "/sys/class/net/$interface/" ]
-		then
-		    INTERFACES="$(ifconfig -a | grep -v lo | awk '/RUNNING/ { gsub(":", ""); print $1 }')"
-		    break
-		fi
+        bytes[now_rx_$interface]="$(cat /sys/class/net/"$interface"/statistics/rx_bytes)"
+        bytes[now_tx_$interface]="$(cat /sys/class/net/"$interface"/statistics/tx_bytes)"
+
+        bytes_down=$((((${bytes[now_rx_$interface]} - ${bytes[past_rx_$interface]})) / INTERVAL))
+        bytes_up=$((((${bytes[now_tx_$interface]} - ${bytes[past_tx_$interface]})) / INTERVAL))
+
+        down=$(((( "$down" + "$bytes_down" ))))
+        up=$(((( "$up" + "$bytes_up" ))))
+
+        bytes[past_rx_$interface]=${bytes[now_rx_$interface]}
+        bytes[past_tx_$interface]=${bytes[now_tx_$interface]}
+    done
+    if [ $down -gt $DOWN_THRESHOLD ] || [ $up -gt $UP_THRESHOLD ]
+    then
+            # echo "Download: $(print_bytes $down) / Upload: $(print_bytes $up)"
+            # echo "Download: $(print_bit $down) / Upload: $(print_bit $up)"
+            echo " $(print_bytes $down)  $(print_bytes $up)"
+            iszero=""
+    elif [ -z $iszero ]
+    then
+            # echo "Download: $(print_bytes $down) / Upload: $(print_bytes $up)"
+            # echo "Download: $(print_bit $down) / Upload: $(print_bit $up)"
+            echo " $(print_bytes $down)  $(print_bytes $up)"
+                                                                                                iszero="1"
+                                                                                                    fi
 
 
-        final_rx=$(< /sys/class/net/"$interface"/statistics/rx_bytes)
-		final_tx=$(< /sys/class/net/"$interface"/statistics/tx_bytes)
-
-		bytes_down=$(($final_rx - $initial_rx / $INTERVAL))
-		bytes_up=$(($final_tx - $initial_tx  / $INTERVAL))
-
-		down=$(( $down + $bytes_down ))
-		up=$(( $up + $bytes_up ))
-
-        initial_rx=$final_rx
-        initial_tx=$final_tx
-
-    	done
-
-	if [ $down -gt $DOWN_THRESHOLD ] || [ $up -gt $UP_THRESHOLD ]
-    	then
-    		# echo "Download: $(print_bytes $down) / Upload: $(print_bytes $up)"
-    		# echo "Download: $(print_bit $down) / Upload: $(print_bit $up)"
-		echo " $(print_bytes $down)  $(print_bytes $up)"
-		iszero=""
-    	elif [ -z $iszero ]
-    	then
-	    # echo "Download: $(print_bytes $down) / Upload: $(print_bytes $up)"
-    	    # echo "Download: $(print_bit $down) / Upload: $(print_bit $up)"
-	    echo " $(print_bytes $down)  $(print_bytes $up)"
-	    iszero="1"
-   	 fi
-    else
-	 INTERFACES="$(ifconfig -a | grep -v lo | awk '/RUNNING/ { gsub(":", ""); print $1 }')"
-
+    # echo "Download: $(print_bit $down) / Upload: $(print_bit $up)"
+    if [ -z $INTERFACES ]
+    then
+        INTERFACES="$(ifconfig -a | grep -v lo | awk '/RUNNING/ { gsub(":", ""); print $1 }')"
     fi
     sleep $INTERVAL
 done
