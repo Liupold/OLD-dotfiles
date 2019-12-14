@@ -11,5 +11,8 @@ else
 	WALL_PATH=$(realpath $REL_WALL_PATH)
 	echo "$WALL_PATH" > "$HOME/.config/WALL_PATH"
 	wal -a 85 -i "$WALL_PATH" -o "$HOME/scripts/system_managment/bspwm_update_color"
+    killall dunst
+    sh "$HOME/scripts/system_managment/start-dunst"
+    notify-send "Theme updated!"
 fi
 
