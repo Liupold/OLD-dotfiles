@@ -1,0 +1,37 @@
+#!/bin/sh
+
+function if_start {
+        _target=$1
+        target=$2
+
+        if [ -z $target ]
+        then
+                eval $_target &
+        else
+                if [ -z "$(pidof $_target)" ]
+                then
+                        eval $target &
+                fi
+        fi
+}
+
+if_start picom picom
+if_start "sh ~/scripts/system_managment/launch_polybar.sh"
+if_start nm-applet nm-applet
+if_start kdeconnect-indicator kdeconnect-indicator
+if_start xss-lock "xss-lock i3lock-next \"Welcome Back, Liupold.\" \"Fira Code\" &"
+if_start sxhkd sxhkd
+if_start dunst dunst
+if_start "pactl set-sink-volume 0 50%"
+
+if [ -e "$HOME/.cache/wal/colors.sh" ]
+then
+    . "${HOME}/.cache/wal/colors.sh"
+    killall dunst
+    dunst -nb "$background" -nf "$foreground" -cb "$background" -cf "$foreground" -lb $background -lf $foreground "$@" &
+else
+    killall dunst
+    dunst &
+fi
+
+notify-send "READY!"
