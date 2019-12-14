@@ -23,15 +23,5 @@ if_start xss-lock "xss-lock i3lock-next \"Welcome Back, Liupold.\" \"Fira Code\"
 if_start sxhkd sxhkd
 if_start dunst dunst
 if_start "pactl set-sink-volume 0 50%"
-
-if [ -e "$HOME/.cache/wal/colors.sh" ]
-then
-    . "${HOME}/.cache/wal/colors.sh"
-    killall dunst
-    dunst -nb "$background" -nf "$foreground" -cb "$background" -cf "$foreground" -lb $background -lf $foreground "$@" &
-else
-    killall dunst
-    dunst &
-fi
-
+sh "$HOME/scripts/system_managment/start-dunst"
 notify-send "READY!"
