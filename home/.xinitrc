@@ -39,5 +39,5 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 #set wall
-sh "$HOME/scripts/system_managment/wallpaper_changer.sh"
+sh "$HOME/scripts/system_managment/setbg"
 exec bspwm
