@@ -1,0 +1,2 @@
+query=$1
+wkhtmltopdf "https://en.wikipedia.org/wiki/Special:Search?search=$query" - | zathura --fork -
