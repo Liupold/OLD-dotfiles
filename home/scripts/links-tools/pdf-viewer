@@ -1,0 +1,19 @@
+#!/bin/bash
+FILE=$1
+regex='(https?|ftp|file)://[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+chars=abcdefghijklmnopqrstuvwxyz1234567890
+
+if [[ $FILE =~ $regex ]]
+then
+        name=''
+        for i in {1..8} ; do
+                name="$name""${chars:RANDOM%${#chars}:1}"
+        done
+        name=$HOME/.cache/$name
+
+        wget -O $name "$FILE"
+        zathura $name
+        rm $name
+else
+        zathura $FILE
+fi
