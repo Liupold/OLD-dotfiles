@@ -71,7 +71,7 @@ while true; do
 
 
     # echo "Download: $(print_bit $down) / Upload: $(print_bit $up)"
-    if [ -z $INTERFACES ]
+    if [ -z "$INTERFACES" ]
     then
         INTERFACES="$(ifconfig -a | grep -v lo | awk '/RUNNING/ { gsub(":", ""); print $1 }')"
     fi

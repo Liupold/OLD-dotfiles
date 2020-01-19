@@ -1,2 +1,3 @@
-query=$1
+raw_query=$@
+query=$(python -c 'import sys; from urllib.parse import quote as q; print(q(sys.argv[1]))' "$raw_query")
 wkhtmltopdf "https://en.wikipedia.org/wiki/Special:Search?search=$query" - | zathura --fork -
