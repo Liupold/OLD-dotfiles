@@ -27,9 +27,10 @@ set splitbelow
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'kovetskiy/sxhkd-vim'
-Plug 'vim-syntastic/syntastic'
+Plug 'vimlab/split-term.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'dense-analysis/ale'
 call plug#end()
 
 let g:syntastic_always_populate_loc_list = 1
@@ -38,7 +39,7 @@ let g:airline_theme='term'
 
 " ----------------------------------------------------------
 " KeyMapings
-map <F5> :w<Esc>:ter vim-compiler.sh "%"<CR>
+map <F5> :w<Esc>:!vim-compiler.sh "%"<CR>
 map <F6> :set spell! spelllang=en_us<CR>
 map <leader>q :q<CR>
 
@@ -47,7 +48,7 @@ inoremap <leader>z <c-o>:u<CR>i
 inoremap <leader>x <Esc><c-r>i
 inoremap <leader><leader> <Esc><Esc>:w<CR>
 inoremap <leader>s <Esc><Esc>:w<CR>i
-inoremap <leader>c <Esc><Esc>:w<Esc>:ter vim-compiler.sh "%"<CR>
+inoremap <leader>c <Esc><Esc>:w<Esc>:!vim-compiler.sh "%"<CR>
 
 
 " ----------------------------------------------------------

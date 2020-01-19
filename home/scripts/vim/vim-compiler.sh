@@ -2,7 +2,7 @@
 filename="$1"
 
 if [[ $filename =~ ^.*.py$ ]];then
-	clear
+
 	starttime=$EPOCHREALTIME
 
 	python -u $filename

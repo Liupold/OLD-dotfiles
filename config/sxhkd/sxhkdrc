@@ -2,7 +2,7 @@
 
 # terminal emulator
 super + Return
-	urxvt
+	st
 
 # program launcher
 super + d
@@ -23,7 +23,7 @@ XF86AudioLowerVolume
 
 # player
 super + {backslash, bracketleft, bracketright}
-	playerctl -p cmus {play-pause, next, previous}
+	playerctl -i chromium {play-pause, next, previous}
 
 
 ############################# BSPWM ############################

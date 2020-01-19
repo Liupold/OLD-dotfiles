@@ -7,3 +7,6 @@ alias p="sudo pacman"
 alias v='vim'
 alias sv='sudo vim'
 alias py='python'
+alias yplay="mpv --ytdl-format='bestvideo[height<=1080]+bestaudio/best[height<=1080]'"
+alias pypad='vim /tmp/pypad.py'
+alias add-music-from-yt="youtube-dl --format='bestaudio' --extract-audio --audio-format=mp3  --add-metadata --output='~/Music/%(title)s.%(ext)s'"
