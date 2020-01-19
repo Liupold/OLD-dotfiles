@@ -1,0 +1,5 @@
+if [ "$(screen -ls mpv-screen > /dev/null ; echo $?)" -eq 0 ]
+then
+        kill $(pgrep -fl mpv-screen | grep screen | awk '{print $1}')
+fi
+screen -dmS mpv-screen mpv "$@"
