@@ -1,7 +1,7 @@
 if [ -z $(pidof cmus) ]
 then
-    screen -t cmus /usr/bin/cmus
+    screen -S cmus /usr/bin/cmus
 else
-    screen -d -t cmus
-    screen -r -t cmus
+    screen -d cmus
+    screen -r cmus
 fi
