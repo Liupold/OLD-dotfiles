@@ -16,12 +16,14 @@ function if_start {
 }
 
 if_start picom picom
-if_start "sh ~/scripts/system_managment/launch_polybar.sh"
+sh ~/scripts/system_managment/start-dunst
+
+sh ~/scripts/system_managment/launch_polybar.sh
 if_start nm-applet nm-applet
 if_start kdeconnect-indicator kdeconnect-indicator
-if_start xss-lock "xss-lock i3lock-next \"Welcome Back, Liupold.\" \"Fira Code\" &"
+
+if_start xss-lock "xss-lock i3lock-next \"Welcome Back, Liupold.\" \"Fira Code\""
 if_start sxhkd sxhkd
-if_start dunst dunst
-if_start "pactl set-sink-volume 0 50%"
-sh "$HOME/scripts/system_managment/start-dunst"
+
+pactl set-sink-volume 0 50%
 notify-send "READY!"
