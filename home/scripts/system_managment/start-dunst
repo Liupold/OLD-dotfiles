@@ -1,10 +1,6 @@
 if [ -e "$HOME/.cache/wal/colors.sh" ]
 then
     . "${HOME}/.cache/wal/colors.sh"
-    killall dunst
-    dunst -nb "$background" -nf "$foreground" -cb "$background" -cf "$foreground" -lb $background -lf $foreground "$@" &
-else
-    killall dunst
-    dunst &
 fi
-
+kill $(pidof dunst)
+dunst -nb "$background" -nf "$foreground" -cb "$background" -cf "$foreground" -lb $background -lf $foreground "$@" &

@@ -1,6 +1,6 @@
 ! Font
-st.font: Fira Code:size=12:antialias=true:autohint=true;
-URxvt.font: xft:Fira Mono for Powerline:style=Medium:size=12:antialias=true
+st.font: Fira Mono for Powerline:size=12:antialias=true:autohint=true
+URxvt.font: xft:Fira Mono:style=Medium:size=12:antialias=true
 UXTerm*faceSize:10
 
 ! UI
@@ -12,8 +12,8 @@ st.alpha: 0.85
 
 ! Extensions
 URxvt.perl-ext: default,url-select,clipboard
-URxvt.keysym.Control-y: perl:clipboard:copy
-URxvt.keysym.Control-p: perl:clipboard:paste
+URxvt.keysym.Meta-c: perl:clipboard:copy
+URxvt.keysym.Meta-v: perl:clipboard:paste
 URxvt.iso14755: False
 URxvt.perl-ext-common:  resize-font
 URxvt.keysym.M-u: perl:url-select:select_next
@@ -30,9 +30,7 @@ URxvt.underlineURLs: true
 ! special
 *.foreground:   #a6a28c
 *.cursorColor:  #a6a28c
-!*.background:   #20201d
-*.background:   #000000
-! URxvt.background: rgba:0000/0000/0000/dddd
+URxvt.background:   #000000
 
 ! black
 *.color0:       #20201d
