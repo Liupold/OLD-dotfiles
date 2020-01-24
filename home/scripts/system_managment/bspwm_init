@@ -1,5 +1,15 @@
 #!/bin/sh
 
+function wait_for_launch {
+        target="$1"
+        while [ -z "$(pidof $target)" ]
+        do
+                python -c 'from time import sleep; sleep(0.01667)'
+        done
+
+}
+
+
 function if_start {
         _target=$1
         target=$2
@@ -15,15 +25,21 @@ function if_start {
         fi
 }
 
-if_start picom picom
 sh ~/scripts/system_managment/start-dunst
+wait_for_launch dunst
+
+if_start picom picom
+if_start sxhkd sxhkd
 
 sh ~/scripts/system_managment/launch_polybar.sh
 if_start nm-applet nm-applet
 if_start kdeconnect-indicator kdeconnect-indicator
 
-if_start xss-lock "xss-lock i3lock-next \"Welcome Back, Liupold.\" \"Fira Code\""
-if_start sxhkd sxhkd
+if_start xss-lock "xss-lock i3lock-next \"Welcome Back, Liupold.\" \"Fira Mono\""
+xfce4-power-manager
 
-pactl set-sink-volume 0 50%
-notify-send "READY!"
+# waiting for launch
+wait_for_launch sxhkd
+wait_for_launch polybar
+
+notify-send -i xterm "READY!"

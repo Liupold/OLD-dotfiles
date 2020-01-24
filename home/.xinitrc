@@ -40,4 +40,5 @@ fi
 
 #set wall
 sh "$HOME/scripts/system_managment/setbg"
-exec bspwm
+xsetroot -cursor_name left_ptr
+exec /usr/bin/bspwm

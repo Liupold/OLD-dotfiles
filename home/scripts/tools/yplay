@@ -1,1 +1,9 @@
-mpv-screen --ytdl-format='bestvideo[height<=1080]+bestaudio/best[height<=1080]' "$@"
+#!/bin/sh
+height=$(xrandr | grep '*' | awk '{print $1}' | sed -e 's/^.*x//')
+if [ -z "$height" ]
+then
+        height=720
+fi
+~/scripts/tools/bplayer-play  --window-scale=0.6 --ytdl-format='bestvideo[height<='$height']+bestaudio/best[height<='$height']' "$@"
+
+
