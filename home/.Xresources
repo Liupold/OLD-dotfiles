@@ -1,6 +1,6 @@
 ! Font
-st.font: Fira Mono for Powerline:size=12:antialias=true:autohint=true
-URxvt.font: xft:Fira Mono:style=Medium:size=12:antialias=true
+st.font: Fira Mono for Powerline-12;
+URxvt.font: xft:Fira Mono for powerline:style=Medium:size=12:antialias=true
 UXTerm*faceSize:10
 
 ! UI
@@ -30,7 +30,7 @@ URxvt.underlineURLs: true
 ! special
 *.foreground:   #a6a28c
 *.cursorColor:  #a6a28c
-URxvt.background:   #000000
+*.background:   #000000
 
 ! black
 *.color0:       #20201d
@@ -66,4 +66,3 @@ URxvt.background:   #000000
 
 
 st.termname: st-256color
-st.borderpx: 2

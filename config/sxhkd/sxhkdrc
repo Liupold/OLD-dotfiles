@@ -121,8 +121,8 @@ super + alt + shift + {h,j,k,l}
 ########################### Launcher ###########################b##
 
 
-super + shift + {f, b, w, m}
-	{thunar, chromium,kitty -e vim, urxvt -e cmus}
+super + shift + {f, b, w, m, n}
+	{thunar, chromium,kitty -e vim, urxvt -e cmus, urxvt --title newsboat -e newsboat}
 
 super + {_, shift + } {F9}
 	sh ~/scripts/system_managment/dmenu_{_,u}mount

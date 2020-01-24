@@ -2,5 +2,8 @@ if [ -e "$HOME/.cache/wal/colors.sh" ]
 then
     . "${HOME}/.cache/wal/colors.sh"
 fi
-kill $(pidof dunst)
+if [ ! -z "$(pidof dunst)" ]
+then
+        killall dunst
+fi
 dunst -nb "$background" -nf "$foreground" -cb "$background" -cf "$foreground" -lb $background -lf $foreground "$@" &

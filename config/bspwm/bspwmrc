@@ -36,6 +36,7 @@ sh "$HOME/scripts/system_managment/bspwm_update_color" &
 bspc rule -a Gimp state=floating follow=on
 bspc rule -a Zathura state=tiled
 bspc rule -a Screenkey manage=off
+bspc rule -a mpv:mpvfloat state=floating
 
 
 #--------------------------- CHAIN LOAD ------------------------------
