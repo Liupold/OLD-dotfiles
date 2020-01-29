@@ -25,17 +25,17 @@ function if_start {
         fi
 }
 
+if_start sxhkd sxhkd
 sh ~/scripts/system_managment/start-dunst
+
 wait_for_launch dunst
+if_start xss-lock "xss-lock -n /usr/lib/xsecurelock/dimmer -l -- ~/scripts/system_managment/screen-lock &"
 
 if_start picom picom
-if_start sxhkd sxhkd
-
 sh ~/scripts/system_managment/launch_polybar.sh
 if_start nm-applet nm-applet
 if_start kdeconnect-indicator kdeconnect-indicator
 
-if_start xss-lock "xss-lock i3lock-next \"Welcome Back, Liupold.\" \"Fira Mono\""
 xfce4-power-manager
 
 # waiting for launch

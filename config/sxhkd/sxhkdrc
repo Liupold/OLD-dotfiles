@@ -2,7 +2,7 @@
 
 # terminal emulator
 super + Return
-	st
+	$TERMINAL
 
 # program launcher
 super + d
@@ -122,7 +122,7 @@ super + alt + shift + {h,j,k,l}
 
 
 super + shift + {f, b, w, m, n}
-	{thunar, chromium,kitty -e vim, urxvt -e cmus, urxvt --title newsboat -e newsboat}
+	{thunar, chromium,$TERMINAL-e vim, $TERMINAL -e cmus, $TERMINAL --title newsboat -e newsboat}
 
 super + {_, shift + } {F9}
 	sh ~/scripts/system_managment/dmenu_{_,u}mount
