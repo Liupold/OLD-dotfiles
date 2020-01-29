@@ -1,5 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =6
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/rohnch/.vim'
+let g:netrw_dirhist_7='/home/rohnch/dotfiles/config/polybar'
 let g:netrw_dirhist_6='/home/rohnch/.config/kitty'
 let g:netrw_dirhist_5='/home/rohnch/.config/cmus'
 let g:netrw_dirhist_4='/home/rohnch/dotfiles/home/scripts/tools'
@@ -8,5 +10,3 @@ let g:netrw_dirhist_2='/home/rohnch/dotfiles/home/scripts/tools'
 let g:netrw_dirhist_1='/home/rohnch/Practice'
 let g:netrw_dirhist_0='/home/rohnch'
 let g:netrw_dirhist_9='/home/rohnch/Practice'
-let g:netrw_dirhist_8='/home/rohnch/.local/share/applications'
-let g:netrw_dirhist_7='/home/rohnch/dotfiles/config/bspwm'
