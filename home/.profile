@@ -5,7 +5,7 @@ export LESSHISTFILE="-"
 # Default programs:
 export EDITOR="vim"
 export TERMINAL="st"
-export BROWSER="chromium"
+export BROWSER="brave"
 export READER="zathura"
 export FILE="ranger"
 

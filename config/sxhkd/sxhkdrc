@@ -123,7 +123,7 @@ super + alt + shift + {h,j,k,l}
 
 
 super + shift + {f, b, w, m, n}
-	{thunar, chromium,$TERMINAL-e vim, $TERMINAL -e cmus, $TERMINAL -e newsboat}
+	{thunar, $BROWSER,$TERMINAL-e vim, $TERMINAL -e cmus, $TERMINAL -e newsboat}
 
 super + {_, shift + } {F9}
 	sh ~/scripts/system_managment/dmenu_{_,u}mount
