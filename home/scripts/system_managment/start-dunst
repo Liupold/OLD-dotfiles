@@ -1,9 +1,4 @@
-if [ -e "$HOME/.cache/wal/colors.sh" ]
-then
-    . "${HOME}/.cache/wal/colors.sh"
-fi
-if [ ! -z "$(pidof dunst)" ]
-then
-        killall dunst
-fi
+[ -e "$HOME/.cache/wal/colors.sh" ] &&  . "${HOME}/.cache/wal/colors.sh"
+[ -z "$(pidof dunst)" ] || killall dunst && sleep 1
+
 dunst -nb "$background" -nf "$foreground" -cb "$background" -cf "$foreground" -lb $background -lf $foreground "$@" &

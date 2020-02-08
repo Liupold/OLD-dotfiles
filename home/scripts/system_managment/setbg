@@ -1,20 +1,13 @@
 #!/bin/sh
-REL_WALL_PATH=$1
 set -e
+NEW_WALL_PATH="$(realpath $1 2>/dev/null)" || unset NEW_WALL_PATH
 
-if [ -z "$REL_WALL_PATH" ]
-then
+[ -z "$NEW_WALL_PATH" ] && echo $(< "$HOME/.config/WALL_PATH") | xargs -r wal -a 85 -i
+[ -f "$NEW_WALL_PATH" ] && echo "$NEW_WALL_PATH" > "$HOME/.config/WALL_PATH"
+[ -f "$NEW_WALL_PATH" ] && wal -a 85 -i "$NEW_WALL_PATH" -o "$HOME/scripts/system_managment/bspwm_update_color"
 
-	WALL_PATH="$(< "$HOME/.config/WALL_PATH")"
-	wal -a 85 -i "$WALL_PATH"
-else
-	WALL_PATH=$(realpath $REL_WALL_PATH)
-	echo "$WALL_PATH" > "$HOME/.config/WALL_PATH"
-    wal -a 85 -i "$WALL_PATH" -o "$HOME/scripts/system_managment/bspwm_update_color"
-
-    sh ~/scripts/system_managment/start-dunst
-    notify-send "Theme updated!"
-fi
+sh ~/scripts/system_managment/start-dunst
+notify-send "Theme updated!"
 
 if [ "$TERM" = "xterm-kitty" ]
 then
