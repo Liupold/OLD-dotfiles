@@ -4,7 +4,7 @@ export LESSHISTFILE="-"
 
 # Default programs:
 export EDITOR="vim"
-export TERMINAL="urxvt"
+export TERMINAL="st"
 export BROWSER="chromium"
 export READER="zathura"
 export FILE="ranger"
@@ -20,4 +20,7 @@ export XSECURELOCK_NO_COMPOSITE=1 # till picom is supported
 BINPATH="$HOME/bin"
 PATH="$BINPATH:$PATH"
 
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && startx
+[ "$(tty)" = "/dev/tty1" ] && neofetch
+[ "$(tty)" = "/dev/tty1" ] && [ -f /usr/share/kbd/consolefonts/ter-powerline-v20b.psf.gz ] && setfont /usr/share/kbd/consolefonts/ter-powerline-v20b.psf.gz
+[ "$(tty)" = "/dev/tty1" ] &&  printf "start Xorg? (y/n)" && read -k ans && [ "$ans" = "y" ] && ! pgrep -x Xorg >/dev/null && startx >/dev/null 2>&1
+

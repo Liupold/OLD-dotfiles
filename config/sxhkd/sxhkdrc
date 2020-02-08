@@ -25,7 +25,8 @@ XF86AudioLowerVolume
 super + {backslash, bracketleft, bracketright}
 	playerctl -i chromium {play-pause, next, previous}
 
-
+super + w
+	bspc rule -a Sxiv -o state=floating; sxiv -to $HOME/Walls/ | xargs -r $HOME/scripts/system_managment/setbg
 ############################# BSPWM ############################
 
 
@@ -122,7 +123,7 @@ super + alt + shift + {h,j,k,l}
 
 
 super + shift + {f, b, w, m, n}
-	{thunar, chromium,$TERMINAL-e vim, $TERMINAL -e cmus, $TERMINAL --title newsboat -e newsboat}
+	{thunar, chromium,$TERMINAL-e vim, $TERMINAL -e cmus, $TERMINAL -e newsboat}
 
 super + {_, shift + } {F9}
 	sh ~/scripts/system_managment/dmenu_{_,u}mount

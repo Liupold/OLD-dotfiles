@@ -19,7 +19,8 @@ compinit
 _comp_options+=(globdots)		# Include hidden files.
 
 
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+zle-line-init() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+zle -N zle-line-init
 precmd() { EXIT_CODE=$?;if [ $EXIT_CODE -ne 0 ]; then;
 	echo "$(tput setab 1)[$EXIT_CODE]$(tput sgr 0)";
 	fi; }
@@ -27,6 +28,8 @@ precmd() { EXIT_CODE=$?;if [ $EXIT_CODE -ne 0 ]; then;
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line
 bindkey '^E' edit-command-line
+bindkey -v
+export KEYTIMEOUT=1
 
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'

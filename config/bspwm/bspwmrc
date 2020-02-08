@@ -37,6 +37,7 @@ bspc rule -a Gimp state=floating follow=on
 bspc rule -a Zathura state=tiled
 bspc rule -a Screenkey manage=off
 bspc rule -a mpv:mpvfloat state=floating
+bspc rule -a matplotlib state=floating
 
 
 #--------------------------- CHAIN LOAD ------------------------------
