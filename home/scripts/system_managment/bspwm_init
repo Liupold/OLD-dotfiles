@@ -38,6 +38,9 @@ if_start kdeconnect-indicator kdeconnect-indicator
 
 xfce4-power-manager
 
+kill $(pgrep -fl Pause_D.sh | awk '{print $1}') 2>/dev/null
+sh ~/scripts/tools/Pause_D.sh
+
 # waiting for launch
 wait_for_launch sxhkd
 wait_for_launch polybar
