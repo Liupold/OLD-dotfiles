@@ -7,9 +7,6 @@ NEW_WALL_PATH="$(realpath $1 2>/dev/null)" || unset NEW_WALL_PATH
 [ -f "$NEW_WALL_PATH" ] && wal -a 85 -i "$NEW_WALL_PATH" -o "$HOME/scripts/system_managment/bspwm_update_color"
 
 sh ~/scripts/system_managment/start-dunst
-notify-send "Theme updated!"
+[ -f "$NEW_WALL_PATH" ] && notify-send "Theme Updated!"
 
-if [ "$TERM" = "xterm-kitty" ]
-then
-    kitty @ set-colors ~/.cache/wal/colors-kitty.conf
-fi
+# [ "$TERM" = "xterm-kitty" ] && kitty @ set-colors ~/.cache/wal/colors-kitty.conf
