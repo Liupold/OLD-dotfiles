@@ -26,9 +26,7 @@ function if_start {
 }
 
 if_start sxhkd sxhkd
-sh ~/scripts/system_managment/start-dunst
 
-wait_for_launch dunst
 if_start xss-lock "xss-lock -n /usr/lib/xsecurelock/dimmer -l -- ~/scripts/system_managment/screen-lock &"
 
 if_start picom picom
@@ -45,4 +43,5 @@ sh ~/scripts/tools/Pause_D.sh
 wait_for_launch sxhkd
 wait_for_launch polybar
 
+xset s 300 5
 notify-send -i xterm "READY!"
