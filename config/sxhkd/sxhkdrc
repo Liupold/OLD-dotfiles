@@ -123,7 +123,7 @@ super + alt + shift + {h,j,k,l}
 
 
 super + shift + {f, b, w, m, n, e}
-	{thunar, $BROWSER, $TERMINAL-e vim, $TERMINAL -e cmus, $TERMINAL -e newsboat }
+	{$TERMINAL -e ranger, $BROWSER, $TERMINAL-e vim, $TERMINAL -e cmus, $TERMINAL -e newsboat }
 
 super + e
 	bspc rule -a St -o state=floating; $TERMINAL ~/scripts/tools/fzf-emoji
