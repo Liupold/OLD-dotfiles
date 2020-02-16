@@ -38,6 +38,8 @@ bspc rule -a Zathura state=tiled
 bspc rule -a Screenkey manage=off
 bspc rule -a mpv:mpvfloat state=floating
 bspc rule -a matplotlib state=floating
+bspc rule -a mpv:MpvSmol state=floating rectangle=400x225+1515+850 sticky=on
+
 
 
 #--------------------------- CHAIN LOAD ------------------------------
