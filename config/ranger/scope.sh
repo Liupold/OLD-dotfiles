@@ -97,7 +97,7 @@ esac
 case "$mimetype" in
     # Syntax highlight for text files:
     text/* | */xml)
-        bat "$path" && exit 0 || exit 1;;
+        highlight -O ansi "$path"  && { dump | trim; exit 0; } || exit 1;;
     # Ascii-previews of images:
     image/*)
         img2txt --gamma=0.6 --width="$width" "$path" && exit 4 || exit 1;;
