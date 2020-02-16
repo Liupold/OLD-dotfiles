@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# The famous "get a menu of emojis to copy" script.
+
+# Must have xclip installed to even show menu.
+chosen=$(sed 's/;.*//g' ~/scripts/tools/emoji | fzf | awk '{print $1}')
+[ -z "$chosen" ] && exit
+echo "$chosen" | tr -d '\n' | xsel -i -b || notify-send  "'$chosen' not copied to clipboard."

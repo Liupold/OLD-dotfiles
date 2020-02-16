@@ -122,11 +122,18 @@ super + alt + shift + {h,j,k,l}
 ########################### Launcher ###########################b##
 
 
-super + shift + {f, b, w, m, n}
-	{thunar, $BROWSER,$TERMINAL-e vim, $TERMINAL -e cmus, $TERMINAL -e newsboat}
+super + shift + {f, b, w, m, n, e}
+	{thunar, $BROWSER, $TERMINAL-e vim, $TERMINAL -e cmus, $TERMINAL -e newsboat }
+
+super + e
+	bspc rule -a St -o state=floating; $TERMINAL ~/scripts/tools/fzf-emoji
 
 super + {_, shift + } {F9}
 	sh ~/scripts/system_managment/dmenu_{_,u}mount
 
 super + {F5}
 	sh ~/scripts/tools/dmenucal.sh
+
+# pin
+super + s
+	{bspc node --flag sticky=on; notify-send Pinned , bspc node --flag sticky=off; notify-send Un-Pinned}
