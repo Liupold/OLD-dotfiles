@@ -35,17 +35,13 @@ elif [[ $filename =~ ^.*.tex$ ]];then
 
 	starttime=$EPOCHREALTIME
 
-	python /home/rohnch/bin/latexrun.py $filename
+	python ~/scripts/vim/latexrun.py "$filename" && rm -r latex.out
 
 	endtime=$EPOCHREALTIME
 
-	runtime="$(echo "$endtime - $starttime" | bc -lc)"
+	runtime="$(echo "$endtime - $starttime" | bc -l)"
 	echo [Finished in "$runtime"s]
 
-	read -p "remove latex.out? (y/n)" cleartex
-	if [[ $cleartex == y ]];then
-		rm -r latex.out
-	fi
 else
 	echo UnKnown File Type \""$filename"\"
 fi
