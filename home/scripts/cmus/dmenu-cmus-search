@@ -1,0 +1,7 @@
+#!/bin/sh
+# update library
+screen -S 'cmus' -p 0 -X stuff ":clear^M:add ~/Music^M"
+
+selected_song="$(ls --format=single-column -p --recursive ~/Music| grep -v / | dmenu -b -i -l 10)"
+[ -n "$selected_song" ] && [ -z $(pidof cmus) ] && screen -dmS 'cmus' /usr/bin/cmus
+[ -n "$selected_song" ] && screen -S 'cmus' -p 0 -X stuff "/$selected_song^M^M"

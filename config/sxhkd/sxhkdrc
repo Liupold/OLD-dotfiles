@@ -137,3 +137,5 @@ super + {F5}
 # pin
 super + s
 	{bspc node --flag sticky=on; notify-send Pinned , bspc node --flag sticky=off; notify-send Un-Pinned}
+super + m
+	sh ~/scripts/cmus/dmenu-cmus-search

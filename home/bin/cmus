@@ -1,7 +1,9 @@
+#!/bin/sh
 if [ -z $(pidof cmus) ]
 then
     screen -S cmus /usr/bin/cmus
+    screen -S 'cmus' -p 0 -X stuff ":clear^M:add ~/Music^M"
 else
     screen -d cmus
-    screen -r cmus
+    screen -r -S 'cmus'
 fi
