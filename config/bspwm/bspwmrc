@@ -45,4 +45,4 @@ bspc rule -a Circuit desktop=V follow=on
 
 #--------------------------- CHAIN LOAD ------------------------------
 # Autostart
-sh "$HOME/scripts/system_managment/bspwm_init" &
+sh "$HOME/scripts/system_managment/autostart"

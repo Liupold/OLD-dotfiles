@@ -1,2 +1,2 @@
-filename=$1
+filename=$@
 echo $($filename | awk '/Exec/, gsub("=", "") { print $2 }')

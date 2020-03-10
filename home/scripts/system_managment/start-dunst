@@ -1,4 +1,5 @@
+#!/bin/sh
 [ -e "$HOME/.cache/wal/colors.sh" ] &&  . "${HOME}/.cache/wal/colors.sh"
-[ -z "$(pidof dunst)" ] || killall dunst && sleep 1
+pidof dunst && killall dunst
 
 dunst -nb "$background" -nf "$foreground" -cb "$background" -cf "$foreground" -lb $background -lf $foreground "$@" &
