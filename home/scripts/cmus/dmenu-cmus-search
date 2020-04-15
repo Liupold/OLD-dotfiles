@@ -3,10 +3,8 @@
 selected_song="$(ls --format=single-column -p --recursive ~/Music| grep -v / | dmenu -b -i -l 10)"
 if [ -n "$selected_song" ];
 then
-        [ -z $(pidof cmus) ] && screen -dmS 'cmus' /usr/bin/cmus
+        pidof cmus || screen -dmS 'cmus' /usr/bin/cmus
 
-        # update library
         screen -S 'cmus' -p 0 -X stuff ":clear^M:add ~/Music^M"
-
         screen -S 'cmus' -p 0 -X stuff "/$selected_song^M^M"
 fi

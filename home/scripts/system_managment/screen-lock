@@ -8,6 +8,7 @@ export XSECURELOCK_LIST_VIDEOS_COMMAND="find ~/Walls/LockVid"
 export XSECURELOCK_SAVER="saver_mpv"
 export XSECURELOCK_SHOW_DATETIME=1
 export XSECURELOCK_NO_COMPOSITE=1 # till picom is supported
+export XSECURELOCK_FONT="Fira Mono For Powerline"
 
 
 [ "$1" = "--force" ] && xsecurelock && exit
