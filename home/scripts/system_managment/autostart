@@ -22,4 +22,6 @@ kill $(pgrep -fl Pause_D.sh | awk '{print $1}') 2>/dev/null ; sh ~/scripts/tools
 xset s 300 5
 
 while [ 1 ]; do [ ! -z $(pidof polybar) ] && break; sleep 1; done;
-$TERMINAL -e sh -c "neofetch;echo 'READY!';zsh" &
+while [ 1 ]; do [ ! -z $(pidof dunst) ] && break; sleep 1; done;
+notify-send -i xterm Luna READY!
+
