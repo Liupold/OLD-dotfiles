@@ -8,5 +8,6 @@ NEW_WALL_PATH="$(realpath $1 2>/dev/null)" || unset NEW_WALL_PATH
 
 sh ~/scripts/system_managment/start-dunst
 [ -f "$NEW_WALL_PATH" ] && notify-send "Theme Updated!"
+sh ~/scripts/lpst/build.sh
 
 # [ "$TERM" = "xterm-kitty" ] && kitty @ set-colors ~/.cache/wal/colors-kitty.conf
