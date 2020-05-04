@@ -1,0 +1,13 @@
+diff --git a/config.def.h b/config.def.h
+index 45228db..9e30f9e 100644
+--- a/config.def.h
++++ b/config.def.h
+@@ -91,7 +91,7 @@ char *termname = "st-256color";
+ unsigned int tabspaces = 8;
+ 
+ /* bg opacity */
+-float alpha = 0.8;
++float alpha = 0.65;
+ 
+ /*
+  * Default shape of cursor

@@ -6,8 +6,8 @@ NEW_WALL_PATH="$(realpath $1 2>/dev/null)" || unset NEW_WALL_PATH
 [ -f "$NEW_WALL_PATH" ] && echo "$NEW_WALL_PATH" > "$HOME/.config/WALL_PATH"
 [ -f "$NEW_WALL_PATH" ] && wal -a 85 -i "$NEW_WALL_PATH" -o "$HOME/scripts/system_managment/bspwm_update_color"
 
-sh ~/scripts/system_managment/start-dunst
+sh $HOME/scripts/system_managment/start-dunst
+sh $HOME/scripts/lpst/st-build > /dev/null
 [ -f "$NEW_WALL_PATH" ] && notify-send "Theme Updated!"
-sh ~/scripts/lpst/build.sh
 
 # [ "$TERM" = "xterm-kitty" ] && kitty @ set-colors ~/.cache/wal/colors-kitty.conf
