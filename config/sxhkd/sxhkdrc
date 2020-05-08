@@ -139,3 +139,5 @@ super + s
 	{bspc node --flag sticky=on; notify-send Pinned , bspc node --flag sticky=off; notify-send Un-Pinned}
 super + m
 	sh ~/scripts/cmus/dmenu-cmus-search
+Print
+	scrot /tmp/screen && xclip -selection clipboard -t image/png /tmp/screen && rm -f /tmp/screen
