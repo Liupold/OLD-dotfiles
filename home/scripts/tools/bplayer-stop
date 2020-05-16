@@ -1,4 +1,0 @@
-if [ "$(screen -ls bplayer-play > /dev/null ; echo $?)" -eq 0 ]
-then
-        kill $(pgrep -fl bplayer-play | grep screen | awk '{print $1}')
-fi

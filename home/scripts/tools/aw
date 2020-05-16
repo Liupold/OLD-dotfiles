@@ -1,2 +1,0 @@
-query=$1
-elinks "https://wiki.archlinux.org/index.php/$query"
