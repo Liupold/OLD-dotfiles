@@ -1,5 +1,5 @@
 #!/bin/sh
-. $LUNA_COLOR_PATH
+. $LUNA_COLOR_PATH/colors.sh
 
 grep -v -i -e 'color' -e 'ground:' $XDG_CONFIG_HOME/X11/.Xresources | cat - "$LUNA_COLOR_PATH/colors.Xresources" | xrdb -
 
