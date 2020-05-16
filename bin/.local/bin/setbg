@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+NEW_WALL_PATH="$(realpath $1 2>/dev/null)" || exit
+
+cp "$NEW_WALL_PATH"  "$LUNA_WALL_PATH"
+
+if [ "$LUNA_USE_PYWAL" -eq 1 ]
+then
+    wal -c
+    wal -n -a 85 -i "$LUNA_WALL_PATH"
+    cp $XDG_CACHE_HOME/wal/colors.sh $LUNA_COLOR_PATH/colors.sh
+    cp $XDG_CACHE_HOME/wal/colors.Xresources $LUNA_COLOR_PATH/colors.Xresources
+    cp $XDG_CACHE_HOME/wal/colors-tty.sh $LUNA_COLOR_PATH/colors-tty.sh
+    update-color
+    start-dunst
+fi
+
+feh --no-fehbg --bg-scale "$LUNA_WALL_PATH"
+
+notify-send "Theme Updated!"
+
+# [ "$TERM" = "xterm-kitty" ] && kitty @ set-colors ~/.cache/wal/colors-kitty.conf
