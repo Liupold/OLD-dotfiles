@@ -1,5 +1,7 @@
 
-echo $(tty) | grep -q '^/dev/tty.$' && [ -f $HOME/.cache/wal/colors-tty.sh ] && sh $HOME/.cache/wal/colors-tty.sh
+echo $(tty) | grep -q '^/dev/tty.$' && [ -f $LUNA_COLOR_PATH/colors-tty.sh ] && \
+        sh $LUNA_COLOR_PATH/colors-tty.sh
+
 echo $(tty) | grep -q '^/dev/tty.$' && neofetch
 echo $(tty) | grep -q '^/dev/tty.$'  && [ -f /usr/share/kbd/consolefonts/ter-powerline-v20b.psf.gz ] && setfont /usr/share/kbd/consolefonts/ter-powerline-v20b.psf.gz
 

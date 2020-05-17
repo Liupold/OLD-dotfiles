@@ -15,7 +15,7 @@ NC='\033[0m'
 extras='bin'
 configs='X11 alacritty bspwm luna_theme gtk-3.0 dunst
 kitty newsboat npm polybar ranger sxhkd sxiv vim zathura zsh'
-tty_only='bin X11 newsboat npm ranger vim zsh'
+tty_only='bin X11 newsboat luna_theme npm ranger vim zsh'
 
 to_stow=""
 
