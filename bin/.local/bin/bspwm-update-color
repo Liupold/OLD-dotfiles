@@ -1,8 +1,6 @@
 #!/bin/sh
 . $LUNA_COLOR_PATH/colors.sh
 
-grep -v -i -e 'color' -e 'ground:' $XDG_CONFIG_HOME/X11/.Xresources | cat - "$LUNA_COLOR_PATH/colors.Xresources" | xrdb -
-
 bspc config normal_border_color "$color1"
 bspc config active_border_color "$color2"
 bspc config focused_border_color "$color15"

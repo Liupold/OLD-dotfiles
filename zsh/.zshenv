@@ -94,25 +94,3 @@ export LUNA_AUTO_PAUSE=1
 export LUNA_MUSIC_DIR="$HOME/MEDIA_DRIVE/Music"
 export LUNA_DOWNLOAD_DIR=""
 
-# colors
-. ${LUNA_COLOR_PATH}/colors.sh
-export foreground
-export background
-export cursor
-export color0
-export color1
-export color2
-export color3
-export color4
-export color5
-export color6
-export color7
-export color8
-export color9
-export color10
-export color11
-export color12
-export color13
-export color14
-export color15
-
