@@ -114,7 +114,7 @@ do
         elif  [ $(echo $option | grep -e '-S\|--sync') ]
         then
                 DRY=0 && continue
-        elif  [ $(echo $option | grep -e '-D\|--sync') ]
+        elif  [ $(echo $option | grep -e '-D\|--del') ]
         then
                 D_STOW=1
         elif  [ $(echo $option | grep -e '-h\|--help') ]
