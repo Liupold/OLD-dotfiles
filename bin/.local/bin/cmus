@@ -2,7 +2,8 @@
 if [ -z $(pidof cmus) ]
 then
     screen -S cmus /usr/bin/cmus
-    screen -S 'cmus' -p 0 -X stuff ":clear^M:add ~/Music^M"
+    screen -S 'cmus' -p 0 -X stuff ":clear^M:add $LUNA_MUSIC_DIR^M"
+    screen -S 'cmus' -p 0 -X stuff "bind common d shell screen -d -t cmus"
 else
     screen -d cmus
     screen -r -S 'cmus'
