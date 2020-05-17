@@ -1,6 +1,6 @@
-alias ls="ls --color=auto -v"
+alias ls="ls --group-directories-first --color=auto -v"
 alias grep="grep --color"
-alias ll="ls -lhv"
+alias ll="ls -lh"
 alias l="ls -lahv"
 alias zathura="zathura --fork"
 alias p="sudo pacman"
