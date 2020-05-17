@@ -28,8 +28,7 @@ Make sure you have all the required packages, stow, git are installed.
 ### cloning repo to your home folder
 
 ```consol
-cd ~
-git clone https::/github.com/liupold/dotfiles && cd dotfiles
+cd ~ && git clone https://github.com/liupold/dotfiles && cd dotfiles
 ```
 
 ### do a dry run
