@@ -79,8 +79,8 @@ lp bin
 mcf X11 && lp X11
 mcf alacritty && lp alacritty
 mcf bspwm && lp bspwm
-lp colors
-mcf dunst && lp dunst
+mcf colors lp colors
+mcf luna_theme && lp luna_theme
 mcf 'gtk-3.0' && lp 'gtk-3.0'
 mcf kitty && lp kitty
 mcf newsboat && lp newsboat
@@ -92,6 +92,7 @@ mcf sxiv && lp sxiv
 mcf vim && lp vim
 mcf zathura && lp zathura
 mcf zsh && lp zsh
+
 
 [ "$DRY" -eq 1 ] && echo "(DONE!) use '--sync' to finalize."
 exit 0
