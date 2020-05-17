@@ -23,7 +23,7 @@ For:
 
 Automating the install process
 
-Make sure you have all the required packages, stow, git are installed.
+Make sure you have all the required packages, stow, git installed.
 
 ### cloning repo to your home folder
 
