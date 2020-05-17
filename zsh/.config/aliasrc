@@ -1,3 +1,4 @@
+#!/bin/sh
 alias ls="ls --group-directories-first --color=auto -v"
 alias grep="grep --color"
 alias ll="ls -lh"
@@ -8,5 +9,5 @@ alias v='vim'
 alias sv='sudo vim'
 alias py='python'
 alias pypad='vim /tmp/pypad.py'
-alias add-music-from-yt="youtube-dl --format='bestaudio' --extract-audio --audio-format=mp3  --add-metadata --output='~/Music/%(title)s.%(ext)s'"
+alias add-music-from-yt="youtube-dl --format='bestaudio' --extract-audio --audio-format=mp3  --add-metadata --output='$LUNA_MUSIC_DIR/%(title)s.%(ext)s'"
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
