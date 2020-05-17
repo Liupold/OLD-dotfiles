@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/rohnch/dotfiles/X11'
 let g:netrw_dirhist_8='/MEDIA_DRIVE/WORK_DRIVE/RiceMarket/src/luna/CONFs'
 let g:netrw_dirhist_7='/MEDIA_DRIVE/WORK_DRIVE/RiceMarket/src/luna'
 let g:netrw_dirhist_6='/MEDIA_DRIVE/WORK_DRIVE/RiceMarket/src/luna/CONFs'
@@ -9,4 +10,3 @@ let g:netrw_dirhist_3='/home/rohnch/.local/share/broot'
 let g:netrw_dirhist_2='/home/rohnch/.local/bin'
 let g:netrw_dirhist_1='/home/rohnch/.local'
 let g:netrw_dirhist_0='/home/rohnch/.local/bin'
-let g:netrw_dirhist_9='/home/rohnch/.config/newsboat'
