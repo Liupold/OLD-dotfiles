@@ -91,7 +91,7 @@ export LUNA_WALL_PATH="$XDG_CONFIG_HOME/WALL.jpg"
 export LUNA_YPLAY_RES="1080"
 export LUNA_YPLAY_SCALE="0.6"
 export LUNA_AUTO_PAUSE=1
-export LUNA_MUSIC_DIR=""
+export LUNA_MUSIC_DIR="$HOME/MEDIA_DRIVE/Music"
 export LUNA_DOWNLOAD_DIR=""
 
 # colors
