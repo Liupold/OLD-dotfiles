@@ -1,5 +1,5 @@
 mkdir -p ~/.config
-mkdir -p ~/.local/bin
+mkdir -p ~/.local/bin/
 mkdir -p ~/.local/share/
 
 # defaults
@@ -55,7 +55,6 @@ resolve() {
 }
 
 
-
 lp() {
 
         [ "$DRY" -eq 1 ] && \
@@ -80,8 +79,7 @@ lp bin
 mcf X11 && lp X11
 mcf alacritty && lp alacritty
 mcf bspwm && lp bspwm
-mcf cmus && lp cmus
-mcf colors && lp colors
+lp colors
 mcf dunst && lp dunst
 mcf 'gtk-3.0' && lp 'gtk-3.0'
 mcf kitty && lp kitty
