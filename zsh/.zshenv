@@ -86,8 +86,8 @@ export PATH=$(find "$USER_BINPATH" -type d | tr '\n' ':' | sed 's/:$//'):${PATH}
 export LUNA_WALL_DIR="$XDG_DATA_HOME/WALLS"
 mkdir -p "$LUNA_WALL_DIR"
 export LUNA_USE_PYWAL=1
-export LUNA_COLOR_PATH="$XDG_DATA_HOME/luna_color"
-export LUNA_WALL_PATH="$XDG_CONFIG_HOME/WALL.jpg"
+export LUNA_COLOR_PATH="$XDG_CONFIG_HOME/luna_theme"
+export LUNA_WALL_PATH="$XDG_CONFIG_HOME/luna_theme/WALL.jpg"
 export LUNA_YPLAY_RES="1080"
 export LUNA_YPLAY_SCALE="0.6"
 export LUNA_AUTO_PAUSE=1
