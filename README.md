@@ -20,6 +20,32 @@ For:
 * zathura (A simple and light Reader PDF, DJVU, EPUB)
 * zsh (Best shell in my opinion)
 
+
+Automating the install process
+
+Make sure you have all the required packages, stow, git are installed.
+
+### cloning repo to your home folder
+
+```consol
+cd ~
+git clone https::/github.com/liupold/dotfiles && cd dotfiles
 ```
-stow -v $(ls | grep -v '.*.md')
+
+### do a dry run
+
+```consol
+./setup.sh
+```
+### you can overwrite files using `--overwrite-files` (Be careful)
+
+```consol
+./setup.sh --overwrite-files
+```
+
+Resolve the conflicts manually which can't be resolved automatically.
+
+# make changes.
+```consol
+./setup.sh --overwrite-files --sync
 ```
