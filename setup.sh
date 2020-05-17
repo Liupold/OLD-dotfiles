@@ -6,15 +6,29 @@ mkdir -p ~/.local/share/
 OVERWRITE_FILES=0
 OVERWRITE_LINKS=1
 DRY=1
+D_STOW=0
 
+RED='\033[0;31m'
+YELLOW='\033[0;33m '
+NC='\033[0m'
 
-echo "$@" | grep -q -e '--sync' && \
-        echo "W: Making Changes Permanent!" && DRY=0
+extras='bin'
+configs='X11 alacritty bspwm luna_theme gtk-3.0
+kitty newsboat npm polybar ranger sxhkd sxiv vim zathura zsh'
+tty_only='bin X11 newsboat npm ranger vim zsh'
 
-[ "$DRY" -eq 1 ] && echo "Running in dry mode use '--sync' to finalize."
+to_stow=""
 
-echo "$@" | grep -q -e '--overwrite-files' && \
-        echo "W: overwriting files!" && OVERWRITE_FILES=1
+WARN() {
+        msg="$1"
+        printf "${YELLOW}W${NC}: $msg\n"
+}
+
+Err() {
+        msg="$1"; code=$2
+        printf "${RED}E${NC}: $msg\n"
+        exit $code
+}
 
 mcf() {
         mkdir -p ~/.config/$1
@@ -41,58 +55,87 @@ resolve() {
                 if [ -L "$file" ]
                 then
                         [ "$OVERWRITE_LINKS" -eq 0 ] && \
-                                echo "CONFLICT: \"$file\" (link)"
+                                Err "CONFLICT: \"$file\" (link)" 1
                         resolveL $file
                 elif [ -f "$file" ]
                 then
                         [ "$OVERWRITE_FILES" -eq 0 ] && \
-                                echo "CONFLICT: \"$file\""
+                        Err "CONFLICT: \"$file\" (Tip: Backup the file and use -O)" 1
                         resolveF $file
                 else
-                        "E: $file required manual resolve."
+                        Err "$file required manual resolve." 2
                 fi
         done
 }
 
 
 lp() {
-
         [ "$DRY" -eq 1 ] && \
-                conflicts="$(stow --simulate $1 2>&1 | awk '/*/{print $11}')"
+                stow_out="$(stow --simulate $1 2>&1)"
+        echo $stow_out | grep 'ERROR:' && exit 1
         [ "$DRY" -eq 0 ] && \
-                conflicts="$(stow $1 2>&1 | awk '/*/{print $11}')"
+                stow_out="$(stow -v $1 2>&1)"
 
-        [ -z "$conflicts" ] && echo "Linked $1! (no conflicts)"
+        conflicts="$(echo "$stow_out" | awk '/*/{print $11}')"
+
+        [ -z "$conflicts" ] && echo -e "$stow_out" | grep 'LINK'
+        [ -z "$conflicts" ] && echo "no conflicts: $1"
+
         if [ -n "$conflicts" ]
         then
             resolve "$conflicts"
             return_code=$?
 
-            [ "$return_code" -ne 0 ] && echo "E: Failed for $1"
-            [ "$return_code" -eq 0 ] && echo "resolved conflicts $1"
+            [ "$return_code" -eq 0 ] && echo "resolved conflicts: $1"
             [ "$return_code" -eq 0 ] && [ "$DRY" -eq 0 ]&& lp $1
+
         fi
 }
 
-lp bin
+mcf_and_lp() {
+        for sf in $1
+        do
+                mcf $sf && lp $sf
+        done
+}
 
-mcf X11 && lp X11
-mcf alacritty && lp alacritty
-mcf bspwm && lp bspwm
-mcf colors lp colors
-mcf luna_theme && lp luna_theme
-mcf 'gtk-3.0' && lp 'gtk-3.0'
-mcf kitty && lp kitty
-mcf newsboat && lp newsboat
-mcf npm && lp npm
-mcf polybar && lp polybar
-mcf ranger && lp ranger
-mcf sxhkd && lp sxhkd
-mcf sxiv && lp sxiv
-mcf vim && lp vim
-mcf zathura && lp zathura
-mcf zsh && lp zsh
+del() {
+        for sf in $1
+        do
+                stow -D $1
+        done
+}
 
+for option in $@
+do
+        if  [ $(echo $option | grep -e '-O\|--overwrite-file') ]
+        then
+                OVERWRITE_FILES=1 && continue
+        elif  [ $(echo $option | grep -e '-S\|--sync') ]
+        then
+                DRY=0 && continue
+        elif  [ $(echo $option | grep -e '-D\|--sync') ]
+        then
+                D_STOW=1
+        elif  [ $(echo $option | grep -e '-h\|--help') ]
+        then
+                DRY=0 && continue
+        elif [ $(echo $option | grep -e '-.*') ]
+        then
+                Err "Unrecognised Option '$option'" 1
+        elif [ $(echo $option | grep -e 'all') ]
+        then
+                to_stow="$extras $configs"
+        elif [ $(echo $option | grep -e 'tty_only') ]
+        then
+                to_stow="$tty_only"
+        else
+                # add packages to stow
+                to_stow="$to_stow $option"
+        fi
 
-[ "$DRY" -eq 1 ] && echo "(DONE!) use '--sync' to finalize."
+done
+[ "$D_STOW" -eq 1 ] && del "$to_stow"
+[ "$D_STOW" -eq 0 ] && mcf_and_lp "$to_stow"
+[ $DRY -eq 1 ] && WARN "Dry run nothing is modified. (Tip use -S)"
 exit 0

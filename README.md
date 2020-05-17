@@ -34,17 +34,17 @@ cd ~ && git clone https://github.com/liupold/dotfiles && cd dotfiles
 ### do a dry run
 
 ```consol
-./setup.sh
+./setup.sh all
 ```
 ### you can overwrite files using `--overwrite-files` (Be careful)
 
 ```consol
-./setup.sh --overwrite-files
+./setup.sh --overwrite-files all
 ```
 
 Resolve the conflicts manually which can't be resolved automatically.
 
 # make changes.
 ```consol
-./setup.sh --overwrite-files --sync
+./setup.sh --overwrite-files --sync all
 ```
