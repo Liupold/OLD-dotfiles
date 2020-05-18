@@ -31,20 +31,20 @@ Make sure you have all the required packages, stow, git installed.
 cd ~ && git clone https://github.com/liupold/dotfiles && cd dotfiles
 ```
 
-### do a dry run
+# Installing dotfiles
 
 ```consol
-./setup.sh all
+. ./packages.sh
 ```
-### you can overwrite files using `--overwrite-files` (Be careful)
+* all
 
-```consol
-./setup.sh --overwrite-files all
+```
+./dls -vS "$dot_all"
 ```
 
-Resolve the conflicts manually which can't be resolved automatically.
+* only terminal based
 
-# make changes.
-```consol
-./setup.sh --overwrite-files --sync all
 ```
+./dls -vS "$dot_term"
+```
+Learn more about [dls](https://github.com/Liupold/dls).
