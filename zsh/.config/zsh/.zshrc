@@ -53,4 +53,3 @@ zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
 
-[ "$TERM" = "alacritty" ] && wal -i "$(< ~/.config/WALL_PATH)" --vte -n -t -e > /dev/null 2>&1 || echo -n
