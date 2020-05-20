@@ -16,9 +16,7 @@ manage xss-lock || xss-lock -n /usr/lib/xsecurelock/dimmer -l -- screen-lock &
 manage sxhkd || sxhkd &
 manage picom || picom &
 manage nm-applet || nm-applet &
-manage kdeconnect-indicator || kdeconnect-indicator &
 # manage xfce4-power-manager || xfce4-power-manager &
-manage syncthing || syncthing -no-browser > /dev/null &
 kill $(pgrep -fl Pause_D.sh | awk '{print $1}') 2>/dev/null ; autopauseD &
 
 xset s 300 5
