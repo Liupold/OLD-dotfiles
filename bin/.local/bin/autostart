@@ -1,18 +1,18 @@
 #!/bin/sh
 update-color
-
 launch_polybar.sh
 start-dunst
+
 RESTART=0
 [ "$1" = "--restart" ] && RESTART=1
 
 manage() {
         PROG=$1
-        [ $RESTART -eq 1 ] && pidof $PROG && killall $PROG
-        [ $RESTART -eq 0 ] && pidof $PROG
+        [ $RESTART -eq 1 ] && pidof "$PROG" && killall "$PROG"
+        [ $RESTART -eq 0 ] && pidof "$PROG"
 }
 
-manage xss-lock || xss-lock -n /usr/lib/xsecurelock/dimmer -l -- screen-lock &
+manage xss-lock || xss-lock -n '/usr/lib/xsecurelock/dimmer' -l -- 'screen-lock' &
 manage sxhkd || sxhkd &
 manage picom || picom &
 manage nm-applet || nm-applet &
