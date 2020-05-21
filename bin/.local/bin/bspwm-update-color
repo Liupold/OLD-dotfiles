@@ -1,5 +1,5 @@
 #!/bin/sh
-. $LUNA_COLOR_PATH/colors.sh
+. "${LUNA_COLOR_PATH}/colors.sh"
 
 bspc config normal_border_color "$color1"
 bspc config active_border_color "$color2"

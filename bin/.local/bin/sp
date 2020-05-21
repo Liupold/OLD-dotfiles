@@ -1,6 +1,6 @@
 #!/bin/sh
 if [ "$(screen -ls screen-player > /dev/null ; echo $?)" -eq 0 ]
 then
-        kill $(pgrep -fl screen-player | grep screen | awk '{print $1}')
+        kill "$(pgrep -fl screen-player | grep screen | awk '{print $1}')"
 fi
 screen -dmS screen-player mpv --x11-name=mpvfloat $@
