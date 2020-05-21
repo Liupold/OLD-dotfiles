@@ -2,4 +2,4 @@
 . "$LUNA_COLOR_PATH/colors.sh"
 pidof 'dunst' && killall 'dunst'
 
-dunst -nb "$background" -nf "$foreground" -cb "$background" -cf "$foreground" -lb $background -lf $foreground "$@" &
+dunst -nb "$background" -nf "$foreground" -cb "$background" -cf "$foreground" -lb "$background" -lf "$foreground" "$@" &
