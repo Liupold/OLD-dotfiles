@@ -3,4 +3,10 @@ if [ "$(screen -ls screen-player > /dev/null ; echo $?)" -eq 0 ]
 then
         kill "$(pgrep -fl screen-player | grep screen | awk '{print $1}')"
 fi
-screen -dmS screen-player mpv --x11-name=mpvfloat "$*"
+
+is_tty=0
+tty | grep -q '/dev/tty' && is_tty=1
+
+# $* has to be unsafe
+[ "$is_tty" -eq 1 ] && mpv --vo=gpu --gpu-context=drm $*
+[ "$is_tty" -eq 0 ] && screen -dmS screen-player mpv --x11-name=mpvfloat $*
