@@ -76,7 +76,7 @@ export EDITOR="vim"
 export TERMINAL="st"
 export BROWSER="brave"
 export READER="zathura --fork"
-export FILE="ranger"
+export FILE="lf"
 export MUSIC_PLAYER="cmus"
 
 

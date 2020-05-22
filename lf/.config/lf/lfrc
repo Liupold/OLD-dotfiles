@@ -1,0 +1,51 @@
+set icons on
+set drawbox on
+
+set previewer ~/.config/lf/pv.sh
+
+map gh cd ~
+map gd cd ~/dotfiles
+map gl cd ~/Downloads
+map go cd ~/Documents
+map gp cd ~/Documents/PDFs
+map gm cd /MEDIA_DRIVE
+map gw cd /MEDIA_DRIVE/WORK_DRIVE/
+map gt cd ~/.local/trash
+
+map tf push $touch<space>
+map td push $mkdir<space>-p<space>
+
+cmd trash ${{
+    time_stamp="$(date +%s)"
+
+    mkdir -p "$HOME/.local/trash/$time_stamp/"
+    if [ -z "$fs" ]; then
+        mv "$f" "$HOME/.local/trash/$time_stamp/"
+    else
+        IFS="'printf '\n\t''"
+        mv $fs "$HOME/.local/trash/$time_stamp/"
+    fi
+}}
+
+cmd undo_trash ${{
+    last_trash="$(ls $HOME/.local/trash/ | sort -n | tail -1)"
+    files="$(ls -1A $HOME/.local/trash/$last_trash/)"
+    for file in $files
+    do
+        mv "$HOME/.local/trash/$last_trash/$file" .
+    done
+    rmdir "$HOME/.local/trash/$last_trash"
+}}
+
+
+cmd delete ${{
+    echo -n "Permanently delete? $f (y/n)"
+    read read_into
+    [ "$read_into" != 'y' ] && exit
+    rm -r "$f"
+}}
+
+map x :trash
+map U :undo_trash
+map X :delete
+
