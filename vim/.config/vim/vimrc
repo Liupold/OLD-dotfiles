@@ -2,7 +2,6 @@ set undodir=$XDG_DATA_HOME/vim/undo
 set directory=$XDG_DATA_HOME/vim/swap
 set backupdir=$XDG_DATA_HOME/vim/backup
 set viewdir=$XDG_DATA_HOME/vim/view
-set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 
 " SET VARS
@@ -11,7 +10,8 @@ set timeoutlen=300
 set number
 set relativenumber
 set guifont="Fira Code 10"
-" set termguicolors
+set nocompatible
+set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 set expandtab
 set tabstop=4
 colorscheme molokai
@@ -22,6 +22,7 @@ set t_Co=256
 
 filetype plugin on
 syntax on
+set path+=**
 set wildmode=longest,list,full
 set splitright
 set splitbelow
@@ -40,13 +41,11 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 
 Plug 'junegunn/vim-easy-align'
 Plug 'kovetskiy/sxhkd-vim'
-Plug 'vimlab/split-term.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Plug 'dense-analysis/ale'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'dbeniamine/vim-compile'
 "  Plug 'junegunn/fzf'
+" Plug 'ycm-core/YouCompleteMe'
 call plug#end()
 
 let g:syntastic_always_populate_loc_list = 1
@@ -55,8 +54,8 @@ let g:airline_theme='term'
 
 " ----------------------------------------------------------
 " KeyMapings
-let mapleader ="]"
-map <F5> :w<CR>:ter vim-compiler.sh "%"<CR>
+let mapleader ="["
+map <F5> :w<CR>:ter vim_make "%"<CR>
 map <F6> :set spell! spelllang=en_us<CR>
 map <leader>q :q<CR>
 
@@ -73,7 +72,7 @@ inoremap <leader>z <c-o>:u<CR>i
 inoremap <leader>x <Esc><c-r>i
 inoremap <leader><leader> <Esc><Esc>:w<CR>
 inoremap <leader>s <Esc><Esc>:w<CR>i
-inoremap <leader>c <Esc><Esc>:w<Esc>:ter vim-compiler.sh "%"<CR>
+inoremap <leader>c <Esc><Esc>:w<Esc>:ter vim_make "%"<CR>
 
 
 " ----------------------------------------------------------

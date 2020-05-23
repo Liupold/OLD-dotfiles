@@ -49,3 +49,6 @@ map x :trash
 map U :undo_trash
 map X :delete
 
+map op &zathura --fork "$f"
+map oi &feh "$f"
+
