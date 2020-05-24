@@ -5,8 +5,8 @@ alias ll="ls -lh"
 alias l="ls -lahv"
 alias zathura="zathura --fork"
 alias p="sudo pacman"
-alias v='vim'
-alias sv='sudo vim'
+alias v='$EDITOR'
+alias sv='sudo $EDITOR'
 alias py='python'
 alias pypad='vim /tmp/pypad.py'
 alias add-music-from-yt="youtube-dl --format='bestaudio' --extract-audio --audio-format=mp3  --add-metadata --output='$LUNA_MUSIC_DIR/%(title)s.%(ext)s'"
