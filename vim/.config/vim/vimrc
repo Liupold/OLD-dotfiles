@@ -4,7 +4,7 @@ set backupdir=$XDG_DATA_HOME/vim/backup
 set viewdir=$XDG_DATA_HOME/vim/view
 set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 
-" SET VARS
+" Some Basic autocmd
 set laststatus=2
 set timeoutlen=300
 set number
@@ -14,7 +14,6 @@ set nocompatible
 set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
 set expandtab
 set tabstop=4
-colorscheme molokai
 set t_Co=256
 
 " ----------------------------------------------------------
@@ -22,14 +21,21 @@ set t_Co=256
 
 filetype plugin on
 syntax on
+colorscheme gruvbox
 set path+=**
 set wildmode=longest,list,full
 set splitright
 set splitbelow
 
+if !has('nvim')
+        set ttymouse=xterm2
+endif
+
+ if exists(':tnoremap')
+        tnoremap <Esc> <C-\><C-n>
+endif
+
 " ----------------------------------------------------------
-
-
 " PLUGINs
 if empty(glob('$XDG_DATA_HOME/vim/plugged'))
         silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -38,54 +44,58 @@ if empty(glob('$XDG_DATA_HOME/vim/plugged'))
 endif
 
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
-
 Plug 'junegunn/vim-easy-align'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-" Plug 'dense-analysis/ale'
-"  Plug 'junegunn/fzf'
-" Plug 'ycm-core/YouCompleteMe'
+Plug 'preservim/nerdtree'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'lervag/vimtex'
 call plug#end()
 
-let g:syntastic_always_populate_loc_list = 1
-let g:airline_powerline_fonts = 1
-let g:airline_theme='term'
+let g:airline_powerline_fonts = 0
 
 " ----------------------------------------------------------
 " KeyMapings
-let mapleader ="["
-map <F5> :w<CR>:ter vim_make "%"<CR>
-map <F6> :set spell! spelllang=en_us<CR>
-map <leader>q :q<CR>
+let mapleader =","
 
-map <leader>e :e
-map <leader>t :tabedit<CR>
+" custom make script
+noremap <F5> :w<CR>:!vim_make "%"<CR>
+
+noremap <F6> :set spell! spelllang=en_us<CR>
+noremap <leader><leader> <Esc><Esc>:w<CR>
+noremap <leader>q :q<CR>
+
+noremap <leader>e :e
+nnoremap <leader>t :tabedit<CR>
+nnoremap <leader>v :tabprevious<CR>
+nnoremap <leader>b :tabnext<CR>
 
 nnoremap <Down> :resize -1<CR>
 nnoremap <Up> :resize +1<CR>
 nnoremap <Left> :vertical resize +1<CR>
 nnoremap <Right> :vertical resize -1<CR>
+nnoremap <leader>c :!vim_make "%"<CR>
 
+inoremap <leader><leader> <Esc><ESc>
 inoremap <leader><Space> <Esc><Esc>/<CR>"_c4l
-inoremap <leader>z <c-o>:u<CR>i
-inoremap <leader>x <Esc><c-r>i
-inoremap <leader><leader> <Esc><Esc>:w<CR>
-inoremap <leader>s <Esc><Esc>:w<CR>i
-inoremap <leader>c <Esc><Esc>:w<Esc>:ter vim_make "%"<CR>
 
 
 " ----------------------------------------------------------
 " Shortcutting split navigation, saving a keypress:
 	map <C-h> <C-w>h
 	map <C-j> <C-w>j
-	map <C-k> <C-w>k
 	map <C-l> <C-w>l
+	map <C-k> <C-w>k
+
 " ----------------------------------------------------------
 " Copy And Paste
-	vnoremap <C-c> +y
-	map <C-p> +p
-	inoremap <C-p> <Esc><Esc>p<CR>i
+
+    " diffent clip for delete cmds
+    noremap dd "bdd
+    noremap dw "bdw
+    vnoremap dw "bdw
+    vnoremap dd "bdd
+    noremap pd "bp
 
 " ----------------------------------------------------------
 " Some Basic autocmd
@@ -95,16 +105,18 @@ inoremap <leader>c <Esc><Esc>:w<Esc>:ter vim_make "%"<CR>
 " LaTex
 "	autocmd BufWritePost *.tex !vim-compiler %
 
-let g:coc_global_extensions = [
-  \ 'coc-snippets',
-  \ 'coc-pairs',
-  \ 'coc-tsserver',
-  \ 'coc-eslint',
-  \ 'coc-prettier',
-  \ 'coc-json',
-  \ ]
+" ----------------------------------------------------------
+" coc nvim
+set updatetime=300
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
