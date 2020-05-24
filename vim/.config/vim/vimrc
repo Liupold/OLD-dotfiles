@@ -50,8 +50,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
+Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
-
 let g:airline_powerline_fonts = 0
 
 " ----------------------------------------------------------
@@ -59,8 +60,6 @@ let g:airline_powerline_fonts = 0
 let mapleader =","
 
 " custom make script
-noremap <F5> :w<CR>:!vim_make "%"<CR>
-
 noremap <F6> :set spell! spelllang=en_us<CR>
 noremap <leader><leader> <Esc><Esc>:w<CR>
 noremap <leader>q :q<CR>
@@ -74,9 +73,8 @@ nnoremap <Down> :resize -1<CR>
 nnoremap <Up> :resize +1<CR>
 nnoremap <Left> :vertical resize +1<CR>
 nnoremap <Right> :vertical resize -1<CR>
-nnoremap <leader>c :!vim_make "%"<CR>
 
-inoremap <leader><leader> <Esc><ESc>
+inoremap <leader><leader> <Esc><ESc>:w<CR>
 inoremap <leader><Space> <Esc><Esc>/<CR>"_c4l
 
 
@@ -103,7 +101,11 @@ inoremap <leader><Space> <Esc><Esc>/<CR>"_c4l
 
 " ----------------------------------------------------------
 " LaTex
-"	autocmd BufWritePost *.tex !vim-compiler %
+	autocmd BufReadPre *.tex noremap <F5> :!latexrun.py  --clean-all "%"<CR>
+
+" ----------------------------------------------------------
+" Python autocmd
+	autocmd BufReadPre *.py nnoremap <F5> :CocCommand python.execInTerminal<CR>
 
 " ----------------------------------------------------------
 " coc nvim
