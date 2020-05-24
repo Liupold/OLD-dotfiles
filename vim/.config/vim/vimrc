@@ -47,6 +47,7 @@ endif
 call plug#begin('$XDG_DATA_HOME/vim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'kovetskiy/sxhkd-vim'
+Plug 'VebbNix/lf-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
