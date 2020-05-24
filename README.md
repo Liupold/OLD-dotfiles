@@ -12,11 +12,12 @@ For:
 * kitty (A cute little terminal)
 * newsboat (Best rss reader, YouTube client 😉)
 * npm (Just added to clean files from home)
+* mpv (keyboard bindings h,j,k,l vim like)
 * polybar (Most responsive bar EVER)
 * ranger (The Way to browse files in linux)
 * sxhkd (A fantastic keyboard daemon)
 * sxiv (A great image viewer)
-* vim (Need no introduction)
+* nvim (Need no introduction)
 * zathura (A simple and light Reader PDF, DJVU, EPUB)
 * zsh (Best shell in my opinion)
 
