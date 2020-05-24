@@ -21,7 +21,8 @@ set t_Co=256
 
 filetype plugin on
 syntax on
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme molokai
 set path+=**
 set wildmode=longest,list,full
 set splitright
@@ -47,13 +48,15 @@ call plug#begin('$XDG_DATA_HOME/vim/plugged')
 Plug 'junegunn/vim-easy-align'
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'lervag/vimtex'
 Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
+let g:airline_theme='term'
 
 " ----------------------------------------------------------
 " KeyMapings
