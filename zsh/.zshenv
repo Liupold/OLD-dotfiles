@@ -1,5 +1,4 @@
-#!/bin/sh
-export XDG_CONFIG_HOME="$HOME/.config"
+#!/bin/sh export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 
@@ -91,6 +90,6 @@ export LUNA_WALL_PATH="$XDG_CONFIG_HOME/luna_theme/WALL.jpg"
 export LUNA_YPLAY_RES="1080"
 export LUNA_YPLAY_SCALE="0.6"
 export LUNA_AUTO_PAUSE=1
-export LUNA_MUSIC_DIR="$HOME/MEDIA_DRIVE/Music"
-export LUNA_DOWNLOAD_DIR=""
+export LUNA_MUSIC_DIR="$HOME/Music"
+export LUNA_DOWNLOAD_DIR="$HOME/Downloads"
 
