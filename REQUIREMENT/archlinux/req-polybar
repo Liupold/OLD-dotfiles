@@ -1,0 +1,8 @@
+-A:polybar
+ttf-fira-code
+acpid
+bc
+-A:ttf-unifont
+-A:siji-git
+-A:noto-fonts-all
+-A:ttf-font-awesome
