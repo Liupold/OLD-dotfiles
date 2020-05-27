@@ -35,7 +35,7 @@ cd ~ && git clone https://github.com/liupold/dotfiles && cd dotfiles
 # Installing dotfiles
 
 ```consol
-. ./packages.sh
+. ./dots.sh
 ```
 * all
 

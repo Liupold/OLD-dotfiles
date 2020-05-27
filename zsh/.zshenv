@@ -1,4 +1,4 @@
-#!/bin/sh 
+#!/bin/sh
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
@@ -70,6 +70,9 @@ export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
 
 # Xorg
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
+
+# python
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pystartup.py"
 
 #Progs
 export EDITOR="nvim"
