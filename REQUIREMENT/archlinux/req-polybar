@@ -2,7 +2,7 @@
 ttf-fira-code
 acpid
 bc
+ttf-font-awesome
 -A:ttf-unifont
 -A:siji-git
 -A:noto-fonts-all
--A:ttf-font-awesome
