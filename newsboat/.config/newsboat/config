@@ -34,7 +34,7 @@ browser chromium
 macro , open-in-browser
 macro y set browser "yplay"; open-in-browser ; set browser chromium
 macro p set browser "yplay --x11-name=MpvSmol"; open-in-browser ; set browser chromium
-macro a set browser "sp --no-video"; open-in-browser ; set browser linkhandler
+macro a set browser "play --no-video"; open-in-browser ; set browser linkhandler
 macro w set browser "brave"; open-in-browser ; set browser linkhandler
 macro u set browser "dmenuhandler"; open-in-browser ; set browser linkhandler
 macro c set browser "xsel -b <<<" ; open-in-browser ; set browser linkhandler

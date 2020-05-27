@@ -1,2 +1,0 @@
-#!/bin/sh
-sp --window-scale="$LUNA_YPLAY_SCALE" --ytdl-format='bestvideo[height<='"$LUNA_YPLAY_RES"']+bestaudio/best[height<='"$LUNA_YPLAY_RES"']' "$@"

@@ -9,4 +9,4 @@ tty | grep -q '/dev/tty' && is_tty=1
 
 # has to be "$@" not "$*"
 [ "$is_tty" -eq 1 ] && mpv --vo=gpu --gpu-context=drm "$@"
-[ "$is_tty" -eq 0 ] && screen -dmS screen-playe mpv --x11-name=mpvfloat "$@"
+[ "$is_tty" -eq 0 ] && screen -dmS screen-player mpv --x11-name=mpvfloat "$@"
