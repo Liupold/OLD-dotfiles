@@ -5,9 +5,12 @@ RESTART=0
 
 manage() {
         PROG=$1
-        [ $RESTART -eq 1 ] && pidof "$PROG" && killall "$PROG"
+        if [ $RESTART -eq 1 ]
+        then
+                pidof "$PROG" && killall "$PROG"
+                while pgrep -x "$PROG" >/dev/null; do sleep 1; done
+        fi
         [ $RESTART -eq 0 ] && pidof "$PROG"
-        while pgrep -x "$PROG" >/dev/null; do sleep 1; done
 }
 
 manage xss-lock || xss-lock -n '/usr/lib/xsecurelock/dimmer' -l -- 'screen-lock' &
