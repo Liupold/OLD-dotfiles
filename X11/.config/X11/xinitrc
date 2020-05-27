@@ -1,10 +1,11 @@
 #!/bin/sh
 
-userresources=$XDG_CONFIG_HOME/X11/.Xresources
-colorresources=$LUNA_COLOR_PATH/colors.Xresources
-usermodmap=$HOME/X11/.Xmodmap
-sysresources=/etc/X11/xinit/.Xresources
-sysmodmap=/etc/X11/xinit/.Xmodmap
+userresources="$XDG_CONFIG_HOME/X11/.Xresources"
+colorresources="$LUNA_COLOR_PATH/colors.Xresources"
+usermodmap="$HOME/X11/.Xmodmap"
+sysresources='/etc/X11/xinit/.Xresources'
+sysmodmap='/etc/X11/xinit/.Xmodmap'
+userautostart="$XDG_CONFIG_HOME/X11/autostart"
 
 # merge in defaults and keymaps
 
@@ -18,4 +19,5 @@ sysmodmap=/etc/X11/xinit/.Xmodmap
 feh --no-fehbg --bg-scale "$LUNA_WALL_PATH"
 xsetroot -cursor_name left_ptr
 setxkbmap -option caps:escape
+$userautostart &
 exec /usr/bin/bspwm

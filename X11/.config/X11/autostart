@@ -1,8 +1,5 @@
 #!/bin/sh
-update-color
-launch_polybar.sh
 start-dunst
-
 RESTART=0
 [ "$1" = "--restart" ] && RESTART=1
 
@@ -10,19 +7,19 @@ manage() {
         PROG=$1
         [ $RESTART -eq 1 ] && pidof "$PROG" && killall "$PROG"
         [ $RESTART -eq 0 ] && pidof "$PROG"
+        while pgrep -x "$PROG" >/dev/null; do sleep 1; done
 }
 
 manage xss-lock || xss-lock -n '/usr/lib/xsecurelock/dimmer' -l -- 'screen-lock' &
 manage sxhkd || sxhkd &
 manage picom || picom &
 manage nm-applet || nm-applet &
-# manage xfce4-power-manager || xfce4-power-manager &
+manage polybar || polybar main &
 kill "$(pgrep -fl autopauseD | awk '{print $1}')" 2>/dev/null ; autopauseD &
 
 xset s 300 5
 
-while true; do [ -n "$(pidof polybar)" ] && break; sleep 1; done;
-while true; do [ -n "$(pidof dunst)" ] && break; sleep 1; done;
-
+while true; do pidof polybar && break; sleep 1; done;
+while true; do pidof dunst && break; sleep 1; done;
 notify-send -i xterm Luna READY!
 
