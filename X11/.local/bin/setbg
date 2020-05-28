@@ -12,6 +12,7 @@ then
     cp "$XDG_CACHE_HOME/wal/colors.Xresources" "$LUNA_COLOR_PATH/colors.Xresources"
     cp "$XDG_CACHE_HOME/wal/colors-tty.sh" "$LUNA_COLOR_PATH/colors-tty.sh"
     cp "$XDG_CACHE_HOME/wal/colors-kitty.conf" "$LUNA_COLOR_PATH/colors-kitty.conf"
+    cp "$XDG_CACHE_HOME/wal/sequences" "$LUNA_COLOR_PATH/sequences"
     bspwm-update-color
     start-dunst
 fi
