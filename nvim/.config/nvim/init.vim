@@ -85,8 +85,6 @@ function! ReadOnly()
                 return ''
 endfunction
 
-
-" http://stackoverflow.com/a/10416234/213124
 set laststatus=2
 set statusline=
 set statusline+=%0*\ %{toupper(g:currentmode[mode()])}   " Current mode
@@ -170,6 +168,9 @@ endif
 
 " ----------------------------------------------------------
 " Python autocmd
-	autocmd BufReadPre *.py nnoremap <F5> :sp<CR>:resize 10<CR>:term python "%"<CR>
+	autocmd BufReadPre *.py nnoremap <F5> :sp<CR>:resize 10<CR>:term time python "%"<CR>
 
+" ----------------------------------------------------------
+"  sh
+	autocmd BufReadPre *.sh nnoremap <F5> :sp<CR>:resize 10<CR>:term time sh "%"<CR>
 
