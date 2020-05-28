@@ -11,8 +11,8 @@ export ZDOTDIR="$HOME/.config/zsh"
 export HISTFILE="$XDG_CACHE_HOME/zsh/history"
 
 #vim
-mkdir -p "$XDG_DATA_HOME/vim/undo" "$XDG_DATA_HOME/vim/swap" "$XDG_DATA_HOME/vim/backup"
-export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+mkdir -p "$XDG_DATA_HOME/nvim/undo" "$XDG_DATA_HOME/nvim/swap" "$XDG_DATA_HOME/nvim/backup"
+export VIMINIT="source $XDG_CONFIG_HOME/nvim/init.vim"
 
 # adb
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
