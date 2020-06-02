@@ -26,6 +26,12 @@ Automating the install process
 
 Make sure you have all the required packages, stow, git installed.
 
+If using arch you can use dri (dotfiles requirements installer)
+
+```
+./dri [PACKAGES..]
+```
+
 ### cloning repo to your home folder
 
 ```consol
