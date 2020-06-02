@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. ./dots.sh
+
+echo 'linking files'
+./dls -vS "$dot_all"
+
+echo 're-linking files'
+./dls -vR "$dot_all"
