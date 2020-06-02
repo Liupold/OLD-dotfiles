@@ -14,10 +14,5 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: sourcing dots.sh
-      run: . ./dots.sh
+      run: ./TESTs/on-push-test
 
-    - name: Testing dls
-      run: echo "$dot_all"
-
-    - name: Testing dls
-      run: ./dls -vS "$dot_all"
