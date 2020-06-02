@@ -16,7 +16,7 @@ ERR() {
 ######################################################################################
 
 UPDATE_DATABASE() {
-        [ "$distro" = "archlinux" ] && sudo pacaman -Syy && return 0
+        [ "$distro" = "archlinux" ] && sudo pacman -Syy && return 0
 }
 
 GET_INSTALL_LIST() {
