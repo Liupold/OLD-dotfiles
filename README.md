@@ -15,12 +15,13 @@ For:
 * mpv (keyboard bindings h,j,k,l vim like)
 * polybar (Most responsive bar EVER)
 * ranger (The Way to browse files in linux)
+* lf (The Faster Way to browse files in linux)
 * sxhkd (A fantastic keyboard daemon)
 * sxiv (A great image viewer)
 * nvim (Need no introduction)
 * zathura (A simple and light Reader PDF, DJVU, EPUB)
 * zsh (Best shell in my opinion)
-
+* youtube-viewer (as the name suggests)
 
 Automating the install process
 
