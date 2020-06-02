@@ -170,10 +170,10 @@ endif
 " ----------------------------------------------------------
 " Python autocmd
 	autocmd BufReadPre *.py nnoremap <F5> :sp<CR>:resize 10<CR>:term time python "%"<CR>
-	autocmd BufReadPre *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term latexrun.py  --clean-all "%" <CR>
+	autocmd BufReadPre *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term time python "%" <CR>
 
 " ----------------------------------------------------------
 "  sh
 	autocmd BufReadPre *.sh nnoremap <F5> :sp<CR>:resize 10<CR>:term time sh "%"<CR>
-	autocmd BufReadPre *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term latexrun.py  --clean-all "%" <CR>
+	autocmd BufReadPre *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term time sh "%" <CR>
 
