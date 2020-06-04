@@ -167,6 +167,8 @@ endif
 	autocmd BufWritePre * %s/\s\+$//e
 " Backup (or cry).
     au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
+"   Remove older backup
+    au BufWritePre * :silent !find $XDG_DATA_HOME/nvim/backup/* -mtime +30 -delete
 
 " ----------------------------------------------------------
 " LaTex
