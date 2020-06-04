@@ -7,7 +7,7 @@ map gh cd ~
 map gd cd ~/dotfiles
 map gl cd ~/Downloads
 map go cd ~/Documents
-map gp cd ~/Documents/PDFs
+map gp cd /MEDIA_DRIVE/PDFs
 map gm cd /MEDIA_DRIVE
 map gw cd /MEDIA_DRIVE/WORK_DRIVE/
 map gt cd ~/.local/trash
