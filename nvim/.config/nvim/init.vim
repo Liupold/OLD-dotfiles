@@ -23,6 +23,9 @@ set path+=**
 set wildmode=longest,list,full
 set splitright
 set splitbelow
+set backup
+set writebackup
+set backupcopy=yes
 
 if !has('nvim')
         set ttymouse=xterm2
@@ -160,7 +163,10 @@ endif
 
 " ----------------------------------------------------------
 " Some Basic autocmd
+" remove white spaces
 	autocmd BufWritePre * %s/\s\+$//e
+" Backup (or cry).
+    au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
 
 " ----------------------------------------------------------
 " LaTex
