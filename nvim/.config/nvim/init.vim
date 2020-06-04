@@ -25,7 +25,9 @@ set splitright
 set splitbelow
 set backup
 set writebackup
-set backupcopy=yes
+set undofile
+set undolevels=100000         " How many undos
+set undoreload=100000        " number of lines to save for undo
 
 if !has('nvim')
         set ttymouse=xterm2
@@ -165,10 +167,6 @@ endif
 " Some Basic autocmd
 " remove white spaces
 	autocmd BufWritePre * %s/\s\+$//e
-" Backup (or cry).
-    au BufWritePre * let &bex = '@' . strftime("%F.%H:%M")
-"   Remove older backup
-    au BufWritePre * :silent !find $XDG_DATA_HOME/nvim/backup/* -mtime +30 -delete
 
 " ----------------------------------------------------------
 " LaTex
