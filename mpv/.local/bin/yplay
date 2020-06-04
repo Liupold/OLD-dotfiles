@@ -1,2 +1,4 @@
 #!/bin/sh
+command -v termux-info && play "$@" && exit
+
 play --window-scale="$LUNA_YPLAY_SCALE" --ytdl-format='bestvideo[height<='"$LUNA_YPLAY_RES"']+bestaudio/best[height<='"$LUNA_YPLAY_RES"']' "$@"
