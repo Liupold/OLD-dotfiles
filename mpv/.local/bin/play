@@ -13,7 +13,7 @@ if [ -n "$(command -v termux-info)" ]; then
 
         echo "$@" | grep -q -e '--no-video' && \
                 mpv --save-position-on-quit\
-                $(echo "$@" | tr -d '\-\-no\-video') && exit
+                $(echo "$@" | sed 's|--no-video||1') && exit
 
         command -v termux-info && \
                 am start -n is.xyz.mpv/is.xyz.mpv.MPVActivity -e filepath "$@"
