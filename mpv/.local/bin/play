@@ -9,6 +9,9 @@ tty | grep -q '/dev/tty' && is_tty=1
 
 # has to be "$@" not "$*"
 # command -v termux-info && am start -n is.xyz.mpv/is.xyz.mpv.MPVActivity -e filepath "$@" && exit
+
+echo "$@" | grep -q -e '--no-video' && screen -dmS screen-player mpv --save-position-on-quit $(echo "$@" | tr -d '\-\-no\-video'
+
 command -v termux-info && termux-open "$@"
 
 [ "$is_tty" -eq 1 ] && mpv --vo=gpu --gpu-context=drm "$@"
