@@ -97,3 +97,4 @@ export LUNA_AUTO_PAUSE=1
 export LUNA_MUSIC_DIR="$HOME/Music"
 export LUNA_DOWNLOAD_DIR="$HOME/Downloads"
 
+[ '"AUTH_RESULT_SUCCESS"' = $(termux-fingerprint | jq '.auth_result') ]  || exit 1
