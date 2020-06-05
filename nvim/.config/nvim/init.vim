@@ -114,6 +114,7 @@ endif
 call plug#begin('$XDG_DATA_HOME/nvim/plugged')
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'VebbNix/lf-vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 " ----------------------------------------------------------
