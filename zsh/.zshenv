@@ -83,8 +83,7 @@ export FILE="lf"
 export MUSIC_PLAYER="cmus"
 
 
-export PATH="$(find "$USER_BINPATH" -type d | tr '\n' ':' | sed 's/:$//')\
-        :$GOPATH/bin/:${PATH}"
+export PATH="$(find "$USER_BINPATH" -type d | tr '\n' ':' | sed 's/:$//'):$GOPATH/bin/:${PATH}"
 
 # Luna Settings
 export LUNA_WALL_DIR="$XDG_DATA_HOME/WALLS"
