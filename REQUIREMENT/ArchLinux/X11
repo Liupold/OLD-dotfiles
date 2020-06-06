@@ -6,4 +6,6 @@ libnotify
 ttf-fira-code
 bspwm
 feh
+picom
+pulseaudio
 AUR:st-luke-git
