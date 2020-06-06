@@ -74,6 +74,11 @@ export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
 # python
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pystartup.py"
 
+# git
+mkdir -p "$XDG_CONFIG_HOME/git/"
+touch "$XDG_CONFIG_HOME/git/config"
+touch "$XDG_CONFIG_HOME/git/credentials"
+
 #Progs
 export EDITOR="nvim"
 export TERMINAL="st"
