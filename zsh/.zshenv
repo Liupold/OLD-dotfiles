@@ -82,7 +82,7 @@ touch "$XDG_CONFIG_HOME/git/credentials"
 #Progs
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="brave"
+export BROWSER="firefox-nightly"
 export READER="zathura --fork"
 export FILE="lf"
 export MUSIC_PLAYER="cmus"
