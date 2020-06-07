@@ -50,5 +50,7 @@ map U :undo_trash
 map X :delete
 
 map op &zathura --fork "$f"
+map ov &yplay "$f"
+map oa &yplay --no-video "$f"
 map oi &feh "$f"
 

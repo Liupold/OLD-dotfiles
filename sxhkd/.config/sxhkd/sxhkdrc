@@ -28,7 +28,7 @@ super + {backslash, bracketleft, bracketright}
 	playerctl -i chromium {play-pause, next, previous}
 
 super + w
-	bspc rule -a Sxiv -o state=floating; sxiv -to "$LUNA_WALL_DIR" | xargs -r setbg
+	bspc rule -a Sxiv -o state=floating; sxiv -to "$LUNA_WALL_DIR" | xargs -Iwal -r setbg 'wal'
 
 
 ############################# BSPWM ############################
