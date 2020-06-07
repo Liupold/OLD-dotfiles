@@ -7,9 +7,9 @@ map gh cd ~
 map gd cd ~/dotfiles
 map gl cd ~/Downloads
 map go cd ~/Documents
-map gp cd /MEDIA_DRIVE/PDFs
-map gm cd /MEDIA_DRIVE
-map gw cd /MEDIA_DRIVE/WORK_DRIVE/
+map gp cd ~/Documents/PDFs
+map gm cd /run/media-drive/
+map gw cd /run/work-drive/
 map gt cd ~/.local/trash
 
 map tf push $touch<space>
