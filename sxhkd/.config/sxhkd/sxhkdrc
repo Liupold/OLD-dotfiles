@@ -130,7 +130,7 @@ super + shift + {f, b, w, m, n, e}
 	{$TERMINAL -e $FILE, $BROWSER, $TERMINAL-e $EDITOR, $TERMINAL -e $MUSIC_PLAYER, $TERMINAL -e newsboat }
 
 super + e
-	bspc rule -a St -o state=floating; $TERMINAL ~/scripts/tools/fzf-emoji
+    dmenuunicode
 
 super + {_, shift + } {F9}
 	sh ~/scripts/system_managment/dmenu_{_,u}mount
