@@ -30,7 +30,7 @@ cmd trash ${{
 cmd undo_trash ${{
     last_trash="$(ls $HOME/.local/trash/ | sort -n | tail -1)"
     files="$(ls -1A $HOME/.local/trash/$last_trash/)"
-    for file in $files
+    for file in "$files"
     do
         mv "$HOME/.local/trash/$last_trash/$file" .
     done

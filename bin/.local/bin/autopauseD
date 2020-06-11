@@ -5,5 +5,5 @@
 pactl subscribe | grep --line-buffered -o "'change' on card" | \
         xargs -I{} -n1 pactl list sinks  | \
         grep --line-buffered  -o 'Active Port:.*-speaker' | \
-        xargs -I{} timeout 0.5 playerctl pause &
+        xargs -I{} timeout 0.5 playerctl -a pause &
 
