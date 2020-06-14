@@ -20,3 +20,4 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias wifi='nmcli d wifi'
 alias lw='nmcli d wifi list'
 alias rad='nmcli r'
+alias sX="startx -c $HOME/.config/X11/xinitrc"

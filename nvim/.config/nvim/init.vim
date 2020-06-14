@@ -171,8 +171,8 @@ endif
 
 " ----------------------------------------------------------
 " LaTex
-	autocmd BufReadPre *.tex nnoremap <F5> :sp<CR>:resize 10<CR>:term latexrun.py  --clean-all "%" <CR>
-	autocmd BufReadPre *.tex nnoremap <leader>c :sp<CR>:resize 10<CR>:term latexrun.py  --clean-all "%" <CR>
+	autocmd BufReadPre *.tex nnoremap <F5> :sp<CR>:resize 10<CR>:term latexrun  --clean-all "%" <CR>
+	autocmd BufReadPre *.tex nnoremap <leader>c :sp<CR>:resize 10<CR>:term latexrun  --clean-all "%" <CR>
 
 " ----------------------------------------------------------
 " Python autocmd

@@ -37,7 +37,6 @@ cmd undo_trash ${{
     rmdir "$HOME/.local/trash/$last_trash"
 }}
 
-
 cmd delete ${{
     echo -n "Permanently delete? $f (y/n)"
     read read_into
@@ -48,6 +47,7 @@ cmd delete ${{
 map x :trash
 map U :undo_trash
 map X :delete
+map br !batch-rename "$fs"
 
 map op &zathura --fork "$f"
 map ov &yplay "$f"
