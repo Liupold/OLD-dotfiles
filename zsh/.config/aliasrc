@@ -11,7 +11,6 @@ alias sv='sudo $EDITOR'
 alias py='python'
 alias nb='newsboat'
 alias pypad='vim /tmp/pypad.py'
-alias add-music-from-yt="youtube-dl --format='bestaudio' --extract-audio --audio-format=mp3  --add-metadata --output='$LUNA_MUSIC_DIR/%(title)s.%(ext)s'"
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 
@@ -20,4 +19,11 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias wifi='nmcli d wifi'
 alias lw='nmcli d wifi list'
 alias rad='nmcli r'
+
+# startx
 alias sX="startx -c $HOME/.config/X11/xinitrc"
+
+# youtube-dl
+alias ytv="youtube-dl --add-metadata -f 'bestvideo[height<=$LUNA_YPLAY_RES][ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]'"
+alias yta='youtube-dl --format=bestaudio --extract-audio --audio-format=opus --add-metadata'
+alias ytm="youtube-dl --format=bestaudio --extract-audio --audio-format=opus  --add-metadata --output='$LUNA_MUSIC_DIR/%(title)s.%(ext)s'"

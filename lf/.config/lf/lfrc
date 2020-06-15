@@ -44,13 +44,40 @@ cmd delete ${{
     rm -r "$f"
 }}
 
+cmd bulk-rename ${{
+	index=$(mktemp /tmp/lf-bulk-rename-index.XXXXXXXXXX)
+	if [ -n "${fs}" ]; then
+		echo "$fs" > $index
+	else
+		echo "$(ls "$(dirname $f)" | tr ' ' "\n")" > $index
+	fi
+	index_edit=$(mktemp /tmp/lf-bulk-rename.XXXXXXXXXX)
+	cat $index > $index_edit
+	$EDITOR $index_edit
+	if [ $(cat $index | wc -l) -eq $(cat $index_edit | wc -l) ]; then
+		max=$(($(cat $index | wc -l)+1))
+		counter=1
+		while [ $counter -le $max ]; do
+			a="$(cat $index | sed "${counter}q;d")"
+			b="$(cat $index_edit | sed "${counter}q;d")"
+			counter=$(($counter+1))
+
+			[ "$a" = "$b" ] && continue
+			[ -e "$b" ] && echo "File exists: $b" && continue
+			mv "$a" "$b"
+		done
+	else
+		echo "Number of lines must stay the same"
+	fi
+	rm $index $index_edit
+}}
+
 map x :trash
 map U :undo_trash
 map X :delete
-map br !batch-rename "$fs"
+map br !bulk-rename "$fs"
 
 map op &zathura --fork "$f"
 map ov &yplay "$f"
 map oa &yplay --no-video "$f"
 map oi &feh "$f"
-

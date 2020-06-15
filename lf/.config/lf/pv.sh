@@ -5,7 +5,7 @@ case "$1" in
         *.rar) unrar l "$1";;
         *.7z) 7z l "$1";;
         *.pdf) pdfinfo "$1";;
-        *.mp4|*.mkv|*.mp3|*.wav|*.m4a|*.vob)
+        *.mp4|*.mkv|*.mp3|*.wav|*.m4a|*.vob|*.opus)
                 ffprobe "$1" 2>&1 | grep -v -e '--\|ffprobe\|built\|\ *lib';;
         *)
                 echo FILE: "$1"
