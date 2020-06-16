@@ -1,0 +1,8 @@
+#!/bin/sh
+
+artist="$(cmus-remote -Q | grep 'artist' | sed 's|tag artist ||g')"
+title="$(cmus-remote -Q | grep 'title' | sed 's|tag title ||g')"
+
+echo "# '$title' by $artist"
+
+curl -s --get "https://makeitpersonal.co/lyrics" --data-urlencode "artist=$artist" --data-urlencode "title=$title"
