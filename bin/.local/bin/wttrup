@@ -1,7 +1,8 @@
 #!/bin/sh
 
-/usr/bin/notify-send " Updating Satellite radar"
-tmp_file="$(/usr/bin/mktemp /tmp/XXXXXX)"
-/usr/bin/curl 'https://mausam.imd.gov.in/Satellite/Converted/IR1.gif' > "$tmp_file"
-cp "$tmp_file" /home/rohnch/.cache/wttr-rad.gif
-/usr/bin/notify-send " Updated Satellite radar"
+wttr_dir="$HOME/.cache/wttr"
+mkdir -p "$wttr_dir"
+/usr/bin/curl 'https://mausam.imd.gov.in/Satellite/Converted/IR1.gif' > "$wttr_dir/rad.gif" &
+/usr/bin/curl 'wttr.in' > "$wttr_dir/chart" &
+/usr/bin/curl 'wttr.in?format=v2' > "$wttr_dir/graph" &
+wait

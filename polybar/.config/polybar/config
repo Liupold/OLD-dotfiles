@@ -66,7 +66,7 @@ font-6 = Noto Emoji:scale=10;
 
 modules-left = bspwm
 modules-center = player-mpris-simple
-modules-right = cpu memory network-traffic light vol-symbol pulseaudio battery date
+modules-right = cpu memory network-traffic wttr light vol-symbol pulseaudio battery date
 
 tray-position = right
 tray-padding = 1
@@ -300,3 +300,13 @@ animation-discharging-3 = 
 animation-discharging-4 = 
 ; Framerate in milliseconds
 animation-discharging-framerate = 500
+
+;-------------------------------------------------------------------------
+[module/wttr]
+type = custom/script
+exec = curl -s 'wttr.in?format=+%c+%t'
+internal = 180
+label = %output%
+click-left = show-weather
+click-right = show-weather -g
+click-middle = mpv --x11-name=mpvfloat --loop --no-osc --window-scale=0.65 "$HOME/.cache/wttr/rad.gif"

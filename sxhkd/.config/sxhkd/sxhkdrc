@@ -130,7 +130,8 @@ super + shift + {f, b, e, m, n}
 	{$TERMINAL -e $FILE, $BROWSER, $TERMINAL -e $EDITOR, $TERMINAL -e $MUSIC_PLAYER, $TERMINAL -e newsboat}
 
 super + shift + w
-    mpv --x11-name=mpvfloat --loop --no-osc --window-scale=0.65 ~/.cache/wttr-rad.gif
+    mpv --x11-name=mpvfloat --loop --no-osc --window-scale=0.65 ~/.cache/wttr/rad.gif \
+		& show-weather -g
 
 super + e
     dmenuunicode
