@@ -11,4 +11,4 @@ export XSECURELOCK_LIST_VIDEOS_COMMAND="find $LUNA_WALL_DIR/LockVid -type f"
 
 
 [ "$1" = "--force" ] && xsecurelock && exit
-playerctl -l | xargs -I{} playerctl status -p '{}' | grep -q 'Playing' || xsecurelock --backend glx
+playerctl -l | xargs -I{} playerctl status -p '{}' | grep -q 'Playing' || xsecurelock
