@@ -45,5 +45,4 @@ bspc rule -a Circuit desktop=V follow=on
 
 
 #--------------------------- CHAIN LOAD ------------------------------
-# Autostart
-autostart &
+# Handled by xinitrc

@@ -18,7 +18,9 @@ manage sxhkd || sxhkd &
 manage picom || picom &
 manage polybar || polybar main &
 manage syncthing || syncthing -no-browser &
-kill "$(pgrep -fl autopauseD | awk '{print $1}')" 2>/dev/null ; autopauseD &
+
+kill $(pgrep -fl autopauseD | awk '{print $1}') 2>/dev/null ; autopauseD &
+kill $(pgrep -fl bspswallow | awk '{print $1}') 2>/dev/null ; bspswallow &
 
 xset s 300 5
 

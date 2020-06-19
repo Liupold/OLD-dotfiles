@@ -148,4 +148,4 @@ super + s
 super + m
 	dmenu-cmus
 Print
-	scrot /tmp/screen && xclip -selection clipboard -t image/png /tmp/screen && rm -f /tmp/screen
+    scrot /tmp/screen && xclip -selection clipboard -t image/png /tmp/screen && rm -f /tmp/screen
