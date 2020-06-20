@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ -z "$(pidof newsboat)" ]
+then
+        "$(which -a newsboat | tail -1)"
+else
+        kill $(pidof newsboat)
+        "$(which -a newsboat | tail -1)"
+fi

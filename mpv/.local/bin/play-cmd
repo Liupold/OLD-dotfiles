@@ -1,2 +1,0 @@
-#!/bin/sh
-screen -S screen-player -p 0 -X stuff "$@"
