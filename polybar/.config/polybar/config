@@ -194,7 +194,7 @@ label = %percentage_used%%
 ; ------------------------------------------------------------------------
 [module/player-mpris-simple]
 type = custom/script
-exec = playerctl -i chromium -F metadata --format '{{playerName}}: {{title}} [{{duration(position)}}/{{duration(mpris:length)}}]'
+exec = playerctl -i chromium -i firefox  -F metadata --format '{{playerName}}: {{title}} [{{duration(position)}}/{{duration(mpris:length)}}]'
 tail = true
 click-left = playerctl previous
 click-right = playerctl next
