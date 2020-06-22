@@ -1,7 +1,7 @@
 #show-read-feeds no
 auto-reload yes
 notify-program "/usr/bin/notify-send"
-# external-url-viewer "urlscan -dc -r 'linkhandler {}'"
+# external-url-viewer "urlscan -dc -r 'firefox {}'"
 notify-format "%d new articles (%n unread articles, %f unread feeds)"
 bind-key j down
 bind-key k up
@@ -30,11 +30,9 @@ color listfocus_unread yellow default bold
 color info red black bold
 color article cyan default
 
-browser chromium
+browser firefox
 macro , open-in-browser
-macro y set browser "yplay"; open-in-browser ; set browser chromium
-macro p set browser "yplay --x11-name=MpvSmol"; open-in-browser ; set browser chromium
-macro a set browser "play --no-video"; open-in-browser ; set browser linkhandler
-macro w set browser "brave"; open-in-browser ; set browser linkhandler
-macro u set browser "dmenuhandler"; open-in-browser ; set browser linkhandler
-macro c set browser "xsel -b <<<" ; open-in-browser ; set browser linkhandler
+macro y set browser "setsid -f yplay %u >/dev/null" ; open-in-browser ; set browser firefox
+macro p set browser "setsid -f yplay --x11-name=MpvSmol %u >/dev/null" ; open-in-browser ; set browser firefox
+macro a set browser "setsid -f play --no-video %u >/dev/null" ; open-in-browser ; set browser firefox
+macro c set browser "xclip -i -selection clipboard <<<" ; open-in-browser ; set browser firefox
