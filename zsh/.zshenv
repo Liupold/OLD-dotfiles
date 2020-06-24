@@ -79,6 +79,11 @@ mkdir -p "$XDG_CONFIG_HOME/git/"
 touch "$XDG_CONFIG_HOME/git/config"
 touch "$XDG_CONFIG_HOME/git/credentials"
 
+# octave
+export OCTAVE_HISTFILE="$XDG_CACHE_HOME/octave-hsts"
+export OCTAVE_SITE_INITFILE="$XDG_CONFIG_HOME/octave/octaverc"
+mkdir -p "$XDG_DATA_HOME/octave"
+
 #Progs
 export EDITOR="nvim"
 export TERMINAL="st"
