@@ -184,3 +184,8 @@ endif
 	autocmd BufReadPre *.sh nnoremap <F5> :sp<CR>:resize 10<CR>:term time sh "%"<CR>
 	autocmd BufReadPre *.sh nnoremap <leader>c :sp<CR>:resize 10<CR>:term time sh "%" <CR>
 
+" ----------------------------------------------------------
+"  sh
+	autocmd BufReadPre *.m nnoremap <F5> :sp<CR>:resize 10<CR>:term time octave "%"<CR>
+	autocmd BufReadPre *.m nnoremap <leader>c :sp<CR>:resize 10<CR>:term time octave "%" <CR>
+
