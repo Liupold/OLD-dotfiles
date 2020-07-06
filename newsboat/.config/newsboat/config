@@ -2,7 +2,8 @@
 auto-reload yes
 notify-program "/usr/bin/notify-send"
 # external-url-viewer "urlscan -dc -r 'firefox {}'"
-notify-format "%d new articles (%n unread articles, %f unread feeds)"
+# notify-format "%d new articles (%n unread articles, %f unread feeds)"
+notify-format  "%I %d %n %f new articles (%n unread articles, %f unread feeds)"
 bind-key j down
 bind-key k up
 bind-key j next articlelist

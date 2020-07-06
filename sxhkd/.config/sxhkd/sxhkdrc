@@ -149,3 +149,7 @@ super + m
 	dmenu-cmus
 Print
     scrot /tmp/screen && xclip -selection clipboard -t image/png /tmp/screen && rm -f /tmp/screen
+
+#lyric (cmus)
+super + period
+    bspc rule -a St:st -o state=floating; $TERMINAL -e sh -c "lyric | less"

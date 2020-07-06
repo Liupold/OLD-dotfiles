@@ -47,6 +47,7 @@ bspc rule -a Circuit desktop=V follow=on
 #--------------------------- CHAIN LOAD ------------------------------
 # Handled by xinitrc
 
+kill $(pgrep -f 'bspc subscribe node_add node_remove')
 bspc subscribe node_add node_remove \
         | grep -o --line-buffered '0x[0-9A-F]\+$' | xargs -n1 pidswallow &
 

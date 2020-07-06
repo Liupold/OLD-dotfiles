@@ -1,7 +1,7 @@
 #!/bin/sh
 
 swallowable=" $TERMINAL alacritty urxvt kitty "
-blacklist=" $swallowable octave-gui " # you don't want to swallow a swalloer right?
+blacklist=" $swallowable octave-gui python " # you don't want to swallow a swalloer right?
 verbose=0
 
 swallow() {
