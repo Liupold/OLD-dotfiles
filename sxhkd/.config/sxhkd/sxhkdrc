@@ -153,3 +153,6 @@ Print
 #lyric (cmus)
 super + period
     bspc rule -a St:st -o state=floating; $TERMINAL -e sh -c "lyric | less"
+
+super + v
+    bspc query --nodes --node focused | xargs -n1 pidswallow
