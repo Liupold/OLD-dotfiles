@@ -24,6 +24,6 @@ alias rad='nmcli r'
 alias sX="startx -c $HOME/.config/X11/xinitrc"
 
 # youtube-dl
-alias ytv="youtube-dl --add-metadata -f 'bestvideo[height<=$LUNA_YPLAY_RES][ext!=webm]+bestaudio[ext!=webm]/best[ext!=webm]' -o '%(title)s.%(ext)s'"
+alias ytv="youtube-dl --add-metadata -f 'bestvideo[height<=$LUNA_YPLAY_RES]+bestaudio -o '%(title)s.%(ext)s'"
 alias yta="youtube-dl --format=bestaudio --extract-audio --audio-format=opus --add-metadata -o '%(title)s.%(ext)s'"
 alias ytm="youtube-dl --format=bestaudio --extract-audio --audio-format=opus --add-metadata --output='$LUNA_MUSIC_DIR/%(title)s.%(ext)s'"

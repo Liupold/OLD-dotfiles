@@ -1,6 +1,6 @@
 #!/bin/sh
 start-dunst
-RESTART=0
+RESTART=1
 [ "$1" = "--restart" ] && RESTART=1
 
 manage() {
@@ -18,14 +18,11 @@ manage sxhkd || sxhkd &
 manage picom || picom &
 manage polybar || polybar main &
 manage syncthing || syncthing -no-browser &
-manage kdeconnectd || /usr/lib/kdeconnectd &
+/usr/lib/kdeconnectd &
 
-kill $(pgrep -fl autopauseD | awk '{print $1}') 2>/dev/null ; autopauseD &
-kill $(pgrep -fl bspswallow | awk '{print $1}') 2>/dev/null ; bspswallow &
-
+kill "$(pgrep -fl autopauseD | awk '{print $1}')" 2>/dev/null ; autopauseD &
 xset s 300 5
 
 while true; do pidof polybar && break; sleep 1; done;
 while true; do pidof dunst && break; sleep 1; done;
 notify-send -i xterm Luna READY!
-
