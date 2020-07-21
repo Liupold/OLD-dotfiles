@@ -124,10 +124,11 @@ super + alt + shift + {h,j,k,l}
 
 
 ########################### Launcher ###########################b##
-
-
 super + shift + {f, b, e, m, n}
 	{$TERMINAL -e $FILE, $BROWSER, $TERMINAL -e $EDITOR, $TERMINAL -e $MUSIC_PLAYER, $TERMINAL -e newsboat}
+
+super + b
+    firefox -P "$(grep 'Name' .mozilla/firefox/profiles.ini | sed 's/^.*=//g' | dmenu)"
 
 super + shift + w
     mpv --x11-name=mpvfloat --loop --no-osc --window-scale=0.65 ~/.cache/wttr/rad.gif \
@@ -145,10 +146,14 @@ super + {F5}
 # pin
 super + s
 	{bspc node --flag sticky=on; notify-send Pinned , bspc node --flag sticky=off; notify-send Un-Pinned}
+
 super + m
 	dmenu-cmus
-Print
-    scrot /tmp/screen && xclip -selection clipboard -t image/png /tmp/screen && rm -f /tmp/screen
+
+super + Print
+    mkdir -p "$HOME/Pictures/ScreenShot" \
+		&& scrot "$HOME/Pictures/ScreenShot/%Y-%m-%d_$wx$h.png" \
+		&& notify-send -i 'camera' "screenshort Saved!"
 
 #lyric (cmus)
 super + period
