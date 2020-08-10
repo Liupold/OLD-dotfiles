@@ -48,6 +48,8 @@ source $XDG_CONFIG_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlight
 # source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 [ "$TERM" = 'alacritty' ] && < $XDG_CONFIG_HOME/luna_theme/sequences && clear
 [ "$TERM" = 'xterm-256color' ] && < $XDG_CONFIG_HOME/luna_theme/sequences && clear
+[ -n "$DISPLAY" ]  && command -v xdo >/dev/null 2>&1 && xdo id > /tmp/term-wid-"$$"
+trap "( rm -f /tmp/term-wid-"$$" )" EXIT HUP
 
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search

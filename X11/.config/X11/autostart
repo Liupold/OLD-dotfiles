@@ -14,7 +14,6 @@ manage() {
 }
 
 manage xss-lock || xss-lock -n '/usr/lib/xsecurelock/dimmer' -l -- 'screen-lock' &
-manage sxhkd || sxhkd &
 manage picom || picom &
 manage polybar || polybar main &
 manage syncthing || syncthing -no-browser &

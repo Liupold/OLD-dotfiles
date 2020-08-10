@@ -2,10 +2,12 @@
 
 # Set environment
 export BSPWM_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/bspwm"
+# export PIDSWALLOW_SWALLOW_COMMAND='bspc node {%pwid} --flag hidden=on'
+# export PIDSWALLOW_VOMIT_COMMAND='bspc node {%pwid} --flag hidden=off -f'
+export PIDSWALLOW_PREGLUE_HOOK='bspc query -N -n {%pwid}.floating >/dev/null && bspc node {%cwid} --state floating'
 
 # WorkSpace / Monitor
 bspc monitor -d I II III IV V VI VII VIII IX X
-
 
 ######################################################################
 
@@ -45,7 +47,8 @@ bspc rule -a Circuit desktop=V follow=on
 
 
 #--------------------------- CHAIN LOAD ------------------------------
+sxhkd &
 # Handled by xinitrc
 
-kill $(pgrep -f 'bspc subscribe node_add node_remove')
-pidswallow --loop &
+#--------------------------- SWALLOWING ------------------------------
+pidswallow -gl &

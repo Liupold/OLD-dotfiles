@@ -4,16 +4,5 @@ tty | grep -q '/dev/tty' && is_tty=1
 
 # has to be "$@" not "$*"
 # command -v termux-info && am start -n is.xyz.mpv/is.xyz.mpv.MPVActivity -e filepath "$@" && exit
-if [ -n "$(command -v termux-info)" ]; then
-
-        echo "$@" | grep -q -e '--no-video' && \
-                mpv --save-position-on-quit\
-                $(echo "$@" | sed 's|--no-video||1') && exit
-
-        command -v termux-info && \
-                am start -n is.xyz.mpv/is.xyz.mpv.MPVActivity -e filepath "$@"
-        exit
-fi
-
-[ "$is_tty" -eq 1 ] && mpv --vo=gpu --gpu-context=drm "$@"
+[ "$is_tty" -eq 1 ] && mpv --vo=gpu --no-keepaspect-window --gpu-context=drm --save-position-on-quit "$@"
 [ "$is_tty" -eq 0 ] && mpv --vo=gpu --save-position-on-quit "$@"

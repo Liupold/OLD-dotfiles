@@ -56,6 +56,9 @@ export RXVT_SOCKET="$XDG_RUNTIME_DIR/urxvtd"
 export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME/java"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+#atk
+export NO_AT_BRIDGE=1
+
 #npm
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 

@@ -160,4 +160,4 @@ super + period
     bspc rule -a St:st -o state=floating; $TERMINAL -e sh -c "lyric | less"
 
 super + v
-    bspc query --nodes --node focused | pidswallow -t
+    xdotool getwindowfocus | pidswallow -t
