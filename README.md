@@ -56,3 +56,230 @@ cd ~ && git clone https://github.com/liupold/dotfiles && cd dotfiles
 ./dls -vS "$dot_term"
 ```
 Learn more about [dls](https://github.com/Liupold/dls).
+
+```
+.
+├── alacritty
+│   └── .config
+│       └── alacritty
+│           └── alacritty.yml
+├── bin
+│   └── .local
+│       └── bin
+│           ├── autopauseD
+│           ├── batch-rename
+│           ├── booksplit
+│           ├── dmenu
+│           ├── ix
+│           ├── link-handler
+│           ├── rssadd
+│           ├── show-weather
+│           ├── tag
+│           └── wttrup
+├── bspwm
+│   ├── .config
+│   │   └── bspwm
+│   │       └── bspwmrc
+│   └── .local
+│       └── bin
+│           ├── bspwm-update-color
+│           └── pidswallow
+├── cmus
+│   ├── .config
+│   │   └── cmus
+│   │       └── rc
+│   └── .local
+│       └── bin
+│           ├── cmus
+│           ├── dmenu-cmus
+│           └── lyric
+├── dls
+├── dots.sh
+├── dunst
+│   ├── .config
+│   │   └── dunst
+│   │       └── dunstrc
+│   └── .local
+│       └── bin
+│           └── start-dunst
+├── emoji-menu
+│   └── .local
+│       ├── bin
+│       │   └── dmenuunicode
+│       └── share
+│           └── emoji
+├── .github
+│   └── workflows
+│       └── blank.yml
+├── .gitignore
+├── gtk-3.0
+│   └── .config
+│       └── gtk-3.0
+│           └── settings.ini
+├── kitty
+│   └── .config
+│       └── kitty
+│           └── kitty.conf
+├── lf
+│   └── .config
+│       └── lf
+│           ├── icons.sh
+│           ├── lfrc
+│           └── pv.sh
+├── luna_theme
+│   └── .config
+│       └── luna_theme
+│           ├── colors-kitty.conf
+│           ├── colors.sh
+│           ├── colors-tty.sh
+│           ├── colors.Xresources
+│           ├── sequences
+│           └── WALL.jpg
+├── mpv
+│   ├── .config
+│   │   └── mpv
+│   │       └── input.conf
+│   └── .local
+│       └── bin
+│           ├── play
+│           └── yplay
+├── newsboat
+│   ├── .config
+│   │   └── newsboat
+│   │       └── config
+│   └── .local
+│       └── bin
+│           ├── newsboat
+│           └── newsup
+├── npm
+│   └── .config
+│       └── npm
+│           └── npmrc
+├── nvim
+│   ├── .config
+│   │   └── nvim
+│   │       ├── colors
+│   │       │   ├── gruvbox.vim
+│   │       │   └── molokai.vim
+│   │       └── init.vim
+│   └── .local
+│       └── bin
+│           └── latexrun
+├── octave
+│   └── .config
+│       └── octave
+│           └── octaverc
+├── polybar
+│   └── .config
+│       └── polybar
+│           ├── config
+│           └── scripts
+│               ├── network-traffic.sh
+│               └── speaker_symbol.sh
+├── python
+│   └── .config
+│       └── python
+│           └── pystartup.py
+├── ranger
+│   └── .config
+│       └── ranger
+│           ├── rc.conf
+│           ├── rifle.conf
+│           ├── scope.sh
+│           └── shortcuts.conf
+├── README.md
+├── REQUIREMENT
+│   └── ArchLinux
+│       ├── alacritty
+│       ├── bin
+│       ├── bspwm
+│       ├── cmus
+│       ├── dunst
+│       ├── gtk-3.0
+│       ├── kitty
+│       ├── lf
+│       ├── luna_theme
+│       ├── mpv
+│       ├── newsboat
+│       ├── npm
+│       ├── nvim
+│       ├── polybar
+│       ├── python
+│       ├── sxhkd
+│       ├── sxiv
+│       ├── X11
+│       ├── youtube-viewer
+│       ├── zathura
+│       └── zsh
+├── sxhkd
+│   └── .config
+│       └── sxhkd
+│           └── sxhkdrc
+├── sxiv
+│   └── .config
+│       └── sxiv
+│           └── exec
+│               └── key-handler
+├── TESTs
+│   └── on-push-test
+├── X11
+│   ├── .config
+│   │   ├── mimeapps.list
+│   │   └── X11
+│   │       ├── autostart
+│   │       ├── xinitrc
+│   │       └── .Xresources
+│   └── .local
+│       ├── bin
+│       │   ├── randbg
+│       │   ├── screen-lock
+│       │   ├── setbg
+│       │   └── xsecure_mpv
+│       └── share
+│           └── applications
+│               ├── file.desktop
+│               ├── img.desktop
+│               ├── mail.desktop
+│               ├── pdf.desktop
+│               ├── rss.desktop
+│               ├── text.desktop
+│               ├── torrent.desktop
+│               └── video.desktop
+├── youtube-viewer
+│   └── .config
+│       └── youtube-viewer
+│           └── youtube-viewer.conf
+├── zathura
+│   └── .config
+│       └── zathura
+│           └── zathurarc
+└── zsh
+    ├── .config
+    │   ├── aliasrc
+    │   └── zsh
+    │       ├── plugins
+    │       │   └── zsh-syntax-highlighting
+    │       │       ├── highlighters
+    │       │       │   ├── brackets
+    │       │       │   │   └── brackets-highlighter.zsh
+    │       │       │   ├── cursor
+    │       │       │   │   └── cursor-highlighter.zsh
+    │       │       │   ├── line
+    │       │       │   │   └── line-highlighter.zsh
+    │       │       │   ├── main
+    │       │       │   │   └── main-highlighter.zsh
+    │       │       │   ├── pattern
+    │       │       │   │   └── pattern-highlighter.zsh
+    │       │       │   ├── regexp
+    │       │       │   │   └── regexp-highlighter.zsh
+    │       │       │   └── root
+    │       │       │       └── root-highlighter.zsh
+    │       │       ├── .revision-hash
+    │       │       ├── .version
+    │       │       ├── zsh-syntax-highlighting.plugin.zsh -> zsh-syntax-highlighting.zsh
+    │       │       └── zsh-syntax-highlighting.zsh
+    │       ├── .zprofile
+    │       └── .zshrc
+    └── .zshenv
+107 directories, 115 files
+```
