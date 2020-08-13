@@ -4,7 +4,8 @@
 export BSPWM_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/bspwm"
 # export PIDSWALLOW_SWALLOW_COMMAND='bspc node {%pwid} --flag hidden=on'
 # export PIDSWALLOW_VOMIT_COMMAND='bspc node {%pwid} --flag hidden=off -f'
-export PIDSWALLOW_PREGLUE_HOOK='bspc query -N -n {%pwid}.floating >/dev/null && bspc node {%cwid} --state floating'
+# shellcheck disable=SC2016
+export PIDSWALLOW_PREGLUE_HOOK='bspc query -N -n $pwid.floating >/dev/null && bspc node $cwid --state floating'
 
 # WorkSpace / Monitor
 bspc monitor -d I II III IV V VI VII VIII IX X

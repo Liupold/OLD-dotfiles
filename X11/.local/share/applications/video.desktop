@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Video Player
-Exec=/usr/bin/mpv --save-position-on-quit %u
+Exec=play --save-position-on-quit %u

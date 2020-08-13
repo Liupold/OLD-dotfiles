@@ -1,0 +1,36 @@
+#!/bin/sh
+URLS="$*"
+
+for url in $URLS; do
+        # url="${url#https://}"; url="${url#http://}"; url="https://$url"
+        case "$url" in
+                https://www.youtube.com/watch?v=* | https://youtu.be/*)
+                        play "$url" & ;;
+                *.pdf)
+                        tmp_pdf="$(mktemp /tmp/XXXXXXXX)"
+                        "${TERMINAL?}" \
+                                -e wget "$url" -O "$tmp_pdf" && zathura "$tmp_pdf" \
+                                && rm "$tmp_pdf" &
+                                continue ;;
+                *.jpg | *.jpeg | *.png )
+                        tmp_img="$(mktemp /tmp/XXXXXXXX)"
+                        "$TERMINAL" -e wget "$url" -O "$tmp_img" && sxiv "$tmp_img" \
+                                && rm "$tmp_img" &
+                                continue ;;
+
+                *.mp4 | *.mp3 | *.opus | *.m4a | *wav | *.ogg | *.flac \
+                | *.mkv | *.mov )
+                                play --force-window "$url" &
+                                continue ;;
+
+                *.gif )
+                        tmp_gif="$(mktemp /tmp/XXXXXXXX)"
+                        "$TERMINAL" -e wget "$url" -O "$tmp_gif" && mpv --loop \
+                                "$tmp_gif" && rm "$tmp_gif" &
+                                continue ;;
+                *)
+                                "${BROWSER?}" "$url" &
+                                continue ;;
+
+        esac
+done
