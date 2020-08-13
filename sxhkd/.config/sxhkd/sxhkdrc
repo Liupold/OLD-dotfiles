@@ -37,7 +37,7 @@ super + w
 # quit/restart bspwm
 
 super + ctrl + {q, r}
-	bspc {quit,wm -r}
+	bspc {quit,wm -r &&  ~/.config/X11/autostart --restart }
 
 # --------------------------------------------------------------
 # Process Management

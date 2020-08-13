@@ -9,12 +9,12 @@ userautostart="$XDG_CONFIG_HOME/X11/autostart"
 
 # merge in defaults and keymaps
 
-[ -f "$sysresources" ] && xrdb -merge $sysresources
-[ -f "$userresources" ] && xrdb -merge $userresources
-[ -f "$colorresources" ] && xrdb -merge $colorresources
+[ -f "$sysresources" ] && xrdb -merge "$sysresources"
+[ -f "$userresources" ] && xrdb -merge "$userresources"
+[ -f "$colorresources" ] && xrdb -merge "$colorresources"
 
-[ -f "$sysmodmap" ] && xmodmap $sysmodmap
-[ -f "$usermodmap" ] && xmodmap $usermodmap
+[ -f "$sysmodmap" ] && xmodmap "$sysmodmap"
+[ -f "$usermodmap" ] && xmodmap "$usermodmap"
 #set wall
 feh --no-fehbg --bg-scale "$LUNA_WALL_PATH"
 xsetroot -cursor_name left_ptr
