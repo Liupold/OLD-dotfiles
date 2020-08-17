@@ -90,7 +90,7 @@ mkdir -p "$XDG_DATA_HOME/octave"
 #Progs
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="firefox"
+export BROWSER="chromium"
 export READER="zathura --fork"
 export FILE="lf"
 export MUSIC_PLAYER="cmus"

@@ -172,21 +172,17 @@ endif
 
 " ----------------------------------------------------------
 " LaTex
-	autocmd BufReadPre *.tex nnoremap <F5> :sp<CR>:resize 10<CR>:term latexrun  --clean-all "%" <CR>
-	autocmd BufReadPre *.tex nnoremap <leader>c :sp<CR>:resize 10<CR>:term latexrun  --clean-all "%" <CR>
+	autocmd BufReadPre *.tex nnoremap <leader>c :sp<CR>:resize 10<CR>:term latexrun  --clean-all "%" && rm -r "%:p:h/latex.out"<CR>
 
 " ----------------------------------------------------------
 " Python autocmd
-	autocmd BufReadPre *.py nnoremap <F5> :sp<CR>:resize 10<CR>:term time python "%"<CR>
 	autocmd BufReadPre *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term time python "%" <CR>
 
 " ----------------------------------------------------------
 "  sh
-	autocmd BufReadPre *.sh nnoremap <F5> :sp<CR>:resize 10<CR>:term time sh "%"<CR>
 	autocmd BufReadPre *.sh nnoremap <leader>c :sp<CR>:resize 10<CR>:term time sh "%" <CR>
 
 " ----------------------------------------------------------
 "  sh
-	autocmd BufReadPre *.m nnoremap <F5> :sp<CR>:resize 10<CR>:term time octave "%"<CR>
 	autocmd BufReadPre *.m nnoremap <leader>c :sp<CR>:resize 10<CR>:term time octave "%" <CR>
 

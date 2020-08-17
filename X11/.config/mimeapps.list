@@ -24,5 +24,5 @@ video/x-msvideo=video.desktop
 video/webm=video.desktop
 
 inode/directory=file.desktop
-x-scheme-handler/http=userapp-Nightly-PPZLL0.desktop
-x-scheme-handler/https=userapp-Nightly-PPZLL0.desktop
+x-scheme-handler/http=linkhandler.desktop
+x-scheme-handler/https=linkhandler.desktop

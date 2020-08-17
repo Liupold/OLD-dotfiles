@@ -1,18 +1,10 @@
 #!/bin/sh
-
-pactl list sinks | grep -q 'Active Port:.*-speaker' && echo ""
-pactl list sinks | grep -q 'Active Port:.*-headphone' && echo ""
-
-pactl subscribe | \
-        grep --line-buffered -o "'change' on card" | \
-        xargs -I{} -n1 pactl list sinks  | \
-        grep --line-buffered  -o 'Active Port:.*-speaker' | \
-        xargs -I{} -n1 echo "" &
-
-pactl subscribe | \
-        grep --line-buffered -o "'change' on card" | \
-        xargs -I{} -n1 pactl list sinks  | \
-        grep --line-buffered  -o 'Active Port:.*-headphone' | \
-        xargs -I{} -n1 echo "" &
-
-wait
+sinks="$(pactl list sinks)"
+[ "${sinks#*Active Port:*-speaker}" != "$sinks" ] && echo ""
+[ "${sinks#*Active Port:*-headphone}" != "$sinks" ]  && echo ""
+pactl subscribe | while read -r event; do
+        [ "${event#*\'change\' on card}" != "$event" ] &&
+                sinks="$(pactl list sinks)"
+                [ "${sinks#*Active Port:*-speaker}" != "$sinks" ] && echo ""
+                [ "${sinks#*Active Port:*-headphone}" != "$sinks" ] && echo ""
+done

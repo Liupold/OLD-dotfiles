@@ -2,8 +2,9 @@
 
 [ "$LUNA_AUTO_PAUSE" -eq 0 ] && exit
 
-pactl subscribe | grep --line-buffered -o "'change' on card" | \
-        xargs -I{} -n1 pactl list sinks  | \
-        grep --line-buffered  -o 'Active Port:.*-speaker' | \
-        xargs -I{} timeout 0.5 playerctl -a pause &
-
+pactl subscribe | while read -r event; do
+        [ "${event#*\'change\' on card}" != "$event" ] &&
+                sinks="$(pactl list sinks)" &&
+                [ "${sinks#*Active Port:*-speaker}" != "$sinks" ] && \
+                timeout 0.5 playerctl -a pause
+done

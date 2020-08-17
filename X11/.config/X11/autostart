@@ -7,21 +7,22 @@ manage() {
         PROG=$1
         if [ $RESTART -eq 1 ]
         then
-                pidof "$PROG" && killall "$PROG"
-                while pgrep -x "$PROG" >/dev/null; do sleep 1; done
+                pidof "$PROG" && killall -qw "$PROG"
+                return 1
         fi
-        [ $RESTART -eq 0 ] && pidof "$PROG"
+        [ $RESTART -eq 0 ] && pidof "$PROG" && return 0
+        return 1
 }
 
 manage xss-lock || xss-lock -n '/usr/lib/xsecurelock/dimmer' -l -- 'screen-lock' &
 manage picom || picom &
 manage polybar || polybar main &
-manage syncthing || syncthing -no-browser &
 /usr/lib/kdeconnectd &
 
 kill "$(pgrep -fl autopauseD | awk '{print $1}')" 2>/dev/null ; autopauseD &
 xset s 300 5
 
-while true; do pidof polybar && break; sleep 1; done;
-while true; do pidof dunst && break; sleep 1; done;
+while true; do pidof polybar && break; sleep 1; done
+while true; do pidof dunst && break; sleep 1; done
 notify-send -i xterm Luna READY!
+wait

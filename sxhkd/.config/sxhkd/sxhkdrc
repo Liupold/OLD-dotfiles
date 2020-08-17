@@ -44,8 +44,8 @@ super + ctrl + {q, r}
 
 # close/kill A App.
 # close and kill
-super + {_,shift + }c
-	bspc node -{c,k}
+super + {_,shift} + c
+    xdo id | pidswallow -t; sleep 0.01 ; bspc node -{c,k}
 
 # ---------------------------------------------------------------
 # Window States

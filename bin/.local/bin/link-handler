@@ -4,7 +4,8 @@ URLS="$*"
 for url in $URLS; do
         # url="${url#https://}"; url="${url#http://}"; url="https://$url"
         case "$url" in
-                https://www.youtube.com/watch?v=* | https://youtu.be/*)
+                https://www.youtube.com/watch?v=* | https://youtu.be/* \
+                        | https://www.youtube.com/playlist* )
                         play "$url" & ;;
                 *.pdf)
                         tmp_pdf="$(mktemp /tmp/XXXXXXXX)"
