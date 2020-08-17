@@ -1,10 +1,6 @@
 curl "https://raw.githubusercontent.com/Liupold/dls/master/dls" > ./dls
 chmod +x ./dls
 
-# download external scripts
-mkdir -p bspwm/.local/bin
-curl "https://raw.githubusercontent.com/Liupold/pidswallow/master/pidswallow" > bspwm/.local/bin/pidswallow
-chmod +x bspwm/.local/bin/pidswallow
 
 # dots in general
 export dot_all='X11 alacritty bin bspwm dunst gtk-3.0 kitty ranger youtube-viewer
