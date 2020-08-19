@@ -1,3 +1,16 @@
 source /usr/share/octave/site/m/startup/octaverc;
-pkg prefix ~/.local/share/octave/packages ~/.local/share/octave/packages;
-pkg local_list ~/.local/share/octave/octave_packages;
+PS1 ('\[\033[01;32m\][\t]:\[\033[01;34m\]\W/\[\033[01;36m\]>> \[\033[0m\]');
+pkg local_list /home/rohnch/.local/share/octave/octave_packages;
+pkg prefix "~/.local/share/octave/packages" "~/.local/share/octave/packages";
+addpath("~/octave");
+addpath("~/.local/share/octave/packages");
+edit mode async
+EDITOR("$TERMINAL -e nvim %s >/dev/null 2>&1")
+cd ~/octave;
+function man (name)
+        help (char (name));
+endfunction
+function l ()
+        ls -lah --color=always;
+endfunction
+printf ("\033[2J\033[H\033[01;32mOctave: \033[01;81m%s\033[01;0m [\033[01;34m%s\033[01;0m]\n", version, pwd);
