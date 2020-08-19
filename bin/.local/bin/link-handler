@@ -6,7 +6,7 @@ for url in $URLS; do
         case "$url" in
                 https://www.youtube.com/watch?v=* | https://youtu.be/* \
                         | https://www.youtube.com/playlist* )
-                        play "$url" & ;;
+                        play --force-window "$url" & continue ;;
                 *.pdf)
                         tmp_pdf="$(mktemp /tmp/XXXXXXXX)"
                         "${TERMINAL?}" \
@@ -35,3 +35,4 @@ for url in $URLS; do
 
         esac
 done
+wait
