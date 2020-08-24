@@ -168,21 +168,21 @@ endif
 " ----------------------------------------------------------
 " Some Basic autocmd
 " remove white spaces
-	autocmd BufWritePre * %s/\s\+$//e
+autocmd BufWritePre * %s/\s\+$//e
 
 " ----------------------------------------------------------
 " LaTex
-	autocmd BufReadPre *.tex nnoremap <leader>c :sp<CR>:resize 10<CR>:term latexrun  --clean-all "%" && rm -r "%:p:h/latex.out"<CR>
+autocmd BufReadPre *.tex nnoremap <leader>c :sp<CR>:resize 10<CR>:term latexrun  --clean-all "%" && rm -r "%:p:h/latex.out"<CR>
 
 " ----------------------------------------------------------
 " Python autocmd
-	autocmd BufReadPre *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term time python "%" <CR>
+autocmd BufReadPre *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term time python "%" <CR>
 
 " ----------------------------------------------------------
 "  sh
-	autocmd BufReadPre *.sh nnoremap <leader>c :sp<CR>:resize 10<CR>:term time sh "%" <CR>
+autocmd BufReadPre *.sh nnoremap <leader>c :sp<CR>:resize 10<CR>:term time sh "%" <CR>
 
 " ----------------------------------------------------------
-"  sh
-	autocmd BufReadPre *.m nnoremap <leader>c :sp<CR>:resize 10<CR>:term time octave "%" <CR>
+"  octave
+autocmd BufReadPre *.m nnoremap <leader>c :sp<CR>:resize 10<CR>:term time octave "%" <CR>
 

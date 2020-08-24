@@ -45,6 +45,7 @@ bspc rule -a mpv:mpvfloat state=floating
 bspc rule -a matplotlib state=floating
 bspc rule -a mpv:MpvSmol state=floating rectangle=400x225+1515+850 sticky=on
 bspc rule -a Circuit desktop=V follow=on
+bspc rule -a "GNU Octave:octave-gui" state=floating
 
 
 
