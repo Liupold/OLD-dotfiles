@@ -184,5 +184,7 @@ autocmd BufReadPre *.sh nnoremap <leader>c :sp<CR>:resize 10<CR>:term time sh "%
 
 " ----------------------------------------------------------
 "  octave
-autocmd BufReadPre *.m nnoremap <leader>c :sp<CR>:resize 10<CR>:term time octave "%" <CR>
+autocmd BufReadPre *.m nnoremap <leader>c :sp<CR>:resize 10<CR>:term time octave -qf "%" <CR>
+
+autocmd BufReadPre *.m nnoremap <leader>p :sp<CR>:resize 10<CR>:term time octave --persist -qf "%" <CR>
 
