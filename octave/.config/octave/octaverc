@@ -1,6 +1,5 @@
-source /usr/share/octave/site/m/startup/octaverc;
 PS1 ('\[\033[01;32m\][\t]:\[\033[01;34m\]\W/\[\033[01;36m\]>> \[\033[0m\]');
-pkg local_list /home/rohnch/.local/share/octave/octave_packages;
+eval(cstrcat("pkg local_list ", getenv("HOME"), "/.local/share/octave/octave_packages"))
 pkg prefix "~/.local/share/octave/packages" "~/.local/share/octave/packages";
 addpath("~/octave");
 addpath("~/.local/share/octave/packages");
