@@ -5,9 +5,12 @@ export XSECURELOCK_AUTH_FOREGROUND_COLOR="$foreground"
 export XSECURELOCK_PASSWORD_PROMPT="time"
 export XSECURELOCK_SAVER="$HOME/.local/bin/xsecure_mpv"
 export XSECURELOCK_SHOW_DATETIME=1
-# export XSECURELOCK_NO_COMPOSITE=1 # till picom is supported
 export XSECURELOCK_FONT="Fira Code"
 
 
 [ "$1" = "--force" ] && xsecurelock && exit
-playerctl -l | xargs -I{} playerctl status -p '{}' | grep -q 'Playing' || xsecurelock
+for player in $(playerctl -l); do
+        [ "$player" = "cmus" ] && continue
+        [ "$(playerctl -p "$player" status)" = "Playing" ] && exit 0
+done
+xsecurelock

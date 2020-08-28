@@ -8,6 +8,8 @@ URxvt.scrollBar: false
 URxvt.depth: 32
 
 st.alpha: 0.85
+urxvt*transparent: true
+urxvt*shading: 25
 ! URxvt.tintColor: #20201d
 
 ! Extensions

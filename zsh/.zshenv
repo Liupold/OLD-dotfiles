@@ -90,7 +90,7 @@ mkdir -p "$HOME/octave"
 
 #Progs
 export EDITOR="nvim"
-export TERMINAL="st"
+export TERMINAL="urxvtc"
 export BROWSER="chromium"
 export READER="zathura --fork"
 export FILE="lf"
