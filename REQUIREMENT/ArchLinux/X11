@@ -11,4 +11,6 @@ pulseaudio
 xsecurelock
 xss-lock
 xclip
+rxvt-unicode
+urxvt-perls
 AUR:st-luke-git
