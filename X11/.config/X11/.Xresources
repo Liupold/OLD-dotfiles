@@ -9,7 +9,7 @@ URxvt.depth: 32
 
 st.alpha: 0.85
 urxvt*transparent: true
-urxvt*shading: 25
+urxvt*shading: 20
 ! URxvt.tintColor: #20201d
 
 ! Extensions
@@ -17,15 +17,14 @@ URxvt.perl-ext: default,url-select,clipboard
 URxvt.keysym.Meta-c: perl:clipboard:copy
 URxvt.keysym.Meta-v: perl:clipboard:paste
 URxvt.iso14755: False
-URxvt.perl-ext-common:  resize-font
+! URxvt.perl-ext-common:  resize-font
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.underline: true
 
 ! Utils
 
-URxvt.urlLauncher: chromium
+URxvt.urlLauncher: xdg-open
 URxvt.underlineURLs: true
-
 
 ! Colors
 

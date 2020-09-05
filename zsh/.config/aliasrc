@@ -14,6 +14,8 @@ alias nb='newsboat'
 alias pypad='vim /tmp/pypad.py'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias o="xdg-open"
+alias octave="octave -f"
+alias oc="/usr/bin/octave -q"
 
 
 # Network Manager

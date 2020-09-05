@@ -1,8 +1,19 @@
 #!/bin/sh
+nl='
+'
+parse_cmus_data() {
+        artist="${cmus_data##*tag artist }"; artist="${artist%%$nl*}"
+        title="${cmus_data##*tag title }"; title="${title%%$nl*}"
+}
 
-artist="$(cmus-remote -Q | grep 'tag artist' | sed 's|tag artist ||g')"
-title="$(cmus-remote -Q | grep 'tag title' | sed 's|tag title ||g')"
+command -v cmus-remote -Q > /dev/null && cmus_data="$(cmus-remote -Q 2>/dev/null )" \
+        && parse_cmus_data
+[ -z "$artist" ] && {
+        artist="$(playerctl metadata artist)"
+        title="$(playerctl metadata title)"
+} >/dev/null 2>&1
 
+[ -z "$artist" ] || [ -z "$title" ] && exit 0
 echo "# '$title' by $artist"
 
 curl -s --get "https://makeitpersonal.co/lyrics" --data-urlencode "artist=$artist" --data-urlencode "title=$title"
