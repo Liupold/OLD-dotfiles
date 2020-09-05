@@ -2,6 +2,7 @@
 nl='
 '
 parse_cmus_data() {
+        [ "${cmus_data#status playing}" = "$cmus_data" ] && return 0 # Paused
         artist="${cmus_data##*tag artist }"; artist="${artist%%$nl*}"
         title="${cmus_data##*tag title }"; title="${title%%$nl*}"
 }
