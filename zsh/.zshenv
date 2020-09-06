@@ -90,12 +90,11 @@ mkdir -p "$HOME/octave"
 
 #Progs
 export EDITOR="nvim"
-export TERMINAL="urxvtc"
+export TERMINAL="st"
 export BROWSER="chromium"
 export READER="zathura --fork"
 export FILE="lf"
 export MUSIC_PLAYER="cmus"
-
 
 export PATH="$(find "$USER_BINPATH" -type d | tr '\n' ':' | sed 's/:$//'):$GOPATH/bin/:${PATH}:${CARGO_HOME}/bin/"
 

@@ -12,4 +12,4 @@ map J zoom out
 map i recolor
 map p print
 set font "Fira Code 11"
-
+set recolor

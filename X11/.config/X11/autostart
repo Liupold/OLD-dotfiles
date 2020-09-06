@@ -15,14 +15,12 @@ manage() {
 }
 
 manage xss-lock || xss-lock -n '/usr/lib/xsecurelock/dimmer' -l -- 'screen-lock' &
-# manage picom || picom &
-# manage polybar || polybar main &
+ manage picom || picom &
 manage launch-bar || launch-bar &
 /usr/lib/kdeconnectd &
 kill "$(pgrep -fl autopauseD | awk '{print $1}')" 2>/dev/null ; autopauseD &
 xset s 300 5
 
 while true; do pidof dunst && break; sleep 1; done
-urxvtd -f;
 notify-send -i xterm Luna READY!
 wait
