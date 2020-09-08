@@ -1,12 +1,13 @@
 set statusbar-h-padding 0
 set statusbar-v-padding 0
-set page-padding 1
+set page-padding 2
 set selection-clipboard clipboard
 map u scroll half-up
 map d scroll half-down
 map D toggle_page_mode
 map r reload
-map R rotate
+map > rotate rotate-cw
+map < rotate rotate-ccw
 map K zoom in
 map J zoom out
 map i recolor
@@ -17,3 +18,8 @@ set recolor-lightcolor \#3c3836
 set recolor-darkcolor \#d5c4a1
 set recolor-keephue
 set default-bg \#222222
+set window-title-home-tilde
+set statusbar-bg \#222222
+set statusbar-fg \#d5c4a1
+set statusbar-basename
+set continuous-hist-save
