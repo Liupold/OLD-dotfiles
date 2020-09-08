@@ -13,3 +13,7 @@ map i recolor
 map p print
 set font "Fira Code 11"
 set recolor
+set recolor-lightcolor \#3c3836
+set recolor-darkcolor \#d5c4a1
+set recolor-keephue
+set default-bg \#222222
