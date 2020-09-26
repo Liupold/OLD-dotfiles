@@ -1,6 +1,6 @@
 #!/bin/sh
 
-selected_song="$(ls --format=single-column -p --recursive "${LUNA_MUSIC_DIR}"| grep -v / | dmenu -b -i -l 10)"
+selected_song="$(find Music/ -type f | dmenu -l 10 -b | xargs basename)"
 if [ -n "${selected_song}" ];
 then
         pidof cmus || screen -dmS 'cmus' /usr/bin/cmus

@@ -5,7 +5,6 @@ addpath("~/octave");
 addpath("~/.local/share/octave/packages");
 edit mode async
 EDITOR("$TERMINAL -e nvim %s >/dev/null 2>&1")
-cd ~/octave;
 function man (name)
         help (char (name));
 endfunction

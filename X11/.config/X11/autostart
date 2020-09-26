@@ -15,9 +15,8 @@ manage() {
 }
 
 manage xss-lock || xss-lock -n '/usr/lib/xsecurelock/dimmer' -l -- 'screen-lock' &
- manage picom || picom &
 manage launch-bar || launch-bar &
-/usr/lib/kdeconnectd &
+urxvtd -f
 kill "$(pgrep -fl autopauseD | awk '{print $1}')" 2>/dev/null ; autopauseD &
 xset s 300 5
 

@@ -7,12 +7,19 @@ parse_cmus_data() {
         title="${cmus_data##*tag title }"; title="${title%%$nl*}"
 }
 
-command -v cmus-remote -Q > /dev/null && cmus_data="$(cmus-remote -Q 2>/dev/null )" \
+[ "$1" != "-r" ] && command -v cmus-remote -Q > /dev/null && cmus_data="$(cmus-remote -Q 2>/dev/null )" \
         && parse_cmus_data
 [ -z "$artist" ] && {
         artist="$(playerctl metadata artist)"
         title="$(playerctl metadata title)"
 } >/dev/null 2>&1
+
+[ "$1" = "-r" ] && {
+        echo "Recognizing..."
+        data="$(recognize_song)"
+        artist="$(echo "$data" |  jq -r .result.artist)"
+        title="$(echo "$data" |  jq -r .result.title)"
+}
 
 [ -z "$artist" ] || [ -z "$title" ] && exit 0
 echo "# '$title' by $artist"

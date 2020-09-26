@@ -1,4 +1,4 @@
-set icons on
+# set icons on
 set drawbox on
 
 set previewer ~/.config/lf/pv.sh

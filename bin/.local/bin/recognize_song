@@ -1,0 +1,7 @@
+#!/bin/sh
+defaul_sink="$(pactl list sinks | grep -m1 'Name:.*')"
+{
+pacat --record -d "${defaul_sink#*Name: }.monitor" | timeout 3 twolame -r - - | curl https://api.audd.io/ \
+    -F "file=@-" \
+    -F api_token='API_KEY'
+} 2>/dev/null

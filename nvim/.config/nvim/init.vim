@@ -116,6 +116,7 @@ Plug 'kovetskiy/sxhkd-vim'
 Plug 'VebbNix/lf-vim'
 Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 " ----------------------------------------------------------
@@ -184,7 +185,7 @@ autocmd BufReadPre *.sh nnoremap <leader>c :sp<CR>:resize 10<CR>:term time sh "%
 
 " ----------------------------------------------------------
 "  octave
-autocmd BufReadPre *.m nnoremap <leader>c :sp<CR>:resize 10<CR>:term time octave -qf "%" <CR>
+autocmd BufReadPre *.m nnoremap <leader>c :sp<CR>:resize 10<CR>:term time octave -q "%" <CR>
 
-autocmd BufReadPre *.m nnoremap <leader>p :sp<CR>:resize 10<CR>:term time octave --persist -qf "%" <CR>
+autocmd BufReadPre *.m nnoremap <leader>p :sp<CR>:resize 10<CR>:term time octave --persist -q "%" <CR>
 
