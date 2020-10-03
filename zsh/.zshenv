@@ -90,7 +90,7 @@ mkdir -p "$HOME/octave"
 
 #Progs
 export EDITOR="nvim"
-export TERMINAL="urxvtc"
+export TERMINAL="st"
 export BROWSER="chromium"
 export READER="zathura --fork"
 export FILE="lf"
@@ -100,7 +100,7 @@ export PATH="$(find "$USER_BINPATH" -type d | tr '\n' ':' | sed 's/:$//'):$GOPAT
 
 # Luna Settings
 export LUNA_WALL_DIR="$XDG_DATA_HOME/WALLS"
-export PIDSWALLOW_TERMINAL=" qutebrowser $TERMINAL "
+export PIDSWALLOW_TERMINAL=" qutebrowser st urxvt "
 mkdir -p "$LUNA_WALL_DIR"
 export LUNA_USE_PYWAL=1
 export LUNA_COLOR_PATH="$XDG_CONFIG_HOME/luna_theme"

@@ -20,4 +20,4 @@ feh --no-fehbg --bg-scale "$LUNA_WALL_PATH"
 xsetroot -cursor_name left_ptr
 setxkbmap -option caps:escape
 $userautostart &
-exec /usr/bin/bspwm
+exec /usr/local/bin/dwm
