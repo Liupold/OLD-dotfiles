@@ -2,8 +2,10 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_RUNTIME_DIR="$XDG_CACHE_HOME/.X11-unix/"
+mkdir -p "$XDG_RUNTIME_DIR"
 
-USER_BINPATH="$HOME/.local/bin/"
+export USER_BINPATH="$HOME/.local/bin/"
 
 # zsh
 mkdir -p "$XDG_CACHE_HOME/zsh"
@@ -69,7 +71,7 @@ export LESSHISTFILE="-"
 mkdir -p "$XDG_DATA_HOME/newsboat" "$XDG_CONFIG_HOME/newsboat"
 
 # Xauthority
-export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority"
+export XAUTHORITY=$XDG_RUNTIME_DIR/Xauthority
 
 # Xorg
 export XINITRC="$XDG_CONFIG_HOME/X11/xinitrc"
@@ -86,17 +88,17 @@ touch "$XDG_CONFIG_HOME/git/credentials"
 export OCTAVE_HISTFILE="$XDG_CACHE_HOME/octave-hsts"
 export OCTAVE_SITE_INITFILE="$XDG_CONFIG_HOME/octave/octaverc"
 mkdir -p "$XDG_DATA_HOME/octave"
-mkdir -p "$HOME/octave"
+
+
+export PATH="$USER_BINPATH:$GOPATH/bin/:$PATH:$CARGO_HOME/bin/"
 
 #Progs
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="chromium"
+export BROWSER="firefox-bin"
 export READER="zathura --fork"
 export FILE="lf"
 export MUSIC_PLAYER="cmus"
-
-export PATH="$(find "$USER_BINPATH" -type d | tr '\n' ':' | sed 's/:$//'):$GOPATH/bin/:${PATH}:${CARGO_HOME}/bin/"
 
 # Luna Settings
 export LUNA_WALL_DIR="$XDG_DATA_HOME/WALLS"

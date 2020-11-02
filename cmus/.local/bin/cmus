@@ -2,7 +2,7 @@
 if [ -z "$(pidof cmus)" ]
 then
     command -v 'termux-info' > /dev/null && pulseaudio --daemon
-    screen -dmS 'cmus' "$(which -a cmus | tail -1)"
+    screen -dmS 'cmus' /usr/bin/cmus
     screen -S 'cmus' -p 0 -X stuff ":clear^M:add $LUNA_MUSIC_DIR^M"
     screen -r -S 'cmus'
 else

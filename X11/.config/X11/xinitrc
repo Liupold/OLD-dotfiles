@@ -15,9 +15,20 @@ userautostart="$XDG_CONFIG_HOME/X11/autostart"
 
 [ -f "$sysmodmap" ] && xmodmap "$sysmodmap"
 [ -f "$usermodmap" ] && xmodmap "$usermodmap"
+
 #set wall
-feh --no-fehbg --bg-scale "$LUNA_WALL_PATH"
-xsetroot -cursor_name left_ptr
-setxkbmap -option caps:escape
-$userautostart &
-exec /usr/local/bin/dwm
+{
+        feh --no-fehbg --bg-scale "$LUNA_WALL_PATH"
+        xsetroot -cursor_name left_ptr
+        setxkbmap -option caps:escape
+
+        start-dunst
+        picom &
+        xset s 300 5
+        launch-bar-dwm &
+        notify-send 'Ready!'
+
+        while true; do
+                /usr/local/bin/dwm
+        done
+} > "$XDG_CACHE_HOME/x11_wm.1" 2> "$XDG_CACHE_HOME/x11_wm.2"

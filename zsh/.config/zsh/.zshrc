@@ -43,7 +43,6 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 # Load zsh-syntax-highlighting; should be last.
 source $XDG_CONFIG_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
-
 # search history
 # source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 [ "$TERM" = 'alacritty' ] && < $XDG_CONFIG_HOME/luna_theme/sequences && clear
