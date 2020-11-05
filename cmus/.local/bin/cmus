@@ -1,11 +1,9 @@
 #!/bin/sh
-if [ -z "$(pidof cmus)" ]
-then
-    command -v 'termux-info' > /dev/null && pulseaudio --daemon
-    screen -dmS 'cmus' /usr/bin/cmus
-    screen -S 'cmus' -p 0 -X stuff ":clear^M:add $LUNA_MUSIC_DIR^M"
-    screen -r -S 'cmus'
-else
-    screen -d 'cmus'
-    screen -r -S 'cmus'
-fi
+
+tmux new -d -s cmux /usr/bin/cmus && {
+        tmux set -t cmux status off
+        tmux send -t cmux ":clear" Enter ":add ~/Music" Enter
+}
+
+tmux detach -s cmux
+tmux attach -t cmux

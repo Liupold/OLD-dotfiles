@@ -1,1 +1,1 @@
-bind -f common d shell screen -d -t cmus
+bind -f common d shell tmux detach -s cmux

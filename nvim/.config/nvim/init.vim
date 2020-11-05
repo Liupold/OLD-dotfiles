@@ -117,7 +117,9 @@ Plug 'VebbNix/lf-vim'
 Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'jiangmiao/auto-pairs'
+Plug 'cespare/vim-toml'
 call plug#end()
+let g:mkdp_browser = $BROWSER
 
 " ----------------------------------------------------------
 "  KeyMapings
