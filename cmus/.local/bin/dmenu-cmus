@@ -1,10 +1,11 @@
 #!/bin/sh
 
-selected_song="$(find Music/ -type f | dmenu -l 10 -b | xargs basename)"
+selected_song="$(find "${LUNA_MUSIC_DIR}/" -type f | dmenu -l 10 -b | xargs basename)"
 if [ -n "${selected_song}" ];
 then
         pidof cmus || {
                 tmux new -d -s cmux /usr/bin/cmus
+                tmux set -t cmux status off
                 tmux send ":clear" Enter ":add ${LUNA_MUSIC_DIR}" Enter
                 sleep 1
         }
