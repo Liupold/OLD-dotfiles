@@ -1,6 +1,9 @@
 #show-read-feeds no
 auto-reload yes
 notify-program "/usr/bin/notify-send"
+player "play"
+download-path ~/.cache/podboat/%n
+download-filename-format %F-%t.%e
 # external-url-viewer "urlscan -dc -r 'firefox {}'"
 # notify-format "%d new articles (%n unread articles, %f unread feeds)"
 notify-format  "%I %d %n %f new articles (%n unread articles, %f unread feeds)"

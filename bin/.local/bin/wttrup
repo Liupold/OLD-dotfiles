@@ -1,7 +1,7 @@
 #!/bin/sh
-/usr/bin/ping -qc 1 '1.1.1.1' 1>/dev/null 2>&1 || exit 1
+ping -qc 1 '1.1.1.1' 1>/dev/null 2>&1 || exit 1
 wttr_dir="$HOME/.cache/wttr"
 mkdir -p "$wttr_dir"
-/usr/bin/curl --silent 'wttr.in' > "$wttr_dir/chart"
-/usr/bin/curl --silent 'wttr.in?format=v2' > "$wttr_dir/graph"
-/usr/bin/curl 'https://mausam.imd.gov.in/Satellite/Converted/IR1.gif' > "$wttr_dir/rad.gif"
+curl --silent 'wttr.in' > "$wttr_dir/chart"
+curl --silent 'wttr.in?format=v2' > "$wttr_dir/graph"
+curl 'https://mausam.imd.gov.in/Satellite/Converted/IR1.gif' > "$wttr_dir/rad.gif"

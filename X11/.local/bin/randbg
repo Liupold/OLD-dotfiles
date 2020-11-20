@@ -1,7 +1,7 @@
 #!/bin/sh
 key="$*"
 [ -z "$key" ] && key="linux"
-src_link="https://wallhaven.cc/search?q=$key&sorting=random&order=desc"
+src_link="https://wallhaven.cc/search?q=${key}&sorting=random&order=desc"
 
 id=$(wget "$src_link" -O - 2>/dev/null | grep -o 'https://wallhaven.cc/w/......' | head -1 | sed -e 's|https://wallhaven.cc/w/||g')
 filename="$HOME/.cache/wall-rand"

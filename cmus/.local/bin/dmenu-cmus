@@ -1,6 +1,6 @@
 #!/bin/sh
 
-selected_song="$(find "${LUNA_MUSIC_DIR}/" -type f | dmenu -l 10 -b | xargs basename)"
+selected_song="$(find "${LUNA_MUSIC_DIR}/" -type f | dmenu -l 10 -b | xargs -0 basename)"
 if [ -n "${selected_song}" ];
 then
         pidof cmus || {

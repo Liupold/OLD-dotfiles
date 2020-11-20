@@ -1,8 +1,2 @@
-#!/bin/sh
-is_tty=0
-tty | grep -q '/dev/tty' && is_tty=1
-
-# has to be "$@" not "$*"
-# command -v termux-info && am start -n is.xyz.mpv/is.xyz.mpv.MPVActivity -e filepath "$@" && exit
-[ "$is_tty" -eq 1 ] && mpv --vo=gpu --gpu-context=drm --save-position-on-quit "$@"
-[ "$is_tty" -eq 0 ] && mpv --vo=gpu --force-window --no-keepaspect-window --save-position-on-quit "$@"
+[ -z  "$DISPLAY" ] && mpv --vo=drm --input-ipc-server=/tmp/mpvsocket --save-position-on-quit "$@"
+[ -n "$DISPLAY" ] && mpv --force-window --no-keepaspect-window --input-ipc-server=/tmp/mpvsocket --save-position-on-quit "$@"

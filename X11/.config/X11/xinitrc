@@ -16,7 +16,6 @@ userautostart="$XDG_CONFIG_HOME/X11/autostart"
 [ -f "$sysmodmap" ] && xmodmap "$sysmodmap"
 [ -f "$usermodmap" ] && xmodmap "$usermodmap"
 
-#set wall
 {
         feh --no-fehbg --bg-scale "$LUNA_WALL_PATH"
         xsetroot -cursor_name left_ptr
@@ -26,7 +25,7 @@ userautostart="$XDG_CONFIG_HOME/X11/autostart"
         picom &
         xset s 300 5
         launch-bar-dwm &
-        notify-send 'Ready!'
+        unclutter &
 
         while true; do
                 /usr/local/bin/dwm

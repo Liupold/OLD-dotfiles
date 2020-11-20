@@ -33,75 +33,6 @@ if !has('nvim')
         set ttymouse=xterm2
 endif
 
-" ----------------------------------------------------------
-set showtabline=1
-set tabline="%1T"
-
-let g:currentmode={
-      \ 'n'  : 'N ',
-      \ 'no' : 'N·Operator Pending ',
-      \ 'v'  : 'V ',
-      \ 'V'  : 'V·Line ',
-      \ 'x22' : 'V·Block ',
-      \ 's'  : 'Select ',
-      \ 'S'  : 'S·Line ',
-      \ 'x19' : 'S·Block ',
-      \ 'i'  : 'I ',
-      \ 'R'  : 'R ',
-      \ 'Rv' : 'V·Replace ',
-      \ 'c'  : 'Command ',
-      \ 'cv' : 'Vim Ex ',
-      \ 'ce' : 'Ex ',
-      \ 'r'  : 'Prompt ',
-      \ 'rm' : 'More ',
-      \ 'r?' : 'Confirm ',
-      \ '!'  : 'Shell ',
-      \ 't'  : 'Terminal '
-      \}
-
-
-" Find out current buffer's size and output it.
-function! FileSize()
-        let bytes = getfsize(expand('%:p'))
-        if (bytes >= 1024)
-                let kbytes = bytes / 1024
-        endif
-        if (exists('kbytes') && kbytes >= 1000)
-                let mbytes = kbytes / 1000
-        endif
-
-        if bytes <= 0
-                return '0'
-        endif
-
-        if (exists('mbytes'))
-                return mbytes . 'MB '
-        elseif (exists('kbytes'))
-                return kbytes . 'KB '
-        else
-                return bytes . 'B '
-        endif
-endfunction
-
-function! ReadOnly()
-        if &readonly || !&modifiable
-                return ''
-        else
-                return ''
-endfunction
-
-set laststatus=2
-set statusline=
-set statusline+=%0*\ %{toupper(g:currentmode[mode()])}   " Current mode
-set statusline+=%8*\ [%n]                                " buffernr
-set statusline+=%8*\ %<%F\ %{ReadOnly()}\ %m\ %w\        " File+path
-set statusline+=%#warningmsg#
-set statusline+=%*
-set statusline+=%9*\ %=                                  " Space
-set statusline+=%8*\ %y\                                 " FileType
-set statusline+=%7*\ %{(&fenc!=''?&fenc:&enc)}\[%{&ff}]\ " Encoding & Fileformat
-set statusline+=%8*\ %-3(%{FileSize()}%)                 " File size
-set statusline+=%0*\ %3p%%\ \ %l\|%L:\ %3c\                 " Rownumber/total (%)
 
 " ----------------------------------------------------------
 " PLUGINs
@@ -118,6 +49,7 @@ Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'jiangmiao/auto-pairs'
 Plug 'cespare/vim-toml'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 let g:mkdp_browser = $BROWSER
 
@@ -130,8 +62,6 @@ noremap <leader>q :q<CR>
 
 noremap <leader>e :find
 nnoremap <leader>t :tabedit<CR>
-nnoremap <leader>v :tabprevious<CR>
-nnoremap <leader>b :tabnext<CR>
 
 nnoremap <Down> :resize -1<CR>
 nnoremap <Up> :resize +1<CR>
@@ -139,9 +69,7 @@ nnoremap <Left> :vertical resize +1<CR>
 nnoremap <Right> :vertical resize -1<CR>
 
 inoremap <leader><leader> <Esc><ESc>:w<CR>
-inoremap <leader><Space> <Esc><Esc>/<CR>"_c4l
-
-" ----------------------------------------------------------
+nnoremap <leader>x :sp<CR>:resize 20<CR>:term <CR>
 "  make term great again
 
 if exists(':tnoremap')
@@ -176,18 +104,17 @@ autocmd BufWritePre * %s/\s\+$//e
 " ----------------------------------------------------------
 " LaTex
 autocmd BufReadPre *.tex nnoremap <leader>c :sp<CR>:resize 10<CR>:term latexrun  --clean-all "%" && rm -r "%:p:h/latex.out"<CR>
-
 " ----------------------------------------------------------
 " Python autocmd
 autocmd BufReadPre *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term time python "%" <CR>
-
 " ----------------------------------------------------------
 "  sh
 autocmd BufReadPre *.sh nnoremap <leader>c :sp<CR>:resize 10<CR>:term time sh "%" <CR>
-
 " ----------------------------------------------------------
 "  octave
 autocmd BufReadPre *.m nnoremap <leader>c :sp<CR>:resize 10<CR>:term time octave -q "%" <CR>
-
 autocmd BufReadPre *.m nnoremap <leader>p :sp<CR>:resize 10<CR>:term time octave --persist -q "%" <CR>
 
+" ----------------------------------------------------------
+"  c
+autocmd BufReadPre *.c nnoremap <leader>c :sp<CR>:resize 10<CR>:term time gcc "%" -o "%.out" -lm && time ./"%.out" && rm ./"%.out"<CR>
