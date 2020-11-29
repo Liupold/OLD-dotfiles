@@ -117,6 +117,5 @@ autocmd BufReadPre *.m nnoremap <leader>p :sp<CR>:resize 10<CR>:term time octave
 
 " ----------------------------------------------------------
 "  c
-autocmd BufReadPre *.c nnoremap <leader>c :sp<CR>:resize 10<CR>:term time gcc "%" -o "%.out" -lm && time ./"%.out" && rm ./"%.out"<CR>
-
-autocmd BufReadPre *.cpp nnoremap <leader>c :sp<CR>:resize 10<CR>:term time gcc "%" -o "%.out" -lm && time ./"%.out" && rm ./"%.out"<CR>
+autocmd BufReadPre *.c nnoremap <leader>c :sp<CR>:resize 10<CR>:term gcc "%" -o "%.out" -lm && time ./"%.out" && rm ./"%.out"<CR>
+autocmd BufReadPre *.cpp nnoremap <leader>c :sp<CR>:resize 10<CR>:term gcc -lm "%" -o "%.out" -lstdc++ && time ./"%.out" && rm ./"%.out"<CR>
