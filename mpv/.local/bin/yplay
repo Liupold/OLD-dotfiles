@@ -2,4 +2,4 @@
 command -v termux-info && play "$@"
 command -v termux-info && exit
 
-play --window-scale="$LUNA_YPLAY_SCALE" --ytdl-format='bestvideo[height<='"$LUNA_YPLAY_RES"']+bestaudio/best[height<='"$LUNA_YPLAY_RES"']' "$@"
+play --window-scale="$LUNA_YPLAY_SCALE" --ytdl-format='bestvideo[height<='"$LUNA_YPLAY_RES"'][ext=webm]+bestaudio/best[height<='"$LUNA_YPLAY_RES"'][ext=opus]' "$@"

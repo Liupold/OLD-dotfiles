@@ -5,13 +5,13 @@ set viewdir=$XDG_DATA_HOME/nvim/view
 set runtimepath=$XDG_CONFIG_HOME/nvim,$VIMRUNTIME,$XDG_CONFIG_HOME/nvim/after
 set nocompatible
 set viminfo+='1000,n$XDG_DATA_HOME/nvim/viminfo
-
+set listchars=tab:\|\ ,
+set list
 set laststatus=2
 set timeoutlen=300
 set number
 set relativenumber
 set guifont="Fira Code 10"
-set expandtab
 set tabstop=4
 set noshowmode
 set t_Co=256
@@ -32,6 +32,8 @@ set undoreload=100000        " number of lines to save for undo
 if !has('nvim')
         set ttymouse=xterm2
 endif
+
+autocmd TermOpen * setlocal nonumber norelativenumber
 
 
 " ----------------------------------------------------------
@@ -59,7 +61,7 @@ let mapleader =","
 noremap <F6> :set spell! spelllang=en_us<CR>
 noremap <leader><leader> <Esc><Esc>:w<CR>
 noremap <leader>q :q<CR>
-
+let g:indentLine_char = '|'
 noremap <leader>e :find
 nnoremap <leader>t :tabedit<CR>
 
@@ -119,3 +121,4 @@ autocmd BufReadPre *.m nnoremap <leader>p :sp<CR>:resize 10<CR>:term time octave
 "  c
 autocmd BufReadPre *.c nnoremap <leader>c :sp<CR>:resize 10<CR>:term gcc "%" -o "%.out" -lm && time ./"%.out" && rm ./"%.out"<CR>
 autocmd BufReadPre *.cpp nnoremap <leader>c :sp<CR>:resize 10<CR>:term gcc -lm "%" -o "%.out" -lstdc++ && time ./"%.out" && rm ./"%.out"<CR>
+autocmd BufReadPre *.asm nnoremap <leader>c :sp<CR>:resize 10<CR>:term nasm -f elf32 "%" -o "%.o" && ld -m elf_i386 %.o -o "%.out" && rm "%.o" && ./"%.out"<CR>

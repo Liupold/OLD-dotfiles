@@ -95,7 +95,7 @@ export PATH="$USER_BINPATH:$GOPATH/bin/:$PATH:$CARGO_HOME/bin/"
 #Progs
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="firefox-bin"
+export BROWSER="brave-bin"
 export READER="zathura --fork"
 export FILE="lf"
 export MUSIC_PLAYER="cmus"
