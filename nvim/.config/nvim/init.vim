@@ -108,7 +108,7 @@ autocmd BufWritePre * %s/\s\+$//e
 autocmd BufReadPre *.tex nnoremap <leader>c :sp<CR>:resize 10<CR>:term latexrun  --clean-all "%" && rm -r "%:p:h/latex.out"<CR>
 " ----------------------------------------------------------
 " Python autocmd
-autocmd BufReadPre *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term time python "%" <CR>
+autocmd BufReadPre *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term time python3 "%" <CR>
 " ----------------------------------------------------------
 "  sh
 autocmd BufReadPre *.sh nnoremap <leader>c :sp<CR>:resize 10<CR>:term time sh "%" <CR>

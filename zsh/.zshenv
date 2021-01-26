@@ -90,7 +90,7 @@ export OCTAVE_SITE_INITFILE="$XDG_CONFIG_HOME/octave/octaverc"
 mkdir -p "$XDG_DATA_HOME/octave"
 
 
-export PATH="$USER_BINPATH:$GOPATH/bin/:$PATH:$CARGO_HOME/bin/"
+export PATH="$USER_BINPATH:$GOPATH/bin/:$PATH:$CARGO_HOME/bin/:/usr/sbin/"
 
 #Progs
 export EDITOR="nvim"
