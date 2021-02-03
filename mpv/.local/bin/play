@@ -1,2 +1,2 @@
-[ -z  "$DISPLAY" ] && mpv --vo=drm --input-ipc-server=/tmp/mpvsocket --save-position-on-quit "$@"
-[ -n "$DISPLAY" ] && mpv --force-window --input-ipc-server=/tmp/mpvsocket --save-position-on-quit "$@"
+[ -z  "$DISPLAY" ] && mpv --input-ipc-server=/tmp/mpvsocket --save-position-on-quit "$@"
+[ -n "$DISPLAY" ] && mpv --input-ipc-server=/tmp/mpvsocket --save-position-on-quit "$@"

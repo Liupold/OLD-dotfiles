@@ -17,8 +17,8 @@ set noshowmode
 set t_Co=256
 filetype plugin on
 syntax on
-"colorscheme gruvbox
-colorscheme molokai
+colorscheme gruvbox
+"colorscheme molokai
 set path+=**
 set wildmode=longest,list,full
 set splitright
@@ -122,3 +122,7 @@ autocmd BufReadPre *.m nnoremap <leader>p :sp<CR>:resize 10<CR>:term time octave
 autocmd BufReadPre *.c nnoremap <leader>c :sp<CR>:resize 10<CR>:term gcc "%" -o "%.out" -lm && time ./"%.out" && rm ./"%.out"<CR>
 autocmd BufReadPre *.cpp nnoremap <leader>c :sp<CR>:resize 10<CR>:term gcc -lm "%" -o "%.out" -lstdc++ && time ./"%.out" && rm ./"%.out"<CR>
 autocmd BufReadPre *.asm nnoremap <leader>c :sp<CR>:resize 10<CR>:term nasm -f elf32 "%" -o "%.o" && ld -m elf_i386 %.o -o "%.out" && rm "%.o" && ./"%.out"<CR>
+
+"  go
+autocmd BufReadPre *.go nnoremap <leader>c :sp<CR>:resize 10<CR>:term go run "%" <CR>
+" ----------------------------------------------------------
