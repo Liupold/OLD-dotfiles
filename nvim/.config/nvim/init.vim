@@ -17,8 +17,17 @@ set noshowmode
 set t_Co=256
 filetype plugin on
 syntax on
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme koehler
 "colorscheme molokai
+highlight Normal     ctermbg=NONE guibg=NONE
+highlight LineNr     ctermbg=NONE guibg=NONE
+highlight SignColumn ctermbg=NONE guibg=NONE
+if has("termguicolors")     " set true colors
+    set t_8f=\[[38;2;%lu;%lu;%lum
+    set t_8b=\[[48;2;%lu;%lu;%lum
+    set termguicolors
+endif
 set path+=**
 set wildmode=longest,list,full
 set splitright

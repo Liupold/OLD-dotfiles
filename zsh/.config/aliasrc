@@ -38,3 +38,7 @@ sendit() {
         [ -n "$1" ] && file_to_send="$1"
         curl -F "file=@$file_to_send" https://0x0.st
 }
+
+ghc() {
+		git clone git@github.com:"$*".git
+}
