@@ -25,6 +25,7 @@ userautostart="$XDG_CONFIG_HOME/X11/autostart"
         picom &
         xset s 300 5
         launch-bar-dwm &
+        autopauseD &
         unclutter &
 
         while true; do

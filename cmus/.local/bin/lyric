@@ -2,26 +2,26 @@
 nl='
 '
 parse_cmus_data() {
-        [ "${cmus_data#status playing}" = "$cmus_data" ] && return 0 # Paused
-        artist="${cmus_data##*tag artist }"; artist="${artist%%$nl*}"
-        title="${cmus_data##*tag title }"; title="${title%%$nl*}"
+		[ "${cmus_data#status playing}" = "$cmus_data" ] && return 0 # Paused
+		artist="${cmus_data##*tag artist }"; artist="${artist%%$nl*}"
+		title="${cmus_data##*tag title }"; title="${title%%$nl*}"
 }
 
-[ "$1" != "-r" ] && command -v cmus-remote -Q > /dev/null && cmus_data="$(cmus-remote -Q 2>/dev/null )" \
-        && parse_cmus_data
+title="$1"
+artist="$2"
+
+
+[ -z "$artist" ] &&
+		command -v cmus-remote -Q > /dev/null && cmus_data="$(cmus-remote -Q 2>/dev/null )" \
+		&& parse_cmus_data
+
 [ -z "$artist" ] && {
-        artist="$(playerctl metadata artist)"
-        title="$(playerctl metadata title)"
+		artist="$(playerctl metadata artist)"
+		title="$(playerctl metadata title)"
 } >/dev/null 2>&1
-
-[ "$1" = "-r" ] && {
-        echo "Recognizing..."
-        data="$(recognize_song)"
-        artist="$(echo "$data" |  jq -r .result.artist)"
-        title="$(echo "$data" |  jq -r .result.title)"
-}
 
 [ -z "$artist" ] || [ -z "$title" ] && exit 0
 echo "# '$title' by $artist"
 
 curl -s --get "https://makeitpersonal.co/lyrics" --data-urlencode "artist=$artist" --data-urlencode "title=$title"
+

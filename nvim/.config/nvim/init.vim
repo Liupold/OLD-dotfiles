@@ -14,6 +14,7 @@ set relativenumber
 set guifont="Fira Code 10"
 set tabstop=4
 set noshowmode
+set expandtab
 set t_Co=256
 filetype plugin on
 syntax on

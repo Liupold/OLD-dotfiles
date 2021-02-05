@@ -36,7 +36,7 @@ alias crontab="crontab -i"
 sendit() {
         file_to_send="-"
         [ -n "$1" ] && file_to_send="$1"
-        curl -F "file=@$file_to_send" https://0x0.st
+        curl --progress-bar -F "file=@$file_to_send" https://0x0.st
 }
 
 ghc() {

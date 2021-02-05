@@ -1,2 +1,0 @@
-[ -z  "$DISPLAY" ] && mpv --input-ipc-server=/tmp/mpvsocket --save-position-on-quit "$@"
-[ -n "$DISPLAY" ] && mpv --input-ipc-server=/tmp/mpvsocket --save-position-on-quit "$@"

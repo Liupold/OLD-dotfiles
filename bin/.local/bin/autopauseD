@@ -2,9 +2,11 @@
 
 [ "$LUNA_AUTO_PAUSE" -eq 0 ] && exit
 
-pactl subscribe | while read -r event; do
-        [ "${event#*\'change\' on card}" != "$event" ] &&
-                sinks="$(pactl list sinks)" &&
-                [ "${sinks#*Active Port:*-speaker}" != "$sinks" ] && \
-                timeout 0.5 playerctl -a pause
+stdbuf -oL alsactl monitor | while read -r event; do
+        [ "${event#*Speaker Playback Switch}" != "$event" ] || continue
+
+        timeout 0.5 playerctl -a pause 2> /dev/null
+        cmus-remote --pause-playback
+        echo '{ "command": ["set_property", "pause", true] }' \
+                        | socat - "$XDG_CONFIG_HOME/mpv/socket" > /dev/null
 done
