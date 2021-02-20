@@ -70,8 +70,9 @@ Learn more about [dls](https://github.com/Liupold/dls).
 │           ├── batch-rename
 │           ├── booksplit
 │           ├── dmenu
-│           ├── ix
 │           ├── link-handler
+│           ├── pfetch
+│           ├── recognize_song
 │           ├── rssadd
 │           ├── show-weather
 │           ├── tag
@@ -82,17 +83,21 @@ Learn more about [dls](https://github.com/Liupold/dls).
 │   │       └── bspwmrc
 │   └── .local
 │       └── bin
-│           ├── bspwm-update-color
-│           └── pidswallow
+│           └── bspwm-update-color
 ├── cmus
 │   ├── .config
 │   │   └── cmus
+│   │       ├── cmus-status.sh
 │   │       └── rc
 │   └── .local
 │       └── bin
 │           ├── cmus
 │           ├── dmenu-cmus
 │           └── lyric
+├── cron
+│   └── .local
+│       └── bin
+│           └── notice_board.sh
 ├── dls
 ├── dots.sh
 ├── dunst
@@ -138,10 +143,10 @@ Learn more about [dls](https://github.com/Liupold/dls).
 ├── mpv
 │   ├── .config
 │   │   └── mpv
-│   │       └── input.conf
+│   │       ├── input.conf
+│   │       └── mpv.conf
 │   └── .local
 │       └── bin
-│           ├── play
 │           └── yplay
 ├── newsboat
 │   ├── .config
@@ -226,7 +231,6 @@ Learn more about [dls](https://github.com/Liupold/dls).
 │   ├── .config
 │   │   ├── mimeapps.list
 │   │   └── X11
-│   │       ├── autostart
 │   │       ├── xinitrc
 │   │       └── .Xresources
 │   └── .local
@@ -281,5 +285,6 @@ Learn more about [dls](https://github.com/Liupold/dls).
     │       ├── .zprofile
     │       └── .zshrc
     └── .zshenv
-107 directories, 115 files
+
+110 directories, 116 files
 ```
