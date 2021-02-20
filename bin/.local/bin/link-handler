@@ -3,7 +3,7 @@
 open_yt() { yplay "$1"; }
 
 open_audio() { mpv --no-video "$1"; }
-open_video() { mpv "$1"; }
+open_video() { command "termux-open" && termux-open $1 && return; mpv "$1"; }
 
 open_image() {
         tmp_img="$(mktemp /tmp/XXXXXXXX)"
