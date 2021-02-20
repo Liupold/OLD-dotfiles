@@ -1,8 +1,8 @@
 #!/bin/sh
 
-open_yt() { command "termux-open" && termux-open $1 && return; yplay "$1"; }
-open_audio() { mpv --no-video "$1"; }
-open_video() { command "termux-open" && termux-open $1 && return; mpv "$1"; }
+open_yt() { command "termux-open" && termux-open $1 && return; yplay --save-position-on-quit "$1"; }
+open_audio() { mpv --save-position-on-quit --no-video "$1"; }
+open_video() { command "termux-open" && termux-open $1 && return; mpv --save-position-on-quit "$1"; }
 
 open_image() {
         tmp_img="$(mktemp /tmp/XXXXXXXX)"
