@@ -33,10 +33,10 @@ case "${url%%\?*}" in
         *.jpg | *.jpeg | *.png )
                 open_image "$url"; continue ;;
 
-        *.mp3 | *.opus | *wav | *.ogg | *.flac )
+        *.mp3 | *.opus | *wav | *.m4a | *.ogg | *.flac )
                 open_audio "$url"; continue ;;
 
-        *.mp4 | *.m4a | *.mkv | *.mov | *.webm )
+        *.mp4 | *.mkv | *.mov | *.webm )
                 open_video "$url"; continue ;;
 
         *.gif )
