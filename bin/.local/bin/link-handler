@@ -1,7 +1,6 @@
 #!/bin/sh
 
-open_yt() { yplay "$1"; }
-
+open_yt() { command "termux-open" && termux-open $1 && return; yplay "$1"; }
 open_audio() { mpv --no-video "$1"; }
 open_video() { command "termux-open" && termux-open $1 && return; mpv "$1"; }
 
