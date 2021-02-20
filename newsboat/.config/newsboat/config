@@ -1,12 +1,13 @@
 #show-read-feeds no
-auto-reload yes
+#auto-reload yes
+refresh-on-startup no
 notify-program "/usr/bin/notify-send"
 player "play"
 download-path ~/.cache/podboat/%n
 download-filename-format %F-%t.%e
 # external-url-viewer "urlscan -dc -r 'firefox {}'"
 # notify-format "%d new articles (%n unread articles, %f unread feeds)"
-notify-format  "%I %d %n %f new articles (%n unread articles, %f unread feeds)"
+notify-format "%d new articles (%n unread articles, %f unread feeds)"
 bind-key j down
 bind-key k up
 bind-key j next articlelist
@@ -36,7 +37,8 @@ color article cyan default
 
 browser link-handler
 macro , open-in-browser
-macro y set browser "setsid -f yplay %u >/dev/null 2>&1" ; open-in-browser ; set browser link-handler
-macro p set browser "setsid -f yplay --x11-name=MpvSmol %u >/dev/null 2>&1" ; open-in-browser ; set browser link-handler
+macro q set browser "echo $(tmux detach -s nbx)" ; open-in-browser ; set browser link-handler
+macro y set browser "yplay %u >/dev/null 2>&1" ; open-in-browser ; set browser link-handler
+macro p set browser "yplay --x11-name=MpvSmol %u >/dev/null 2>&1" ; open-in-browser ; set browser link-handler
 macro a set browser "mpv --force-window --no-video %u >/dev/null 2>&1" ; open-in-browser ; set browser link-handler
 macro c set browser "xclip -i -selection clipboard <<<" ; open-in-browser ; set browser link-handler

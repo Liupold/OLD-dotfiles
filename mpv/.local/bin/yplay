@@ -1,5 +1,5 @@
 #!/bin/sh
-command -v termux-info && play "$@"
+command -v termux-info && mpv "$@"
 command -v termux-info && exit
 
-play --window-scale="$LUNA_YPLAY_SCALE" --ytdl-format='bestvideo[height<='"$LUNA_YPLAY_RES"'][ext=webm]+bestaudio/best[height<='"$LUNA_YPLAY_RES"'][ext=opus]' "$@"
+mpv --window-scale="$LUNA_YPLAY_SCALE" --ytdl-format='bestvideo[height<='"$LUNA_YPLAY_RES"'][ext=webm]+bestaudio/best[height<='"$LUNA_YPLAY_RES"'][ext=opus]' "$@"

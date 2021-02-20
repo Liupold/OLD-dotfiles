@@ -7,11 +7,13 @@ edit mode async
 EDITOR("$TERMINAL -e nvim %s >/dev/null 2>&1")
 function man (name)
         help (char (name));
+endfunction
 
 global sound_play_utility = 'aplay';
-endfunction
+lcp = @(var) system(['echo ', "'", latex(sym(var)), "'", " | xclip -selection clipboard"]);
+
 function l ()
         ls -lah --color=always;
 endfunction
-printf ("\033[01;32mOctave: \033[01;81m%s\033[01;0m [\033[01;34m%s\033[01;0m]\n", version, pwd);
+
 pkg load symbolic

@@ -1,38 +1,63 @@
 #!/bin/sh
-URLS="$*"
 
-for url in $URLS; do
-        # url="${url#https://}"; url="${url#http://}"; url="https://$url"
-        case "$url" in
-                https://www.youtube.com/watch?v=* | https://youtu.be/* \
-                        | https://www.youtube.com/playlist* )
-                        play --force-window "$url" & continue ;;
-                *.pdf)
-                        tmp_pdf="$(mktemp /tmp/XXXXXXXX)"
-                        "${TERMINAL?}" \
-                                -e wget "$url" -O "$tmp_pdf" && zathura "$tmp_pdf" \
-                                && rm "$tmp_pdf" &
-                                continue ;;
-                *.jpg | *.jpeg | *.png )
-                        tmp_img="$(mktemp /tmp/XXXXXXXX)"
-                        "$TERMINAL" -e wget "$url" -O "$tmp_img" && sxiv "$tmp_img" \
-                                && rm "$tmp_img" &
-                                continue ;;
+open_yt() { yplay "$1"; }
 
-                *.mp4 | *.mp3 | *.opus | *.m4a | *wav | *.ogg | *.flac \
-                | *.mkv | *.mov )
-                                play --force-window "$url" &
-                                continue ;;
+open_audio() { mpv --no-video "$1"; }
+open_video() { mpv "$1"; }
 
-                *.gif )
-                        tmp_gif="$(mktemp /tmp/XXXXXXXX)"
-                        "$TERMINAL" -e wget "$url" -O "$tmp_gif" && mpv --loop \
-                                "$tmp_gif" && rm "$tmp_gif" &
-                                continue ;;
-                *)
-                                "${BROWSER?}" "$url" &
-                                continue ;;
+open_image() {
+        tmp_img="$(mktemp /tmp/XXXXXXXX)"
+        wget "$1" -O "$tmp_img" && \
+        sxiv "$tmp_img" && rm "$tmp_img"; }
 
-        esac
-done
-wait
+open_pdf() {
+        tmp_pdf="$(mktemp /tmp/XXXXXXXX)"
+        wget "$1" -O "$tmp_pdf" && \
+                zathura "$tmp_pdf" && rm "$tmp_pdf"
+
+}
+open_gif() {
+        tmp_gif="$(mktemp /tmp/XXXXXXXX)";
+         wget "$1" -O "$tmp_gif" && \
+                mpv --loop "$tmp_gif" && rm "$tmp_gif"
+}
+
+
+url="$1"
+case "${url%%\?*}" in
+        https://www.youtube.com/watch?v=* | https://youtu.be/* \
+                | https://www.youtube.com/playlist* )
+                open_yt "$url"; continue;;
+        *.pdf)
+                open_pdf "$url"; continue ;;
+
+        *.jpg | *.jpeg | *.png )
+                open_image "$url"; continue ;;
+
+        *.mp3 | *.opus | *wav | *.ogg | *.flac )
+                open_audio "$url"; continue ;;
+
+        *.mp4 | *.m4a | *.mkv | *.mov | *.webm )
+                open_video "$url"; continue ;;
+
+        *.gif )
+                open_gif "$url"; continue ;;
+        *)
+                content_type="$(curl --silent -X HEAD -I "$url" |  \
+                        grep 'content-type:')"
+
+                echo "$content_type"
+
+                [ "${content_type##*image}" != "$content_type" ]  \
+                        && open_image "$url"
+
+                [ "${content_type##*audio}" != "$content_type" ]  \
+                        && open_audio "$url"
+
+                [ "${content_type##*video}" != "$content_type" ]  \
+                        && open_video "$url"
+
+                # "${BROWSER?}" "$url"
+                continue ;;
+
+esac

@@ -32,11 +32,21 @@ alias ytv="youtube-dl --add-metadata -f 'bestvideo[height<=$LUNA_YPLAY_RES]+best
 alias yta="youtube-dl --format=bestaudio --extract-audio --audio-format=opus --add-metadata -o '%(title)s.%(ext)s'"
 alias ytm="youtube-dl --format=bestaudio --extract-audio --audio-format=opus --add-metadata --output='$LUNA_MUSIC_DIR/%(title)s.%(ext)s'"
 alias crontab="crontab -i"
+alias opennas="grep -q 'nas' /proc/mounts  || mount -a && cd /nas/"
 
 sendit() {
         file_to_send="-"
         [ -n "$1" ] && file_to_send="$1"
         curl --progress-bar -F "file=@$file_to_send" https://0x0.st
+}
+
+
+slect() {
+        echo "$1" | dmenu -i -p "$2 " -b -l 10 | { read -n selected && [ -n "$selected" ] && "$2" "$selected" && unset selected; }
+}
+
+fslect() {
+        slect "$(ls -a1)" "$1"
 }
 
 ghc() {

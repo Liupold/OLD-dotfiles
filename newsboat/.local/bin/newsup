@@ -1,10 +1,8 @@
 #!/usr/bin/env sh
-# Set as a cron job to check for new RSS entries for newsboat.
-# If newsboat is open, sends it an "R" key to refresh.
 
-ping -q -c 1 1.1.1.1 > /dev/null || exit
+/usr/bin/tmux new -d -s nbx /usr/bin/newsboat 2>/dev/null && {
+        /usr/bin/tmux set -t nbx status off
+        /usr/bin/tmux detach -s nbx 2>/dev/null
+}
 
-# /usr/bin/notify-send -i internet-news-reader "Updating RSS feeds..."
-killall newsboat 2>/dev/null
-/usr/bin/newsboat -x reload
-# /usr/bin/notify-send  -i internet-news-reader "RSS feed update complete."
+/usr/bin/tmux send -t nbx "R"
