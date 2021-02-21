@@ -1,8 +1,18 @@
 #!/bin/sh
 
-open_yt() { command "termux-open" && termux-open $1 && return; yplay --save-position-on-quit "$1"; }
-open_audio() { mpv --save-position-on-quit --no-video "$1"; }
-open_video() { command "termux-open" && termux-open $1 && return; mpv --save-position-on-quit "$1"; }
+open_yt() {
+        command "termux-open" && termux-open $1 && return;
+        setsid -f yplay --save-position-on-quit "$1";
+}
+
+open_audio() {
+        mpv --save-position-on-quit --no-video "$1";
+}
+
+open_video() {
+        command "termux-open" && termux-open $1 && return;
+        setsid -f mpv --save-position-on-quit "$1";
+}
 
 open_image() {
         tmp_img="$(mktemp /tmp/XXXXXXXX)"
@@ -48,15 +58,15 @@ case "${url%%\?*}" in
                 echo "$content_type"
 
                 [ "${content_type##*image}" != "$content_type" ]  \
-                        && open_image "$url"
+                        && open_image "$url" && exit
 
                 [ "${content_type##*audio}" != "$content_type" ]  \
-                        && open_audio "$url"
+                        && open_audio "$url" && exit
 
                 [ "${content_type##*video}" != "$content_type" ]  \
-                        && open_video "$url"
+                        && open_video "$url" && exit
 
-                # "${BROWSER?}" "$url"
+                "${BROWSER?}" "$url"
                 continue ;;
 
 esac

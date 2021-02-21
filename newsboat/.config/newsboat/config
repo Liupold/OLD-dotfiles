@@ -39,6 +39,6 @@ browser link-handler
 macro , open-in-browser
 macro q set browser "echo $(tmux detach -s nbx)" ; open-in-browser ; set browser link-handler
 macro y set browser "yplay %u >/dev/null 2>&1" ; open-in-browser ; set browser link-handler
-macro p set browser "yplay --x11-name=MpvSmol %u >/dev/null 2>&1" ; open-in-browser ; set browser link-handler
+macro p set browser "setsid -f yplay --x11-name=MpvSmol %u >/dev/null 2>&1" ; open-in-browser ; set browser link-handler
 macro a set browser "mpv --force-window --no-video %u >/dev/null 2>&1" ; open-in-browser ; set browser link-handler
 macro c set browser "xclip -i -selection clipboard <<<" ; open-in-browser ; set browser link-handler
