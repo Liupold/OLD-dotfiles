@@ -2,4 +2,5 @@
 command -v termux-info && mpv "$@"
 command -v termux-info && exit
 
-mpv --window-scale="$LUNA_YPLAY_SCALE" --ytdl-format='bestvideo[height<='"$LUNA_YPLAY_RES"'][ext=webm]+bestaudio/best[height<='"$LUNA_YPLAY_RES"'][ext=opus]' "$@"
+source "$HOME/.zshenv"
+mpv --ytdl-format='bestvideo[height<='"$LUNA_YPLAY_RES"'][ext=webm]+bestaudio/best[ext=opus]' "$@"

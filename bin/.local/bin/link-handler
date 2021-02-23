@@ -1,17 +1,14 @@
 #!/bin/sh
 
 open_yt() {
-        command "termux-open" && termux-open $1 && return;
-        setsid -f yplay --save-position-on-quit "$1";
+        command -v "termux-open" && termux-open $1 && return;
+        setsid -f yplay --force-window=immediate --no-keepaspect-window  --really-quiet --save-position-on-quit "$1" 2> /dev/null;
 }
 
-open_audio() {
-        mpv --save-position-on-quit --no-video "$1";
-}
 
 open_video() {
-        command "termux-open" && termux-open $1 && return;
-        setsid -f mpv --save-position-on-quit "$1";
+        command -v "termux-open" && termux-open $1 && return;
+              setsid -f mpv --force-window=immediate --no-keepaspect-window --really-quiet --save-position-on-quit "$1" 2> /dev/null;
 }
 
 open_image() {
@@ -36,21 +33,21 @@ url="$1"
 case "${url%%\?*}" in
         https://www.youtube.com/watch* | https://youtu.be/* \
                 | https://www.youtube.com/playlist* )
-                open_yt "$url"; continue;;
+                open_yt "$url" & continue;;
         *.pdf)
-                open_pdf "$url"; continue ;;
+                open_pdf "$url" & continue ;;
 
         *.jpg | *.jpeg | *.png )
-                open_image "$url"; continue ;;
+                open_image "$url" & continue ;;
 
         *.mp3 | *.opus | *wav | *.m4a | *.ogg | *.flac )
-                open_audio "$url"; continue ;;
+                open_video "$url"& continue ;;
 
         *.mp4 | *.mkv | *.mov | *.webm )
-                open_video "$url"; continue ;;
+                open_video "$url"& continue ;;
 
         *.gif )
-                open_gif "$url"; continue ;;
+                open_gif "$url"& continue ;;
         *)
                 content_type="$(curl --silent -X HEAD -I "$url" |  \
                         grep 'content-type:')"
@@ -58,13 +55,13 @@ case "${url%%\?*}" in
                 echo "$content_type"
 
                 [ "${content_type##*image}" != "$content_type" ]  \
-                        && open_image "$url" && exit
+                        && open_image "$url" & exit
 
                 [ "${content_type##*audio}" != "$content_type" ]  \
-                        && open_audio "$url" && exit
+                        && open_video "$url" & exit
 
                 [ "${content_type##*video}" != "$content_type" ]  \
-                        && open_video "$url" && exit
+                        && open_video "$url" & exit
 
                 "${BROWSER?}" "$url"
                 continue ;;
