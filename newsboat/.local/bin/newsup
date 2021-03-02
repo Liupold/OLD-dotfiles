@@ -5,4 +5,4 @@
         /usr/bin/tmux detach -s nbx 2>/dev/null
 }
 
-/usr/bin/tmux send -t nbx 'v' Enter 'RvG' Enter
+/usr/bin/tmux send -t nbx 'v' Enter 'RvG' Enter ':exec redraw' Enter

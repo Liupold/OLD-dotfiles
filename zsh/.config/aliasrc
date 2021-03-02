@@ -2,15 +2,16 @@
 # shellcheck disable=SC2139
 alias ls="ls --group-directories-first --color=auto -v"
 alias grep="grep --color"
-alias ll="ls -lh"
-alias l="ls -lahv"
+alias ll="ls -avlh"
+alias l="ls -1Ahv"
 alias zathura="zathura"
 alias p="sudo pacman"
 alias vim='$EDITOR'
 alias d='doas'
 alias v='$EDITOR'
 alias dv='d $EDITOR'
-alias py='python'
+alias py='python -q'
+alias pyy='py -i $XDG_CONFIG_HOME/python/mypyenv.py'
 alias nb='newsboat'
 alias pypad='vim /tmp/pypad.py'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
@@ -53,7 +54,8 @@ ghc() {
 		git clone git@github.com:"$*".git
 }
 
-del() {
+rm() {
         printf "[$(pwd)] run: \"rm ${*}\", Are you sure? (y/n)";
-        read -k ans && [ "$ans" = 'y' ] && printf "\nrm ${*}\n" && rm ${*}
+        read -k ans; echo ""
+        [ "$ans" = 'y' ] && "/bin/rm" ${*}
 }

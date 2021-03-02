@@ -8,6 +8,10 @@ download-filename-format %F-%t.%e
 # external-url-viewer "urlscan -dc -r 'firefox {}'"
 # notify-format "%d new articles (%n unread articles, %f unread feeds)"
 notify-format "%d new articles (%n unread articles, %f unread feeds)"
+always-display-description true
+reload-threads 8
+
+
 bind-key j down
 bind-key k up
 bind-key j next articlelist
@@ -35,7 +39,8 @@ color listfocus_unread yellow default bold
 color info red black bold
 color article cyan default
 
-browser link-handler
+browser "setsid -f link-handler %u"
 macro , open-in-browser
 macro q set browser "echo $(tmux detach -s nbx)" ; open-in-browser ; set browser link-handler
+macro w set browser "wget %u -O /tmp/in.html && weasyprint /tmp/in.html /tmp/out.pdf && zathura /tmp/out.pdf" ; open-in-browser ; set browser link-handler
 macro c set browser "xclip -i -selection clipboard <<<" ; open-in-browser ; set browser link-handler
