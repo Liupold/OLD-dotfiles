@@ -3,13 +3,13 @@
 source "$HOME/.zshenv"
 open_yt() {
         command -v "termux-open" && termux-open $1 && return;
-        yplay --force-window=immediate --no-keepaspect-window  --really-quiet --save-position-on-quit "$1" 2> /dev/null;
+        yplay --input-terminal=no --force-window=immediate --no-keepaspect-window  --really-quiet --save-position-on-quit "$1" 2> /dev/null;
 }
 
 
 open_video() {
         command -v "termux-open" && termux-open $1 && return;
-        mpv --force-window=immediate --no-keepaspect-window --really-quiet --save-position-on-quit "$1" 2> /dev/null;
+        mpv --input-terminal=no --force-window=immediate --no-keepaspect-window --really-quiet --save-position-on-quit "$1" 2> /dev/null;
 }
 
 open_image() {
@@ -66,6 +66,8 @@ case "${url%%\?*}" in
                         && { open_video "$url" && exit; }
                 [ "${content_type##*video}" != "$content_type" ]  \
                         && { open_video "$url" && exit; }
+                [ "${content_type##*application/pdf}" != "$content_type" ]  \
+                        && { open_pdf "$url" && exit; }
                 ${BROWSER?} "$url"
                 continue ;;
 

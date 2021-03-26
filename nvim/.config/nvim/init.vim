@@ -38,6 +38,7 @@ set writebackup
 set undofile
 set undolevels=100000         " How many undos
 set undoreload=100000        " number of lines to save for undo
+let g:grammarous#use_vim_spelllang=1
 
 if !has('nvim')
         set ttymouse=xterm2
@@ -62,6 +63,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'jiangmiao/auto-pairs'
 Plug 'cespare/vim-toml'
 Plug 'vim-airline/vim-airline'
+Plug 'rhysd/vim-grammarous'
 call plug#end()
 let g:mkdp_browser = $BROWSER
 
@@ -136,3 +138,7 @@ autocmd BufReadPre *.asm nnoremap <leader>c :sp<CR>:resize 10<CR>:term nasm -f e
 "  go
 autocmd BufReadPre *.go nnoremap <leader>c :sp<CR>:resize 10<CR>:term go run "%" <CR>
 " ----------------------------------------------------------
+"
+
+
+

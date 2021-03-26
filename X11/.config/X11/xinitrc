@@ -1,4 +1,4 @@
-#!/bin/sh
+!/bin/sh
 
 userresources="$XDG_CONFIG_HOME/X11/.Xresources"
 colorresources="$LUNA_COLOR_PATH/colors.Xresources"

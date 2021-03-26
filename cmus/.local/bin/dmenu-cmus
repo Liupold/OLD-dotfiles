@@ -6,8 +6,8 @@ then
         pidof cmus || {
                 tmux new -d -s cmux /usr/bin/cmus
                 tmux set -t cmux status off
-                tmux send ":clear" Enter ":add ${LUNA_MUSIC_DIR}" Enter
+                tmux send -t cmux ":clear" Enter ":add ${LUNA_MUSIC_DIR}" Enter
                 sleep 1
         }
-        tmux send  "/${selected_song}" Enter Enter
+        tmux send -t cmux "/${selected_song}" Enter Enter
 fi

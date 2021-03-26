@@ -16,4 +16,10 @@ function l ()
         ls -lah --color=always;
 endfunction
 
+function f = ndiff(f, n)
+        for _ = 1:n
+                f = diff(f);
+        endfor
+endfunction
+
 pkg load symbolic

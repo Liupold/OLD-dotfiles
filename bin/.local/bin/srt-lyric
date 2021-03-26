@@ -1,0 +1,70 @@
+#!/bin/sh
+
+music_file="$1"
+
+get_lyric() {
+        music_file="$1"
+        data=$(ffprobe -hide_banner "$music_file" 2>&1)
+        title="${data##*Title}"; title="${title%%
+*}";
+        title="$(echo "${title#*: }" | tr '[:upper:]' '[:lower:]')"
+
+        artist="${data##*Artist}"; artist="${artist%%
+*}";
+        artist="$(echo "${artist#*: }" | tr '[:upper:]' '[:lower:]')"
+
+        curl -G --data-urlencode \
+                "q=$artist $title" "https://api.textyl.co/api/lyrics"
+
+}
+
+
+srt_time_format() {
+        t="$1";
+        h="$((t / 3600))"; t="$((t - 3600 * h))"
+        m="$(echo "$((t / 60))" | bc)"; t="$((t - 60 * m))"
+        s="$t"
+        [ "$h" -lt 10 ] && h="0$h"
+        [ "$m" -lt 10 ] && m="0$m"
+        [ "$s" -lt 10 ] && s="0$s"
+        echo "$h:$m:$s,000"
+}
+
+function gen_srt() {
+        lfile="$1"
+        no_of_diags="$(jq length < "$lfile")"
+        curr_diag_no="0"
+
+        while [ "$curr_diag_no" -lt "$no_of_diags" ]; do
+                trigger_time="$(jq ".[$curr_diag_no].[\"seconds\"]" < "$lfile")"
+                lyric="$(jq ".[$curr_diag_no].[\"lyrics\"]" < "$lfile")"
+                lyric="${lyric%%\\r\"}"; lyric="${lyric##\"}";lyric="${lyric%%\"}"
+
+                next_trigger="$(jq ".[$curr_diag_no + 1].[\"seconds\"]" < "$lfile")"
+                [ "$((curr_diag_no + 1))"  -eq "$no_of_diags" ] && \
+                        next_trigger="$((trigger_time + 2))"
+
+                echo "$curr_diag_no"
+                echo "$(srt_time_format "$trigger_time") --> $(srt_time_format "$next_trigger")"
+                echo "$lyric"
+                echo ""
+                curr_diag_no="$((curr_diag_no + 1))"
+        done
+}
+
+CACHE_DIR="$HOME/.cache/str-lyric-sync"
+mkdir -p "$CACHE_DIR/jsons/"
+mkdir -p "$CACHE_DIR/srts/"
+base_music_file_name="$(basename "$music_file")"
+
+echo "Getting URL ..."
+
+[ ! -f "$CACHE_DIR/jsons/$base_music_file_name.json" ] \
+        && get_lyric "$music_file" > "$CACHE_DIR/jsons/$base_music_file_name.json"
+
+echo "Gen SRT ..."
+[ ! -f "$CACHE_DIR/srts/$base_music_file_name.srt" ] \
+        && gen_srt "$CACHE_DIR/jsons/$base_music_file_name.json" > \
+                "$CACHE_DIR/srts/$base_music_file_name.srt"
+
+mpv "$music_file" --sub-file="$CACHE_DIR/srts/$base_music_file_name.srt" --force-window=immediate

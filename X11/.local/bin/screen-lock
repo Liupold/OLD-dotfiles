@@ -1,17 +1,18 @@
 #!/bin/sh
-. "$LUNA_COLOR_PATH/colors.sh"
-export XSECURELOCK_AUTH_BACKGROUND_COLOR="$background"
-export XSECURELOCK_AUTH_FOREGROUND_COLOR="$foreground"
-export XSECURELOCK_PASSWORD_PROMPT="time"
-export XSECURELOCK_SAVER="$HOME/.local/bin/xsecure_mpv"
-export XSECURELOCK_SHOW_DATETIME=1
-export XSECURELOCK_COMPOSITE_OBSCURER=1
-export XSECURELOCK_FONT="Fira Code"
-
-
-[ "$1" = "--force" ] && xsecurelock && exit
-for player in $(playerctl -l); do
-        [ "$player" = "cmus" ] && continue
-        [ "$(playerctl -p "$player" status)" = "Playing" ] && exit 0
-done
-xsecurelock
+#. "$LUNA_COLOR_PATH/colors.sh"
+#export XSECURELOCK_AUTH_BACKGROUND_COLOR="$background"
+#export XSECURELOCK_AUTH_FOREGROUND_COLOR="$foreground"
+#export XSECURELOCK_PASSWORD_PROMPT="time"
+#export XSECURELOCK_SAVER="$HOME/.local/bin/xsecure_mpv"
+#export XSECURELOCK_SHOW_DATETIME=1
+#export XSECURELOCK_COMPOSITE_OBSCURER=1
+#export XSECURELOCK_FONT="Fira Code"
+#
+#
+#[ "$1" = "--force" ] && xsecurelock && exit
+#for player in $(playerctl -l); do
+#        [ "$player" = "cmus" ] && continue
+#        [ "$(playerctl -p "$player" status)" = "Playing" ] && exit 0
+#done
+#xsecurelock
+/usr/local/bin/slock -m "$(date)"
