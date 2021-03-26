@@ -59,7 +59,7 @@ function gen_srt() {
         done
 }
 
-CACHE_DIR="$HOME/.cache/str-lyric-sync"
+CACHE_DIR="$HOME/.cache/srt-lyric-sync"
 mkdir -p "$CACHE_DIR/jsons/"
 mkdir -p "$CACHE_DIR/srts/"
 base_music_file_name="$(basename "$music_file")"
