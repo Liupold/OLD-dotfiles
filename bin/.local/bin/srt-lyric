@@ -1,6 +1,7 @@
 #!/bin/sh
 
 music_file="$1"
+# music_file="$HOME/Music/helplessness-blues/01-montezuma.opus"
 
 get_lyric() {
         music_file="$1"
@@ -33,21 +34,27 @@ srt_time_format() {
 function gen_srt() {
         lfile="$1"
         no_of_diags="$(jq length < "$lfile")"
+        prev_lyric=""
         curr_diag_no="0"
+        lyric="$(jq ".[$curr_diag_no].[\"lyrics\"]" < "$lfile")"
+        lyric="${lyric%%\\r\"}"; lyric="${lyric##\"}";lyric="${lyric%%\"}"
 
         while [ "$curr_diag_no" -lt "$no_of_diags" ]; do
                 trigger_time="$(jq ".[$curr_diag_no].[\"seconds\"]" < "$lfile")"
-                lyric="$(jq ".[$curr_diag_no].[\"lyrics\"]" < "$lfile")"
-                lyric="${lyric%%\\r\"}"; lyric="${lyric##\"}";lyric="${lyric%%\"}"
-
                 next_trigger="$(jq ".[$curr_diag_no + 1].[\"seconds\"]" < "$lfile")"
+                next_lyric="$(jq ".[$curr_diag_no + 1].[\"lyrics\"]" < "$lfile")"
+                next_lyric="${next_lyric%%\\r\"}"; next_lyric="${next_lyric##\"}";
+                next_lyric="${next_lyric%%\"}"
+
                 [ "$((curr_diag_no + 1))"  -eq "$no_of_diags" ] && \
                         next_trigger="$((trigger_time + 2))"
 
                 echo "$curr_diag_no"
                 echo "$(srt_time_format "$trigger_time") --> $(srt_time_format "$next_trigger")"
-                echo "$lyric"
+                echo "$prev_lyric<br><b>$lyric</b><br>$next_lyric"
                 echo ""
+                prev_lyric="$lyric"
+                lyric="$next_lyric"
                 curr_diag_no="$((curr_diag_no + 1))"
         done
 }
@@ -64,7 +71,7 @@ echo "Getting URL ..."
 
 echo "Gen SRT ..."
 [ ! -f "$CACHE_DIR/srts/$base_music_file_name.srt" ] \
-        && gen_srt "$CACHE_DIR/jsons/$base_music_file_name.json" > \
+        && gen_srt "$CACHE_DIR/jsons/$base_music_file_name.json"  > \
                 "$CACHE_DIR/srts/$base_music_file_name.srt"
 
-mpv "$music_file" --sub-file="$CACHE_DIR/srts/$base_music_file_name.srt" --force-window=immediate
+mpv "$music_file" --sub-file="$CACHE_DIR/srts/$base_music_file_name.srt" --force-window=immediate --sub-margin-y=350
