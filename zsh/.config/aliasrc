@@ -68,6 +68,9 @@ rm() {
 }
 
 o(){
+        [ -d "$1" ] && cd "$1" && return 0
+        [ -f "$1" ] && xdg-open "$1" && return 0
+
         inode_path="$(sscuts "$1")" && {
         if [ -d "$inode_path" ]; then
                 cd "$inode_path"
