@@ -2,19 +2,25 @@
 # QUICK cd short-cuts
 
 MACRO_h="$HOME/"
-MACRO_d=/media/Documents/
-MACRO_p=/media/Documents/PDFs/
-MACRO_P=/media/Personal/
 MACRO_s="$HOME/sem6/"
-MACRO_b=/media/Books/
-MACRO_l=/media/lectures/
-MACRO_A=/work/Assignment/
-MACRO_jp=/media/ttj/fiziks/Topic_wise_question
-MACRO_wc="/work/chegg/$(date +%b-%Y)"
+
+MACRO_m="/media/"
+MACRO_d="$MACRO_m/Documents/"
+MACRO_p="$MACRO_d/PDFs/"
+MACRO_P="$MACRO_p/Personal/"
+MACRO_b="$MACRO_m/Books/"
+MACRO_l="$MACRO_m/lectures/"
+MACRO_jp="$MACRO_m/ttj/fiziks/Topic_wise_question"
+
+MACRO_w="/work/"
+MACRO_A="$MACRO_w/Assignment/"
+MACRO_wc="$MACRO_w/chegg/$(date +%b-%Y)"
+
+MACRO_a="$HOME/apps"
 MACRO_co="$XDG_CONFIG_HOME"
 MACRO_ca="$XDG_CACHE_HOME"
 MACRO_lb="$HOME/.local/bin"
-MACRO_a="$HOME/apps"
+
 
 
 # -----------------------------------------------------------------------------------------
