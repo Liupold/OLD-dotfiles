@@ -1,24 +1,26 @@
 #!/bin/sh
 
 music_file="$1"
+export artist="$2"
+export title="$3"
 # music_file="$HOME/Music/helplessness-blues/01-montezuma.opus"
 
 get_lyric() {
+        [ -z "$artist" ] && {
         music_file="$1"
         data=$(ffprobe -hide_banner "$music_file" 2>&1)
         title="${data##*Title}"; title="${title%%
 *}";
-        title="$(echo "${title#*: }" | tr '[:upper:]' '[:lower:]')"
-
         artist="${data##*Artist}"; artist="${artist%%
 *}";
+        }
+        title="$(echo "${title#*: }" | tr '[:upper:]' '[:lower:]')"
         artist="$(echo "${artist#*: }" | tr '[:upper:]' '[:lower:]')"
 
         curl -G --data-urlencode \
                 "q=$artist $title" "https://api.textyl.co/api/lyrics"
 
 }
-
 
 srt_time_format() {
         t="$1";
@@ -38,9 +40,9 @@ function gen_srt() {
         curr_diag_no="0"
         lyric="$(jq ".[$curr_diag_no].[\"lyrics\"]" < "$lfile")"
         lyric="${lyric%%\\r\"}"; lyric="${lyric##\"}";lyric="${lyric%%\"}"
+        trigger_time="$(jq ".[$curr_diag_no].[\"seconds\"]" < "$lfile")"
 
         while [ "$curr_diag_no" -lt "$no_of_diags" ]; do
-                trigger_time="$(jq ".[$curr_diag_no].[\"seconds\"]" < "$lfile")"
                 next_trigger="$(jq ".[$curr_diag_no + 1].[\"seconds\"]" < "$lfile")"
                 next_lyric="$(jq ".[$curr_diag_no + 1].[\"lyrics\"]" < "$lfile")"
                 next_lyric="${next_lyric%%\\r\"}"; next_lyric="${next_lyric##\"}";
@@ -48,14 +50,16 @@ function gen_srt() {
 
                 [ "$((curr_diag_no + 1))"  -eq "$no_of_diags" ] && \
                         next_trigger="$((trigger_time + 2))"
-
+                [ -n "$lyric" ] && {
                 echo "$curr_diag_no"
                 echo "$(srt_time_format "$trigger_time") --> $(srt_time_format "$next_trigger")"
-                echo "$prev_lyric<br><b>$lyric</b><br>$next_lyric"
+                echo "$prev_lyric<br><b><font color=#ffff00>$lyric</font></b><br>$next_lyric"
                 echo ""
+                }
                 prev_lyric="$lyric"
                 lyric="$next_lyric"
                 curr_diag_no="$((curr_diag_no + 1))"
+                trigger_time="$next_trigger"
         done
 }
 

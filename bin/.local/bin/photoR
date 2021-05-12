@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+
+from cv2 import *
+from time import sleep
+
+def bfactor(N):
+    cam = VideoCapture(0)  #set the port of the camera as before
+    ret_val = 0;
+    for i in range(N):
+        ret_status, image = cam.read()
+        if ret_status:
+            xR = xG = xB = 0
+
+            for row in image:
+              xB += sum(row[:, 0])
+              xG += sum(row[:, 1])
+              xR += sum(row[:, 2])
+
+            xR = xR / (640 * 480) / (255)
+            xG = xG / (640 * 480) / (255)
+            xB = xB / (640 * 480) / (255)
+            ret_val += (2 * xG + xR + 2 * xB)/5
+    cam.release() #Closes video file or capturing device.
+    ret_val = ret_val / N * 100
+    return ret_val
+
+bf = bfactor(1)
+print(bf)

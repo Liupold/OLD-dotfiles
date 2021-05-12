@@ -5,8 +5,8 @@
 stdbuf -oL alsactl monitor | while read -r event; do
         [ "${event#*Speaker Playback Switch}" != "$event" ] || continue
 
-        timeout 0.5 playerctl -a pause 2> /dev/null
+        playerctl -a pause 2> /dev/null
         cmus-remote --pause-playback
         echo '{ "command": ["set_property", "pause", true] }' \
-                        | socat - "$XDG_CONFIG_HOME/mpv/socket" > /dev/null
+                        | socat - "$XDG_CONFIG_HOME/mpv/socket" > /dev/null 2>&1
 done

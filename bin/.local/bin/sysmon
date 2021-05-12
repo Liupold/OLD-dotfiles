@@ -1,0 +1,29 @@
+#!/bin/sh
+
+AC_INACTIVE=1
+INTERNET_INACTIVE=1
+
+while [ 1 ]; do
+        ping_ok=0; ping -c 3 google.com > /dev/null 2>&1 && ping_ok=1
+        if [ "$ping_ok" -eq 0 ]; then
+                [ "$INTERNET_INACTIVE" -eq 0 ] && notify-send "Internet (XX) $(date)";
+                INTERNET_INACTIVE=1;
+
+        else
+                [ $INTERNET_INACTIVE -eq 1 ] && notify-send "Internet (OK) $(date)";
+                INTERNET_INACTIVE=0
+        fi
+        unset ping_ok
+
+        read -r ac_status < /sys/class/power_supply/AC0/online
+
+        if [ "$ac_status" -eq 0 ]; then
+                [ "$AC_INACTIVE" -eq 0 ] && notify-send "AC (XX) $(date)";
+                AC_INACTIVE=1;
+
+        else
+                [ "$AC_INACTIVE" -eq 1 ] && notify-send "AC (OK) $(date)";
+                AC_INACTIVE=0;
+        fi
+        sleep 1
+done

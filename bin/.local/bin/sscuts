@@ -1,0 +1,41 @@
+#!/bin/sh
+# QUICK cd short-cuts
+
+MACRO_h="$HOME/"
+MACRO_d=/media/Documents/
+MACRO_p=/media/Documents/PDFs/
+MACRO_P=/media/Personal/
+MACRO_s="$HOME/sem6/"
+MACRO_b=/media/Books/
+MACRO_l=/media/lectures/
+MACRO_A=/work/Assignment/
+MACRO_jp=/media/ttj/fiziks/Topic_wise_question
+MACRO_wc="/work/chegg/$(date +%b-%Y)"
+MACRO_co="$XDG_CONFIG_HOME"
+MACRO_ca="$XDG_CACHE_HOME"
+MACRO_lb="$HOME/.local/bin"
+MACRO_a="$HOME/apps"
+
+
+# -----------------------------------------------------------------------------------------
+macro="$1";
+[ "$macro" = 'wc' ]  && mkdir -p "$wc"
+action="$2"; [ -z "$action" ] && action="echo"
+
+[ "${macro#*/}" != "$macro" ] && af_path="${macro#*/}"
+macro="${macro%%/*}"
+
+[ -n "$macro" ] && {
+        eval  'macro_path='\${MACRO_"$macro"?} || exit "$?"
+
+        [ -d "$macro_path/$af_path" ] \
+                && final_path="$macro_path/$af_path"
+
+        [ -z "$final_path" ] && [ -d "$macro_path" ] \
+                && final_path="$(eval "realpath $macro_path/$af_path")"
+
+        [ -e "$final_path" ] ||
+                { echo "\"$macro/$af_path\": No such file/dir" >&2; exit 21;}
+}
+
+[ -n "$action" ] && "$action" "$final_path"

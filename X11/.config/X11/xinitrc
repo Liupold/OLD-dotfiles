@@ -1,4 +1,4 @@
-!/bin/sh
+#!/bin/sh
 
 userresources="$XDG_CONFIG_HOME/X11/.Xresources"
 colorresources="$LUNA_COLOR_PATH/colors.Xresources"
@@ -6,6 +6,7 @@ usermodmap="$HOME/X11/.Xmodmap"
 sysresources='/etc/X11/xinit/.Xresources'
 sysmodmap='/etc/X11/xinit/.Xmodmap'
 userautostart="$XDG_CONFIG_HOME/X11/autostart"
+export PULSE_LATENCY_MSEC=100
 
 # merge in defaults and keymaps
 
@@ -22,13 +23,10 @@ userautostart="$XDG_CONFIG_HOME/X11/autostart"
         setxkbmap -option caps:escape
 
         start-dunst
-        picom &
-        xset s 300 5
-        launch-bar-dwm &
-        autopauseD &
-        unclutter &
 
-        while true; do
-                /usr/local/bin/dwm
+        xset s 300 5
+        while [ 1 ]; do
+                dbus-launch "$HOME/.config/X11/autolaunch";
         done
+
 } > "$XDG_CACHE_HOME/x11_wm.1" 2> "$XDG_CACHE_HOME/x11_wm.2"

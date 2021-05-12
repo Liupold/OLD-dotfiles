@@ -15,9 +15,10 @@ alias pyy='py -i $XDG_CONFIG_HOME/python/mypyenv.py'
 alias nb='newsboat'
 alias pypad='vim /tmp/pypad.py'
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
-alias o="xdg-open"
 alias octave="octave -f"
 alias oc="/usr/bin/octave -q"
+alias calc='noglob calc'
+alias bcam='light -S $(photoR)'
 
 
 # Network Manager
@@ -52,7 +53,8 @@ dmcof() {
 }
 
 fmco() {
-        "$1" "$(fzf)"
+        selected="$(fzf)" && [ -n "$selected" ] \
+                && "$1" "$selected" && unset "$selected"
 }
 
 ghc() {
@@ -64,3 +66,21 @@ rm() {
         read -k ans; echo ""
         [ "$ans" = 'y' ] && "/bin/rm" ${*}
 }
+
+o(){
+        inode_path="$(sscuts "$1")" && {
+        if [ -d "$inode_path" ]; then
+                cd "$inode_path"
+        else
+                xdg-open "$inode_path"
+        fi
+        }
+}
+alias o='noglob o'
+
+ccd(){
+        mkdir -p "$1"
+        cd "$1"
+}
+
+alias calc='noglob calc'
