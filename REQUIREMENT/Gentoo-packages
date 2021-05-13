@@ -1,0 +1,924 @@
+acct-group/audio-0-r1
+acct-group/input-0-r1
+acct-group/kvm-0-r1
+acct-group/lp-0-r1
+acct-group/lpadmin-0-r1
+acct-group/mail-0-r1
+acct-group/man-0-r1
+acct-group/messagebus-0-r1
+acct-group/ntp-0-r1
+acct-group/portage-0
+acct-group/render-0-r1
+acct-group/sshd-0-r1
+acct-group/utmp-0-r1
+acct-user/mail-0-r1
+acct-user/man-1-r1
+acct-user/messagebus-0-r1
+acct-user/ntp-0-r1
+acct-user/portage-0
+acct-user/postmaster-0-r1
+acct-user/sshd-0-r1
+app-accessibility/at-spi2-atk-2.38.0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -test
+app-accessibility/at-spi2-core-2.38.0 +X +abi_x86_64 +introspection -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -gtk-doc -test
+app-accessibility/svox-9999
+app-admin/doas-6.8.1 +pam -persist
+app-admin/eselect-1.4.17 -doc -emacs -vim-syntax
+app-admin/pass-1.7.3 +X +git -dmenu -elibc_Darwin -emacs -fish-completion -importers -zsh-completion
+app-admin/perl-cleaner-2.27
+app-admin/sysklogd-2.2.2 -logger -logrotate -systemd
+app-arch/brotli-1.0.9-r1 +abi_x86_64 +python_targets_python3_8 +python_targets_python3_9 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -python -python_targets_python3_7 -test
+app-arch/bzip2-1.0.8-r1 +abi_x86_64 +split-usr -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static -static-libs
+app-arch/cpio-2.12-r1 +nls
+app-arch/gzip-1.10 -pic -static
+app-arch/libarchive-3.5.1 +abi_x86_64 +acl +bzip2 +e2fsprogs +iconv +kernel_linux +lzma +threads +xattr +zlib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -blake2 -expat -libressl -lz4 -lzo -nettle -static-libs -zstd
+app-arch/lz4-1.9.3 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+app-arch/p7zip-16.02-r4 +pch -abi_x86_x32 -doc -kde -rar -static -wxwidgets
+app-arch/rpm2targz-9.0.0.5g-r2
+app-arch/tar-1.34 +acl +elibc_glibc +nls +userland_GNU +xattr -minimal -selinux
+app-arch/unzip-6.0_p25-r1 +bzip2 +unicode -natspec
+app-arch/xz-utils-5.2.5 +abi_x86_64 +extra-filters +nls +split-usr +threads -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -elibc_FreeBSD -static-libs
+app-arch/zip-3.0-r4 +bzip2 +crypt +unicode -natspec
+app-arch/zstd-1.4.9 +abi_x86_64 +threads -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -lz4 -static-libs
+app-benchmarks/stress-1.0.4-r2 -static
+app-crypt/argon2-20190702 -static-libs
+app-crypt/gnupg-2.2.27 +bzip2 +nls +readline +smartcard +ssl -doc -ldap -scd-shared-access -selinux -tofu -tools -usb -user-socket -wks-server
+app-crypt/gpgme-1.14.0 +cxx +python_targets_python3_8 +python_targets_python3_9 -common-lisp -python -python_targets_python3_7 -qt5 -static-libs
+app-crypt/libb2-0.98.1-r2 +abi_x86_64 +openmp -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -native-cflags -static-libs
+app-crypt/mhash-0.9.9.9-r2 -static-libs
+app-crypt/mit-krb5-1.18.2-r3 +abi_x86_64 +cpu_flags_x86_aes +keyutils +nls +pkinit +threads -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -lmdb -openldap -selinux -test -xinetd
+app-crypt/openpgp-keys-gentoo-release-20200704 -test
+app-crypt/p11-kit-0.23.22 +abi_x86_64 +asn1 +libffi +trust -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -systemd
+app-crypt/pinentry-1.1.0-r4 +ncurses -caps -emacs -gnome-keyring -gtk -qt5
+app-crypt/rhash-1.3.6-r1 +abi_x86_64 +nls +ssl -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -libressl -static-libs
+app-editors/neovim-0.4.4-r100 +lto +lua_single_target_lua5-1 +nvimpager +tui -lua_single_target_lua5-2 -lua_single_target_luajit
+app-eselect/eselect-fontconfig-1.1-r1
+app-eselect/eselect-iptables-20200508
+app-eselect/eselect-java-0.4.0
+app-eselect/eselect-lib-bin-symlink-0.1.1-r1
+app-eselect/eselect-lua-4-r1
+app-eselect/eselect-notify-send-0.1
+app-eselect/eselect-pinentry-0.7.1
+app-eselect/eselect-python-20200719
+app-eselect/eselect-ruby-20190121
+app-eselect/eselect-rust-20200419
+app-eselect/eselect-sh-0.4.1
+app-eselect/eselect-vi-1.2
+app-eselect/eselect-wxwidgets-20180529
+app-i18n/uchardet-0.0.7 +cpu_flags_x86_sse2 -static-libs -test
+app-i18n/unicode-emoji-11.0
+app-misc/c_rehash-1.7-r1
+app-misc/ca-certificates-20210119.3.64 -cacert
+app-misc/editor-wrapper-4-r1
+app-misc/jq-1.7_pre20201109 +oniguruma -static-libs -test
+app-misc/mime-types-9
+app-misc/neofetch-7.1.0 +X
+app-misc/pax-utils-1.2.9 +kernel_linux +python_single_target_python3_8 +seccomp -caps -debug -python -python_single_target_python3_7 -python_single_target_python3_9
+app-misc/rlwrap-0.43 -debug
+app-misc/screen-4.8.0-r2 +pam -debug -multiuser -nethack -selinux
+app-misc/tmux-3.1c +kernel_linux -debug -kernel_FreeBSD -selinux -utempter -vim-syntax
+app-mobilephone/scrcpy-1.17
+app-office/abiword-3.0.4 +goffice +introspection +latex +plugins +readline +spell -calendar -collab -cups -debug -eds -grammar -map -math -ots -redland -thesaurus -wmf -wordperfect
+app-office/libreoffice-bin-6.4.7.2_p3 +python_single_target_python3_8 -elibc_FreeBSD -gnome -java -kde
+app-office/libreoffice-l10n-6.4.7.2 -l10n_af -l10n_am -l10n_ar -l10n_as -l10n_ast -l10n_be -l10n_bg -l10n_bn -l10n_bn-IN -l10n_bo -l10n_br -l10n_brx -l10n_bs -l10n_ca -l10n_ca-valencia -l10n_cs -l10n_cy -l10n_da -l10n_de -l10n_dgo -l10n_dz -l10n_el -l10n_en -l10n_en-GB -l10n_en-ZA -l10n_eo -l10n_es -l10n_et -l10n_eu -l10n_fa -l10n_fi -l10n_fr -l10n_ga -l10n_gd -l10n_gl -l10n_gu -l10n_gug -l10n_he -l10n_hi -l10n_hr -l10n_hu -l10n_id -l10n_is -l10n_it -l10n_ja -l10n_ka -l10n_kk -l10n_km -l10n_kmr-Latn -l10n_kn -l10n_ko -l10n_kok -l10n_ks -l10n_lb -l10n_lo -l10n_lt -l10n_lv -l10n_mai -l10n_mk -l10n_ml -l10n_mn -l10n_mni -l10n_mr -l10n_my -l10n_nb -l10n_ne -l10n_nl -l10n_nn -l10n_nr -l10n_nso -l10n_oc -l10n_om -l10n_or -l10n_pa -l10n_pl -l10n_pt -l10n_pt-BR -l10n_ro -l10n_ru -l10n_rw -l10n_sa -l10n_sat -l10n_sd -l10n_si -l10n_sid -l10n_sk -l10n_sl -l10n_sq -l10n_sr -l10n_sr-Latn -l10n_ss -l10n_st -l10n_sv -l10n_sw-TZ -l10n_ta -l10n_te -l10n_tg -l10n_th -l10n_tn -l10n_tr -l10n_ts -l10n_tt -l10n_ug -l10n_uk -l10n_uz -l10n_ve -l10n_vi -l10n_xh -l10n_zh-CN -l10n_zh-TW -l10n_zu -offlinehelp
+app-portage/elt-patches-20170815
+app-portage/flaggie-0.2.1-r1 +python_targets_python3_8 -python_targets_python3_7
+app-portage/gemato-16.2 +gpg +python_targets_python3_8 +python_targets_python3_9 -python_targets_pypy3 -python_targets_python3_7 -test -tools
+app-portage/gentoolkit-0.5.1 +python_targets_python3_8 +python_targets_python3_9 -python_targets_pypy3 -python_targets_python3_7 -test
+app-portage/layman-2.4.3 +git +kernel_linux +python_targets_python3_8 +python_targets_python3_9 +sync-plugin-portage -cvs -darcs -g-sorcery -gpg -mercurial -python_targets_pypy3 -python_targets_python3_7 -sqlite -squashfs -subversion -test
+app-portage/portage-utils-0.90 +nls +openmp +qmanifest +qtegrity -libressl -static
+app-shells/bash-5.0_p18 +net +nls +readline -afs -bashlogger -examples -mem-scramble -plugins
+app-shells/fzf-0.27.0
+app-shells/zsh-5.8 +gdbm +pcre +unicode -caps -debug -doc -examples -maildir -static
+app-text/asciidoc-9.0.4-r1 +python_single_target_python3_8 -doc -python_single_target_pypy3 -python_single_target_python3_7 -python_single_target_python3_9 -test
+app-text/build-docbook-catalog-1.21
+app-text/cpdf-2.3.1 -doc
+app-text/djvu-3.5.28 -debug -doc -jpeg -tiff -xml
+app-text/docbook-xml-dtd-4.1.2-r7
+app-text/docbook-xml-dtd-4.2-r3
+app-text/docbook-xml-dtd-4.3-r2
+app-text/docbook-xml-dtd-4.4-r3
+app-text/docbook-xml-dtd-4.5-r2
+app-text/docbook-xsl-ns-stylesheets-1.79.1 -ruby
+app-text/docbook-xsl-stylesheets-1.79.1-r2 -ruby
+app-text/dvipng-1.17 -test -truetype
+app-text/dvipsk-2020.1_p20200406 -doc -source
+app-text/dvisvgm-2.11-r1 -test
+app-text/enchant-2.2.15-r1 +hunspell -aspell -test -voikko
+app-text/ghostscript-gpl-9.53.3-r5 +X +cups +dbus +jpeg2k +unicode -gtk -l10n_de -l10n_ja -l10n_ko -l10n_zh-CN -l10n_zh-TW -static-libs
+app-text/hunspell-1.7.0-r2 +ncurses +nls +readline -l10n_af -l10n_bg -l10n_ca -l10n_cs -l10n_cy -l10n_da -l10n_de -l10n_de-1901 -l10n_el -l10n_en -l10n_eo -l10n_es -l10n_et -l10n_fo -l10n_fr -l10n_ga -l10n_gl -l10n_he -l10n_hr -l10n_hu -l10n_ia -l10n_id -l10n_is -l10n_it -l10n_kk -l10n_km -l10n_ku -l10n_lt -l10n_lv -l10n_mi -l10n_mk -l10n_ms -l10n_nb -l10n_nl -l10n_nn -l10n_pl -l10n_pt -l10n_pt-BR -l10n_ro -l10n_ru -l10n_sk -l10n_sl -l10n_sq -l10n_sv -l10n_sw -l10n_tn -l10n_uk -l10n_zu -static-libs
+app-text/iso-codes-4.6.0
+app-text/lcdf-typetools-2.108 +kpathsea
+app-text/libabw-0.1.3 -doc -static-libs
+app-text/libebook-0.1.3-r1 -doc -test -tools
+app-text/libepubgen-0.1.1 -debug -doc -test
+app-text/libetonyek-0.1.9-r1 -doc -static-libs -test
+app-text/libexttextcat-3.4.5 -static-libs
+app-text/liblangtag-0.6.3 -debug -doc -introspection -static-libs -test
+app-text/libmspub-0.1.4 -doc -static-libs
+app-text/libmwaw-0.3.17 -doc -tools
+app-text/libnumbertext-1.0.7
+app-text/libodfgen-0.1.8 -doc
+app-text/libpaper-1.1.24_p5 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+app-text/libqxp-0.0.2 -debug -doc -test -tools
+app-text/libspectre-0.2.9 -debug -doc
+app-text/libstaroffice-0.0.7 +zlib -debug -doc -tools
+app-text/libwpd-0.10.3 +tools -doc
+app-text/libwpg-0.3.3 -doc -static-libs
+app-text/libwps-0.4.12 -debug -doc -tools
+app-text/manpager-1
+app-text/mupdf-1.18.0-r4 +X +javascript +ssl -opengl
+app-text/mythes-1.2.4-r1
+app-text/opensp-1.5.2-r3 +nls -doc -static-libs -test
+app-text/pdfjam-2.08-r1
+app-text/po4a-0.57 -test
+app-text/poppler-21.02.0 +cxx +introspection +jpeg +jpeg2k +lcms +utils -cairo -cjk -curl -debug -doc -nss -png -qt5 -tiff
+app-text/poppler-data-0.4.10
+app-text/ps2eps-1.68
+app-text/ps2pkm-1.8_p20200406
+app-text/psutils-1.17-r3
+app-text/qpdf-10.1.0 +ssl -doc -examples -libressl -test
+app-text/sgml-common-0.6.3-r7
+app-text/t1utils-1.41-r2
+app-text/teckit-2.5.10
+app-text/texlive-2020-r9 +X +context +extra +graphics +png +science +truetype -cjk -epspdf -games -humanities -l10n_af -l10n_ar -l10n_as -l10n_bg -l10n_bn -l10n_br -l10n_ca -l10n_cs -l10n_cy -l10n_da -l10n_de -l10n_el -l10n_en -l10n_eo -l10n_es -l10n_et -l10n_eu -l10n_fa -l10n_fi -l10n_fr -l10n_ga -l10n_gl -l10n_gu -l10n_he -l10n_hi -l10n_hr -l10n_hsb -l10n_hu -l10n_hy -l10n_ia -l10n_id -l10n_is -l10n_it -l10n_ja -l10n_kn -l10n_ko -l10n_la -l10n_lo -l10n_lt -l10n_lv -l10n_ml -l10n_mn -l10n_mr -l10n_nb -l10n_nl -l10n_nn -l10n_no -l10n_or -l10n_pa -l10n_pl -l10n_pt -l10n_rm -l10n_ro -l10n_ru -l10n_sa -l10n_sco -l10n_sk -l10n_sl -l10n_sq -l10n_sr -l10n_sv -l10n_ta -l10n_te -l10n_th -l10n_tk -l10n_tr -l10n_uk -l10n_vi -l10n_zh -luatex -metapost -music -pdfannotextractor -pstricks -publishers -tex4ht -texi2html -xetex -xml
+app-text/texlive-core-2020-r12 +X +luajittex +xetex -cjk -doc -source -tk -xindy
+app-text/tree-1.8.0
+app-text/ttf2pk2-2.0_p20200406
+app-text/wv-1.2.9-r2 -tools -wmf
+app-text/xdvik-22.87.03-r2 -Xaw3d -emacs -motif -neXt
+app-text/xmlto-0.0.28-r3 +text -latex
+app-text/zathura-0.4.4 +magic +seccomp -doc -sqlite -synctex -test
+app-text/zathura-djvu-0.2.9
+app-text/zathura-pdf-mupdf-0.3.6
+cross-avr/avr-libc-2.0.0 -doc -headers-only
+cross-avr/binutils-2.35.2 +gold +nls +plugins -cet -default-gold -doc -multitarget -static-libs -test -vanilla
+cross-avr/gcc-10.2.0-r5 +cxx +multilib +nls +nptl +openmp +pch -ada -d -debug -doc -fixed-point -fortran -go -graphite -hardened -jit -libssp -lto -objc -objc++ -objc-gc -pgo -pie -sanitize -ssp -systemtap -test -vanilla -vtv -zstd
+dev-cpp/catch-2.13.4 -test
+dev-cpp/clucene-2.3.3.4-r6 -debug -doc -static-libs
+dev-cpp/libcmis-0.5.2-r1 -man -static-libs -test -tools
+dev-db/mariadb-connector-c-3.1.12 +abi_x86_64 +curl +ssl -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -gnutls -kerberos -libressl -static-libs -test
+dev-db/sqlite-3.34.1 +abi_x86_64 +readline -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -doc -icu -secure-delete -static-libs -tcl -test -tools
+dev-db/unixODBC-2.3.9 +abi_x86_64 +minimal +unicode -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -odbcmanual -static-libs
+dev-java/ant-core-1.10.9 -doc -elibc_FreeBSD -source
+dev-java/java-config-2.3.1 +python_targets_python3_8 +python_targets_python3_9 -python_targets_python3_7 -test
+dev-java/javacc-5.0-r3 -doc -elibc_FreeBSD -examples -source -test
+dev-java/javatoolkit-0.6.5 +python_targets_python3_8 +python_targets_python3_9 -python_targets_python3_7
+dev-java/junit-3.8.2-r2 -doc -elibc_FreeBSD -source
+dev-java/openjdk-bin-8.272_p10 +alsa -cups -examples -headless-awt -selinux -source
+dev-lang/R-4.0.4 +X +nls +openmp +readline -cairo -doc -icu -java -jpeg -lapack -minimal -perl -png -prefix -profile -static-libs -test -tiff -tk
+dev-lang/go-1.16.2
+dev-lang/julia-bin-1.6.0 +elibc_glibc
+dev-lang/lua-5.1.5-r106 +abi_x86_64 +deprecated +readline -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+dev-lang/mono-6.12.0.122 +abi_x86_64 +kernel_linux +minimal +nls -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -pax_kernel -xen
+dev-lang/mujs-1.1.0 -static-libs
+dev-lang/nasm-2.15.05 -doc
+dev-lang/ocaml-4.09.0 +ocamlopt -emacs -flambda -latex -spacetime -xemacs
+dev-lang/orc-0.4.31 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -gtk-doc -static-libs -test
+dev-lang/perl-5.30.3 +berkdb +gdbm -debug -doc -ithreads
+dev-lang/python-3.8.8_p1 +bluetooth +gdbm +ipv6 +ncurses +readline +sqlite +ssl +xml -build -examples -hardened -libressl -test -tk -verify-sig -wininst
+dev-lang/python-3.9.2_p1 +bluetooth +gdbm +ipv6 +ncurses +readline +sqlite +ssl +xml -build -examples -hardened -libressl -test -tk -verify-sig -wininst
+dev-lang/python-exec-2.4.6-r4 +native-symlinks +python_targets_pypy3 +python_targets_python3_7 +python_targets_python3_8 +python_targets_python3_9
+dev-lang/python-exec-conf-2.4.6 +python_targets_python3_8 +python_targets_python3_9 -python_targets_pypy3 -python_targets_python3_7
+dev-lang/ruby-2.6.6-r2 +berkdb +gdbm +ipv6 +rdoc +ssl -debug -doc -examples -jemalloc -jit -libressl -rubytests -socks5 -static-libs -systemtap -tk -xemacs
+dev-lang/rust-bin-1.47.0-r1 +abi_x86_64 +cpu_flags_x86_sse2 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -clippy -doc -rls -rustfmt
+dev-lang/swig-4.0.2 +pcre -ccache -doc
+dev-lang/tcl-8.6.8 +abi_x86_64 +threads -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug
+dev-lang/vala-0.48.12 -test -valadoc
+dev-lang/yasm-1.3.0-r1 +nls
+dev-libs/-MERGING-libsigc++-2.10.3 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -static-libs -test
+dev-libs/atk-2.36.0 +abi_x86_64 +introspection -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -gtk-doc
+dev-libs/boehm-gc-8.0.4 +abi_x86_64 +threads -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cxx -static-libs
+dev-libs/boost-1.75.0 +abi_x86_64 +bzip2 +icu +nls +python_targets_python3_8 +python_targets_python3_9 +threads +zlib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -context -debug -doc -lzma -mpi -numpy -python -python_targets_python3_7 -static-libs -tools -zstd
+dev-libs/dbus-glib-0.110 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -static-libs -test
+dev-libs/double-conversion-3.1.5
+dev-libs/elfutils-0.183 +abi_x86_64 +bzip2 +nls +utils -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -lzma -static-libs -test -threads -valgrind -zstd
+dev-libs/ell-0.38 +abi_x86_64 +kernel_linux -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -glib -pie -test
+dev-libs/expat-2.2.10 +abi_x86_64 +split-usr +unicode -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -elibc_FreeBSD -examples -static-libs
+dev-libs/fribidi-1.0.10 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+dev-libs/girara-0.3.5 -doc -libnotify -test
+dev-libs/glib-2.66.7 +abi_x86_64 +dbus +elibc_glibc +kernel_linux +mime +xattr -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -fam -gtk-doc -selinux -static-libs -sysprof -systemtap -test -utils
+dev-libs/gmp-6.2.1-r1 +abi_x86_64 +asm +cxx -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -pic -static-libs
+dev-libs/gobject-introspection-1.66.1 +python_single_target_python3_8 -doctool -gtk-doc -python_single_target_python3_7 -python_single_target_python3_9 -test
+dev-libs/gobject-introspection-common-1.66.1
+dev-libs/gumbo-0.10.1 -doc -test
+dev-libs/hyphen-2.8.8-r1 -static-libs
+dev-libs/icu-68.2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -doc -examples -static-libs
+dev-libs/json-c-0.15 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_x86_rdrand -doc -static-libs -threads
+dev-libs/jsoncpp-1.9.4 -doc -test
+dev-libs/kpathsea-6.3.2_p20200406 -doc -source -static-libs
+dev-libs/libaio-0.3.112 +abi_x86_64 +split-usr -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs -test
+dev-libs/libassuan-2.5.4
+dev-libs/libatomic_ops-7.6.10 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+dev-libs/libbsd-0.10.0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+dev-libs/libconfig-1.7.2 +abi_x86_64 +cxx -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+dev-libs/libev-4.33 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+dev-libs/libevdev-1.11.0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -test
+dev-libs/libevent-2.1.11 +abi_x86_64 +ssl +threads -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -libressl -static-libs -test
+dev-libs/libffi-3.3-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -pax_kernel -static-libs -test
+dev-libs/libfmt-7.0.3 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -test
+dev-libs/libgcrypt-1.8.7 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -o-flag-munging -static-libs
+dev-libs/libgpg-error-1.41 +abi_x86_64 +nls -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -common-lisp -static-libs
+dev-libs/libical-3.0.9 +berkdb +glib +introspection -doc -examples -static-libs -test -vala
+dev-libs/libinput-1.17.1 -doc -input_devices_wacom -test
+dev-libs/libixion-0.15.0 +python_single_target_python3_8 +threads -debug -python -python_single_target_python3_7
+dev-libs/libksba-1.5.0 -static-libs
+dev-libs/libltdl-2.4.6 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+dev-libs/libmpack-1.0.5
+dev-libs/libnl-3.5.0 +abi_x86_64 +debug +python_targets_python3_8 +python_targets_python3_9 +threads -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -python -python_targets_python3_7 -static-libs -utils
+dev-libs/liborcus-0.15.4 +python_single_target_python3_8 +spreadsheet-model -python -python_single_target_python3_7 -python_single_target_python3_9 -tools
+dev-libs/libpcre-8.44 +abi_x86_64 +bzip2 +cxx +jit +readline +recursion-limit +split-usr +unicode +zlib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -libedit -pcre16 -pcre32 -static-libs
+dev-libs/libpcre2-10.35 +abi_x86_64 +bzip2 +jit +pcre16 +readline +recursion-limit +split-usr +unicode +zlib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -libedit -pcre32 -static-libs
+dev-libs/libpipeline-1.5.3 -static-libs -test
+dev-libs/libpthread-stubs-0.4-r1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+dev-libs/librevenge-0.0.4-r1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -test
+dev-libs/libtasn1-4.16.0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -static-libs -test -valgrind
+dev-libs/libtermkey-0.22 -demos -static-libs
+dev-libs/libunistring-0.9.10-r1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -static-libs
+dev-libs/libusb-1.0.24-r1 +abi_x86_64 +split-usr -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -doc -examples -static-libs -test -udev
+dev-libs/libuv-1.40.0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+dev-libs/libverto-0.3.1-r1 +abi_x86_64 +libev +threads -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -glib -libevent -static-libs -tevent
+dev-libs/libvterm-0.1.3
+dev-libs/libx86-1.1-r4 -static-libs
+dev-libs/libxdg-basedir-1.2.0-r1 -doc
+dev-libs/libxml2-2.9.10-r5 +abi_x86_64 +icu +ipv6 +python +python_targets_python3_8 +python_targets_python3_9 +readline -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -examples -lzma -python_targets_python3_7 -static-libs -test
+dev-libs/libxslt-1.1.34-r1 +abi_x86_64 +crypt -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -elibc_Darwin -examples -static-libs
+dev-libs/libyaml-0.2.5 -doc -static-libs -test
+dev-libs/lzo-2.10 +abi_x86_64 +split-usr -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -examples -static-libs
+dev-libs/mpc-1.2.1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+dev-libs/mpfr-4.1.0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+dev-libs/msgpack-3.3.0 +abi_x86_64 +cxx -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -boost -doc -examples -static-libs -test
+dev-libs/nettle-3.7.2 +abi_x86_64 +asm +cpu_flags_x86_aes +gmp -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_arm_neon -cpu_flags_x86_sha -doc -static-libs -test
+dev-libs/npth-1.6-r1
+dev-libs/nspr-4.30 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -elibc_musl
+dev-libs/nss-3.63.1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cacert -utils
+dev-libs/oniguruma-6.9.6-r1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -crnl-as-line-terminator -static-libs
+dev-libs/openssl-1.1.1k +abi_x86_64 +asm +cpu_flags_x86_sse2 +zlib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -bindist -elibc_musl -rfc3779 -sctp -sslv3 -static-libs -test -tls-heartbeat -vanilla
+dev-libs/popt-1.18 +abi_x86_64 +nls -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+dev-libs/protobuf-3.15.8 +abi_x86_64 +zlib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -emacs -examples -static-libs -test
+dev-libs/ptexenc-1.3.8_p20200406 +iconv -static-libs
+dev-libs/rasqal-0.9.33 +crypt +kernel_linux +mhash +pcre -gmp -static-libs -test -xml
+dev-libs/re2-0.2021.04.01 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -icu
+dev-libs/redland-1.0.17-r2 +berkdb -iodbc -mysql -odbc -postgres -sqlite -static-libs
+dev-libs/spdlog-1.8.2 -test
+dev-libs/stfl-0.24-r3 +python_targets_python3_8 +python_targets_python3_9 -examples -perl -python -python_targets_python3_7 -ruby -static-libs
+dev-libs/unibilium-2.0.0 -static-libs
+dev-libs/uthash-2.3.0 -test
+dev-libs/vala-common-0.48.12
+dev-libs/xmlsec-1.2.31 +nss +openssl -doc -gcrypt -gnutls -libressl -static-libs -test
+dev-libs/xxhash-0.8.0 -static-libs
+dev-libs/zziplib-0.13.72 -sdl -static-libs
+dev-lisp/asdf-3.1.5 -doc
+dev-lisp/sbcl-1.4.9 +threads +unicode +zlib -debug -doc -pax_kernel -source
+dev-lisp/uiop-3.1.5
+dev-lua/LuaBitOp-1.0.2-r102 +lua_targets_lua5-1 -lua_targets_lua5-2 -lua_targets_luajit -test
+dev-lua/lpeg-1.0.2-r101 +lua_targets_lua5-1 -debug -doc -lua_targets_lua5-2 -lua_targets_lua5-3 -lua_targets_lua5-4 -lua_targets_luajit -test
+dev-lua/luv-1.36.0.0 +lua_single_target_lua5-1 -lua_single_target_lua5-2 -lua_single_target_lua5-3 -lua_single_target_lua5-4 -lua_single_target_luajit -test
+dev-lua/mpack-1.0.8-r100 +lua_targets_lua5-1 -lua_targets_lua5-2 -lua_targets_lua5-3 -lua_targets_lua5-4 -lua_targets_luajit -test
+dev-ml/camlpdf-2.3.1 -doc -examples
+dev-ml/findlib-1.8.1-r2 +ocamlopt -doc -tk
+dev-perl/Algorithm-Diff-1.201.0 -examples
+dev-perl/App-pwhich-1.160.0 -test
+dev-perl/Authen-SASL-2.160.0-r2 -kerberos -test
+dev-perl/B-Hooks-EndOfScope-0.240.0 -test
+dev-perl/Class-Data-Inheritable-0.80.0-r3
+dev-perl/Crypt-RC4-2.020.0-r1
+dev-perl/Data-OptList-0.110.0 -test
+dev-perl/Devel-Caller-2.60.0
+dev-perl/Devel-GlobalDestruction-0.140.0
+dev-perl/Devel-LexAlias-0.50.0
+dev-perl/Devel-StackTrace-2.20.0 -test
+dev-perl/Digest-HMAC-1.30.0-r1
+dev-perl/Digest-Perl-MD5-1.900.0
+dev-perl/Dist-CheckConflicts-0.110.0 -test
+dev-perl/Error-0.170.250 -test
+dev-perl/Eval-Closure-0.140.0 -minimal -test
+dev-perl/Exception-Class-1.430.0 -examples -test
+dev-perl/File-BaseDir-0.70.0 -test
+dev-perl/File-DesktopEntry-0.220.0 -test
+dev-perl/File-HomeDir-1.2.0 +xdg -test
+dev-perl/File-MimeInfo-0.280.0 -test
+dev-perl/File-Which-1.220.0 +pwhich -test
+dev-perl/IO-stringy-2.111.0
+dev-perl/IPC-System-Simple-1.250.0 -test
+dev-perl/Locale-gettext-1.70.0
+dev-perl/Log-Dispatch-2.670.0 -test
+dev-perl/MIME-Charset-1.12.2 -l10n_ja -l10n_zh
+dev-perl/MRO-Compat-0.130.0 -test
+dev-perl/MailTools-2.190.0 -examples -test
+dev-perl/Module-Build-0.422.400 -test
+dev-perl/Module-Implementation-0.90.0 -test
+dev-perl/Module-Runtime-0.16.0 -test
+dev-perl/OLE-StorageLite-0.190.0-r1
+dev-perl/Package-Stash-0.370.0 -minimal -test
+dev-perl/Package-Stash-XS-0.280.0 -test
+dev-perl/PadWalker-2.300.0
+dev-perl/Params-Util-1.70.0 -test
+dev-perl/Params-ValidationCompiler-0.260.0 -examples -test
+dev-perl/Perl-Tidy-20190915.0.0 -examples
+dev-perl/Pod-LaTeX-0.610.0
+dev-perl/Ref-Util-0.203.0 +xs -test
+dev-perl/Ref-Util-XS-0.116.0 -test
+dev-perl/Role-Tiny-2.0.6 -test
+dev-perl/SGMLSpm-1.1-r1
+dev-perl/Specio-0.420.0 -minimal -test
+dev-perl/Spreadsheet-ParseExcel-0.650.0 +unicode -cjk -test
+dev-perl/Sub-Exporter-0.987.0
+dev-perl/Sub-Exporter-Progressive-0.1.13
+dev-perl/Sub-Identify-0.140.0 -test
+dev-perl/Sub-Install-0.928.0 -test
+dev-perl/Sub-Name-0.210.0 -suggested -test
+dev-perl/Sub-Quote-2.4.0 -minimal -test
+dev-perl/TermReadKey-2.370.0 -examples
+dev-perl/Test-Fatal-0.14.0 -examples -test
+dev-perl/Text-CSV_XS-1.340.0 -examples -test
+dev-perl/Text-CharWidth-0.40.0-r1
+dev-perl/Text-WrapI18N-0.60.0-r1
+dev-perl/TimeDate-2.300.0
+dev-perl/Try-Tiny-0.300.0 -minimal -test
+dev-perl/URI-1.730.0 -test
+dev-perl/Unicode-LineBreak-2019.1.0
+dev-perl/Unicode-Map-0.112.0-r1
+dev-perl/Variable-Magic-0.620.0 -examples -test
+dev-perl/XML-Parser-2.440.0
+dev-perl/YAML-Tiny-1.730.0 -minimal -test
+dev-perl/namespace-autoclean-0.280.0 -test
+dev-perl/namespace-clean-0.270.0 -test
+dev-python/PySocks-1.7.1-r1 +python_targets_python3_8 +python_targets_python3_9 -python_targets_pypy3 -python_targets_python3_7
+dev-python/certifi-10001-r1 +python_targets_python3_8 +python_targets_python3_9 -python_targets_pypy3 -python_targets_python3_7 -test
+dev-python/chardet-4.0.0 +python_targets_python3_8 +python_targets_python3_9 -python_targets_pypy3 -python_targets_python3_7 -test
+dev-python/docutils-0.16-r1 +python_targets_python3_8 +python_targets_python3_9 -python_targets_pypy3 -python_targets_python3_7
+dev-python/idna-2.10-r1 +python_targets_python3_8 +python_targets_python3_9 -python_targets_pypy3 -python_targets_python3_7
+dev-python/jinja-2.11.3 +python_targets_python3_8 +python_targets_python3_9 -doc -examples -python_targets_pypy3 -python_targets_python3_7 -test
+dev-python/m2crypto-0.36.0-r1 +python_targets_python3_8 +python_targets_python3_9 -libressl -python_targets_python3_7
+dev-python/mako-1.1.4 +python_targets_python3_8 +python_targets_python3_9 -doc -python_targets_pypy3 -python_targets_python3_7 -test
+dev-python/markupsafe-1.1.1-r1 +python_targets_python3_8 +python_targets_python3_9 -python_targets_pypy3 -python_targets_python3_7 -test
+dev-python/pip-21.0.1 +python_targets_python3_8 +python_targets_python3_9 -python_targets_pypy3 -python_targets_python3_7 -test -vanilla
+dev-python/pygments-2.8.1 +python_targets_python3_8 +python_targets_python3_9 -doc -python_targets_pypy3 -python_targets_python3_7 -test
+dev-python/requests-2.25.1-r1 +python_targets_python3_8 +python_targets_python3_9 -python_targets_pypy3 -python_targets_python3_7 -socks5 -test
+dev-python/setuptools-54.1.1 +python_targets_python3_8 +python_targets_python3_9 -python_targets_pypy3 -python_targets_python3_7 -test
+dev-python/setuptools_scm-6.0.1 +python_targets_python3_8 +python_targets_python3_9 -python_targets_pypy3 -python_targets_python3_7 -test
+dev-python/ssl-fetch-0.4 +python_targets_python3_8 +python_targets_python3_9 -python_targets_pypy3 -python_targets_python3_7
+dev-python/urllib3-1.26.4 +python_targets_python3_8 +python_targets_python3_9 -brotli -python_targets_pypy3 -python_targets_python3_7 -test
+dev-qt/linguist-tools-5.15.2 -debug -qml -test
+dev-qt/qtchooser-66 -test
+dev-qt/qtcore-5.15.2-r2 +kernel_linux -debug -icu -old-kernel -systemd -test
+dev-qt/qtdbus-5.15.2 -debug -test
+dev-qt/qtgui-5.15.2-r1 +X +dbus +gif +libinput +png +udev -accessibility -debug -egl -eglfs -evdev -gles2-only -ibus -jpeg -test -tslib -tuio -vnc -vulkan -wayland
+dev-qt/qthelp-5.15.2 -debug -test
+dev-qt/qtnetwork-5.15.2-r1 +ssl -bindist -connman -debug -gssapi -libproxy -libressl -networkmanager -sctp -test
+dev-qt/qtopengl-5.15.2 -debug -gles2-only -test
+dev-qt/qtprintsupport-5.15.2 -cups -debug -gles2-only -test
+dev-qt/qtsql-5.15.2 +sqlite -debug -freetds -mysql -oci8 -odbc -postgres -test
+dev-qt/qtwidgets-5.15.2 +X +png -debug -gles2-only -gtk -test
+dev-qt/qtxml-5.15.2 -debug -test
+dev-ruby/asciidoctor-2.0.10 +ruby_targets_ruby26 -doc -ruby_targets_ruby25 -test
+dev-ruby/bundler-2.1.4 +doc +doc +ruby_targets_ruby26 -ruby_targets_ruby25 -ruby_targets_ruby27 -test
+dev-ruby/did_you_mean-1.3.1 +ruby_targets_ruby26 -ruby_targets_ruby25 -test
+dev-ruby/json-2.3.0 +ruby_targets_ruby26 -doc -ruby_targets_ruby25 -ruby_targets_ruby27 -test
+dev-ruby/kpeg-1.1.0-r1 +ruby_targets_ruby26 -doc -ruby_targets_ruby25 -ruby_targets_ruby27 -ruby_targets_ruby30 -test
+dev-ruby/minitest-5.11.3 +ruby_targets_ruby26 -doc -ruby_targets_ruby25 -test
+dev-ruby/net-telnet-0.2.0 +ruby_targets_ruby26 -doc -ruby_targets_ruby25 -ruby_targets_ruby27 -test
+dev-ruby/power_assert-1.1.5 +ruby_targets_ruby26 -doc -ruby_targets_ruby25 -ruby_targets_ruby27 -test
+dev-ruby/racc-1.4.14 +ruby_targets_ruby26 -doc -ruby_targets_ruby25 -test
+dev-ruby/rake-12.3.3 +ruby_targets_ruby26 -doc -ruby_targets_ruby25 -test
+dev-ruby/rdoc-6.1.2 +ruby_targets_ruby26 -doc -ruby_targets_ruby25 -test
+dev-ruby/rubygems-3.0.9 +ruby_targets_ruby26 -ruby_targets_ruby25 -server -test
+dev-ruby/test-unit-3.3.3 +ruby_targets_ruby26 -doc -ruby_targets_ruby25 -test
+dev-ruby/xmlrpc-0.3.0 +ruby_targets_ruby26 -doc -ruby_targets_ruby25 -ruby_targets_ruby27 -test
+dev-tex/bibtexu-3.71_p20200406 -doc -source
+dev-tex/glossaries-4.46 -doc -examples
+dev-tex/latex-beamer-3.61 -doc
+dev-tex/latexdiff-1.3.1.1 -test
+dev-tex/latexmk-470b
+dev-tex/pgf-3.1.5b -doc -source
+dev-texlive/texlive-basic-2020-r1 +luajittex -doc -source
+dev-texlive/texlive-bibtexextra-2020 -doc -source
+dev-texlive/texlive-context-2020 -doc -source
+dev-texlive/texlive-fontsextra-2020 -doc -source
+dev-texlive/texlive-fontsrecommended-2020 -doc -source
+dev-texlive/texlive-fontutils-2020 -doc -source
+dev-texlive/texlive-formatsextra-2020-r2 -doc -source
+dev-texlive/texlive-latex-2020 -doc -source
+dev-texlive/texlive-latexextra-2020-r2 -doc -source
+dev-texlive/texlive-latexrecommended-2020 -doc -source
+dev-texlive/texlive-luatex-2020-r2 -doc -source
+dev-texlive/texlive-mathscience-2020 -doc -source
+dev-texlive/texlive-metapost-2020-r1 -doc -source
+dev-texlive/texlive-pictures-2020-r2 -doc -source
+dev-texlive/texlive-plaingeneric-2020 -doc -source
+dev-texlive/texlive-pstricks-2020 -doc -source
+dev-texlive/texlive-xetex-2020 +X -doc -source
+dev-util/android-tools-9.0.0_p3-r1 +python_targets_python3_8 +python_targets_python3_9 -python -python_targets_python3_7
+dev-util/boost-build-1.75.0 -examples
+dev-util/ccache-4.2.1 -test
+dev-util/cmake-3.18.5 +ncurses -doc -emacs -qt5 -test
+dev-util/colm-0.13.0.7
+dev-util/cppunit-1.15.1-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -examples -static-libs
+dev-util/desktop-file-utils-0.26-r1 -emacs
+dev-util/gdbus-codegen-2.66.7 +python_single_target_python3_8 -python_single_target_python3_7 -python_single_target_python3_9
+dev-util/glib-utils-2.66.7 +python_single_target_python3_8 -python_single_target_python3_7 -python_single_target_python3_9
+dev-util/gperf-3.1
+dev-util/gtk-doc-am-1.33.1
+dev-util/gtk-update-icon-cache-3.24.26
+dev-util/intltool-0.51.0-r2
+dev-util/itstool-2.0.6-r1 +python_single_target_python3_8 -python_single_target_python3_7 -python_single_target_python3_9
+dev-util/mdds-1.7.0 +openmp -doc -test -valgrind
+dev-util/meson-0.56.2 +python_targets_python3_8 +python_targets_python3_9 -python_targets_python3_7 -test
+dev-util/meson-format-array-0 +python_targets_python3_8 +python_targets_python3_9 -python_targets_python3_7
+dev-util/ninja-1.10.1 -doc -emacs -test -vim-syntax
+dev-util/pkgconf-1.6.3 +abi_x86_64 +pkg-config -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -test
+dev-util/ragel-7.0.0.12 -vim-syntax
+dev-util/re2c-2.0.3 -debug
+dev-util/shadowman-2
+dev-util/vbindiff-3.0_beta5
+dev-util/vulkan-headers-1.2.162
+dev-util/xdelta-3.0.11 -examples -lzma
+dev-vcs/git-2.26.3 +blksha1 +curl +gpg +iconv +nls +pcre +pcre-jit +perl +python_single_target_python3_8 +threads +webdav -cgi -cvs -doc -emacs -gnome-keyring -highlight -libressl -mediawiki -mediawiki-experimental -perforce -ppcsha1 -python_single_target_python3_7 -subversion -test -tk -xinetd
+gnome-base/dconf-0.36.0 -gtk-doc -test
+gnome-base/gconf-3.2.6-r5 +abi_x86_64 +introspection +python_single_target_python3_8 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -ldap -policykit -python_single_target_python3_7 -python_single_target_python3_9
+gnome-base/gsettings-desktop-schemas-3.38.0 +introspection
+gnome-base/librsvg-2.50.3 +abi_x86_64 +introspection +vala -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+gnome-extra/libgsf-1.14.47 +bzip2 +introspection -gtk
+gui-libs/display-manager-init-1.0-r3
+mail-client/neomutt-20201127 +berkdb +gdbm +nls +ssl -autocrypt -doc -gnutls -gpgme -idn -kerberos -kyotocabinet -libressl -lmdb -notmuch -pgp-classic -qdbm -sasl -selinux -slang -smime-classic -test -tokyocabinet
+mail-mta/msmtp-1.8.12 +filecaps +mta +nls +ssl -daemon -doc -gnome-keyring -idn -sasl -vim-syntax
+media-fonts/arphicfonts-0.2.20080216.1-r2 +X
+media-fonts/dejavu-2.37 +X -fontforge
+media-fonts/droid-113-r5 +X
+media-fonts/encodings-1.0.5-r1
+media-fonts/fira-code-5.2 +X
+media-fonts/font-util-1.3.2-r1
+media-fonts/fontawesome-5.15.1 +X +otf -ttf
+media-fonts/ipamonafont-1.0.8 +X
+media-fonts/ja-ipafonts-003.03 +X
+media-fonts/joypixels-6.0.0 +X
+media-fonts/jsmath-1.0 +X
+media-fonts/liberation-fonts-2.1.2 +X -fontforge
+media-fonts/lohit-assamese-2.91.5 +X
+media-fonts/lohit-bengali-2.91.5 +X
+media-fonts/lohit-devanagari-2.95.4 +X
+media-fonts/lohit-fonts-2.20150220
+media-fonts/lohit-gujarati-2.92.4 +X
+media-fonts/lohit-gurmukhi-2.91.2 +X
+media-fonts/lohit-kannada-2.5.4 +X
+media-fonts/lohit-malayalam-2.92.2 +X
+media-fonts/lohit-marathi-2.94.2 +X
+media-fonts/lohit-nepali-2.94.2 +X
+media-fonts/lohit-odia-2.91.2 +X
+media-fonts/lohit-tamil-2.91.3 +X
+media-fonts/lohit-tamil-classical-2.5.4 +X
+media-fonts/lohit-telugu-2.5.5 +X
+media-fonts/noto-20201226 +X +extra -cjk
+media-fonts/noto-color-emoji-2015.12 +X
+media-fonts/noto-emoji-20201214 +X -buildfont
+media-fonts/takao-fonts-003.02.01 +X
+media-fonts/urw-fonts-2.4.9 +X
+media-fonts/vlgothic-20141206 +X
+media-fonts/wqy-microhei-0.2.0_beta-r1 +X
+media-fonts/wqy-zenhei-0.9.46 +X
+media-gfx/feh-3.6.1 -curl -debug -exif -test -xinerama
+media-gfx/fontforge-20201107 +X +python +python_single_target_python3_8 +readline +unicode -doc -gif -gtk -jpeg -png -python_single_target_python3_7 -python_single_target_python3_9 -svg -test -tiff -truetype-debugger -woff2
+media-gfx/graphite2-1.3.14 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -perl -test
+media-gfx/imagemagick-7.0.11.12 +X +bzip2 +cxx +openmp +png +zlib -corefonts -djvu -fftw -fontconfig -fpx -graphviz -hdri -heif -jbig -jpeg -jpeg2k -lcms -lqr -lzma -opencl -openexr -pango -perl -postscript -q32 -q8 -raw -static-libs -svg -test -tiff -truetype -webp -wmf -xml
+media-gfx/potrace-1.16 -metric
+media-gfx/qrencode-4.1.1 -test
+media-gfx/sam2p-0.49.4_p20190718-r1 -examples -gif
+media-gfx/scrot-1.4
+media-libs/alsa-lib-1.2.3.2-r1 +abi_x86_64 +python_single_target_python3_8 +thread-safety -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -alisp -debug -doc -elibc_uclibc -python -python_single_target_python3_7
+media-libs/alsa-topology-conf-1.2.3
+media-libs/alsa-ucm-conf-1.2.3
+media-libs/audiofile-0.3.6-r4 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -flac
+media-libs/dav1d-0.8.2 +10bit +8bit +abi_x86_64 +asm -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+media-libs/fdk-aac-2.0.1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -examples -static-libs
+media-libs/flac-1.3.3-r1 +abi_x86_64 +cpu_flags_x86_sse +cxx -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_ppc_altivec -cpu_flags_ppc_vsx -debug -ogg -static-libs
+media-libs/fontconfig-2.13.1-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -static-libs
+media-libs/freeglut-3.2.1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -static-libs
+media-libs/freetype-2.10.4 +X +abi_x86_64 +adobe-cff +bzip2 +cleartype_hinting +png -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -bindist -brotli -debug -doc -fontforge -harfbuzz -infinality -static-libs -utils
+media-libs/gd-2.3.1 +abi_x86_64 +cpu_flags_x86_sse +jpeg +png +zlib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -fontconfig -static-libs -test -tiff -truetype -webp -xpm
+media-libs/giblib-1.2.4-r1
+media-libs/giflib-5.2.1-r1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -static-libs
+media-libs/glew-2.2.0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -static-libs
+media-libs/glm-0.9.9.8-r1 +cpu_flags_x86_avx +cpu_flags_x86_avx2 +cpu_flags_x86_sse2 +cpu_flags_x86_sse3 -test
+media-libs/glu-9.0.1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+media-libs/graphene-1.10.2-r1 +abi_x86_64 +cpu_flags_x86_sse2 +introspection -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_arm_neon -doc -test
+media-libs/gst-plugins-base-1.16.3 +X +abi_x86_64 +alsa +egl +introspection +nls +ogg +opengl +orc +pango +vorbis -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -gbm -gles2 -ivorbis -theora -wayland
+media-libs/gstreamer-1.16.3 +abi_x86_64 +caps +introspection +nls +orc -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -test -unwind
+media-libs/harfbuzz-2.7.4 +abi_x86_64 +cairo +glib +graphite +icu +introspection +truetype -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -doc -static-libs -test
+media-libs/imlib2-1.6.1 +X +abi_x86_64 +bzip2 +cpu_flags_x86_sse2 +gif +jpeg +png +shm +tiff +webp +zlib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_x86_mmx -doc -mp3 -static-libs
+media-libs/jbig2dec-0.19 -png -static-libs -test
+media-libs/lcms-2.11 +abi_x86_64 +threads -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -jpeg -static-libs -test -tiff
+media-libs/libaom-2.0.0 +abi_x86_64 +cpu_flags_x86_avx +cpu_flags_x86_avx2 +cpu_flags_x86_mmx +cpu_flags_x86_sse +cpu_flags_x86_sse2 +cpu_flags_x86_sse3 +cpu_flags_x86_sse4_1 +cpu_flags_x86_sse4_2 +cpu_flags_x86_ssse3 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_arm_neon -doc -examples
+media-libs/libass-0.15.0 +abi_x86_64 +fontconfig -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+media-libs/libcdr-0.1.6 -doc -test
+media-libs/libepoxy-1.5.5 +X +abi_x86_64 +egl -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -test
+media-libs/libexif-0.6.22_p20201105 +abi_x86_64 +nls -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -static-libs
+media-libs/libfreehand-0.1.2 -doc -static-libs -test
+media-libs/libglvnd-1.3.2-r2 +X +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -test
+media-libs/libjpeg-turbo-2.0.6 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -elibc_FreeBSD -java -static-libs
+media-libs/libmad-0.15.1b-r10 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -static-libs
+media-libs/libogg-1.3.4 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+media-libs/libopusenc-0.2.1 -doc
+media-libs/libpagemaker-0.0.4 -debug -doc -tools
+media-libs/libpng-1.6.37-r2 +abi_x86_64 +apng +cpu_flags_x86_sse -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_arm_neon -static-libs
+media-libs/libsamplerate-0.2.1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -test
+media-libs/libsdl-1.2.15-r9 +X +abi_x86_64 +alsa +joystick +sound +video -aalib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -custom-cflags -dga -fbcon -libcaca -nas -opengl -oss -pulseaudio -static-libs -tslib -xinerama -xv
+media-libs/libsdl2-2.0.14-r1 +X +abi_x86_64 +alsa +cpu_flags_x86_mmx +cpu_flags_x86_sse +cpu_flags_x86_sse2 +dbus +joystick +opengl +pulseaudio +sound +threads +video -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -aqua -cpu_flags_ppc_altivec -cpu_flags_x86_3dnow -custom-cflags -fcitx4 -gles2 -haptic -ibus -jack -kms -libsamplerate -nas -oss -static-libs -udev -video_cards_vc4 -vulkan -wayland -xinerama -xscreensaver
+media-libs/libsndfile-1.0.31 +abi_x86_64 +alsa -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -minimal -sqlite -test
+media-libs/libuninameslist-20091231-r1
+media-libs/libvisio-0.1.7 -doc -static-libs -test -tools
+media-libs/libvorbis-1.3.7 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs -test
+media-libs/libvpx-1.9.0 +abi_x86_64 +highbitdepth +postproc +svc +threads -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -static-libs -test
+media-libs/libwebp-1.1.0 +abi_x86_64 +cpu_flags_x86_sse2 +cpu_flags_x86_sse4_1 +jpeg +png -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_arm_neon -gif -opengl -static-libs -swap-16bit-csp -tiff
+media-libs/libzmf-0.0.2 -debug -doc -test -tools
+media-libs/mesa-20.3.5 +X +abi_x86_64 +classic +dri3 +egl +gallium +gbm +gles2 +kernel_linux +llvm +vaapi +video_cards_radeonsi +zstd -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -d3d9 -debug -gles1 -lm-sensors -opencl -osmesa -selinux -test -unwind -valgrind -vdpau -video_cards_freedreno -video_cards_i915 -video_cards_i965 -video_cards_intel -video_cards_iris -video_cards_lima -video_cards_nouveau -video_cards_panfrost -video_cards_r100 -video_cards_r200 -video_cards_r300 -video_cards_r600 -video_cards_radeon -video_cards_v3d -video_cards_vc4 -video_cards_virgl -video_cards_vivante -video_cards_vmware -vulkan -vulkan-overlay -wayland -xa -xvmc -zink
+media-libs/openal-1.21.1-r1 +abi_x86_64 +alsa +cpu_flags_x86_sse +cpu_flags_x86_sse2 +cpu_flags_x86_sse4_1 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -coreaudio -cpu_flags_arm_neon -debug -jack -oss -portaudio -pulseaudio -qt5 -sdl -sndio
+media-libs/openjpeg-2.4.0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -static-libs -test
+media-libs/opus-1.3.1-r1 +abi_x86_64 +cpu_flags_x86_sse +custom-modes -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_arm_neon -doc -static-libs
+media-libs/opusfile-0.12 +float +http -doc -fixed-point -libressl -static-libs
+media-libs/portaudio-19.06.00-r3 +abi_x86_64 +alsa +cxx -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -doc -jack -oss -static-libs
+media-libs/qhull-2015.2 -doc -static-libs
+media-libs/raptor-2.0.15-r2 +curl +unicode -debug -json -static-libs
+media-libs/sbc-1.5 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+media-libs/speexdsp-1.2_rc3-r3 +abi_x86_64 +cpu_flags_x86_sse +cpu_flags_x86_sse2 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_arm_neon
+media-libs/tiff-4.2.0 +abi_x86_64 +cxx +zlib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -jbig -jpeg -lzma -static-libs -test -webp -zstd
+media-libs/vulkan-loader-1.2.162-r1 +X +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -layers -wayland
+media-libs/webrtc-audio-processing-0.3.1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+media-libs/woff2-1.0.2-r2
+media-libs/x264-0.0.20190903-r1 +abi_x86_64 +cpu_flags_x86_sse +interlaced +threads -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_ppc_altivec -opencl -pic -static-libs
+media-plugins/alsa-plugins-1.2.2 +abi_x86_64 +mix +pulseaudio +usb_stream -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -arcam_av -debug -ffmpeg -jack -libsamplerate -oss -speex
+media-sound/alsa-utils-1.2.3 +libsamplerate +ncurses +nls -bat -doc -selinux
+media-sound/bluez-alsa-3.0.0 +abi_x86_64 -aac -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -hcitop -lame -ldac -man -mpg123 -ofono -static-libs -test -unwind -upower
+media-sound/cmus-2.9.1 +alsa +flac +mad +opus +pulseaudio +unicode +vorbis -aac -ao -cddb -cdio -debug -discid -elogind -examples -ffmpeg -jack -libsamplerate -mikmod -modplug -mp4 -musepack -oss -pidgin -systemd -tremor -wavpack
+media-sound/lame-3.100-r3 +abi_x86_64 +frontend -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_x86_mmx -debug -mp3rtp -sndfile -static-libs
+media-sound/opus-tools-0.2 -flac
+media-sound/playerctl-2.3.1 -doc -introspection
+media-sound/pulseaudio-13.0-r1 +X +abi_x86_64 +alsa +alsa-plugin +asyncns +bluetooth +caps +dbus +gdbm +glib +ipv6 +kernel_linux +native-headset +ofono-headset +orc +ssl +tcpd +udev +webrtc-aec -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_arm_neon -doc -elogind -equalizer -gconf -gtk -jack -libressl -libsamplerate -lirc -oss -qt5 -realtime -selinux -sox -system-wide -systemd -test -zeroconf
+media-video/ffmpeg-4.4 +X +abi_x86_64 +alsa +bzip2 +chromium +cpu_flags_x86_aes +cpu_flags_x86_avx +cpu_flags_x86_avx2 +cpu_flags_x86_fma3 +cpu_flags_x86_mmx +cpu_flags_x86_mmxext +cpu_flags_x86_sse +cpu_flags_x86_sse2 +cpu_flags_x86_sse3 +cpu_flags_x86_sse4_1 +cpu_flags_x86_sse4_2 +cpu_flags_x86_ssse3 +dav1d +encode +fdk +fftools_aviocat +fftools_cws2fws +fftools_ffescape +fftools_ffeval +fftools_ffhash +fftools_fourcc2pixfmt +fftools_graph2dot +fftools_ismindex +fftools_pktdumper +fftools_qt-faststart +fftools_sidxindex +fftools_trasher +gcrypt +gnutls +gpl +iconv +libaom +libdrm +mp3 +network +opus +postproc +pulseaudio +threads +v4l +vaapi +vdpau +vpx +vulkan +x264 +zlib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -amr -amrenc -appkit -bluray -bs2b -cdio -chromaprint -codec2 -cpu_flags_arm_neon -cpu_flags_arm_thumb -cpu_flags_arm_thumb2 -cpu_flags_arm_v6 -cpu_flags_arm_v8 -cpu_flags_arm_vfp -cpu_flags_arm_vfpv3 -cpu_flags_ppc_altivec -cpu_flags_ppc_vsx -cpu_flags_ppc_vsx2 -cpu_flags_x86_3dnow -cpu_flags_x86_3dnowext -cpu_flags_x86_fma4 -cpu_flags_x86_xop -cpudetection -cuda -debug -doc -flite -fontconfig -frei0r -fribidi -gme -gmp -gsm -hardcoded-tables -iec61883 -ieee1394 -jack -jpeg2k -kvazaar -ladspa -libaribb24 -libass -libcaca -libilbc -librtmp -libsoxr -libtesseract -libv4l -libxml2 -lv2 -lzma -mipsdspr1 -mipsdspr2 -mipsfpu -mmal -modplug -openal -opencl -opengl -openh264 -openssl -oss -pic -rav1e -rubberband -samba -sdl -snappy -sndio -speex -srt -ssh -static-libs -svg -test -theora -truetype -twolame -video_cards_nvidia -vidstab -vorbis -webp -x265 -xvid -zeromq -zimg -zvbi
+media-video/libva-utils-2.4.0 +X +drm -test -wayland
+media-video/mpv-0.33.1-r1 +X +alsa +cli +cplugins +drm +egl +iconv +libmpv +lua +lua_single_target_lua5-1 +opengl +python_targets_python3_8 +python_targets_python3_9 +uchardet +vaapi +xv +zlib -aqua -archive -bluray -cdda -coreaudio -cuda -debug -doc -dvb -dvd -gamepad -gbm -jack -javascript -jpeg -lcms -libcaca -lua_single_target_lua5-2 -lua_single_target_luajit -openal -pulseaudio -python_targets_python3_7 -raspberry-pi -rubberband -sdl -selinux -test -tools -vdpau -vulkan -wayland -zimg
+net-analyzer/arp-scan-1.9.7
+net-dialup/ppp-2.4.9-r2 +eap-tls +ipv6 +kernel_linux +pam -activefilter -atm -dhcp -gtk -libressl -radius
+net-dialup/ppp-scripts-0
+net-dialup/wvdial-1.61
+net-dns/c-ares-1.17.1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+net-dns/libidn-1.36 +abi_x86_64 +nls -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -elibc_FreeBSD -emacs -java -mono
+net-dns/libidn2-2.3.0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+net-firewall/iptables-1.8.5 +ipv6 +split-usr -conntrack -netlink -nftables -pcap -static-libs
+net-fs/curlftpfs-0.9.2-r4
+net-fs/nfs-utils-2.5.3-r1 +ipv6 +kernel_linux +libmount +nfsidmap +nfsv4 +tcpd +uuid -caps -junction -kerberos -ldap -nfsdcld -nfsv41 -selinux
+net-libs/gnutls-3.6.15 +abi_x86_64 +cxx +idn +nls +openssl +seccomp +tls-heartbeat -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -dane -doc -examples -guile -pkcs11 -sslv2 -sslv3 -static-libs -test -test-full -tools -valgrind
+net-libs/libasyncns-0.8-r4 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -doc
+net-libs/libmnl-1.0.4 +split-usr -examples -static-libs
+net-libs/libnsl-1.3.0-r1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+net-libs/libpcap-1.10.0 +abi_x86_64 +bluetooth +dbus -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -netlink -rdma -remote -static-libs -usb -verify-sig -yydebug
+net-libs/libtirpc-1.3.1 +abi_x86_64 +ipv6 +split-usr -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -kerberos -static-libs
+net-libs/libtorrent-0.13.8-r1 +ssl -debug -libressl -test
+net-libs/neon-0.31.2 +abi_x86_64 +nls +ssl +zlib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -expat -gnutls -kerberos -libproxy -libressl -pkcs11 -static-libs
+net-libs/nghttp2-1.41.0 +abi_x86_64 +threads -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cxx -debug -hpack-tools -jemalloc -libressl -static-libs -test -utils -xml
+net-libs/nodejs-14.16.1 +cpu_flags_x86_sse2 +icu +inspector +npm +snapshot +ssl +system-ssl -debug -doc -pax_kernel -system-icu -systemtap -test
+net-libs/rpcsvc-proto-1.4.2
+net-libs/wvstreams-4.6.1_p14-r1 +dbus +pam -boost -debug -doc -libressl
+net-mail/isync-1.3.5 +ssl +zlib -libressl -sasl
+net-mail/mailbase-1.5-r2 +pam
+net-mail/mailutils-3.9 +berkdb +clients +gdbm +ipv6 +nls +pam +python_single_target_python3_8 +split-usr +ssl +tcpd +threads -bidi -emacs -guile -kerberos -kyotocabinet -ldap -mysql -postgres -python -python_single_target_python3_7 -sasl -servers -static-libs -tokyocabinet
+net-misc/aria2-1.35.0 +gnutls +libxml2 +nettle +nls +ssl -adns -bittorrent -jemalloc -libuv -metalink -scripts -sqlite -ssh -tcmalloc -test -xmlrpc
+net-misc/curl-7.74.0-r2 +abi_x86_64 +curl_ssl_openssl +ftp +http2 +imap +ipv6 +openssl +pop3 +progress-meter +smtp +ssl +tftp -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -adns -alt-svc -brotli -curl_ssl_gnutls -curl_ssl_libressl -curl_ssl_mbedtls -curl_ssl_nss -curl_ssl_winssl -elibc_Winnt -gnutls -gopher -hsts -idn -kerberos -ldap -libressl -mbedtls -metalink -nghttp3 -nss -quiche -rtmp -samba -ssh -static-libs -telnet -test -threads -winssl -zstd
+net-misc/dhcpcd-9.3.4 +elibc_glibc +embedded +ipv6 +kernel_linux +udev -debug -privsep
+net-misc/iputils-20210202 +arping +filecaps +ipv6 +nls +ssl -caps -clockdiff -doc -gcrypt -idn -nettle -rarpd -rdisc -static -tftpd -tracepath -traceroute6
+net-misc/mobile-broadband-provider-info-20201225 -test
+net-misc/netifrc-0.7.3
+net-misc/ntp-4.2.8_p15 +ipv6 +readline +ssl +threads -caps -debug -libressl -openntpd -parse-clocks -samba -selinux -snmp -vim-syntax -zeroconf
+net-misc/ofono-1.31 +atmodem +bluetooth +cdmamodem +datafiles +isimodem +phonesim +provision +qmimodem +udev -doc -dundee -examples -tools -upower
+net-misc/openssh-8.5_p1-r1 +X +kernel_linux +pam +pie +scp +ssl -X509 -abi_mips_n32 -audit -bindist -debug -hpn -kerberos -ldns -libedit -libressl -livecd -sctp -security-key -selinux -static -test -xmss
+net-misc/rsync-3.2.3-r3 +acl +iconv +ipv6 +ssl +xattr -examples -lz4 -stunnel -system-zlib -xxhash -zstd
+net-misc/socat-1.7.4.1 +ipv6 +readline +ssl +tcpd -bindist -libressl
+net-misc/wget-1.20.3-r3 +ipv6 +nls +pcre +ssl +zlib -cookie_check -debug -gnutls -idn -libressl -metalink -ntlm -static -test -uuid
+net-nds/rpcbind-1.2.5 +tcpd -debug -remotecalls -selinux -systemd -warmstarts
+net-p2p/rtorrent-0.9.8 +kernel_linux -daemon -debug -selinux -test -xmlrpc
+net-print/cups-2.3.3-r2 +X +abi_x86_64 +acl +dbus +kernel_linux +pam +ssl +threads -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -kerberos -lprng-compat -selinux -static-libs -systemd -usb -xinetd -zeroconf
+net-print/cups-filters-1.28.7 +dbus +foomatic +postscript -jpeg -ldap -pclm -pdf -perl -png -test -tiff -zeroconf
+net-wireless/bluez-5.55 +abi_x86_64 +experimental +kernel_linux +mesh +obex +python_single_target_python3_8 +readline +udev -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -btpclient -cups -debug -deprecated -doc -extra-tools -midi -python_single_target_python3_7 -python_single_target_python3_9 -selinux -systemd -test -test-programs -user-session
+net-wireless/crda-4.14 -gcrypt -libressl
+net-wireless/iw-5.9
+net-wireless/wireless-regdb-20201120
+net-wireless/wireless-tools-30_pre9-r1 -multicall
+net-wireless/wpa_supplicant-2.9-r2 +dbus +fils +hs2-0 +kernel_linux +mbo +mesh +readline -ap -bindist -broadcom-sta -eap-sim -eapol-test -fasteap -kernel_FreeBSD -libressl -macsec -p2p -privsep -ps3 -qt5 -selinux -smartcard -tdls -uncommon-eap-types -wimax -wps
+perl-core/File-Temp-0.230.900
+sci-libs/amd-2.4.6 +fortran -doc
+sci-libs/arpack-3.8.0 -doc -examples -mpi
+sci-libs/camd-2.4.6 -doc
+sci-libs/ccolamd-2.9.6
+sci-libs/cholmod-3.0.14 +lapack +matrixops +modify +partition -cuda -doc
+sci-libs/colamd-2.9.6
+sci-libs/cxsparse-3.2.0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+sci-libs/fftw-3.3.9 +abi_x86_64 +cpu_flags_x86_avx +cpu_flags_x86_avx2 +cpu_flags_x86_fma3 +cpu_flags_x86_sse +cpu_flags_x86_sse2 +fortran +openmp -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_arm_neon -cpu_flags_ppc_altivec -cpu_flags_x86_fma4 -doc -mpi -test -threads -zbus
+sci-libs/lapack-3.9.0-r1 -deprecated -doc -eselect-ldso -lapacke -test
+sci-libs/metis-5.1.0-r4 +openmp -doc
+sci-libs/qrupdate-1.1.2-r1 -static-libs
+sci-libs/suitesparseconfig-5.4.0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+sci-libs/umfpack-5.7.9 +cholmod -doc
+sci-mathematics/glpk-4.65 -doc -examples -gmp -mysql -odbc
+sci-mathematics/lpsolve-5.5.2.0 -static-libs
+sci-mathematics/maxima-5.42.1 +X +nls +unicode -clisp -clozurecl -cmucl -ecls -emacs -gcl -l10n_de -l10n_es -l10n_pt -l10n_pt-BR -sbcl -tk
+sci-mathematics/octave-5.2.0 +X +curl +doc +fftw +glpk +gnuplot +gui +opengl +portaudio +qhull +qrupdate +readline +sparse +ssl +zlib -elibc_FreeBSD -hdf5 -java -libressl -postscript -sndfile -static-libs
+sci-mathematics/wxmaxima-20.12.2
+sci-visualization/gnuplot-5.4.1-r1 +X +gd +lua_single_target_lua5-1 +readline +wxwidgets -aqua -bitmap -cairo -doc -examples -ggi -latex -libcaca -libcerf -lua -lua_single_target_lua5-2 -lua_single_target_lua5-3 -qt5 -regis
+sys-apps/acl-2.2.53-r1 +abi_x86_64 +nls +split-usr -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+sys-apps/attr-2.4.48-r4 +abi_x86_64 +nls +split-usr -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -static-libs
+sys-apps/baselayout-2.7 +kernel_linux +split-usr -build -kernel_FreeBSD
+sys-apps/baselayout-java-0.1.0-r1
+sys-apps/busybox-1.32.1 +ipv6 +static -debug -livecd -make-symlinks -math -mdev -pam -savedconfig -selinux -sep-usr -syslog -systemd
+sys-apps/coreutils-8.32-r1 +acl +nls +split-usr +xattr -caps -gmp -hostname -kill -multicall -selinux -static -test -vanilla
+sys-apps/dbus-1.12.20-r1 +X +abi_x86_64 +kernel_linux -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -doc -elogind -selinux -static-libs -systemd -test -user-session
+sys-apps/debianutils-4.11.2 +installkernel -static
+sys-apps/diffutils-3.7-r1 +nls -static
+sys-apps/ed-1.16
+sys-apps/file-5.40-r2 +abi_x86_64 +bzip2 +python_targets_python3_8 +python_targets_python3_9 +seccomp +zlib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -lzma -python -python_targets_python3_7 -static-libs
+sys-apps/findutils-4.8.0 +nls -selinux -static -test
+sys-apps/gawk-5.1.0 +nls +readline -mpfr
+sys-apps/gentoo-functions-0.13
+sys-apps/grep-3.5 +nls +pcre -static
+sys-apps/groff-1.22.4 +X -examples -uchardet
+sys-apps/hdparm-9.58 -static
+sys-apps/help2man-1.47.17 +nls
+sys-apps/hwids-20201207 +net +pci +udev +usb
+sys-apps/install-xattr-0.8
+sys-apps/iproute2-5.10.0-r1 +berkdb +iptables +ipv6 -atm -caps -elf -libbsd -minimal -selinux
+sys-apps/kbd-2.3.0-r1 +nls +pam -test
+sys-apps/keyutils-1.6.1 +abi_x86_64 +kernel_linux +split-usr -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static -static-libs -test
+sys-apps/kmod-28 +lzma +python_targets_python3_8 +python_targets_python3_9 +tools +zlib -debug -doc -libressl -pkcs7 -python -python_targets_python3_7 -static-libs -zstd
+sys-apps/less-563-r1 +pcre +unicode
+sys-apps/lm-sensors-3.6.0 +abi_x86_64 +kernel_linux -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -contrib -sensord -static-libs
+sys-apps/man-db-2.9.3-r1 +berkdb +gdbm +manpager +nls +seccomp +zlib -selinux -static-libs
+sys-apps/man-pages-5.09 -l10n_de -l10n_fr -l10n_it -l10n_ja -l10n_nl -l10n_pl -l10n_ru -l10n_zh-CN
+sys-apps/man-pages-posix-2017a
+sys-apps/net-tools-1.60_p20180626073013 +arp +hostname +ipv6 +nls -nis -plipconfig -selinux -slattach -static
+sys-apps/openrc-0.42.1-r1 +ncurses +netifrc +pam +split-usr +unicode -audit -bash -debug -newnet -prefix -selinux -static-libs -sysv-utils
+sys-apps/opentmpfiles-0.2 -selinux
+sys-apps/pciutils-3.7.0 +abi_x86_64 +kmod +udev +zlib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -dns -static-libs
+sys-apps/portage-3.0.17-r2 +ipc +kernel_linux +native-extensions +python_targets_python3_8 +python_targets_python3_9 +rsync-verify +xattr -apidoc -build -doc -gentoo-dev -python_targets_pypy3 -python_targets_python3_7 -selinux -test
+sys-apps/sandbox-2.20 +abi_x86_32 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_x32
+sys-apps/sed-4.8 +acl +nls -selinux -static
+sys-apps/shadow-4.8-r5 +acl +nls +pam +split-usr +su +xattr -audit -bcrypt -cracklib -selinux -skey
+sys-apps/smartmontools-7.2 +daemon +update-drivedb -caps -selinux -static -systemd
+sys-apps/sysvinit-2.98-r1 -ibm -kernel_FreeBSD -selinux -static
+sys-apps/tcp-wrappers-7.6.28 +abi_x86_64 +ipv6 +split-usr -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -netgroups -static-libs
+sys-apps/texinfo-6.7 +nls +standalone -static
+sys-apps/usbutils-013 +python_single_target_python3_8 -python -python_single_target_python3_7 -python_single_target_python3_9
+sys-apps/util-linux-2.36.2 +abi_x86_64 +cramfs +logger +ncurses +nls +pam +python_targets_python3_8 +python_targets_python3_9 +readline +split-usr +suid +unicode +userland_GNU -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -audit -build -caps -cryptsetup -fdformat -hardlink -kill -magic -python -python_targets_python3_7 -selinux -slang -static-libs -su -systemd -test -tty-helpers -udev
+sys-apps/vbetool-1.1
+sys-apps/which-2.21
+sys-auth/pambase-20201103 +nullok +passwdqc +sha512 -caps -debug -elogind -gnome-keyring -minimal -mktemp -pam_krb5 -pam_ssh -pwhistory -pwquality -securetty -selinux -systemd
+sys-auth/passwdqc-1.4.0-r1
+sys-block/parted-3.4 +debug +nls +readline -device-mapper -verify-sig
+sys-block/thin-provisioning-tools-0.7.0 -static -test
+sys-boot/efibootmgr-16
+sys-boot/grub-2.06_rc1 +fonts +grub_platforms_efi-64 +grub_platforms_pc +nls +themes -device-mapper -doc -efiemu -grub_platforms_coreboot -grub_platforms_efi-32 -grub_platforms_emu -grub_platforms_ieee1275 -grub_platforms_loongson -grub_platforms_multiboot -grub_platforms_qemu -grub_platforms_qemu-mips -grub_platforms_uboot -grub_platforms_xen -grub_platforms_xen-32 -grub_platforms_xen-pvh -libzfs -mount -sdl -test -truetype
+sys-boot/woeusb-3.3.1 -minimal
+sys-devel/autoconf-2.69-r5 -emacs
+sys-devel/autoconf-archive-2019.01.06
+sys-devel/autoconf-wrapper-13-r1
+sys-devel/automake-1.16.2-r1 -test
+sys-devel/automake-wrapper-11
+sys-devel/bc-1.07.1-r3 +readline -libedit -static
+sys-devel/binutils-2.35.2 +gold +nls +plugins -cet -default-gold -doc -multitarget -static-libs -test -vanilla
+sys-devel/binutils-config-5.3.2 +native-symlinks
+sys-devel/bison-3.7.3 +nls -examples -static -test
+sys-devel/crossdev-20201129
+sys-devel/flex-2.6.4-r1 +abi_x86_64 +nls -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static -test
+sys-devel/gcc-10.2.0-r5 +cxx +fortran +multilib +nls +nptl +openmp +pch +pie +sanitize +ssp -ada -d -debug -doc -fixed-point -go -graphite -hardened -jit -libssp -lto -objc -objc++ -objc-gc -pgo -systemtap -test -vanilla -vtv -zstd
+sys-devel/gcc-config-2.4 +cc-wrappers +native-symlinks
+sys-devel/gettext-0.21 +abi_x86_64 +acl +cxx +ncurses +nls +openmp -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cvs -doc -elibc_FreeBSD -emacs -git -java -static-libs
+sys-devel/gnuconfig-20200621
+sys-devel/libtool-2.4.6-r6 -vanilla
+sys-devel/llvm-11.1.0 +abi_x86_64 +libffi +llvm_targets_AMDGPU +llvm_targets_BPF +llvm_targets_NVPTX +llvm_targets_X86 +ncurses -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -doc -exegesis -gold -kernel_Darwin -libedit -llvm_targets_AArch64 -llvm_targets_ARC -llvm_targets_ARM -llvm_targets_AVR -llvm_targets_Hexagon -llvm_targets_Lanai -llvm_targets_MSP430 -llvm_targets_Mips -llvm_targets_PowerPC -llvm_targets_RISCV -llvm_targets_Sparc -llvm_targets_SystemZ -llvm_targets_VE -llvm_targets_WebAssembly -llvm_targets_XCore -test -xar -xml -z3
+sys-devel/llvm-common-11.1.0
+sys-devel/m4-1.4.18-r2 -examples
+sys-devel/make-4.3 +nls -guile -static
+sys-devel/patch-2.7.6-r4 +xattr -static -test
+sys-fs/cryptsetup-2.3.4-r1 +argon2 +kernel_linux +nls +openssl +udev -gcrypt -kernel -nettle -pwquality -reencrypt -static -static-libs -urandom
+sys-fs/dosfstools-4.2 +iconv -compat -test
+sys-fs/e2fsprogs-1.45.7 +nls +split-usr -cron -elibc_FreeBSD -fuse -static-libs
+sys-fs/eudev-3.2.10 +abi_x86_64 +hwdb +kernel_linux +kmod -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -introspection -rule-generator -selinux -static-libs -test
+sys-fs/exfat-utils-1.3.0
+sys-fs/fuse-2.9.9-r1 +kernel_linux -examples -kernel_FreeBSD -static-libs
+sys-fs/fuse-common-3.9.1
+sys-fs/fuse-exfat-1.3.0 -suid
+sys-fs/inotify-tools-3.20.2.2 -doc
+sys-fs/lvm2-2.02.187-r2 +kernel_linux +readline +thin +udev -device-mapper-only -lvm2create_initrd -sanlock -selinux -static -static-libs -systemd
+sys-fs/ntfs3g-2017.3.23-r3 +acl +external-fuse +kernel_linux +ntfsprogs +xattr -debug -ntfsdecrypt -static-libs -suid
+sys-fs/udev-init-scripts-34
+sys-kernel/dracut-050-r2 +kernel_linux -selinux
+sys-kernel/genkernel-4.2.1-r1 +firmware -ibm
+sys-kernel/gentoo-sources-5.10.27 +experimental -build -symlink
+sys-kernel/installkernel-gentoo-2
+sys-kernel/linux-firmware-20210511 +redistributable -initramfs -savedconfig -unknown-license
+sys-kernel/linux-headers-5.10 -headers-only
+sys-libs/binutils-libs-2.35.2 +abi_x86_64 +nls -64-bit-bfd -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cet -multitarget -static-libs
+sys-libs/db-5.3.28-r4 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cxx -doc -elibc_FreeBSD -examples -java -tcl -test
+sys-libs/e2fsprogs-libs-1.45.7 +abi_x86_64 +split-usr -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+sys-libs/efivar-37
+sys-libs/gdbm-1.18.1-r1 +abi_x86_64 +berkdb +nls +readline -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+sys-libs/glibc-2.32-r7 +crypt +multiarch +multilib +ssp +static-libs -audit -caps -cet -compile-locales -custom-cflags -doc -gd -headers-only -nscd -profile -selinux -static-pie -suid -systemtap -test -vanilla
+sys-libs/libcap-2.43 +abi_x86_64 +pam +split-usr -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+sys-libs/libseccomp-2.4.4 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+sys-libs/mtdev-1.1.6
+sys-libs/ncurses-6.2-r1 +abi_x86_64 +cxx +split-usr +tinfo +unicode -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -ada -debug -doc -gpm -minimal -profile -static-libs -test -threads -trace
+sys-libs/pam-1.5.1 +abi_x86_64 +berkdb +filecaps +split-usr -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -audit -debug -nis -selinux
+sys-libs/readline-8.0_p4 +abi_x86_64 +split-usr +unicode -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs -utils
+sys-libs/timezone-data-2021a +nls -elibc_FreeBSD -leaps-timezone -zic-slim
+sys-libs/zlib-1.2.11-r3 +abi_x86_64 +minizip +split-usr -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+sys-power/acpi-1.7-r1
+sys-power/acpid-2.0.32-r2 +kernel_linux -selinux
+sys-power/pm-quirks-20100619-r1
+sys-power/pm-utils-1.4.1-r7 +alsa -debug -ntp -video_cards_intel -video_cards_radeon
+sys-process/cronbase-0.3.7-r6
+sys-process/cronie-1.5.5-r1 +anacron +inotify +pam -selinux
+sys-process/procps-3.3.17 +abi_x86_64 +kill +ncurses +nls +split-usr +unicode -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -elogind -modern-top -selinux -static-libs -systemd -test
+sys-process/psmisc-23.3-r1 +X +ipv6 +nls -selinux
+virtual/acl-0-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+virtual/awk-1
+virtual/blas-3.8 -eselect-ldso
+virtual/dev-manager-0-r2
+virtual/editor-0-r3
+virtual/fortran-0 +openmp
+virtual/freedesktop-icon-theme-0-r3
+virtual/glu-9.0-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+virtual/jdk-1.8.0-r5
+virtual/jpeg-100 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs
+virtual/jpeg-compat-62 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+virtual/jre-1.8.0-r3
+virtual/lapack-3.8 -eselect-ldso
+virtual/latex-base-1.0
+virtual/libc-1-r1
+virtual/libcrypt-1-r1 +abi_x86_64 +static-libs -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+virtual/libelf-3 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+virtual/libffi-3.3_rc0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+virtual/libiconv-0-r2 +abi_x86_64 +elibc_glibc -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -elibc_mintlib -elibc_musl -elibc_uclibc
+virtual/libintl-0-r2 +abi_x86_64 +elibc_glibc -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -elibc_musl -elibc_uclibc
+virtual/libudev-232-r3 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -static-libs -systemd
+virtual/libusb-1-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -udev
+virtual/mailx-3
+virtual/man-0-r3
+virtual/mta-1-r2
+virtual/notification-daemon-0 -gnome -kde
+virtual/opengl-7.0-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+virtual/os-headers-0-r2
+virtual/package-manager-1
+virtual/pager-0
+virtual/perl-CPAN-Meta-2.150.10-r4
+virtual/perl-CPAN-Meta-YAML-0.18.0-r6
+virtual/perl-Carp-1.500.0-r3
+virtual/perl-Compress-Raw-Bzip2-2.89.0-r1
+virtual/perl-Compress-Raw-Zlib-2.84.0
+virtual/perl-Data-Dumper-2.174.0-r2
+virtual/perl-Digest-MD5-2.550.0-r2
+virtual/perl-Digest-SHA-6.20.0-r1
+virtual/perl-Encode-3.10.0
+virtual/perl-Exporter-5.730.0-r2
+virtual/perl-ExtUtils-CBuilder-0.280.231
+virtual/perl-ExtUtils-Install-2.140.0-r3
+virtual/perl-ExtUtils-MakeMaker-7.340.0-r2
+virtual/perl-ExtUtils-Manifest-1.720.0-r1
+virtual/perl-ExtUtils-ParseXS-3.400.0-r1
+virtual/perl-File-Path-2.160.0-r1
+virtual/perl-File-Spec-3.780.0-r1
+virtual/perl-File-Temp-0.230.900
+virtual/perl-Getopt-Long-2.500.0-r2
+virtual/perl-IO-1.400.0
+virtual/perl-IO-Compress-2.84.0
+virtual/perl-JSON-PP-4.20.0
+virtual/perl-MIME-Base64-3.150.0-r7
+virtual/perl-Module-Metadata-1.0.36
+virtual/perl-Parse-CPAN-Meta-2.150.10-r4
+virtual/perl-Perl-OSType-1.10.0-r4
+virtual/perl-Pod-Parser-1.630.0-r8
+virtual/perl-Scalar-List-Utils-1.500.0-r2
+virtual/perl-Storable-3.150.0
+virtual/perl-Sys-Syslog-0.350.0-r3
+virtual/perl-Test-Harness-3.420.0-r3
+virtual/perl-Test-Simple-1.302.162
+virtual/perl-Text-ParseWords-3.300.0-r7
+virtual/perl-XSLoader-0.300.0-r3
+virtual/perl-if-0.60.800-r3
+virtual/perl-libnet-3.110.0-r3
+virtual/perl-parent-0.237.0
+virtual/perl-podlators-4.110.0
+virtual/perl-version-0.992.400-r1
+virtual/pkgconfig-2
+virtual/ruby-ssl-11 +ruby_targets_ruby26 -ruby_targets_ruby25 -ruby_targets_ruby27 -ruby_targets_ruby30
+virtual/rubygems-15 +ruby_targets_ruby26 -ruby_targets_ruby25
+virtual/rust-1.47.0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+virtual/service-manager-0 +kernel_linux -prefix
+virtual/ssh-0 -minimal
+virtual/tex-base-0
+virtual/texi2dvi-0-r2
+virtual/tmpfiles-0-r1
+virtual/ttf-fonts-1-r1
+virtual/udev-217-r2
+virtual/w3m-0
+virtual/yacc-0
+www-client/brave-bin-1.24.84 +kernel_linux +l10n_am +l10n_ar +l10n_bg +l10n_bn +l10n_ca +l10n_cs +l10n_da +l10n_de +l10n_el +l10n_en-GB +l10n_en-US +l10n_es +l10n_es-419 +l10n_et +l10n_fa +l10n_fi +l10n_fil +l10n_fr +l10n_gu +l10n_he +l10n_hi +l10n_hr +l10n_hu +l10n_id +l10n_it +l10n_ja +l10n_kn +l10n_ko +l10n_lt +l10n_lv +l10n_ml +l10n_mr +l10n_ms +l10n_nb +l10n_nl +l10n_pl +l10n_pt-BR +l10n_pt-PT +l10n_ro +l10n_ru +l10n_sk +l10n_sl +l10n_sr +l10n_sv +l10n_sw +l10n_ta +l10n_te +l10n_th +l10n_tr +l10n_uk +l10n_vi +l10n_zh-CN +l10n_zh-TW -gnome-keyring
+www-client/firefox-bin-88.0.1 +alsa +ffmpeg +gmp-autoupdate +pulseaudio -l10n_ach -l10n_af -l10n_an -l10n_ar -l10n_ast -l10n_az -l10n_be -l10n_bg -l10n_bn -l10n_br -l10n_bs -l10n_ca -l10n_ca-valencia -l10n_cak -l10n_cs -l10n_cy -l10n_da -l10n_de -l10n_dsb -l10n_el -l10n_en-CA -l10n_en-GB -l10n_eo -l10n_es-AR -l10n_es-CL -l10n_es-ES -l10n_es-MX -l10n_et -l10n_eu -l10n_fa -l10n_ff -l10n_fi -l10n_fr -l10n_fy -l10n_ga -l10n_gd -l10n_gl -l10n_gn -l10n_gu -l10n_he -l10n_hi -l10n_hr -l10n_hsb -l10n_hu -l10n_hy -l10n_ia -l10n_id -l10n_is -l10n_it -l10n_ja -l10n_ka -l10n_kab -l10n_kk -l10n_km -l10n_kn -l10n_ko -l10n_lij -l10n_lt -l10n_lv -l10n_mk -l10n_mr -l10n_ms -l10n_my -l10n_nb -l10n_ne -l10n_nl -l10n_nn -l10n_oc -l10n_pa -l10n_pl -l10n_pt-BR -l10n_pt-PT -l10n_rm -l10n_ro -l10n_ru -l10n_si -l10n_sk -l10n_sl -l10n_son -l10n_sq -l10n_sr -l10n_sv -l10n_ta -l10n_te -l10n_th -l10n_tl -l10n_tr -l10n_trs -l10n_uk -l10n_ur -l10n_uz -l10n_vi -l10n_xh -l10n_zh-CN -l10n_zh-TW -selinux -wayland
+www-client/w3m-0.5.3_p20180125 +X +imlib +nls +ssl +unicode -fbcon -gdk-pixbuf -gpm -l10n_de -l10n_ja -libressl -lynxkeymap -nntp -xface
+x11-apps/iceauth-1.0.8-r1
+x11-apps/mesa-progs-8.4.0 -egl -gles2
+x11-apps/mkfontscale-1.2.1
+x11-apps/rgb-1.0.6-r1
+x11-apps/setxkbmap-1.3.2
+x11-apps/xauth-1.1 +ipv6
+x11-apps/xev-1.2.4
+x11-apps/xinit-1.4.1-r1 -twm
+x11-apps/xinput-1.6.3
+x11-apps/xkbcomp-1.4.4
+x11-apps/xlsfonts-1.0.6
+x11-apps/xprop-1.2.5
+x11-apps/xrandr-1.5.1
+x11-apps/xrdb-1.2.0
+x11-apps/xset-1.2.4-r1
+x11-apps/xsetroot-1.1.2-r1
+x11-apps/xwininfo-1.1.5
+x11-base/xcb-proto-1.14.1 +abi_x86_64 +python_targets_python3_8 +python_targets_python3_9 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -python_targets_python3_7
+x11-base/xorg-drivers-1.20-r2 +input_devices_libinput +input_devices_synaptics +video_cards_amdgpu +video_cards_radeonsi -input_devices_elographics -input_devices_evdev -input_devices_joystick -input_devices_vmmouse -input_devices_void -input_devices_wacom -video_cards_ast -video_cards_dummy -video_cards_fbdev -video_cards_freedreno -video_cards_geode -video_cards_glint -video_cards_i915 -video_cards_i965 -video_cards_intel -video_cards_mga -video_cards_nouveau -video_cards_nv -video_cards_nvidia -video_cards_omap -video_cards_qxl -video_cards_r128 -video_cards_radeon -video_cards_siliconmotion -video_cards_tegra -video_cards_vc4 -video_cards_vesa -video_cards_via -video_cards_virtualbox -video_cards_vmware
+x11-base/xorg-proto-2020.1
+x11-base/xorg-server-1.20.11 +ipv6 +udev +xorg -debug -dmx -doc -elogind -kdrive -libressl -minimal -selinux -suid -systemd -test -unwind -wayland -xcsecurity -xephyr -xnest -xvfb
+x11-drivers/xf86-input-libinput-0.30.0 +kernel_linux
+x11-drivers/xf86-input-synaptics-1.9.1 +kernel_linux
+x11-drivers/xf86-video-amdgpu-19.1.0 -udev
+x11-drivers/xf86-video-ati-19.1.0 +kernel_linux -udev
+x11-drivers/xf86-video-fbdev-0.5.0-r1
+x11-libs/cairo-1.16.0-r4 +X +abi_x86_64 +glib +svg -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -aqua -debug -gles2-only -opengl -static-libs -utils -valgrind
+x11-libs/fltk-1.3.5-r4 +abi_x86_64 +opengl +threads +xft +xinerama -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cairo -debug -doc -examples -games -static-libs
+x11-libs/gdk-pixbuf-2.42.4 +abi_x86_64 +introspection -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -gtk-doc -jpeg -tiff
+x11-libs/gl2ps-1.4.2 +zlib -doc -png
+x11-libs/goffice-0.10.48 +introspection
+x11-libs/gtk+-2.24.32-r1 +abi_x86_64 +introspection -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -aqua -cups -examples -test -vim-syntax -xinerama
+x11-libs/gtk+-3.24.26 +X +abi_x86_64 +cups +introspection -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -aqua -broadway -cloudprint -colord -examples -gtk-doc -sysprof -test -vim-syntax -wayland -xinerama
+x11-libs/libICE-1.0.10 +abi_x86_64 +ipv6 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+x11-libs/libSM-1.2.3-r1 +abi_x86_64 +ipv6 +uuid -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libX11-1.7.0 +abi_x86_64 +ipv6 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -test
+x11-libs/libXScrnSaver-1.2.3 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libXau-1.0.9-r1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libXaw-1.0.13-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -deprecated -doc
+x11-libs/libXcomposite-0.4.5 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libXcursor-1.2.0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libXdamage-1.1.5 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+x11-libs/libXdmcp-1.1.3 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libXext-1.3.4 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libXfixes-5.0.3-r3 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libXfont2-2.0.4 +bzip2 +ipv6 -doc -truetype
+x11-libs/libXft-2.3.3 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libXi-1.7.10 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libXinerama-1.1.4-r1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libXmu-1.1.3 +abi_x86_64 +ipv6 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libXpm-3.5.13 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+x11-libs/libXrandr-1.5.2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libXrender-0.9.10-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+x11-libs/libXt-1.2.1 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -test
+x11-libs/libXtst-1.2.3-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libXv-1.0.11-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libXxf86vm-1.1.4-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc
+x11-libs/libdrm-2.4.104 +abi_x86_64 +video_cards_amdgpu +video_cards_radeon -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -libkms -valgrind -video_cards_exynos -video_cards_freedreno -video_cards_intel -video_cards_nouveau -video_cards_omap -video_cards_tegra -video_cards_vc4 -video_cards_vivante -video_cards_vmware
+x11-libs/libfontenc-1.1.4
+x11-libs/libnotify-0.7.9 +abi_x86_64 +introspection -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -gtk-doc -test
+x11-libs/libpciaccess-0.16 +abi_x86_64 +zlib -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+x11-libs/libva-2.10.0 +X +abi_x86_64 +drm -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -opengl -utils -vdpau -video_cards_i965 -video_cards_intel -video_cards_nouveau -video_cards_nvidia -wayland
+x11-libs/libva-vdpau-driver-0.7.4-r5 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -debug -opengl
+x11-libs/libvdpau-1.4 +abi_x86_64 +dri -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -test
+x11-libs/libxcb-1.14 +abi_x86_64 +xkb -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -selinux -test
+x11-libs/libxkbcommon-1.0.3 +X +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -doc -static-libs -test
+x11-libs/libxkbfile-1.1.0 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+x11-libs/libxshmfence-1.3-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+x11-libs/pango-1.42.4-r2 +X +abi_x86_64 +introspection -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -test
+x11-libs/pixman-0.40.0 +abi_x86_64 +cpu_flags_x86_mmxext +cpu_flags_x86_sse2 +cpu_flags_x86_ssse3 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -cpu_flags_arm_iwmmxt -cpu_flags_arm_iwmmxt2 -cpu_flags_arm_neon -cpu_flags_ppc_altivec -loongson2f -static-libs
+x11-libs/qscintilla-2.11.5 -designer -doc
+x11-libs/wxGTK-3.0.4-r2 +X +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -aqua -debug -doc -gstreamer -libnotify -opengl -sdl -tiff
+x11-libs/wxGTK-3.0.4-r302 +X +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32 -aqua -debug -doc -gstreamer -libnotify -opengl -sdl -tiff -webkit
+x11-libs/xcb-util-0.4.0-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+x11-libs/xcb-util-cursor-0.1.3-r3 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+x11-libs/xcb-util-image-0.4.0-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+x11-libs/xcb-util-keysyms-0.4.0-r2 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+x11-libs/xcb-util-renderutil-0.3.9-r3 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+x11-libs/xcb-util-wm-0.4.1-r3 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+x11-libs/xtrans-1.4.0 -doc
+x11-misc/compose-tables-1.7.0
+x11-misc/dunst-1.4.1 -dunstify
+x11-misc/picom-8-r1 +config-file +dbus +doc +drm +pcre -opengl -test
+x11-misc/shared-mime-info-2.0-r2
+x11-misc/unclutter-8-r4
+x11-misc/urxvt-font-size-1.3
+x11-misc/urxvt-perls-2.3-r1 -deprecated
+x11-misc/util-macros-1.19.3
+x11-misc/xbitmaps-1.1.2-r1
+x11-misc/xclip-0.13
+x11-misc/xdg-user-dirs-0.17 -gtk
+x11-misc/xdg-utils-1.1.3_p20200220-r5 +dbus -doc -gnome
+x11-misc/xdotool-3.20160805.1 -examples
+x11-misc/xkeyboard-config-2.31
+x11-misc/xsel-1.2.0-r1
+x11-terms/rxvt-unicode-9.22-r8 +256-color +blink +font-styles +mousewheel +perl +unicode3 +utmp +wtmp +xft -24-bit-color -fading-colors -gdk-pixbuf -iso14755 -sgrmouse -startup-notification
+x11-themes/adwaita-icon-theme-3.38.0 -branding
+x11-themes/gnome-themes-standard-3.28
+x11-themes/gtk-engines-adwaita-3.28 +abi_x86_64 -abi_mips_n32 -abi_mips_n64 -abi_mips_o32 -abi_s390_32 -abi_s390_64 -abi_x86_32 -abi_x86_x32
+x11-themes/hicolor-icon-theme-0.17
+x11-wm/openbox-3.6.1-r3 +nls +python_single_target_python3_8 -branding -debug -imlib -python_single_target_python3_7 -python_single_target_python3_9 -session -startup-notification -svg -xdg
