@@ -1,3 +1,4 @@
+#!/bin/sh
 DATA="$@"
 DATAX="$@"
 

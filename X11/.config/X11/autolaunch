@@ -1,0 +1,9 @@
+#!/bin/sh
+pidof pulseaudio || pulseaudio &
+pidof playerctld || playerctld &
+pidof picom || picom &
+pgrep -f "notifyd" || notifyd &
+pgrep -f "autopauseD" || autopauseD &
+launch-bar-dwm &
+start-dunst &
+dwm

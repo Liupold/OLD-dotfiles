@@ -10,11 +10,11 @@ alias vim='$EDITOR'
 alias d='doas'
 alias v='$EDITOR'
 alias dv='d $EDITOR'
-alias py='python -q'
+alias py='python3 -q'
 alias pyy='py -i $XDG_CONFIG_HOME/python/mypyenv.py'
 alias nb='newsboat'
 alias pypad='vim /tmp/pypad.py'
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+# alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias octave="octave -f"
 alias oc="/usr/bin/octave -q"
 alias calc='noglob calc'
@@ -33,7 +33,6 @@ alias sX="startx -c $HOME/.config/X11/xinitrc"
 alias ytv="youtube-dl --add-metadata -f 'bestvideo[height<=$LUNA_YPLAY_RES]+bestaudio' -o '%(title)s.%(ext)s'"
 alias yta="youtube-dl --audio-format best --extract-audio --audio-format=flac --add-metadata -o '%(title)s.%(ext)s'"
 alias ytm="youtube-dl --format=bestaudio --extract-audio --audio-format=opus --add-metadata --output='$LUNA_MUSIC_DIR/%(title)s.%(ext)s'"
-alias crontab="crontab -i"
 alias opennas="grep -q 'nas' /proc/mounts  || mount -a && cd"
 
 sendit() {

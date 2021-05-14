@@ -1,8 +1,8 @@
 #!/bin/sh
-if [ -z "$(pidof newsboat)" ]
-then
-        "$(which -a newsboat | tail -1)"
-else
-        kill $(pidof newsboat)
-        "$(which -a newsboat | tail -1)"
-fi
+
+tmux new -d -s nbx /usr/bin/newsboat 2>/dev/null && {
+        tmux set -t nbx status off
+}
+
+tmux detach -s nbx 2>/dev/null
+tmux attach -t nbx >/dev/null 2>&1

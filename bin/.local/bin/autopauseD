@@ -3,10 +3,9 @@
 [ "$LUNA_AUTO_PAUSE" -eq 0 ] && exit
 
 stdbuf -oL alsactl monitor | while read -r event; do
-        [ "${event#*Speaker Playback Switch}" != "$event" ] || continue
-
-        playerctl -a pause 2> /dev/null
-        cmus-remote --pause-playback
+        pactl list cards | grep -q 'analog-output-speaker.*not available' && continue
+        playerctl -a pause 2> /dev/null &
+        cmus-remote --pause-playback &
         echo '{ "command": ["set_property", "pause", true] }' \
-                        | socat - "$XDG_CONFIG_HOME/mpv/socket" > /dev/null 2>&1
+                        | socat - "$XDG_CONFIG_HOME/mpv/socket" > /dev/null 2>&1 &
 done

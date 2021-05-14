@@ -159,7 +159,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/mpc]
 type = custom/script
 ;exec python ~/scripts/mpris_tail.py --icon-playing "(Playing)" --icon-paused "(Paused)" -f "{title} {icon}"
-exec python -u ~/PyMpris/__main__.py
+exec = python -u ~/PyMpris/__main__.py
 tail = true
 label = %output%
 click-left = python ~/scripts/player-mpris-tail.py previous

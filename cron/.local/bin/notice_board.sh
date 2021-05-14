@@ -19,14 +19,14 @@ current_file="$(mktemp "/tmp/XXXXXX")"
                 echo "$file_date" "$file_name"
         done > "$current_file"
 
-[ ! -f "$storage_file" ] && /usr/bin/notify-send "APC notice" \
+[ ! -f "$storage_file" ] && echo "APC notice" \
         "empty cache, please check notice manually."
 
 [ -f "$storage_file" ] && /usr/bin/diff "$storage_file" "$current_file" |\
         while read -r _change; do
                 [ "$_change" = "${_change#>}" ] && continue
                 _change="${_change#>}"
-                /usr/bin/notify-send  \
+                echo  \
                         "APC notice: $_change"\
                         "http://apccollege.ac.in/news/admin/uploads/${_change##* }"
         done

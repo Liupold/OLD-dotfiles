@@ -6,6 +6,6 @@ src_link="https://wallhaven.cc/search?q=${key}&sorting=random&order=desc"
 id=$(wget "$src_link" -O - 2>/dev/null | grep -o 'https://wallhaven.cc/w/......' | head -1 | sed -e 's|https://wallhaven.cc/w/||g')
 filename="$HOME/.cache/wall-rand"
 
-wget -O - "https://wallhaven.cc/api/v1/w/$id" 2>/dev/null | jq '.data.path' | xargs -i wget -O "$filename" {}
+wget -O - "https://wallhaven.cc/api/v1/w/$id" 2>/dev/null | jq -r '.data.path' | xargs -i wget -O "$filename" {}
 wal -c && setbg "$filename" 1>&2
 echo "$filename"
