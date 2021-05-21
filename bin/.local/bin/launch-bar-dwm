@@ -2,15 +2,14 @@
 export PIPESTATUS_PIPE="/tmp/dwmbar"
 padding="                                               "
 TEMPLATE="${TEMPLATE}<CMUS> "
-TEMPLATE="${TEMPLATE} <NET_SPEED> <VOL_SYM> <VOL> <BAT>"
+TEMPLATE="${TEMPLATE} <CPU>  <MEM> <NET_SPEED>  <LIGHT> <VOL_SYM> <VOL> <BAT>"
 TEMPLATE="${TEMPLATE}  <DATE>"
-LOAD="/home/rohnch/apps/pipestatus/modules/PIPESTATUS_"
-# MODULES_TO_LOAD="NET_SPEED TOP DATE ALSA LIGHT"
-pkill 'PIPESTATUS*'; pkill 'pipestatus';
+LOAD="/home/rohnch/apps/pipestatus/modules/PIPESTATUS_" # Module path
+MODULES_TO_LOAD="NET_SPEED TOP DATE ALSA LIGHT"
 
-pipestatus i -f "$PIPESTATUS_PIPE" -t "$TEMPLATE" \
-        --exec "echo 'CMUS:' > $PIPESTATUS_PIPE & ${LOAD}NET_SPEED > $PIPESTATUS_PIPE & \
-        ${LOAD}DATE > $PIPESTATUS_PIPE & ${LOAD}BAT > $PIPESTATUS_PIPE & ${LOAD}ALSA > $PIPESTATUS_PIPE &"  \
+pipestatus -f "$PIPESTATUS_PIPE" -t "$TEMPLATE" \
+        --exec "echo 'CMUS:' > $PIPESTATUS_PIPE & ${LOAD}TOP > $PIPESTATUS_PIPE & ${LOAD}NET_SPEED > $PIPESTATUS_PIPE  & ${LOAD}LIGHT > $PIPESTATUS_PIPE &
+                ${LOAD}PULSE > $PIPESTATUS_PIPE & ${LOAD}DATE > $PIPESTATUS_PIPE & ${LOAD}BAT > $PIPESTATUS_PIPE &" \
         | while read -r bar_info; do
         xsetroot -name "$padding$bar_info"
 done
