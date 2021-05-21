@@ -21,6 +21,7 @@ MACRO_co="$XDG_CONFIG_HOME"
 MACRO_ca="$XDG_CACHE_HOME"
 MACRO_lb="$HOME/.local/bin"
 
+MACRO_r="$MACRO_w/aca-curr/routine.jpeg"
 
 
 # -----------------------------------------------------------------------------------------
@@ -33,6 +34,9 @@ macro="${macro%%/*}"
 
 [ -n "$macro" ] && {
         eval  'macro_path='\${MACRO_"$macro"?} || exit "$?"
+
+        [ -z "$af_path" ] \
+                && [ -e "$macro_path" ] && final_path="$macro_path"
 
         [ -d "$macro_path/$af_path" ] \
                 && final_path="$macro_path/$af_path"
