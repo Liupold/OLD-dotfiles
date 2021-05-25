@@ -8,18 +8,21 @@ alias zathura="zathura"
 alias p="sudo pacman"
 alias vim='$EDITOR'
 alias d='doas'
+alias s='sudo'
 alias v='$EDITOR'
 alias dv='d $EDITOR'
+alias sv='sudoedit'
 alias py='python3 -q'
 alias pyy='py -i $XDG_CONFIG_HOME/python/mypyenv.py'
 alias nb='newsboat'
 alias pypad='vim /tmp/pypad.py'
-# alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias o='xdg-open'
 alias octave="octave -f"
 alias oc="/usr/bin/octave -q"
 alias calc='noglob calc'
 alias bcam='light -S $(photoR)'
-
+alias smi='sudo make install'
 
 # Network Manager
 alias wifi='nmcli d wifi'
@@ -66,7 +69,7 @@ rm() {
         [ "$ans" = 'y' ] && "/bin/rm" ${*}
 }
 
-o(){
+g(){
         [ -d "$1" ] && cd "$1" && return 0
         [ -f "$1" ] && xdg-open "$1" && return 0
 
@@ -78,7 +81,7 @@ o(){
         fi
         }
 }
-alias o='noglob o'
+alias g='noglob g'
 
 ccd(){
         mkdir -p "$1"
