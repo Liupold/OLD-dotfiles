@@ -1,6 +1,11 @@
 #!/bin/sh
 # QUICK cd short-cuts
 
+nl='
+
+'
+
+# </macros>
 MACRO_h="$HOME/"
 MACRO_s="$HOME/sem6/"
 
@@ -23,10 +28,16 @@ MACRO_lb="$HOME/.local/bin"
 
 MACRO_r="$MACRO_w/aca-curr/routine.jpeg"
 
+# <macros/>
 
-# -----------------------------------------------------------------------------------------
 macro="$1";
-[ "$macro" = 'wc' ]  && mkdir -p "$wc"
+
+[ "$macro" = '?' ] && {
+        tr "$nl" ';' < "$(which sscuts)" | sed -e 's/.*;# <\/macros>;//g' -e 's/;# <macros\/>.*//g' | tr ';' "$nl" \
+        && pwd && exit 0
+}
+
+[ "$macro" = 'wc' ]  # && mkdir -p "$wc"
 action="$2"; [ -z "$action" ] && action="echo"
 
 [ "${macro#*/}" != "$macro" ] && af_path="${macro#*/}"

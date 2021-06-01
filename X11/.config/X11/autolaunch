@@ -7,5 +7,5 @@ pgrep -f "autopauseD" || autopauseD &
 start-dunst &
 { while [ -z "$(pactl info)" ]; do
         sleep 0.2
-done && launch-bar-dwm; } &
+done && { pgrep -f "launch-bar-dwm" || launch-bar-dwm; }; } &
 dwm
