@@ -1,6 +1,10 @@
 #!/bin/sh
 
 selected_song="$(find "${LUNA_MUSIC_DIR}/" -type f | dmenu -i -l 10 -b | xargs -0 basename)"
+echo "$selected_song"
+[ "$selected_song" != "${selected_song#y:}" ] \
+        && { ytm "${selected_song#y:}" mpv --force-window=immediate & exit; }
+
 if [ -n "${selected_song}" ];
 then
         pidof cmus || {
