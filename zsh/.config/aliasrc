@@ -20,7 +20,7 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias o='xdg-open'
 alias octave="octave -f"
 alias oc="/usr/bin/octave -q"
-alias calc='noglob calc'
+alias c='noglob calc'
 alias bcam='light -S $(photoR)'
 alias smi='sudo make install'
 

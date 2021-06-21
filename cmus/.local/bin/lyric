@@ -1,11 +1,23 @@
 #!/bin/sh
 nl='
 '
+elyric() {
+        # get the file name from cmus
+        file_name="$1"
+
+        ffprobe -loglevel error -hide_banner -select_streams a -show_entries \
+                format=format:tags=lyrics-eng -print_format default=nw=1:nk=1 "$file_name"
+}
+
 parse_cmus_data() {
-		[ "${cmus_data#status playing}" = "$cmus_data" ] && return 0 # Paused
+		[ "${cmus_data#status stopped}" != "$cmus_data" ] && return 0 # Paused
+        file_name="${cmus_data#*file }"; file_name="${file_name%%$nl*}"
+        lyrics="$(elyric "$file_name")"
+        [ -n "$lyrics" ] && echo "$lyrics" && exit
 		artist="${cmus_data##*tag artist }"; artist="${artist%%$nl*}"
 		title="${cmus_data##*tag title }"; title="${title%%$nl*}"
 }
+
 
 title="$1"
 artist="$2"
@@ -23,5 +35,6 @@ artist="$2"
 [ -z "$artist" ] || [ -z "$title" ] && exit 0
 echo "# '$title' by $artist"
 
-curl -s --get "https://makeitpersonal.co/lyrics" --data-urlencode "artist=$artist" --data-urlencode "title=$title"
+# curl -s --get "https://makeitpersonal.co/lyrics" --data-urlencode "artist=$artist" --data-urlencode "title=$title"
+curl -s --get "$(echo "https://api.lyrics.ovh/v1/$artist/$title" | sed  's/ /%20/g')" | jq -r .lyrics
 

@@ -13,20 +13,36 @@ open_video() {
 }
 
 open_image() {
-        tmp_img="$(mktemp /tmp/XXXXXXXX)"
-        wget "$1" -O "$tmp_img" && \
-        sxiv "$tmp_img" && rm "$tmp_img"; }
+        a="$1"
+        if [ "${a#http}" != "$a" ]; then
+                tmp_img="$(mktemp /tmp/XXXXXXXX)"
+                wget "$1" -O "$tmp_img"
+        else
+                tmp_img="$1"
+        fi
+        sxiv "$tmp_img"
+}
 
 open_pdf() {
-        tmp_pdf="$(mktemp /tmp/XXXXXXXX)"
-        wget "$1" -O "$tmp_pdf" && \
-                zathura "$tmp_pdf" && rm "$tmp_pdf"
+        a="$1"
+        if [ "${a#http}" != "$a" ]; then
+                tmp_pdf="$(mktemp /tmp/XXXXXXXX)"
+                wget "$1" -O "$tmp_pdf"
+        else
+                tmp_pdf="$1"
+        fi
+        zathura "$tmp_pdf"
 
 }
 open_gif() {
-        tmp_gif="$(mktemp /tmp/XXXXXXXX)";
-         wget "$1" -O "$tmp_gif" && \
-                mpv --loop "$tmp_gif" && rm "$tmp_gif"
+        a="$1"
+        if [ "${a#http}" != "$a" ]; then
+                tmp_gif="$(mktemp /tmp/XXXXXXXX)";
+                wget "$1" -O "$tmp_gif"
+        else
+                tmp_gif="$1"
+        fi
+        mpv --loop "$tmp_gif"
 }
 
 
@@ -68,7 +84,7 @@ case "${url%%\?*}" in
                         && { open_video "$url" && exit; }
                 [ "${content_type##*application/pdf}" != "$content_type" ]  \
                         && { open_pdf "$url" && exit; }
-                ${BROWSER?} "$url"
+                xdg-open "$url"
                 continue ;;
 
 esac

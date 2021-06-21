@@ -8,10 +8,11 @@ echo "$selected_song"
 if [ -n "${selected_song}" ];
 then
         pidof cmus || {
-                tmux new -d -s cmux /usr/bin/cmus
+               tmux new -d -s cmux /usr/bin/cmus
                 tmux set -t cmux status off
                 tmux send -t cmux ":clear" Enter ":add ${LUNA_MUSIC_DIR}" Enter
                 sleep 1
         }
+        # tmux send -t cmux "q" Esc
         tmux send -t cmux "/${selected_song}" Enter Enter
 fi

@@ -60,7 +60,6 @@ Plug 'kovetskiy/sxhkd-vim'
 Plug 'VebbNix/lf-vim'
 Plug 'dense-analysis/ale'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'jiangmiao/auto-pairs'
 Plug 'cespare/vim-toml'
 Plug 'vim-airline/vim-airline'
 Plug 'rhysd/vim-grammarous'
@@ -118,6 +117,7 @@ autocmd BufWritePre * %s/\s\+$//e
 " ----------------------------------------------------------
 " LaTex
 autocmd BufReadPre *.tex nnoremap <leader>c :sp<CR>:resize 10<CR>:term latexrun  --clean-all "%" && rm -r "%:p:h/latex.out"<CR>
+autocmd BufReadPre *.tex nnoremap <leader>p :!zathura --fork %:r.pdf<CR>
 " ----------------------------------------------------------
 " Python autocmd
 autocmd BufReadPre *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term time python3 "%" <CR>
