@@ -22,6 +22,7 @@ For:
 * zathura (A simple and light Reader PDF, DJVU, EPUB)
 * zsh (Best shell in my opinion)
 * youtube-viewer (as the name suggests)
+* etc
 
 Automating the install process
 
@@ -57,6 +58,10 @@ cd ~ && git clone https://github.com/liupold/dotfiles && cd dotfiles
 ```
 Learn more about [dls](https://github.com/Liupold/dls).
 
+`
+tree -I .git -a
+`
+
 ```
 .
 ├── alacritty
@@ -69,14 +74,26 @@ Learn more about [dls](https://github.com/Liupold/dls).
 │           ├── autopauseD
 │           ├── batch-rename
 │           ├── booksplit
+│           ├── calc
+│           ├── dfm
 │           ├── dmenu
+│           ├── dmenu-search
+│           ├── launch-bar-dwm
+│           ├── launch-bar-dwm-modules
 │           ├── link-handler
 │           ├── pfetch
+│           ├── photoR
 │           ├── recognize_song
 │           ├── rssadd
 │           ├── show-weather
+│           ├── srt-lyric
+│           ├── sscuts
+│           ├── sysmon
 │           ├── tag
-│           └── wttrup
+│           ├── usbcast
+│           ├── wttrup
+│           ├── ytm
+│           └── ytp
 ├── bspwm
 │   ├── .config
 │   │   └── bspwm
@@ -98,7 +115,8 @@ Learn more about [dls](https://github.com/Liupold/dls).
 │   └── .local
 │       └── bin
 │           └── notice_board.sh
-├── dls
+├── dfm
+├── dls2
 ├── dots.sh
 ├── dunst
 │   ├── .config
@@ -173,6 +191,7 @@ Learn more about [dls](https://github.com/Liupold/dls).
 ├── octave
 │   └── .config
 │       └── octave
+│           ├── octave-gui.ini
 │           └── octaverc
 ├── polybar
 │   └── .config
@@ -181,6 +200,10 @@ Learn more about [dls](https://github.com/Liupold/dls).
 │           └── scripts
 │               ├── network-traffic.sh
 │               └── speaker_symbol.sh
+├── pulse
+│   └── .config
+│       └── pulse
+│           └── equalizer-presets.tdb
 ├── python
 │   └── .config
 │       └── python
@@ -194,28 +217,29 @@ Learn more about [dls](https://github.com/Liupold/dls).
 │           └── shortcuts.conf
 ├── README.md
 ├── REQUIREMENT
-│   └── ArchLinux
-│       ├── alacritty
-│       ├── bin
-│       ├── bspwm
-│       ├── cmus
-│       ├── dunst
-│       ├── gtk-3.0
-│       ├── kitty
-│       ├── lf
-│       ├── luna_theme
-│       ├── mpv
-│       ├── newsboat
-│       ├── npm
-│       ├── nvim
-│       ├── polybar
-│       ├── python
-│       ├── sxhkd
-│       ├── sxiv
-│       ├── X11
-│       ├── youtube-viewer
-│       ├── zathura
-│       └── zsh
+│   ├── ArchLinux
+│   │   ├── alacritty
+│   │   ├── bin
+│   │   ├── bspwm
+│   │   ├── cmus
+│   │   ├── dunst
+│   │   ├── gtk-3.0
+│   │   ├── kitty
+│   │   ├── lf
+│   │   ├── luna_theme
+│   │   ├── mpv
+│   │   ├── newsboat
+│   │   ├── npm
+│   │   ├── nvim
+│   │   ├── polybar
+│   │   ├── python
+│   │   ├── sxhkd
+│   │   ├── sxiv
+│   │   ├── X11
+│   │   ├── youtube-viewer
+│   │   ├── zathura
+│   │   └── zsh
+│   └── Gentoo-packages
 ├── sxhkd
 │   └── .config
 │       └── sxhkd
@@ -225,16 +249,20 @@ Learn more about [dls](https://github.com/Liupold/dls).
 │       └── sxiv
 │           └── exec
 │               └── key-handler
+├── test
+│   └── apps
 ├── TESTs
 │   └── on-push-test
 ├── X11
 │   ├── .config
 │   │   ├── mimeapps.list
 │   │   └── X11
+│   │       ├── autolaunch
 │   │       ├── xinitrc
 │   │       └── .Xresources
 │   └── .local
 │       ├── bin
+│       │   ├── notifyd
 │       │   ├── randbg
 │       │   ├── screen-lock
 │       │   ├── setbg
@@ -280,11 +308,10 @@ Learn more about [dls](https://github.com/Liupold/dls).
     │       │       │       └── root-highlighter.zsh
     │       │       ├── .revision-hash
     │       │       ├── .version
-    │       │       ├── zsh-syntax-highlighting.plugin.zsh -> zsh-syntax-highlighting.zsh
     │       │       └── zsh-syntax-highlighting.zsh
     │       ├── .zprofile
     │       └── .zshrc
     └── .zshenv
 
-110 directories, 116 files
+115 directories, 133 files
 ```
