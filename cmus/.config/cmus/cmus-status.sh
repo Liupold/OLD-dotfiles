@@ -16,7 +16,6 @@ title="${DATA%% date*}"
 [ "$status" = "paused" ] && status="|"
 [ "$status" = "stopped" ] && status="."
 
-[ "$DATA" = "$artist" ] && artist=""
-[ "$DATA" = "$title" ] && title="file: \"${DATA#*file }\""
+[ "$title" = "$artist" ] && artist=""  && title="file: \"${DATA#*file }\""
 
 echo "CMUS:[ $status $title ($artist) ]" > /tmp/dwmbar

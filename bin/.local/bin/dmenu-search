@@ -1,0 +1,10 @@
+#!/bin/sh
+
+nl='
+'
+
+
+Dirs="$Dirs$nl/media/Books"
+Dirs="$Dirs$nl$(lsblk | grep -o '/.*$')"
+
+echo "$Dirs" | dmenu -i | { read -r a; [ -n "$a" ] && find "$a" | dmenu -i -l 10 | { read -r b; setsid -f link-handler "$b"; }; }
