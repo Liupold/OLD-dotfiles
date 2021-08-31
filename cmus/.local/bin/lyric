@@ -1,4 +1,5 @@
 #!/bin/sh
+[ "${0##*/}" = "cmus-disp" ] && export CMUS_DISP=1
 nl='
 '
 elyric() {
@@ -10,12 +11,16 @@ elyric() {
 }
 
 parse_cmus_data() {
-		[ "${cmus_data#status stopped}" != "$cmus_data" ] && return 0 # Paused
         file_name="${cmus_data#*file }"; file_name="${file_name%%$nl*}"
+        [ -n "$CMUS_DISP" ] \
+                && ffmpeg -loglevel error -i "$file_name" -an -vcodec copy -y /tmp/cmus_cover.png \
+                && setsid -f nohup feh -x --scale-down --geometry "440x440+934+322" --class "F_TERM" "/tmp/cmus_cover.png" > /dev/null 2>&1
+		[ "${cmus_data#status stopped}" != "$cmus_data" ] && return 0 # Paused
         lyrics="$(elyric "$file_name")"
         [ -n "$lyrics" ] && echo "$lyrics" && exit
 		artist="${cmus_data##*tag artist }"; artist="${artist%%$nl*}"
 		title="${cmus_data##*tag title }"; title="${title%%$nl*}"
+
 }
 
 
@@ -35,6 +40,7 @@ artist="$2"
 [ -z "$artist" ] || [ -z "$title" ] && exit 0
 echo "# '$title' by $artist"
 
-# curl -s --get "https://makeitpersonal.co/lyrics" --data-urlencode "artist=$artist" --data-urlencode "title=$title"
-curl -s --get "$(echo "https://api.lyrics.ovh/v1/$artist/$title" | sed  's/ /%20/g')" | jq -r .lyrics
-
+#curl -s --get "https://makeitpersonal.co/lyrics" --data-urlencode "artist=$artist" --data-urlencode "title=$title"
+# curl -s --get "$(echo "https://api.lyrics.ovh/v1/$artist/$title" | sed  's/ /%20/g')" | jq -r .lyrics
+songLyrics "$artist" "$title"
+exit 0

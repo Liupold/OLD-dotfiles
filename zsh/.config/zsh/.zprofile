@@ -7,3 +7,6 @@ tty | grep -q '^/dev/tty.$'  && [ -f "/usr/share/kbd/consolefonts/ter-powerline-
 #[ "$(tty)" = "/dev/tty1" ] &&  printf "start Xorg? (y/n)" && read -k ans && [ "$ans" = "y" ] &&
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx "$XDG_CONFIG_HOME/X11/xinitrc" -- >/dev/null 2>&1
 
+#tmp_hist="$(mktemp)"
+#echo "$(sort $XDG_CACHE_HOME/zsh/history)" | uniq > "$tmp_hist"
+#mv "$tmp_hist" "$XDG_CACHE_HOME/zsh/history"

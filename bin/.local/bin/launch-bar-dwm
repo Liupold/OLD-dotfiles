@@ -1,4 +1,6 @@
 #!/bin/sh
+killall -9 pipestatus
+pkill -f 'PIPESTATUS_*'
 export PIPESTATUS_PIPE="/tmp/dwmbar"
 padding="                                               "
 TEMPLATE="${TEMPLATE}<CMUS> "

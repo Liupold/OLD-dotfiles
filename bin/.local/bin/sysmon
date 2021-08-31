@@ -12,10 +12,11 @@ TX_DELTA=0
 TX_LIMIT="$1" && [ -z "$TX_LIMIT" ] && TX_LIMIT="0"
 RX_LIMIT="$1" && [ -z "$RX_LIMIT" ] && RX_LIMIT="1"
 
+ping 1.1.1.1 > /dev/null &
+
 while true; do
         RX_PAC="$(cat /sys/class/net/*?/statistics/rx_packets |  tr "$nl" '+')"
         TX_PAC="$(cat /sys/class/net/*?/statistics/tx_packets |  tr "$nl" '+')"
-        echo "-->$RX_PAC"
         RX_PAC="$(echo "${RX_PAC%+}"|bc)"
         TX_PAC="$(echo "${TX_PAC%+}"|bc)"
 
@@ -24,13 +25,10 @@ while true; do
 
         [ "$RX_PAC_prev" -ne 0 ] && \
                 {
-                        [  "$TX_DELTA" -lt "$TX_LIMIT" ] \
-                                && [ "$RX_DELTA" -lt "$RX_LIMIT" ] \
-                                && ping -c 3 1.1.1.1 \
-                                || notify-send "NO INTERNET!"
+                        { [  "$TX_DELTA" -lt "$TX_LIMIT" ] \
+                                && [ "$RX_DELTA" -lt "$RX_LIMIT" ]; } \
+                                && notify-send "NO INTERNET!"
                 }
-        echo "TX_DELTA:$TX_DELTA"
-        echo "RX_DELTA:$RX_DELTA"
         TX_PAC_prev="$TX_PAC"
         RX_PAC_prev="$RX_PAC"
         sleep 1

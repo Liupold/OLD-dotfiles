@@ -13,7 +13,7 @@ map J zoom out
 map i recolor
 map p print
 set font "Fira Code 11"
-set recolor
+#set recolor
 set recolor-lightcolor \#EDD1B0
 set recolor-darkcolor \#000000
 # set recolor-keephue

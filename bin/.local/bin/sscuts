@@ -27,14 +27,13 @@ MACRO_ca="$XDG_CACHE_HOME"
 MACRO_lb="$HOME/.local/bin"
 
 MACRO_r="$MACRO_w/aca-curr/routine.jpeg"
-
 # <macros/>
 
 macro="$1";
 
 [ "$macro" = '?' ] && {
-        tr "$nl" ';' < "$(which sscuts)" | sed -e 's/.*;# <\/macros>;//g' -e 's/;# <macros\/>.*//g' | tr ';' "$nl" \
-        && pwd && exit 0
+        tr "$nl" ';' < "$0" | sed -e 's/.*;# <\/macros>;//g' -e 's/;# <macros\/>.*//g' | tr ';' "$nl" \
+        && echo && exit 0
 }
 
 [ "$macro" = 'wc' ]  # && mkdir -p "$wc"

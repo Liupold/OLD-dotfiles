@@ -8,6 +8,10 @@ RPROMPT='%F{blue}[%f%*%F{blue}]%f'
 # History in cache directory:
 HISTSIZE=10000
 SAVEHIST=10000
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_REDUCE_BLANKS
+setopt autocd
 
 
 # Basic auto/tab complete:
