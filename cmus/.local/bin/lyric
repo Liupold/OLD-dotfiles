@@ -14,10 +14,14 @@ parse_cmus_data() {
         file_name="${cmus_data#*file }"; file_name="${file_name%%$nl*}"
         [ -n "$CMUS_DISP" ] \
                 && ffmpeg -loglevel error -i "$file_name" -an -vcodec copy -y /tmp/cmus_cover.png \
-                && setsid -f nohup feh -x --scale-down --geometry "440x440+934+322" --class "F_TERM" "/tmp/cmus_cover.png" > /dev/null 2>&1
+                && feh -x --scale-down --geometry "440x440+34+322" --class "F_TERM" "/tmp/cmus_cover.png" > /dev/null 2>&1 &
 		[ "${cmus_data#status stopped}" != "$cmus_data" ] && return 0 # Paused
         lyrics="$(elyric "$file_name")"
-        [ -n "$lyrics" ] && echo "$lyrics" && exit
+        if [ -n "$CMUS_DISP" ]; then
+                [ -n "$lyrics" ] && echo "$lyrics" | less && exit 0
+        else
+                [ -n "$lyrics" ] && echo "$lyrics" && exit 0
+        fi
 		artist="${cmus_data##*tag artist }"; artist="${artist%%$nl*}"
 		title="${cmus_data##*tag title }"; title="${title%%$nl*}"
 
@@ -42,5 +46,9 @@ echo "# '$title' by $artist"
 
 #curl -s --get "https://makeitpersonal.co/lyrics" --data-urlencode "artist=$artist" --data-urlencode "title=$title"
 # curl -s --get "$(echo "https://api.lyrics.ovh/v1/$artist/$title" | sed  's/ /%20/g')" | jq -r .lyrics
-songLyrics "$artist" "$title"
-exit 0
+
+if [ -n "$CMUS_DISP" ]; then
+        songLyrics "$artist" "$title" | less
+else
+        songLyrics "$artist" "$title"
+fi
