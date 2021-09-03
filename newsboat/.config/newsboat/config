@@ -1,0 +1,46 @@
+#show-read-feeds no
+auto-reload yes
+refresh-on-startup no
+notify-program "/usr/bin/notify-send"
+player "play"
+download-path ~/.cache/podboat/%n
+download-filename-format %F-%t.%e
+# external-url-viewer "urlscan -dc -r 'firefox {}'"
+# notify-format "%d new articles (%n unread articles, %f unread feeds)"
+notify-format "%d new articles (%n unread articles, %f unread feeds)"
+always-display-description true
+reload-threads 8
+
+
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key d pagedown
+bind-key u pageup
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key n next-unread
+bind-key N prev-unread
+bind-key D pb-download
+bind-key U show-urls
+bind-key x pb-delete
+bind-key R reload-all
+
+color listnormal cyan default
+color listfocus black yellow standout bold
+color listnormal_unread blue default
+color listfocus_unread yellow default bold
+color info red black bold
+color article cyan default
+
+browser "setsid -f link-handler %u"
+macro , open-in-browser
+macro q set browser "echo $(tmux detach -s nbx)" ; open-in-browser ; set browser "setsid -f link-handler %u"
+macro w set browser "wget %u -O /tmp/in.html && weasyprint /tmp/in.html /tmp/out.pdf && zathura /tmp/out.pdf" ; open-in-browser ; set browser "setsid -f link-handler %u"
+macro c set browser "xclip -i -selection clipboard <<<" ; open-in-browser ; set browser "setsid -f link-handler %u"

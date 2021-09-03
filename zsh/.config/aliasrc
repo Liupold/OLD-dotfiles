@@ -1,0 +1,91 @@
+#!/bin/sh
+# shellcheck disable=SC2139
+alias ls="ls --group-directories-first --color=auto -v"
+alias grep="grep --color"
+alias ll="ls -avlh"
+alias l="ls -1Ahv"
+alias zathura="zathura"
+alias p="sudo pacman"
+alias vim='$EDITOR'
+alias d='doas'
+alias s='sudo'
+alias v='$EDITOR'
+alias dv='d $EDITOR'
+alias sv='sudoedit'
+alias py='python3 -q'
+alias pyy='py -i $XDG_CONFIG_HOME/python/mypyenv.py'
+alias nb='newsboat'
+alias pypad='vim /tmp/pypad.py'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
+alias o='xdg-open'
+alias octave="octave -f"
+alias oc="/usr/bin/octave -q"
+alias c='noglob calc'
+alias bcam='light -S $(photoR)'
+alias smi='sudo make install'
+
+# Network Manager
+alias wifi='nmcli d wifi'
+alias lw='nmcli d wifi list'
+alias rad='nmcli r'
+
+# startx
+alias sX="startx -c $HOME/.config/X11/xinitrc"
+
+# youtube-dl
+alias ytdlv="youtube-dl --add-metadata -f 'bestvideo[height<=$LUNA_YPLAY_RES]+bestaudio' -o '%(title)s.%(ext)s'"
+alias ytdla="youtube-dl --audio-format best --extract-audio --audio-format=flac --add-metadata -o '%(title)s.%(ext)s'"
+alias ytdlm="youtube-dl --format=bestaudio --extract-audio --audio-format=flac --add-metadata --output='$LUNA_MUSIC_DIR/%(title)s.%(ext)s'"
+alias opennas="grep -q 'nas' /proc/mounts  || mount -a && cd"
+
+sendit() {
+        file_to_send="-"
+        [ -n "$1" ] && file_to_send="$1"
+        curl --progress-bar -F "file=@$file_to_send" https://0x0.st
+}
+
+
+# dmenu mco (multiple choose option)
+dmenu_mco() {
+        echo "$1" | dmenu -i -p "$2 " -b -l 10 | { read -n selected && [ -n "$selected" ] && "$2" "$selected" && unset selected; }
+}
+
+dmcof() {
+        dmenu_mco "$(ls -a1)" "$1"
+}
+
+fmco() {
+        selected="$(fzf)" && [ -n "$selected" ] \
+                && "$1" "$selected" && unset "$selected"
+}
+
+ghc() {
+		git clone git@github.com:"$*".git
+}
+
+rm() {
+        printf "[$(pwd)] run: \"rm ${*}\", Are you sure? (y/n)";
+        read -k ans; echo ""
+        [ "$ans" = 'y' ] && "/bin/rm" ${*}
+}
+
+g(){
+        [ -d "$1" ] && cd "$1" && return 0
+        [ -f "$1" ] && xdg-open "$1" && return 0
+
+        inode_path="$(sscuts "$1")" && {
+        if [ -d "$inode_path" ]; then
+                cd "$inode_path"
+        else
+                xdg-open "$inode_path"
+        fi
+        }
+}
+alias g='noglob g'
+
+ccd(){
+        mkdir -p "$1"
+        cd "$1"
+}
+
+alias calc='noglob calc'

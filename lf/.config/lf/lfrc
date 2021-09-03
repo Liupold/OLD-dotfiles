@@ -1,0 +1,83 @@
+# set icons on
+set drawbox on
+
+set previewer ~/.config/lf/pv.sh
+
+map gh cd ~
+map gd cd ~/dotfiles
+map gl cd ~/Downloads
+map go cd ~/Documents
+map gp cd ~/Documents/PDFs
+map gm cd /run/media-drive/
+map gw cd /run/work-drive/
+map gt cd ~/.local/trash
+
+map tf push $touch<space>
+map td push $mkdir<space>-p<space>
+
+cmd trash ${{
+    time_stamp="$(date +%s)"
+
+    mkdir -p "$HOME/.local/trash/$time_stamp/"
+    if [ -z "$fs" ]; then
+        mv "$f" "$HOME/.local/trash/$time_stamp/"
+    else
+        IFS="'printf '\n\t''"
+        mv $fs "$HOME/.local/trash/$time_stamp/"
+    fi
+}}
+
+cmd undo_trash ${{
+    last_trash="$(ls $HOME/.local/trash/ | sort -n | tail -1)"
+    files="$(ls -1A $HOME/.local/trash/$last_trash/)"
+    for file in "$files"
+    do
+        mv "$HOME/.local/trash/$last_trash/$file" .
+    done
+    rmdir "$HOME/.local/trash/$last_trash"
+}}
+
+cmd delete ${{
+    echo -n "Permanently delete? $f (y/n)"
+    read read_into
+    [ "$read_into" != 'y' ] && exit
+    rm -r "$f"
+}}
+
+cmd bulk-rename ${{
+	index=$(mktemp /tmp/lf-bulk-rename-index.XXXXXXXXXX)
+	if [ -n "${fs}" ]; then
+		echo "$fs" > $index
+	else
+		echo "$(ls "$(dirname $f)" | tr ' ' "\n")" > $index
+	fi
+	index_edit=$(mktemp /tmp/lf-bulk-rename.XXXXXXXXXX)
+	cat $index > $index_edit
+	$EDITOR $index_edit
+	if [ $(cat $index | wc -l) -eq $(cat $index_edit | wc -l) ]; then
+		max=$(($(cat $index | wc -l)+1))
+		counter=1
+		while [ $counter -le $max ]; do
+			a="$(cat $index | sed "${counter}q;d")"
+			b="$(cat $index_edit | sed "${counter}q;d")"
+			counter=$(($counter+1))
+
+			[ "$a" = "$b" ] && continue
+			[ -e "$b" ] && echo "File exists: $b" && continue
+			mv "$a" "$b"
+		done
+	else
+		echo "Number of lines must stay the same"
+	fi
+	rm $index $index_edit
+}}
+
+map x :trash
+map U :undo_trash
+map X :delete
+map br !bulk-rename "$fs"
+
+map op &zathura --fork "$f"
+map ov &yplay "$f"
+map oa &yplay --no-video "$f"
+map oi &feh "$f"

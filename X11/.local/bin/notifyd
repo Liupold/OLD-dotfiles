@@ -1,0 +1,10 @@
+#!/bin/sh
+# Notify from anywhere.
+
+[ -e "$HOME/.cache/notifyd" ] || mkfifo "$HOME/.cache/notifyd"
+
+while read -r line < "$HOME/.cache/notifyd" ;do
+        h="${line%%:*}"
+        b="${line#*:}"
+        notify-send "$h" "$b"
+done

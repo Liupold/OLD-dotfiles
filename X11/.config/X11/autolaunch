@@ -1,0 +1,11 @@
+#!/bin/sh
+pidof pulseaudio || pulseaudio --daemonize &
+pidof playerctld || playerctld &
+pidof picom || picom &
+pgrep -f "notifyd" || notifyd &
+pgrep -f "autopauseD" || autopauseD &
+start-dunst &
+{ while [ -z "$(pactl info)" ]; do
+        sleep 0.2
+done && { pgrep -f "launch-bar-dwm" || launch-bar-dwm; }; } &
+dwm

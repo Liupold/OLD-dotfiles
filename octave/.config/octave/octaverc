@@ -1,0 +1,24 @@
+PS1 ('\[\033[01;32m\][\t]:\[\033[01;34m\]\W/\[\033[01;36m\]>> \[\033[0m\]');
+eval(cstrcat("pkg local_list ", getenv("HOME"), "/.local/share/octave/octave_packages"))
+pkg prefix "~/.local/share/octave/packages" "~/.local/share/octave/packages";
+addpath("~/.local/share/octave/packages");
+edit mode async
+EDITOR("$TERMINAL -e nvim %s >/dev/null 2>&1")
+function man (name)
+        help (char (name));
+endfunction
+
+global sound_play_utility = 'aplay';
+lcp = @(var) system(['echo ', "'", latex(sym(var)), "'", " | xclip -selection clipboard"]);
+
+function l ()
+        ls -lah --color=always;
+endfunction
+
+function f = ndiff(f, n)
+        for _ = 1:n
+                f = diff(f);
+        endfor
+endfunction
+
+pkg load symbolic

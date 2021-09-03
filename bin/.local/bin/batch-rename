@@ -1,0 +1,24 @@
+#!/bin/sh
+FILES="$*"
+old_buff="$(mktemp  /tmp/XXXXXXXXX)"
+tmp_buff="$(mktemp  /tmp/XXXXXXXXX)"
+
+echo -e "$FILES" > "$old_buff"
+echo -e "$FILES" > "$tmp_buff"
+
+"$EDITOR" "$tmp_buff"
+initial_line_no="$(wc -l "$old_buff")"
+final_line_no="$(wc -l "$tmp_buff")"
+
+sed -i -e "s|^|'|g" -e "s|$|'|g" "$old_buff"
+sed -i -e "s|^|'|g" -e "s|$|'|g" "$tmp_buff"
+
+if [ "${initial_line_no% *}" -ne "${final_line_no% *}" ]; then
+        echo "ERROR: Line numbers changed!" > /dev/stderr
+        exit 1
+fi
+
+diff -y "$old_buff" "$tmp_buff" | grep '|' | tr -d '\t|' | \
+        xargs -n2 mv
+
+rm "$old_buff" "$tmp_buff"

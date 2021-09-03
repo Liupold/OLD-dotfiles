@@ -1,0 +1,7 @@
+#!/bin/sh
+mpv --no-input-terminal \
+  --really-quiet \
+  --loop \
+  --no-stop-screensaver \
+  --wid="${XSCREENSAVER_WINDOW}" \
+  --no-audio "/home/rohnch/.local/share/WALLS/LockVid"

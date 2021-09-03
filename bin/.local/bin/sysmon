@@ -1,0 +1,35 @@
+#!/bin/sh
+
+nl='
+
+'
+
+RX_PAC_prev=0
+TX_PAC_prev=0
+RX_DELTA=0
+TX_DELTA=0
+
+TX_LIMIT="$1" && [ -z "$TX_LIMIT" ] && TX_LIMIT="0"
+RX_LIMIT="$1" && [ -z "$RX_LIMIT" ] && RX_LIMIT="1"
+
+ping 1.1.1.1 > /dev/null &
+
+while true; do
+        RX_PAC="$(cat /sys/class/net/*?/statistics/rx_packets |  tr "$nl" '+')"
+        TX_PAC="$(cat /sys/class/net/*?/statistics/tx_packets |  tr "$nl" '+')"
+        RX_PAC="$(echo "${RX_PAC%+}"|bc)"
+        TX_PAC="$(echo "${TX_PAC%+}"|bc)"
+
+        RX_DELTA="$((RX_PAC - RX_PAC_prev))"
+        TX_DELTA="$((TX_PAC - TX_PAC_prev))"
+
+        [ "$RX_PAC_prev" -ne 0 ] && \
+                {
+                        { [  "$TX_DELTA" -lt "$TX_LIMIT" ] \
+                                && [ "$RX_DELTA" -lt "$RX_LIMIT" ]; } \
+                                && notify-send "NO INTERNET!"
+                }
+        TX_PAC_prev="$TX_PAC"
+        RX_PAC_prev="$RX_PAC"
+        sleep 1
+done

@@ -1,0 +1,16 @@
+xorg
+xorg-xinit
+xorg-xrdb
+xorg-xmodmap
+libnotify
+ttf-fira-code
+bspwm
+feh
+picom
+pulseaudio
+xsecurelock
+xss-lock
+xclip
+rxvt-unicode
+urxvt-perls
+AUR:st-luke-git

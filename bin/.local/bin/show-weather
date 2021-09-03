@@ -1,0 +1,7 @@
+#!/bin/sh
+
+bspc rule -a St -o state=floating
+echo "$@" | grep -q -- '-g' && $TERMINAL -g 75x48 -e \
+        sh -c "cat $HOME/.cache/wttr/graph && read" && exit
+
+$TERMINAL -g 127x40 -e sh -c "cat $HOME/.cache/wttr/chart && read"

@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+
+/usr/bin/tmux new -d -s nbx /usr/bin/newsboat 2>/dev/null && {
+        /usr/bin/tmux set -t nbx status off
+        /usr/bin/tmux detach -s nbx 2>/dev/null
+}
+
+/usr/bin/tmux send -t nbx 'v' Enter ':exec reload-all' Enter

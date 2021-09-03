@@ -1,0 +1,54 @@
+#!/bin/sh
+[ "${0##*/}" = "cmus-disp" ] && export CMUS_DISP=1
+nl='
+'
+elyric() {
+        # get the file name from cmus
+        file_name="$1"
+
+        ffprobe -loglevel error -hide_banner -select_streams a -show_entries \
+                format=format:tags=lyrics-eng -print_format default=nw=1:nk=1 "$file_name"
+}
+
+parse_cmus_data() {
+        file_name="${cmus_data#*file }"; file_name="${file_name%%$nl*}"
+        [ -n "$CMUS_DISP" ] \
+                && ffmpeg -loglevel error -i "$file_name" -an -vcodec copy -y /tmp/cmus_cover.png \
+                && feh -x --scale-down --geometry "440x440+34+322" --class "F_TERM" "/tmp/cmus_cover.png" > /dev/null 2>&1 &
+		[ "${cmus_data#status stopped}" != "$cmus_data" ] && return 0 # Paused
+        lyrics="$(elyric "$file_name")"
+        if [ -n "$CMUS_DISP" ]; then
+                [ -n "$lyrics" ] && echo "$lyrics" | less && exit 0
+        else
+                [ -n "$lyrics" ] && echo "$lyrics" && exit 0
+        fi
+		artist="${cmus_data##*tag artist }"; artist="${artist%%$nl*}"
+		title="${cmus_data##*tag title }"; title="${title%%$nl*}"
+
+}
+
+
+title="$1"
+artist="$2"
+
+
+[ -z "$artist" ] &&
+		command -v cmus-remote -Q > /dev/null && cmus_data="$(cmus-remote -Q 2>/dev/null )" \
+		&& parse_cmus_data
+
+[ -z "$artist" ] && {
+		artist="$(playerctl metadata artist)"
+		title="$(playerctl metadata title)"
+} >/dev/null 2>&1
+
+[ -z "$artist" ] || [ -z "$title" ] && exit 0
+echo "# '$title' by $artist"
+
+#curl -s --get "https://makeitpersonal.co/lyrics" --data-urlencode "artist=$artist" --data-urlencode "title=$title"
+# curl -s --get "$(echo "https://api.lyrics.ovh/v1/$artist/$title" | sed  's/ /%20/g')" | jq -r .lyrics
+
+if [ -n "$CMUS_DISP" ]; then
+        songLyrics "$artist" "$title" | less
+else
+        songLyrics "$artist" "$title"
+fi

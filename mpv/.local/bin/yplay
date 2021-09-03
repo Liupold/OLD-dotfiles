@@ -1,0 +1,6 @@
+#!/bin/sh
+command -v termux-info && mpv "$@"
+command -v termux-info && exit
+
+source "$HOME/.zshenv"
+mpv --ytdl-format='bestvideo[height<='"$LUNA_YPLAY_RES"'][ext=webm]+bestaudio/best[ext=opus]' "$@"

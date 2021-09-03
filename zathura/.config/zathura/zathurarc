@@ -1,0 +1,28 @@
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 2
+set selection-clipboard clipboard
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map r reload
+map > rotate rotate-cw
+map < rotate rotate-ccw
+map K zoom in
+map J zoom out
+map i recolor
+map p print
+set font "Fira Code 11"
+#set recolor
+set recolor-lightcolor \#EDD1B0
+set recolor-darkcolor \#000000
+# set recolor-keephue
+set default-bg \#222222
+set window-title-home-tilde
+set statusbar-bg \#222222
+set statusbar-fg \#d5c4a1
+set statusbar-basename
+set continuous-hist-save
+
+map <F1> focus_inputbar ':set recolor-lightcolor \#F8FD89'
+map <F2> focus_inputbar ':set recolor-lightcolor \#EDD1B0'

@@ -1,0 +1,23 @@
+#!/bin/sh
+# youtube music player (cli); part of Liupld/dotfiles
+
+read -r api_key < /media/Video/youtube-api.key
+
+api_url="https://www.googleapis.com/youtube/v3/"
+video_url="https://www.youtube.com/watch?v="
+maxresults=1
+
+ytmsearch () {
+        vid_id=$(curl -G "${api_url}search/" --data-urlencode "key=$api_key" --data-urlencode "part=snippet" --data-urlencode "type=music" --data-urlencode "maxResults=$maxresults" --data-urlencode "fields=items(snippet/title,snippet/channelTitle,snippet/description,snippet/publishedAt,id/videoId),nextPageToken,prevPageToken" --data-urlencode "q=$1" 2>/dev/null | jq -r '.items[0].id.videoId')
+        echo "$video_url$vid_id"
+
+}
+
+query="$1"
+action="$2"
+query="${query:=chello}"
+action="${action:=mpv --no-video}"
+
+vid_url=$(ytmsearch "$query")
+
+$action "$vid_url"

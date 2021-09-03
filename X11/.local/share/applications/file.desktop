@@ -1,0 +1,4 @@
+[Desktop Entry]
+Type=Application
+Name=File Manager
+Exec=st -e sh -c 'a="%u"; cd "${a#file://}"; zsh'

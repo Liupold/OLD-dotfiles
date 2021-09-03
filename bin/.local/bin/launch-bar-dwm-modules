@@ -1,0 +1,7 @@
+#!/bin/bash
+export PIPESTATUS_PIPE="/tmp/dwmbar"
+MODULES="NET_SPEED TOP DATE ALSA LIGHT"
+for module in $MODULES; do
+        echo "$modules"
+        sh "/home/rohnch/apps/pipestatus/modules/PIPESTATUS_$module" > "$PIPESTATUS_PIPE" &
+done

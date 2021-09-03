@@ -1,0 +1,8 @@
+#!/bin/sh
+
+tmux new -d -s nbx /usr/bin/newsboat 2>/dev/null && {
+        tmux set -t nbx status off
+}
+
+tmux detach -s nbx 2>/dev/null
+tmux attach -t nbx >/dev/null 2>&1

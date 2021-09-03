@@ -1,0 +1,61 @@
+#!/bin/sh
+# QUICK cd short-cuts
+
+nl='
+
+'
+
+# </macros>
+MACRO_h="$HOME/"
+MACRO_s="$HOME/sem6/"
+
+MACRO_m="/media/"
+MACRO_d="$MACRO_m/Documents/"
+MACRO_p="$MACRO_d/PDFs/"
+MACRO_P="$MACRO_p/Personal/"
+MACRO_b="$MACRO_m/Books/"
+MACRO_l="$MACRO_m/lectures/"
+MACRO_jp="$MACRO_m/ttj/fiziks/Topic_wise_question"
+
+MACRO_w="/work/"
+MACRO_A="$MACRO_w/Assignment/"
+MACRO_wc="$MACRO_w/chegg/$(date +%b-%Y)"
+
+MACRO_a="$HOME/apps"
+MACRO_co="$XDG_CONFIG_HOME"
+MACRO_ca="$XDG_CACHE_HOME"
+MACRO_lb="$HOME/.local/bin"
+
+MACRO_r="$MACRO_w/aca-curr/routine.jpeg"
+# <macros/>
+
+macro="$1";
+
+[ "$macro" = '?' ] && {
+        tr "$nl" ';' < "$0" | sed -e 's/.*;# <\/macros>;//g' -e 's/;# <macros\/>.*//g' | tr ';' "$nl" \
+        && echo && exit 0
+}
+
+[ "$macro" = 'wc' ]  # && mkdir -p "$wc"
+action="$2"; [ -z "$action" ] && action="echo"
+
+[ "${macro#*/}" != "$macro" ] && af_path="${macro#*/}"
+macro="${macro%%/*}"
+
+[ -n "$macro" ] && {
+        eval  'macro_path='\${MACRO_"$macro"?} || exit "$?"
+
+        [ -z "$af_path" ] \
+                && [ -e "$macro_path" ] && final_path="$macro_path"
+
+        [ -d "$macro_path/$af_path" ] \
+                && final_path="$macro_path/$af_path"
+
+        [ -z "$final_path" ] && [ -d "$macro_path" ] \
+                && final_path="$(eval "realpath $macro_path/$af_path")"
+
+        [ -e "$final_path" ] ||
+                { echo "\"$macro/$af_path\": No such file/dir" >&2; exit 21;}
+}
+
+[ -n "$action" ] && "$action" "$final_path"

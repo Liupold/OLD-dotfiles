@@ -1,0 +1,116 @@
+#!/bin/sh
+
+# DEP: (ls, readlink, mkdir, ln, rmdir)
+nl='
+
+'
+do_link_check() {
+        source_path="$1";target_path="$2";top_path="$source_path";
+        ls -A1 -R "$source_path" | while read -r entry; do
+                [ "$entry" != "${entry%:}" ] && top_path="${entry%:}" && continue
+                [ -z "$entry" ] && continue
+                entry_source="$top_path/$entry"
+                entry_target="$target_path${entry_source#$source_path}"
+
+                # Make sure dir exist or can be created.
+                [ -d "$entry_source" ] && [ ! -d "$entry_target" ]  && [ -e "$entry_target" ] && {
+                        echo "[ERROR] $entry_source => $entry_target"
+                        printf "\t---> %s needed to be a directory! <---\n" "$entry_target"
+                        return 1
+                }
+
+                [ -f "$entry_source" ] && [ -e "$entry_target" ] && {
+                        echo "[ERROR] $entry_source => $entry_target"
+                        printf "\t---> %s file exist! <---\n" "$entry_target"
+                        return 1
+                }
+               [ -n "$verbose" ] && echo "[CHECK:OK] $entry_source"
+       done
+}
+
+do_link() {
+        source_path="$1";target_path="$2";top_path="$source_path";
+        ls -A1 -R "$source_path" | while read -r entry; do
+                [ "$entry" != "${entry%:}" ] && top_path="${entry%:}" && continue
+                [ -z "$entry" ] && continue
+                entry_source="$top_path/$entry"
+                entry_target="$target_path${entry_source#$source_path}"
+                [ -d "$entry_source" ] && mkdir -p "$entry_target"
+                [ -f "$entry_source" ] && ln -sr "$entry_source" "$entry_target"
+                [ -n "$verbose" ] && echo "[LINK] $entry_source => $entry_target"
+        done
+}
+
+do_unlink() {
+        source_path="$1";target_path="$2";top_path="$source_path";
+        dirs=""
+        ls -A1 -R "$source_path" | {
+        while read -r entry; do
+                [ "$entry" != "${entry%:}" ] && top_path="${entry%:}" && continue
+                [ -z "$entry" ] && continue
+                entry_source="$top_path/$entry"
+                entry_target="$target_path${entry_source#$source_path}"
+                [ -d "$entry_source" ] && dirs="$entry_target$nl$dirs" && continue
+                [ -e "$entry_target" ] && [ ! -L "$entry_target" ] && {
+                        echo "[WARN] $entry_target is not symbolic in nature."
+                        continue
+                }
+                symbolic_trace="$(readlink -f "$entry_target")"
+                [ -L "$entry_target" ] && [ "$symbolic_trace" == "$entry_source" ] && {
+                        rm "$entry_target"
+                        [ -n "$verbose" ] && echo "[UNLINK] $entry_target is removed."
+                }
+        done
+        for entry_target in $dirs; do
+                [ -z "$(ls -A "$entry_target")" ] && rmdir "$entry_target"
+                [ -n "$verbose" ] && echo "[UNLINK] $entry_target is removed." || continue
+        done
+        }
+}
+
+
+
+TEMP=$(getopt -o 'ht:SDR' --long 'help,target:,link,delete,re-link' -n 'new-dls' -- "$@") || echo "$useage"
+eval set -- "${TEMP}"
+unset TEMP
+TARGET_DIR="${HOME}"
+
+while true; do
+    case "$1" in
+        '-h'|'--help')
+            echo "$useage" && exit 0
+            shift; continue;;
+        '-t'|'--target')
+            TARGET_DIR="$2"
+            shift 2; continue;;
+        '-S'|'--link')
+            action="link"
+            shift; break;;
+        '-D'|'--delete')
+            action="delete"
+            shift; break;;
+        '-R'|'--re-link')
+            action="re-link"
+            shift; break;;
+         '--')
+             shift; break;;
+            *)
+             echo 'Internal error!' >&2
+             echo "$useage" && exit 1;;
+     esac
+done
+
+export verbose=1
+for source_path in "$@"; do
+        [ "$source_path" = '--' ] && continue
+        source_path="$(readlink -f "$source_path")"
+        if [ "$action" = "link" ]; then
+                do_link_check "$source_path" "$TARGET_DIR" && do_link "$source_path" "$TARGET_DIR"
+        elif [ "$action" = "delete" ]; then
+                do_unlink "$source_path" "$TARGET_DIR"
+        elif [ "$action" = "re-link" ]; then
+                do_unlink "$source_path" "$TARGET_DIR"
+                do_link_check "$source_path" "$TARGET_DIR" && do_link "$source_path" "$TARGET_DIR"
+        fi
+done
+

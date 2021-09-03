@@ -1,0 +1,14 @@
+#!/bin/sh
+pidof pulseaudio || pulseaudio &
+sleep 1
+adb shell wm size 1080x1920
+scrcpy -S --encoder OMX.qcom.video.encoder.avc -b 5M --window-borderless --max-fps 40
+adb shell "input keyevent 164;input keyevent 127;wm size 1081x2160" # mute, puase, resize
+adb shell  dumpsys notification | grep 'stremio' | grep -q '\[0\] "Pause"' && pause_stremio=1
+[ -n "$pause_stremio" ] && {
+        adb shell "am start -n com.stremio.one/com.stremio.MainActivity;
+        input tap $((2160/2)) $((1080/2)); input tap $((2160/2)) $((1080/2))" # pause stremio
+        unset pause_stremio
+}
+
+adb shell input keyevent 164 # unmute

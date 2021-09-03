@@ -1,0 +1,57 @@
+#! /bin/sh
+
+# Set environment
+export BSPWM_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/bspwm"
+# export PIDSWALLOW_SWALLOW_COMMAND='bspc node {%pwid} --flag hidden=on'
+# export PIDSWALLOW_VOMIT_COMMAND='bspc node {%pwid} --flag hidden=off -f'
+export PIDSWALLOW_BLACKLIST=" octave-gui python $TERMINAL "
+# shellcheck disable=SC2016
+export PIDSWALLOW_PREGLUE_HOOK='bspc query -N -n $pwid.floating >/dev/null && bspc node $cwid --state floating'
+
+# WorkSpace / Monitor
+bspc monitor -d I II III IV V VI VII VIII IX X
+
+######################################################################
+
+#----------------------------- BASIC ATTR ----------------------------
+
+
+bspc config border_width        	1
+bspc config window_gap          	8
+bspc config top_padding         	0
+
+bspc config split_ratio                 0.50
+bspc config borderless_monocle          true
+bspc config gapless_monocle             true
+bspc config focus_follows_pointer       true
+
+
+bspc config split_ratio          	0.50
+bspc config borderless_monocle   	true
+bspc config gapless_monocle      	true
+
+
+#----------------------------- COLORS --------------------------------
+
+bspwm-update-color
+
+#----------------------------- RULES ---------------------------------
+
+bspc rule -a Gimp state=floating follow=on
+bspc rule -a Zathura state=tiled
+bspc rule -a Nightly state=tiled
+bspc rule -a Screenkey manage=off
+bspc rule -a mpv:mpvfloat state=floating
+bspc rule -a matplotlib state=floating
+bspc rule -a mpv:MpvSmol state=floating rectangle=400x225+1515+850 sticky=on
+bspc rule -a Circuit desktop=V follow=on
+bspc rule -a "GNU Octave:octave-gui" state=floating
+
+
+
+#--------------------------- CHAIN LOAD ------------------------------
+sxhkd &
+# Handled by xinitrc
+
+#--------------------------- SWALLOWING ------------------------------
+pidswallow -gl &

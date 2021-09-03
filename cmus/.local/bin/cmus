@@ -1,0 +1,9 @@
+#!/bin/sh
+
+tmux new -d -s cmux /usr/bin/cmus 2>/dev/null && {
+        tmux set -t cmux status off
+        tmux send -t cmux ":clear" Enter ":add ${LUNA_MUSIC_DIR}" Enter
+}
+
+tmux detach -s cmux 2>/dev/null
+tmux attach -t cmux >/dev/null 2>&1

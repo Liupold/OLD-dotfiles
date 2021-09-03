@@ -1,0 +1,4 @@
+bind -f common d shell tmux detach -s cmux
+bind -f common q shell echo "CMUS:" > /tmp/dwmbar && cmus-remote -C "quit -i"
+bind -f common i shell tmux new-window -t cmux "cmus-disp"
+set status_display_program=~/.config/cmus/cmus-status.sh
