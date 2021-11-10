@@ -1,5 +1,5 @@
 ! Font
-st.font: Fira Code-11;
+st.font: Fira Code-13;
 URxvt.font: xft:Fira Code:style=Medium:size=12:antialias=true
 UXTerm*faceSize:10
 

@@ -1,4 +1,6 @@
 #!/bin/sh
+ans=${ans:=1}
+export ans
 
 eqn=$(echo "$*" | sed  -e "s/\([0-9]\+\)!/factorial(\1)/g" \
         -e "s/-gt/>/g"   -e "s/-lt/</g" \
@@ -6,8 +8,8 @@ eqn=$(echo "$*" | sed  -e "s/\([0-9]\+\)!/factorial(\1)/g" \
         -e "s/-eq/==/g" -e "s/-ne/!=/g")
 
 if [ "$1" = '?' ]; then
-        python3 -c "from math import *; eqn=($eqn); import sys; sys.exit(not eqn)"
+        python3 -c "import ast, os; ans=ast.literal_eval(os.environ.get('ans')); from math import *; import numpy as np; eqn=($eqn); import sys; sys.exit(not eqn)"
         exit $?
 else
-        python3 -c "from math import *; print(f'{$eqn}')"
+        python3 -c "import ast, os; ans=ast.literal_eval(os.environ.get('ans')); import numpy as np;from math import *; print(f'{$eqn}')"
 fi

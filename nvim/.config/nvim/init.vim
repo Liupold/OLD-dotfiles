@@ -63,6 +63,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 Plug 'cespare/vim-toml'
 Plug 'vim-airline/vim-airline'
 Plug 'rhysd/vim-grammarous'
+Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 let g:mkdp_browser = $BROWSER
 
@@ -113,11 +114,10 @@ endif
 " Some Basic autocmd
 " remove white spaces
 autocmd BufWritePre * %s/\s\+$//e
-
 " ----------------------------------------------------------
 " LaTex
 autocmd BufReadPre *.tex nnoremap <leader>c :sp<CR>:resize 10<CR>:term latexrun  --clean-all "%" && rm -r "%:p:h/latex.out"<CR>
-autocmd BufReadPre *.tex nnoremap <leader>p :!zathura --fork %:r.pdf<CR>
+autocmd BufReadPre *.tex nnoremap <leader>p :!zathura --fork "%:r.pdf"<CR>
 " ----------------------------------------------------------
 " Python autocmd
 autocmd BufReadPre *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term time python3 "%" <CR>
@@ -128,17 +128,20 @@ autocmd BufReadPre *.sh nnoremap <leader>c :sp<CR>:resize 10<CR>:term time sh "%
 "  octave
 autocmd BufReadPre *.m nnoremap <leader>c :sp<CR>:resize 10<CR>:term time octave -q "%" <CR>
 autocmd BufReadPre *.m nnoremap <leader>p :sp<CR>:resize 10<CR>:term time octave --persist -q "%" <CR>
-
 " ----------------------------------------------------------
 "  c
 autocmd BufReadPre *.c nnoremap <leader>c :sp<CR>:resize 10<CR>:term gcc "%" -o "%.out" -lm && time ./"%.out" && rm ./"%.out"<CR>
 autocmd BufReadPre *.cpp nnoremap <leader>c :sp<CR>:resize 10<CR>:term gcc -lm "%" -o "%.out" -lstdc++ && time ./"%.out" && rm ./"%.out"<CR>
 autocmd BufReadPre *.asm nnoremap <leader>c :sp<CR>:resize 10<CR>:term nasm -f elf32 "%" -o "%.o" && ld -m elf_i386 %.o -o "%.out" && rm "%.o" && ./"%.out"<CR>
-
 "  go
 autocmd BufReadPre *.go nnoremap <leader>c :sp<CR>:resize 10<CR>:term go run "%" <CR>
 " ----------------------------------------------------------
-"
-
-
-
+"  R
+autocmd BufReadPre *.r nnoremap <leader>c :sp<CR>:resize 10<CR>:term time Rscript "%" <CR>
+" ----------------------------------------------------------
+"  Julia
+autocmd BufReadPre *.jl nnoremap <leader>c :sp<CR>:resize 10<CR>:term time julia "%" <CR>
+" ----------------------------------------------------------
+"  Fortan90
+autocmd BufReadPre *.f90 nnoremap <leader>c :sp<CR>:resize 10<CR>:term gfortran "%" -o "%.out" -lm && time ./"%.out" && rm ./"%.out"<CR>
+" ----------------------------------------------------------

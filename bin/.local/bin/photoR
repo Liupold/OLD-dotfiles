@@ -22,8 +22,6 @@ def bfactor(N):
             ret_val += (2 * xG + xR + 2 * xB)/5
     cam.release() #Closes video file or capturing device.
     ret_val = ret_val / N * 100
-    if ret_val > 0.48:
-        return (1 + ret_val) * 20
     return ret_val
 
 bf = bfactor(1)

@@ -2,7 +2,7 @@
 auto-reload yes
 refresh-on-startup no
 notify-program "/usr/bin/notify-send"
-player "play"
+player "mpv"
 download-path ~/.cache/podboat/%n
 download-filename-format %F-%t.%e
 # external-url-viewer "urlscan -dc -r 'firefox {}'"

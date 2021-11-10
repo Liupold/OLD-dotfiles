@@ -45,10 +45,10 @@ artist="$2"
 echo "# '$title' by $artist"
 
 #curl -s --get "https://makeitpersonal.co/lyrics" --data-urlencode "artist=$artist" --data-urlencode "title=$title"
-# curl -s --get "$(echo "https://api.lyrics.ovh/v1/$artist/$title" | sed  's/ /%20/g')" | jq -r .lyrics
+curl -s --get "$(echo "https://api.lyrics.ovh/v1/$artist/$title" | sed  's/ /%20/g')" | jq -r .lyrics | less
 
-if [ -n "$CMUS_DISP" ]; then
-        songLyrics "$artist" "$title" | less
-else
-        songLyrics "$artist" "$title"
-fi
+#if [ -n "$CMUS_DISP" ]; then
+#        songLyrics "$artist" "$title" | less
+#else
+#        songLyrics "$artist" "$title"
+#fi
