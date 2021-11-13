@@ -33,7 +33,7 @@ alias rad='nmcli r'
 alias sX="startx -c $HOME/.config/X11/xinitrc"
 
 # youtube-dl
-alias ytdlv="youtube-dl --add-metadata -f 'bestvideo[height<=$LUNA_YPLAY_RES]+bestaudio' -o '%(title)s.%(ext)s'"
+alias ytdlv="yt-dlp --add-metadata -f 'bestvideo[height<=$LUNA_YPLAY_RES]+bestaudio' -o '%(title)s.%(ext)s'"
 alias ytdla="youtube-dl --audio-format best --extract-audio --audio-format=flac --add-metadata -o '%(title)s.%(ext)s'"
 alias ytdlm="youtube-dl --format=bestaudio --extract-audio --audio-format=flac --add-metadata --output='$LUNA_MUSIC_DIR/%(title)s.%(ext)s'"
 alias opennas="grep -q 'nas' /proc/mounts  || mount -a && cd"
