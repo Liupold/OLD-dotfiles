@@ -1,10 +1,22 @@
 #!/bin/sh
-pidof pulseaudio || pulseaudio --daemonize &
-pidof playerctld || playerctld &
-pidof picom || picom &
-pgrep -f "notifyd" || notifyd &
-pgrep -f "autopauseD" || autopauseD &
-start-dunst &
+dbus-daemon --session --address=unix:path="$XDG_RUNTIME_DIR/bus" &
+. "$LUNA_COLOR_PATH/colors.sh"
+
+run() {
+ if ! pgrep "$1" ;
+  then
+    "$@"&
+  fi
+}
+
+pulseaudio --daemonize
+run 'dbus-launch  --exit-with-x11'
+run 'playerctld'
+run 'urxvtd'
+run 'notifyd'
+run 'autopauseD'
+run 'dunst'
+
 { while [ -z "$(pactl info)" ]; do
         sleep 0.2
 done && { pgrep -f "launch-bar-dwm" || launch-bar-dwm; }; } &

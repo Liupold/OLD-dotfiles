@@ -1,11 +1,16 @@
 ! Font
 st.font: Fira Code-14;
-URxvt.font: xft:Fira Code:style=Medium:size=12:antialias=true
+URxvt.font: xft:Fira Code:style=Medium:size=12:antialias=true, \
+            xft:Noto Sans Bengali:size=8:minspace=false,\
+             -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 UXTerm*faceSize:10
+URxvt.letterSpace: 0
+
 
 ! UI
 URxvt.scrollBar: false
 URxvt.depth: 32
+URxvt.bell-command: aplay -Nq $XDG_CONFIG_HOME/luna_theme/bell.wav 2>/dev/null
 
 st.alpha: 0.90
 urxvt*transparent: true
@@ -17,7 +22,8 @@ URxvt.perl-ext: default,url-select,clipboard
 URxvt.keysym.Meta-c: perl:clipboard:copy
 URxvt.keysym.Meta-v: perl:clipboard:paste
 URxvt.iso14755: False
-URxvt.perl-ext-common:  resize-font
+! URxvt.perl-ext-common:  bidi
+! URxvt.perl-ext-common:  resize-font
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.underline: true
 

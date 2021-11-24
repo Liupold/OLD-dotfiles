@@ -21,11 +21,7 @@ export PULSE_LATENCY_MSEC=100
         feh --no-fehbg --bg-scale "$LUNA_WALL_PATH"
         xsetroot -cursor_name left_ptr
         setxkbmap -option caps:escape
-        start-dunst
-
         xset s 300 5
-        while [ 1 ]; do
-               dbus-run-session "$HOME/.config/X11/autolaunch";
-        done
+        exec "$HOME/.config/X11/autolaunch";
 
 } > "$XDG_CACHE_HOME/x11_wm.1" 2> "$XDG_CACHE_HOME/x11_wm.2"

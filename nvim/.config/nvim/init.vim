@@ -116,8 +116,8 @@ endif
 autocmd BufWritePre * %s/\s\+$//e
 " ----------------------------------------------------------
 " LaTex
-autocmd BufReadPre *.tex nnoremap <leader>c :sp<CR>:resize 10<CR>:term latexrun  --clean-all "%" && rm -r "%:p:h/latex.out"<CR>
-autocmd BufReadPre *.tex nnoremap <leader>p :!zathura --fork "%:r.pdf"<CR>
+autocmd BufReadPre *.tex nnoremap <leader>c :sp<CR>:resize 10<CR>:term cd "%:p:h" && latexrun  --clean-all "%:p" && rm -r "%:p:h/latex.out"<CR>
+autocmd BufReadPre *.tex nnoremap <leader>p :!zathura --fork "%:p:r.pdf"<CR>
 " ----------------------------------------------------------
 " Python autocmd
 autocmd BufReadPre *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term time python3 "%" <CR>
