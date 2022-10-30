@@ -13,11 +13,13 @@ map J zoom out
 map i recolor
 map p print
 set font "Fira Code 11"
-#set recolor
-set recolor-lightcolor \#EDD1B0
-set recolor-darkcolor \#000000
-# set recolor-keephue
-set default-bg \#222222
+set recolor
+#set recolor-lightcolor \#EDD1B0
+#set recolor-darkcolor \#000000
+set recolor-lightcolor \#192348
+set recolor-darkcolor \#dac9cb
+set recolor-keephue
+set default-bg \#333333
 set window-title-home-tilde
 set statusbar-bg \#222222
 set statusbar-fg \#d5c4a1

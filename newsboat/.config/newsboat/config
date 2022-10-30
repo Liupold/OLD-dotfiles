@@ -39,8 +39,8 @@ color listfocus_unread yellow default bold
 color info red black bold
 color article cyan default
 
-browser "setsid -f link-handler %u"
+browser "tmux detach -s nbx; setsid -f link-handler %u"
 macro , open-in-browser
-macro q set browser "echo $(tmux detach -s nbx)" ; open-in-browser ; set browser "setsid -f link-handler %u"
+macro q set browser "echo $(tmux detach -s nbx)" ; open-in-browser ; set browser "tmux detach -s nbx; setsid -f link-handler %u"
 macro w set browser "wget %u -O /tmp/in.html && weasyprint /tmp/in.html /tmp/out.pdf && zathura /tmp/out.pdf" ; open-in-browser ; set browser "setsid -f link-handler %u"
 macro c set browser "xclip -i -selection clipboard <<<" ; open-in-browser ; set browser "setsid -f link-handler %u"

@@ -5,32 +5,37 @@ URxvt.font: xft:Fira Code:style=Medium:size=12:antialias=true, \
              -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 UXTerm*faceSize:10
 URxvt.letterSpace: 0
+URxvt*loginShell: true
 
 
 ! UI
 URxvt.scrollBar: false
 URxvt.depth: 32
-URxvt.bell-command: aplay -Nq $XDG_CONFIG_HOME/luna_theme/bell.wav 2>/dev/null
+! URxvt.bell-command: aplay -Nq $XDG_CONFIG_HOME/luna_theme/bell.wav 2>/dev/null
 
 st.alpha: 0.90
 urxvt*transparent: true
-urxvt*shading: 30
+urxvt*shading: 20
 ! URxvt.tintColor: #20201d
 
 ! Extensions
-URxvt.perl-ext: default,url-select,clipboard
+URxvt.perl-ext: default,url-select,clipboard,keyboard-select
 URxvt.keysym.Meta-c: perl:clipboard:copy
 URxvt.keysym.Meta-v: perl:clipboard:paste
 URxvt.iso14755: False
 ! URxvt.perl-ext-common:  bidi
-! URxvt.perl-ext-common:  resize-font
+URxvt.perl-ext-common:  resize-font
+URxvt.resize-font.smaller:  A-minus
+URxvt.resize-font.bigger: A-equal
 URxvt.keysym.M-u: perl:url-select:select_next
 URxvt.url-select.underline: true
 
 ! Utils
 
-URxvt.urlLauncher: xdg-open
+! URxvt.urlLauncher: xdg-open
+URxvt.url-select.launcher: link-handler
 URxvt.underlineURLs: true
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
 
 ! Colors
 

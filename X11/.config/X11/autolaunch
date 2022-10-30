@@ -3,19 +3,26 @@ dbus-daemon --session --address=unix:path="$XDG_RUNTIME_DIR/bus" &
 . "$LUNA_COLOR_PATH/colors.sh"
 
 run() {
- if ! pgrep "$1" ;
+ if ! pgrep $1 ;
   then
-    "$@"&
+    $@&
   fi
 }
 
-pulseaudio --daemonize
-run 'dbus-launch  --exit-with-x11'
-run 'playerctld'
-run 'urxvtd'
-run 'notifyd'
-run 'autopauseD'
-run 'dunst'
+dbus-update-activation-environment --systemd --all
+systemctl start --user pulseaudio-x11.service
+xset s 180
+
+run unclutter
+run dbus-launch  --exit-with-x11
+run playerctld
+run urxvtd
+#run notifyd
+run autopauseD
+run dunst
+#run syncthing -no-browser
+run xss-lock -- screen-lock -n
+
 
 { while [ -z "$(pactl info)" ]; do
         sleep 0.2

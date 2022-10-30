@@ -25,7 +25,7 @@ _comp_options+=(globdots)		# Include hidden files.
 zle-line-init() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 zle -N zle-line-init
 precmd() { EXIT_CODE=$?;if [ $EXIT_CODE -ne 0 ]; then;
-	echo "$(tput setab 1)[$EXIT_CODE]$(tput sgr 0)";
+	echo "\\033[0;103m[$EXIT_CODE]\\033[0m";
 	fi; }
 
 # Edit line in vim with ctrl-e:
@@ -49,8 +49,8 @@ source $XDG_CONFIG_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlight
 
 # search history
 # source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-[ "$TERM" = 'alacritty' ] && < $XDG_CONFIG_HOME/luna_theme/sequences && clear
-[ "$TERM" = 'xterm-256color' ] && < $XDG_CONFIG_HOME/luna_theme/sequences && clear
+[ "$TERM" = 'alacritty' ] && cat $XDG_CONFIG_HOME/luna_theme/sequences && clear
+[ "$TERM" = 'xterm-256color' ] && cat $XDG_CONFIG_HOME/luna_theme/sequences && clear
 [ -n "$DISPLAY" ]  && command -v xdo >/dev/null 2>&1 && xdo id > /tmp/term-wid-"$$" && \
         trap "( rm -f /tmp/term-wid-"$$" )" EXIT HUP
 

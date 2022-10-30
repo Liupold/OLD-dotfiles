@@ -13,7 +13,7 @@ read -r api_key < /media/Video/youtube-api.key
 # following these instructions: https://www.slickremix.com/docs/get-api-key-for-youtube/
 
 maxresults=5
-player="setsid -f yplay" # mpv works, try other players at your own P E R I L
+player="mpv" # mpv works, try other players at your own P E R I L
 
 magenta="\033[35;1m"
 cyan="\033[36;1m"
@@ -23,12 +23,12 @@ red="\033[31m"
 bold="\e[1m"
 nc="\033[m"
 
-for thing in jq youtube-dl mktemp; do
+for thing in jq yt-dlp mktemp; do
 	if ! hash $thing 2>/dev/null; then
 		echo -en "This script requires ${magenta}$thing${nc}. It's probably in your repos. "
-		if [[ "$thing" = "youtube-dl" ]] ;
+		if [[ "$thing" = "yt-dlp" ]] ;
 		then
-			echo -n "Older versions of youtube-dl might not be able to process all videos. If playback fails, try installing/upgrading to the latest version with Python's package installer, using 'pip3 install --user --upgrade youtube-dl'."
+			echo -n "Older versions of yt-dlp might not be able to process all videos. If playback fails, try installing/upgrading to the latest version with Python's package installer, using 'pip3 install --user --upgrade yt-dlp'."
 		fi
 		echo ""
 		exit
