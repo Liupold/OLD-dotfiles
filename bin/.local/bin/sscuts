@@ -7,7 +7,7 @@ nl='
 
 # </macros>
 MACRO_h="$HOME/"
-MACRO_s="$HOME/sem6/"
+MACRO_s="$HOME/swork/"
 
 MACRO_m="/media/"
 MACRO_d="$MACRO_m/Documents/"

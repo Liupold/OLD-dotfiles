@@ -1,7 +1,10 @@
 #!/bin/bash
-export PIPESTATUS_PIPE="/tmp/dwmbar"
+export PIPESTATUS_PIPE="/dev/stdout"
+export MODULE_PATH="/home/rohnch/apps/pipestatus/modules/"
+
 MODULES="NET_SPEED TOP DATE ALSA LIGHT PLAYERCTL"
+
 for module in $MODULES; do
-        echo "$modules"
-        sh "/home/rohnch/apps/pipestatus/modules/PIPESTATUS_$module" > "$PIPESTATUS_PIPE" &
+  . "$MODULE_PATH/PIPESTATUS_$module"
+  ps_$module > $PIPESTATUS_PIPE
 done

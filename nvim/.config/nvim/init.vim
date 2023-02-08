@@ -12,9 +12,8 @@ set timeoutlen=300
 set number
 set relativenumber
 set guifont="Fira Code 10"
-set tabstop=4
 set noshowmode
-set expandtab
+set autoindent expandtab tabstop=2 shiftwidth=2
 set t_Co=256
 filetype plugin on
 syntax on

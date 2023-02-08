@@ -10,13 +10,14 @@ run() {
 }
 
 dbus-update-activation-environment --systemd --all
-systemctl start --user pulseaudio-x11.service
+systemctl start --user pipewire-pulse.service
 xset s 180
+xsetroot -name "Loading..."
 
 run unclutter
-run dbus-launch  --exit-with-x11
-run playerctld
-run urxvtd
+run dbus-launch --exit-with-x11
+#run playerctld
+#run urxvtd
 #run notifyd
 run autopauseD
 run dunst
@@ -27,4 +28,7 @@ run xss-lock -- screen-lock -n
 { while [ -z "$(pactl info)" ]; do
         sleep 0.2
 done && { pgrep -f "launch-bar-dwm" || launch-bar-dwm; }; } &
-dwm
+
+while [ 1 ]; do
+  dwm
+done

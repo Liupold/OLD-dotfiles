@@ -1,19 +1,19 @@
 #!/bin/sh
 [ "${TERM:-none}" = "linux" ] && \
-    printf '%b' '\e]P0192e48
-                 \e]P12861a0
-                 \e]P22c66b3
-                 \e]P3d35377
-                 \e]P4d96779
-                 \e]P5685bd6
-                 \e]P6a47ede
-                 \e]P7dac9cb
-                 \e]P8988c8e
-                 \e]P92861a0
-                 \e]PA2c66b3
-                 \e]PBd35377
-                 \e]PCd96779
-                 \e]PD685bd6
-                 \e]PEa47ede
-                 \e]PFdac9cb
+    printf '%b' '\e]P012160e
+                 \e]P199a82a
+                 \e]P2a6b42d
+                 \e]P3bccd37
+                 \e]P4c8d557
+                 \e]P5a9df80
+                 \e]P6adc7ea
+                 \e]P7dee3eb
+                 \e]P89b9ea4
+                 \e]P999a82a
+                 \e]PAa6b42d
+                 \e]PBbccd37
+                 \e]PCc8d557
+                 \e]PDa9df80
+                 \e]PEadc7ea
+                 \e]PFdee3eb
                  \ec'

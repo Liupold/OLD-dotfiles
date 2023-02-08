@@ -98,8 +98,8 @@ export PYDORO_CONFIG_FILE="$XDG_CONFIG_HOME/pydoro.ini"
 
 #Progs
 export EDITOR="nvim"
-export TERMINAL="urxvt"
-export BROWSER="firefox"
+export TERMINAL="alacritty"
+export BROWSER="chromium"
 export READER="zathura --fork"
 export FILE="lf"
 export MUSIC_PLAYER="cmus"

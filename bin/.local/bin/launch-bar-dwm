@@ -1,20 +1,41 @@
-#!/bin/sh
-killall -9 pipestatus
-pkill -f 'PIPESTATUS_*'
+#!/bin/bash
 export PIPESTATUS_PIPE="/tmp/dwmbar"
+export MODULE_PATH="/home/rohnch/apps/pipestatus/modules/"
+MODULES="NET_SPEED TOP DATE ALSA LIGHT PLAYERCTL BAT"
+export child_pids=""
+trap finish SIGINT SIGTERM
+
+killall -9 pipestatus
+rm -rf "$PIPESTATUS_PIPE"
+mkfifo "$PIPESTATUS_PIPE"
+
 padding="                                               "
 TEMPLATE="${TEMPLATE}<PLAYERCTL> "
 TEMPLATE="${TEMPLATE} <CPU>  <MEM> <NET_SPEED>  <LIGHT> <VOL_SYM> <VOL> <BAT>"
 TEMPLATE="${TEMPLATE}  <DATE>"
-LOAD="/home/rohnch/apps/pipestatus/modules/PIPESTATUS_" # Module path
-# MODULES_TO_LOAD="NET_SPEED TOP DATE ALSA LIGHT PLAYERCTL"
 
-pipestatus -f "$PIPESTATUS_PIPE" -t "$TEMPLATE" \
-        --exec "${LOAD}TOP > $PIPESTATUS_PIPE &
-        ${LOAD}NET_SPEED > $PIPESTATUS_PIPE  & ${LOAD}LIGHT > $PIPESTATUS_PIPE &
-        ${LOAD}PULSE > $PIPESTATUS_PIPE & ${LOAD}DATE > $PIPESTATUS_PIPE&
-        ${LOAD}BAT > $PIPESTATUS_PIPE & ${LOAD}PLAYERCTL > $PIPESTATUS_PIPE &" \
-        | while read -r bar_info; do
-        xsetroot -name "$padding$bar_info"
+finish() {
+  echo "BYE!!"
+  for pid in ${child_pids}; do
+    echo "KILLING: $pid"
+    kill -9 $pid
+  xsetroot -name "Good bye!"
+  done
+}
+
+for module in $MODULES; do
+  . "$MODULE_PATH/PIPESTATUS_$module"
+  ps_$module > $PIPESTATUS_PIPE &
+  child_pids="${child_pids} $!"
 done
 
+pipestatus -f "$PIPESTATUS_PIPE" -t "$TEMPLATE" \
+  | while read -r bar_info; do
+    xsetroot -name "$padding$bar_info"
+done
+
+
+# wait for all child pids
+for pid in ${child_pids}; do
+    wait $pid
+done
