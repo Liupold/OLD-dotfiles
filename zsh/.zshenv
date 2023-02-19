@@ -99,7 +99,7 @@ export PYDORO_CONFIG_FILE="$XDG_CONFIG_HOME/pydoro.ini"
 #Progs
 export EDITOR="nvim"
 export TERMINAL="alacritty"
-export BROWSER="chromium"
+export BROWSER="brave"
 export READER="zathura --fork"
 export FILE="lf"
 export MUSIC_PLAYER="cmus"
