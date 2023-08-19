@@ -20,7 +20,6 @@ export PULSE_LATENCY_MSEC=100
 {
         feh --no-fehbg --bg-scale "$LUNA_WALL_PATH"
         xsetroot -cursor_name left_ptr
-        setxkbmap -option caps:escape
         xset s 300 5
         exec "$HOME/.config/X11/autolaunch";
 

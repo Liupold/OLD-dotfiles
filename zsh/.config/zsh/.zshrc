@@ -22,7 +22,7 @@ compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 _comp_options+=(globdots)		# Include hidden files.
 
 
-zle-line-init() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+zle-line-init() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 zle -N zle-line-init
 precmd() { EXIT_CODE=$?;if [ $EXIT_CODE -ne 0 ]; then;
 	echo "\\033[0;103m[$EXIT_CODE]\\033[0m";
@@ -60,4 +60,3 @@ zle -N down-line-or-beginning-search
 
 bindkey "^[[A" up-line-or-beginning-search
 bindkey "^[[B" down-line-or-beginning-search
-clear

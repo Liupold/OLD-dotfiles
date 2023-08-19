@@ -5,3 +5,6 @@ mkdir -p "$wttr_dir"
 curl --silent 'wttr.in' > "$wttr_dir/chart"
 curl --silent 'wttr.in?format=v2' > "$wttr_dir/graph"
 curl 'https://mausam.imd.gov.in/Satellite/Converted/IR1.gif' > "$wttr_dir/rad.gif"
+
+cat "$wttr_dir/chart"
+xdg-open "$wttr_dir/rad.gif" &

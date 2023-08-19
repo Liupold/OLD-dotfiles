@@ -9,6 +9,7 @@ alias zathura="zathura"
 alias p="sudo pacman"
 alias vim='$EDITOR'
 alias d='doas'
+alias gp='gnuplot'
 alias s='sudo'
 alias v='$EDITOR'
 alias dv='d $EDITOR'
@@ -21,9 +22,9 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 alias o='xdg-open'
 alias octave="octave -f"
 alias oc="/usr/bin/octave -q"
-alias ]='noglob calc'
 alias bcam='light -S $(photoR)'
 alias smi='sudo make install'
+alias t='todo.sh'
 
 # Network Manager
 alias wifi='nmcli d wifi'
@@ -90,7 +91,8 @@ ccd(){
 }
 
 function ] {
-        ans="$(calc "$*")"
+        ans="$(octave --eval "$*")"
+        ans="${ans#ans = }"
         echo "$ans"; export ans
 }
 

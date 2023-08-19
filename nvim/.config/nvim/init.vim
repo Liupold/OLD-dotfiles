@@ -58,11 +58,14 @@ call plug#begin('$XDG_DATA_HOME/nvim/plugged')
 Plug 'kovetskiy/sxhkd-vim'
 Plug 'VebbNix/lf-vim'
 "Plug 'dense-analysis/ale'
+"Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'cespare/vim-toml'
 Plug 'vim-airline/vim-airline'
 Plug 'rhysd/vim-grammarous'
 Plug 'JuliaEditorSupport/julia-vim'
+Plug 'RaafatTurki/hex.nvim'
+Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
 let g:mkdp_browser = $BROWSER
 
@@ -115,42 +118,45 @@ endif
 autocmd BufWritePre * %s/\s\+$//e
 " ----------------------------------------------------------
 " LaTex
-autocmd BufReadPre *.tex nnoremap <leader>c :sp<CR>:resize 10<CR>:term cd "%:p:h" && latexrun  --clean-all "%:p" && rm -r "%:p:h/latex.out"<CR>
-autocmd BufReadPre *.tex nnoremap <leader>p :!zathura --fork "%:p:r.pdf"<CR>
+autocmd BufReadPre,BufNewFile *.tex nnoremap <leader>c :sp<CR>:resize 10<CR>:term cd "%:p:h" && latexrun "%:p"<CR>
+autocmd BufReadPre,BufNewFile *.tex nnoremap <leader>p :!zathura --fork "%:p:r.pdf"<CR>
 " ----------------------------------------------------------
 " Python autocmd
-autocmd BufReadPre *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term time python3 "%" <CR>
+autocmd BufReadPre,BufNewFile *.py nnoremap <leader>c :sp<CR>:resize 10<CR>:term time python3 "%" <CR>
 " ----------------------------------------------------------
 "  sh
-autocmd BufReadPre *.sh nnoremap <leader>c :sp<CR>:resize 10<CR>:term time sh "%" <CR>
+autocmd BufReadPre,BufNewFile *.sh nnoremap <leader>c :sp<CR>:resize 10<CR>:term time sh "%" <CR>
 " ----------------------------------------------------------
 "  octave
-autocmd BufReadPre *.m nnoremap <leader>c :sp<CR>:resize 10<CR>:term time octave -q "%" <CR>
-autocmd BufReadPre *.m nnoremap <leader>p :sp<CR>:resize 10<CR>:term time octave --persist -q "%" <CR>
+autocmd BufReadPre,BufNewFile *.m nnoremap <leader>c :sp<CR>:resize 10<CR>:term time octave -q "%" <CR>
+autocmd BufReadPre,BufNewFile *.m nnoremap <leader>p :sp<CR>:resize 10<CR>:term time octave --persist -q "%" <CR>
 " ----------------------------------------------------------
 "  c
-autocmd BufReadPre *.c nnoremap <leader>c :sp<CR>:resize 10<CR>:term gcc -Wall -Wpedantic -Wextra "%" -o "%.out" -lm && time ./"%.out" && rm ./"%.out"<CR>
-autocmd BufReadPre *.cpp nnoremap <leader>c :sp<CR>:resize 10<CR>:term gcc -Wall -Wpedantic -Wextra -lm "%" -o "%.out" -lstdc++ && time ./"%.out" && rm ./"%.out"<CR>
-autocmd BufReadPre *.asm nnoremap <leader>c :sp<CR>:resize 10<CR>:term nasm -f elf32 "%" -o "%.o" && ld -m elf_i386 %.o -o "%.out" && rm "%.o" && ./"%.out"<CR>
+autocmd BufReadPre,BufNewFile *.c nnoremap <leader>c :sp<CR>:resize 10<CR>:term gcc -Wall -Wpedantic -Wextra "%" -o "%.out" -lm && time ./"%.out" && rm ./"%.out"<CR>
+autocmd BufReadPre,BufNewFile *.cpp nnoremap <leader>c :sp<CR>:resize 10<CR>:term gcc -Wall -Wpedantic -Wextra -lm "%" -o "%.out" -lstdc++ && time ./"%.out" && rm ./"%.out"<CR>
+autocmd BufReadPre,BufNewFile *.asm nnoremap <leader>c :sp<CR>:resize 10<CR>:term nasm -f elf32 "%" -o "%.o" && ld -m elf_i386 %.o -o "%.out" && rm "%.o" && ./"%.out"<CR>
 "  go
-autocmd BufReadPre *.go nnoremap <leader>c :sp<CR>:resize 10<CR>:term go run "%" <CR>
+autocmd BufReadPre,BufNewFile *.go nnoremap <leader>c :sp<CR>:resize 10<CR>:term go run "%" <CR>
 " ----------------------------------------------------------
 "  R
-autocmd BufReadPre *.r nnoremap <leader>c :sp<CR>:resize 10<CR>:term time Rscript "%" <CR>
+autocmd BufReadPre,BufNewFile *.r nnoremap <leader>c :sp<CR>:resize 10<CR>:term time Rscript "%" <CR>
 " ----------------------------------------------------------
 "  Julia
-autocmd BufReadPre *.jl nnoremap <leader>c :sp<CR>:resize 10<CR>:term time julia "%" <CR>
+autocmd BufReadPre,BufNewFile *.jl nnoremap <leader>c :sp<CR>:resize 10<CR>:term time julia "%" <CR>
 " ----------------------------------------------------------
 "  Fortan90
-autocmd BufReadPre *.f90 nnoremap <leader>c :sp<CR>:resize 10<CR>:term gfortran "%" -o "%.out" -lm && time ./"%.out" && rm ./"%.out"<CR>
+autocmd BufReadPre,BufNewFile *.f90 nnoremap <leader>c :sp<CR>:resize 10<CR>:term gfortran "%" -o "%.out" -lm && time ./"%.out" && rm ./"%.out"<CR>
 " ----------------------------------------------------------
 "  Fortan90
-autocmd BufReadPre config.h nnoremap <leader>c :sp<CR>:resize 10<CR>:term cd "%:p:h" && sudo make install <CR>
+autocmd BufReadPre,BufNewFile config.h nnoremap <leader>c :sp<CR>:resize 10<CR>:term cd "%:p:h" && sudo make install <CR>
 " ----------------------------------------------------------
 "  ng-spice
-autocmd BufNewFile,BufReadPre *.spc,*.sp,*.cir set filetype=spice
-autocmd BufNewFile,BufReadPre *.cir nnoremap <leader>c :sp<CR>:resize 10<CR>:term time ngspice "%" <CR>
+autocmd BufReadPre,BufNewFile *.spc,*.sp,*.cir set filetype=spice
+autocmd BufReadPre,BufNewFile *.cir nnoremap <leader>c :sp<CR>:resize 10<CR>:term time ngspice "%" <CR>
 " ----------------------------------------------------------
 "  R
-autocmd BufReadPre *.R nnoremap <leader>c :sp<CR>:resize 10<CR>:term Rscript "%"<CR>
+autocmd BufReadPre,BufNewFile *.R nnoremap <leader>c :sp<CR>:resize 10<CR>:term Rscript "%"<CR>
+" ----------------------------------------------------------
+"  gnuplot
+autocmd BufReadPre,BufNewFile *.gpi nnoremap <leader>c :sp<CR>:resize 10<CR>:term gnuplot -p "%"<CR>
 " ----------------------------------------------------------

@@ -98,15 +98,19 @@ export PYDORO_CONFIG_FILE="$XDG_CONFIG_HOME/pydoro.ini"
 
 #Progs
 export EDITOR="nvim"
-export TERMINAL="alacritty"
-export BROWSER="brave"
+export TERMINAL="st"
+export BROWSER="chromium"
 export READER="zathura --fork"
 export FILE="lf"
 export MUSIC_PLAYER="cmus"
 
 #firefox
 export MOZ_X11_EGL=1
-export MOZ_DISABLE_RDD_SANDBOX=1
+#export MOZ_DISABLE_RDD_SANDBOX=1
+#
+
+# vulkan
+export RADV_PERFTEST=video_decode
 
 # Luna Settings
 export LUNA_WALL_DIR="$XDG_DATA_HOME/WALLS"

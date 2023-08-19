@@ -7,18 +7,20 @@ nl='
 
 # </macros>
 MACRO_h="$HOME/"
-MACRO_s="$HOME/swork/"
+MACRO_D="$HOME/Downloads"
+
+MACRO_s="/ssd_work"
+MACRO_b="$MACRO_s/Books"
+MACRO_A="$MACRO_s/Assignment"
+MACRO_L="$MACRO_s/CSIR-NET/Fiziks-Lec/"
 
 MACRO_m="/media/"
-MACRO_d="$MACRO_m/Documents/"
-MACRO_p="$MACRO_d/PDFs/"
-MACRO_P="$MACRO_p/Personal/"
-MACRO_b="$MACRO_m/Books/"
-MACRO_l="$MACRO_m/lectures/"
-MACRO_jp="$MACRO_m/ttj/fiziks/Topic_wise_question"
+MACRO_d="$MACRO_m/Documents"
+MACRO_p="$MACRO_d/PDFs"
+MACRO_P="$MACRO_p/Personal"
+MACRO_l="$MACRO_m/lectures"
 
-MACRO_w="/work/"
-MACRO_A="$MACRO_w/Assignment/"
+MACRO_w="/work"
 MACRO_wc="$MACRO_w/chegg/$(date +%b-%Y)"
 
 MACRO_a="$HOME/apps"
@@ -26,7 +28,7 @@ MACRO_co="$XDG_CONFIG_HOME"
 MACRO_ca="$XDG_CACHE_HOME"
 MACRO_lb="$HOME/.local/bin"
 
-MACRO_r="$MACRO_w/aca-curr/routine.jpeg"
+MACRO_r="$MACRO_s/MSC/SEM4/"
 # <macros/>
 
 macro="$1";

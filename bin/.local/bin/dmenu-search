@@ -4,7 +4,7 @@ nl='
 '
 
 
-Dirs="$HOME/swork/Books/"
+Dirs="/ssd_work/Books/"
 Dirs="$Dirs$nl/media/CSIR-NET/Fiziks-Lec/"
 Dirs="$Dirs$nl$HOME/swork/MSC"
 Dirs="$Dirs$nl$HOME/swork/MSC/SEM3/"

@@ -9,6 +9,8 @@ run() {
   fi
 }
 
+#[ -n "$(which nbfc)" ] && sudo nbfc set -s 60
+#[ -n "$(which ryzenadj)" ] && sudo ryzenadj --stapm-limit=11500 --fast-limit=18000 --slow-limit=11500 --tctl-temp=65
 dbus-update-activation-environment --systemd --all
 systemctl start --user pipewire-pulse.service
 xset s 180
@@ -21,8 +23,10 @@ run dbus-launch --exit-with-x11
 #run notifyd
 run autopauseD
 run dunst
+run picom
 #run syncthing -no-browser
 run xss-lock -- screen-lock -n
+run syncthing --no-browser
 
 
 { while [ -z "$(pactl info)" ]; do

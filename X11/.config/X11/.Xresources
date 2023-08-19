@@ -1,11 +1,12 @@
 ! Font
-st.font: Fira Code-14;
+st.font: Fira Code-13;
 URxvt.font: xft:Fira Code:style=Medium:size=12:antialias=true, \
             xft:Noto Sans Bengali:size=8:minspace=false,\
              -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 UXTerm*faceSize:10
 URxvt.letterSpace: 0
 URxvt*loginShell: true
+urxvt*geometry: 60x172
 
 
 ! UI
